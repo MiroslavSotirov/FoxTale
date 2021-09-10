@@ -1,0 +1,217 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Slot/ReelSpinStartAnimation.tres" type="Animation" id=1]
+[ext_resource path="res://Slot/ReelSpinStopAnimation.tres" type="Animation" id=2]
+[ext_resource path="res://Slot/Reel.gd" type="Script" id=3]
+[ext_resource path="res://Slot/Slot.gd" type="Script" id=4]
+[ext_resource path="res://Slot/TileScene.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Game.gd" type="Script" id=6]
+[ext_resource path="res://Misc/Fader.gd" type="Script" id=7]
+[ext_resource path="res://Networking.gd" type="Script" id=8]
+
+[node name="Game" type="Node"]
+script = ExtResource( 6 )
+
+[node name="IntroContainer" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="IntroContainer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -50.0
+margin_top = -50.0
+margin_right = 50.0
+margin_bottom = 50.0
+text = "PLAY"
+
+[node name="SlotContainer" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot" type="TextureRect" parent="SlotContainer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -300.0
+margin_top = -200.0
+margin_right = 300.0
+margin_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_clip_content = true
+mouse_filter = 2
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+availableTiles = [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ]
+reels = [ NodePath("Reel1"), NodePath("Reel2"), NodePath("Reel3"), NodePath("Reel4"), NodePath("Reel5") ]
+
+[node name="Reel1" type="Control" parent="SlotContainer/Slot"]
+anchor_bottom = 1.0
+grow_horizontal = 0
+mouse_filter = 2
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+spinSpeed = 3000.0
+tileDistance = 100.0
+topTileCount = 2
+visibleTileCount = 4
+bottomTileCount = 2
+stopExtraDistance = 0
+tileScene = ExtResource( 5 )
+
+[node name="TileContainer" type="Node2D" parent="SlotContainer/Slot/Reel1"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/Slot/Reel1"]
+anims/ReelSpinStartAnimation = ExtResource( 1 )
+anims/ReelSpinStopAnimation = ExtResource( 2 )
+
+[node name="Reel2" type="Control" parent="SlotContainer/Slot"]
+anchor_left = 0.2
+anchor_right = 0.2
+anchor_bottom = 1.0
+grow_horizontal = 0
+mouse_filter = 2
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+spinSpeed = 3000.0
+tileDistance = 100.0
+topTileCount = 2
+visibleTileCount = 4
+bottomTileCount = 2
+stopExtraDistance = 0
+tileScene = ExtResource( 5 )
+
+[node name="TileContainer" type="Node2D" parent="SlotContainer/Slot/Reel2"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/Slot/Reel2"]
+anims/ReelSpinStartAnimation = ExtResource( 1 )
+anims/ReelSpinStopAnimation = ExtResource( 2 )
+
+[node name="Reel3" type="Control" parent="SlotContainer/Slot"]
+anchor_left = 0.4
+anchor_right = 0.4
+anchor_bottom = 1.0
+grow_horizontal = 0
+mouse_filter = 2
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+spinSpeed = 3000.0
+tileDistance = 100.0
+topTileCount = 2
+visibleTileCount = 4
+bottomTileCount = 2
+stopExtraDistance = 0
+tileScene = ExtResource( 5 )
+
+[node name="TileContainer" type="Node2D" parent="SlotContainer/Slot/Reel3"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/Slot/Reel3"]
+anims/ReelSpinStartAnimation = ExtResource( 1 )
+anims/ReelSpinStopAnimation = ExtResource( 2 )
+
+[node name="Reel4" type="Control" parent="SlotContainer/Slot"]
+anchor_left = 0.6
+anchor_right = 0.6
+anchor_bottom = 1.0
+grow_horizontal = 0
+mouse_filter = 2
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+spinSpeed = 3000.0
+tileDistance = 100.0
+topTileCount = 2
+visibleTileCount = 4
+bottomTileCount = 2
+stopExtraDistance = 0
+tileScene = ExtResource( 5 )
+
+[node name="TileContainer" type="Node2D" parent="SlotContainer/Slot/Reel4"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/Slot/Reel4"]
+anims/ReelSpinStartAnimation = ExtResource( 1 )
+anims/ReelSpinStopAnimation = ExtResource( 2 )
+
+[node name="Reel5" type="Control" parent="SlotContainer/Slot"]
+anchor_left = 0.8
+anchor_right = 0.8
+anchor_bottom = 1.0
+grow_horizontal = 0
+mouse_filter = 2
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+spinSpeed = 3000.0
+tileDistance = 100.0
+topTileCount = 2
+visibleTileCount = 4
+bottomTileCount = 2
+stopExtraDistance = 0
+tileScene = ExtResource( 5 )
+
+[node name="TileContainer" type="Node2D" parent="SlotContainer/Slot/Reel5"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/Slot/Reel5"]
+anims/ReelSpinStartAnimation = ExtResource( 1 )
+anims/ReelSpinStopAnimation = ExtResource( 2 )
+
+[node name="Features" type="Node" parent="SlotContainer/Slot"]
+
+[node name="UIContainer" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LandscapeUI" type="Control" parent="UIContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PortraitUI" type="Control" parent="UIContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Networking" type="Node" parent="."]
+script = ExtResource( 8 )
+
+[node name="Fader" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+script = ExtResource( 7 )
+
+[node name="Tween" type="Tween" parent="Fader"]
+
+[connection signal="pressed" from="IntroContainer/Button" to="." method="on_play_button_pressed"]
+[connection signal="tween_all_completed" from="Fader/Tween" to="Fader" method="_tween_completed"]
