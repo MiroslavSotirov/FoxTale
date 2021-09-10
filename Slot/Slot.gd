@@ -1,4 +1,6 @@
-extends TextureRect
+extends Control
+const TileData = preload("TileData.gd")
+
 export (Array) var availableTiles : Array = [];
 export (Array) var reels : Array = [];
 export (bool) var testSpinStart : bool setget _test_spin_start_set;
@@ -14,6 +16,7 @@ func _ready():
 	Globals.register_singleton("Slot", self);
 	testSpinStart = false;
 	testSpinStop = false;
+	yield(Globals, "allready")
 	for i in range(len(reels)):
 		reels[i] = get_node(reels[i]);
 		reels[i].slot = self;

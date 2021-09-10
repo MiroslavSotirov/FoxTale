@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Slot/ReelSpinStartAnimation.tres" type="Animation" id=1]
 [ext_resource path="res://Slot/ReelSpinStopAnimation.tres" type="Animation" id=2]
@@ -8,11 +8,43 @@
 [ext_resource path="res://Game.gd" type="Script" id=6]
 [ext_resource path="res://Misc/Fader.gd" type="Script" id=7]
 [ext_resource path="res://Networking.gd" type="Script" id=8]
+[ext_resource path="res://Textures/slot/SCBG.jpg" type="Texture" id=9]
+[ext_resource path="res://Textures/slot/Reels.png" type="Texture" id=10]
+[ext_resource path="res://Misc/AssetLoader.gd" type="Script" id=11]
+[ext_resource path="res://Textures/symbols/blur/FT_Symbols_blur_2.png" type="Texture" id=12]
+[ext_resource path="res://Textures/symbols/blur/FT_Symbols_blur_4.png" type="Texture" id=13]
+[ext_resource path="res://Textures/symbols/normal/FT_Symbols_7.png" type="Texture" id=14]
+[ext_resource path="res://Textures/symbols/blur/FT_Symbols_blur_5.png" type="Texture" id=15]
+[ext_resource path="res://Textures/symbols/normal/FT_Symbols_5.png" type="Texture" id=16]
+[ext_resource path="res://Textures/symbols/normal/FT_Symbols_6.png" type="Texture" id=17]
+[ext_resource path="res://Textures/symbols/normal/FT_Symbols_2.png" type="Texture" id=18]
+[ext_resource path="res://Textures/symbols/normal/FT_Symbols_4.png" type="Texture" id=19]
+[ext_resource path="res://Textures/symbols/normal/FT_Symbols_3.png" type="Texture" id=20]
+[ext_resource path="res://Textures/symbols/normal/FT_Symbols_9.png" type="Texture" id=21]
+[ext_resource path="res://Textures/symbols/normal/FT_Symbols_10.png" type="Texture" id=22]
+[ext_resource path="res://Textures/symbols/blur/FT_Symbols_blur_7.png" type="Texture" id=23]
+[ext_resource path="res://Textures/symbols/normal/FT_Symbols_8.png" type="Texture" id=24]
+[ext_resource path="res://Textures/symbols/blur/FT_Symbols_blur_10.png" type="Texture" id=25]
+[ext_resource path="res://Textures/symbols/blur/FT_Symbols_blur_1.png" type="Texture" id=26]
+[ext_resource path="res://Textures/symbols/blur/FT_Symbols_blur_6.png" type="Texture" id=27]
+[ext_resource path="res://Textures/symbols/blur/FT_Symbols_blur_9.png" type="Texture" id=28]
+[ext_resource path="res://Textures/symbols/blur/FT_Symbols_blur_8.png" type="Texture" id=29]
+[ext_resource path="res://Textures/symbols/blur/FT_Symbols_blur_3.png" type="Texture" id=30]
+[ext_resource path="res://Textures/symbols/normal/FT_Symbols_1.png" type="Texture" id=31]
 
-[node name="Game" type="Node"]
+[node name="Game" type="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+rect_scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="IntroContainer" type="Control" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -30,9 +62,11 @@ margin_top = -50.0
 margin_right = 50.0
 margin_bottom = 50.0
 text = "PLAY"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="SlotContainer" type="Control" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -40,141 +74,164 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Slot" type="TextureRect" parent="SlotContainer"]
+[node name="Background" type="Control" parent="SlotContainer"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -300.0
-margin_top = -200.0
-margin_right = 300.0
-margin_bottom = 200.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="SlotContainer/Background"]
+texture = ExtResource( 9 )
+
+[node name="Slot" type="Control" parent="SlotContainer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-rect_clip_content = true
 mouse_filter = 2
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 availableTiles = [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ]
-reels = [ NodePath("Reel1"), NodePath("Reel2"), NodePath("Reel3"), NodePath("Reel4"), NodePath("Reel5") ]
+reels = [ NodePath("ReelContainer/Reel1"), NodePath("ReelContainer/Reel2"), NodePath("ReelContainer/Reel3"), NodePath("ReelContainer/Reel4"), NodePath("ReelContainer/Reel5") ]
 
-[node name="Reel1" type="Control" parent="SlotContainer/Slot"]
+[node name="SlotBackground" type="Sprite" parent="SlotContainer/Slot"]
+texture = ExtResource( 10 )
+
+[node name="ReelContainer" type="Control" parent="SlotContainer/Slot"]
+margin_left = -803.0
+margin_top = -373.0
+margin_right = 797.0
+margin_bottom = 393.0
+rect_clip_content = true
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Reel1" type="Control" parent="SlotContainer/Slot/ReelContainer"]
 anchor_bottom = 1.0
+margin_left = 210.0
+margin_right = 210.0
 grow_horizontal = 0
 mouse_filter = 2
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-spinSpeed = 3000.0
-tileDistance = 100.0
+topOffset = 120.0
+spinSpeed = 4000.0
+tileDistance = 250.0
 topTileCount = 2
-visibleTileCount = 4
 bottomTileCount = 2
 stopExtraDistance = 0
 tileScene = ExtResource( 5 )
 
-[node name="TileContainer" type="Node2D" parent="SlotContainer/Slot/Reel1"]
+[node name="TileContainer" type="Node2D" parent="SlotContainer/Slot/ReelContainer/Reel1"]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/Slot/Reel1"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/Slot/ReelContainer/Reel1"]
 anims/ReelSpinStartAnimation = ExtResource( 1 )
 anims/ReelSpinStopAnimation = ExtResource( 2 )
 
-[node name="Reel2" type="Control" parent="SlotContainer/Slot"]
-anchor_left = 0.2
-anchor_right = 0.2
+[node name="Reel2" type="Control" parent="SlotContainer/Slot/ReelContainer"]
 anchor_bottom = 1.0
+margin_left = 510.0
+margin_right = 510.0
 grow_horizontal = 0
 mouse_filter = 2
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-spinSpeed = 3000.0
-tileDistance = 100.0
+topOffset = 120.0
+spinSpeed = 4000.0
+tileDistance = 250.0
 topTileCount = 2
-visibleTileCount = 4
 bottomTileCount = 2
 stopExtraDistance = 0
 tileScene = ExtResource( 5 )
 
-[node name="TileContainer" type="Node2D" parent="SlotContainer/Slot/Reel2"]
+[node name="TileContainer" type="Node2D" parent="SlotContainer/Slot/ReelContainer/Reel2"]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/Slot/Reel2"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/Slot/ReelContainer/Reel2"]
 anims/ReelSpinStartAnimation = ExtResource( 1 )
 anims/ReelSpinStopAnimation = ExtResource( 2 )
 
-[node name="Reel3" type="Control" parent="SlotContainer/Slot"]
-anchor_left = 0.4
-anchor_right = 0.4
+[node name="Reel3" type="Control" parent="SlotContainer/Slot/ReelContainer"]
 anchor_bottom = 1.0
+margin_left = 810.0
+margin_right = 810.0
 grow_horizontal = 0
 mouse_filter = 2
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-spinSpeed = 3000.0
-tileDistance = 100.0
+topOffset = 120.0
+spinSpeed = 4000.0
+tileDistance = 250.0
 topTileCount = 2
-visibleTileCount = 4
 bottomTileCount = 2
 stopExtraDistance = 0
 tileScene = ExtResource( 5 )
 
-[node name="TileContainer" type="Node2D" parent="SlotContainer/Slot/Reel3"]
+[node name="TileContainer" type="Node2D" parent="SlotContainer/Slot/ReelContainer/Reel3"]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/Slot/Reel3"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/Slot/ReelContainer/Reel3"]
 anims/ReelSpinStartAnimation = ExtResource( 1 )
 anims/ReelSpinStopAnimation = ExtResource( 2 )
 
-[node name="Reel4" type="Control" parent="SlotContainer/Slot"]
-anchor_left = 0.6
-anchor_right = 0.6
+[node name="Reel4" type="Control" parent="SlotContainer/Slot/ReelContainer"]
 anchor_bottom = 1.0
+margin_left = 1100.0
+margin_right = 1100.0
 grow_horizontal = 0
 mouse_filter = 2
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-spinSpeed = 3000.0
-tileDistance = 100.0
+topOffset = 120.0
+spinSpeed = 4000.0
+tileDistance = 250.0
 topTileCount = 2
-visibleTileCount = 4
 bottomTileCount = 2
 stopExtraDistance = 0
 tileScene = ExtResource( 5 )
 
-[node name="TileContainer" type="Node2D" parent="SlotContainer/Slot/Reel4"]
+[node name="TileContainer" type="Node2D" parent="SlotContainer/Slot/ReelContainer/Reel4"]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/Slot/Reel4"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/Slot/ReelContainer/Reel4"]
 anims/ReelSpinStartAnimation = ExtResource( 1 )
 anims/ReelSpinStopAnimation = ExtResource( 2 )
 
-[node name="Reel5" type="Control" parent="SlotContainer/Slot"]
-anchor_left = 0.8
-anchor_right = 0.8
+[node name="Reel5" type="Control" parent="SlotContainer/Slot/ReelContainer"]
 anchor_bottom = 1.0
+margin_left = 1400.0
+margin_right = 1400.0
 grow_horizontal = 0
 mouse_filter = 2
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-spinSpeed = 3000.0
-tileDistance = 100.0
+topOffset = 120.0
+spinSpeed = 4000.0
+tileDistance = 250.0
 topTileCount = 2
-visibleTileCount = 4
 bottomTileCount = 2
 stopExtraDistance = 0
 tileScene = ExtResource( 5 )
 
-[node name="TileContainer" type="Node2D" parent="SlotContainer/Slot/Reel5"]
+[node name="TileContainer" type="Node2D" parent="SlotContainer/Slot/ReelContainer/Reel5"]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/Slot/Reel5"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/Slot/ReelContainer/Reel5"]
 anims/ReelSpinStartAnimation = ExtResource( 1 )
 anims/ReelSpinStopAnimation = ExtResource( 2 )
 
@@ -203,6 +260,11 @@ anchor_bottom = 1.0
 
 [node name="Networking" type="Node" parent="."]
 script = ExtResource( 8 )
+
+[node name="AssetLoader" type="Node" parent="."]
+script = ExtResource( 11 )
+tiles = [ ExtResource( 31 ), ExtResource( 18 ), ExtResource( 20 ), ExtResource( 19 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 14 ), ExtResource( 24 ), ExtResource( 21 ), ExtResource( 22 ) ]
+tilesBlur = [ ExtResource( 26 ), ExtResource( 12 ), ExtResource( 30 ), ExtResource( 13 ), ExtResource( 15 ), ExtResource( 27 ), ExtResource( 23 ), ExtResource( 29 ), ExtResource( 28 ), ExtResource( 25 ) ]
 
 [node name="Fader" type="ColorRect" parent="."]
 visible = false

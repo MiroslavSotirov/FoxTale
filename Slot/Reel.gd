@@ -1,6 +1,7 @@
 extends Control
 const TileData = preload("TileData.gd")
 
+export (float) var topOffset : float = 0;
 export (float) var spinPosition : float = 0;
 export (float) var spinPositionOffset : float = 0;
 export (int) var spinPositionNormal : int = 0;
@@ -17,7 +18,6 @@ export (PackedScene) var tileScene;
 signal onstartspin;
 signal onstopping;
 signal onstopped;
-
 
 var slot;
 
@@ -57,7 +57,7 @@ func stop_spin(ids):
 	#for i in range(stopExtraDistance + topTileCount): queueData.push_back(_generate_random_tiledata());
 	for n in ids: queueData.push_back(TileData.new(n));
 	for i in range(stopExtraDistance + topTileCount): queueData.push_back(_generate_random_tiledata());
-	print("stopping "+name);
+
 	targetData = ids;
 	#spinPosition = fmod(spinPosition, tileDistance * totalTileCount);
 	_spinPositionTarget = spinPosition - fmod(spinPosition, tileDistance) + len(queueData)*tileDistance;
