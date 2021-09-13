@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Slot/ReelSpinStartAnimation.tres" type="Animation" id=1]
 [ext_resource path="res://Slot/ReelSpinStopAnimation.tres" type="Animation" id=2]
@@ -31,20 +31,17 @@
 [ext_resource path="res://Textures/symbols/blur/FT_Symbols_blur_8.png" type="Texture" id=29]
 [ext_resource path="res://Textures/symbols/blur/FT_Symbols_blur_3.png" type="Texture" id=30]
 [ext_resource path="res://Textures/symbols/normal/FT_Symbols_1.png" type="Texture" id=31]
+[ext_resource path="res://Misc/SlotContainerZoom.gd" type="Script" id=32]
 
 [node name="Game" type="Control"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-rect_scale = Vector2( 0.5, 0.5 )
+anchor_right = 1.0
+anchor_bottom = 1.0
 script = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="IntroContainer" type="Control" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -67,12 +64,19 @@ __meta__ = {
 }
 
 [node name="SlotContainer" type="Control" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
+script = ExtResource( 32 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+zoomamount = Vector2( 0.5, 0.675 )
 
 [node name="Background" type="Control" parent="SlotContainer"]
 anchor_left = 0.5
@@ -260,6 +264,11 @@ anchor_bottom = 1.0
 
 [node name="Networking" type="Node" parent="."]
 script = ExtResource( 8 )
+init_sessionID = "demotoken"
+game = "fox-tale"
+mode = "demo"
+operator = "mav"
+currency = "USD"
 
 [node name="AssetLoader" type="Node" parent="."]
 script = ExtResource( 11 )
@@ -267,11 +276,14 @@ tiles = [ ExtResource( 31 ), ExtResource( 18 ), ExtResource( 20 ), ExtResource( 
 tilesBlur = [ ExtResource( 26 ), ExtResource( 12 ), ExtResource( 30 ), ExtResource( 13 ), ExtResource( 15 ), ExtResource( 27 ), ExtResource( 23 ), ExtResource( 29 ), ExtResource( 28 ), ExtResource( 25 ) ]
 
 [node name="Fader" type="ColorRect" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+input_pass_on_modal_close_click = false
 color = Color( 0, 0, 0, 1 )
 script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Tween" type="Tween" parent="Fader"]
 

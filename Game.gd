@@ -6,7 +6,6 @@ func _ready():
 	Globals.singletons["Networking"].connect("initreceived", self, "init_data_received");
 	Globals.singletons["Networking"].request_init();
 	yield(Globals.singletons["Networking"], "initreceived");
-	Globals.singletons["Networking"].connect("spinreceived", self, "spin_data_received");
 	Globals.singletons["Fader"].tween(1,0,0.5);
 	
 func on_play_button_pressed():
@@ -25,8 +24,13 @@ func _process(delta):
 		if(Input.is_action_pressed("spin")): try_spin();
 			
 func try_spin():
+	if(!Globals.canSpin): return;
+	
 	Globals.singletons["Slot"].start_spin();
 	Globals.singletons["Networking"].request_spin();
+	var data = yield(Globals.singletons["Networking"], "spinreceived");
+	Globals.singletons["Slot"].stop_spin(data);
+	Globals.singletons["Networking"].request_close();
 	
 func check_resolution_for_changes():
 	pass;
@@ -34,5 +38,3 @@ func check_resolution_for_changes():
 func init_data_received(data):
 	pass
 
-func spin_data_received(data):
-	Globals.singletons["Slot"].stop_spin();

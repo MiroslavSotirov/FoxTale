@@ -12,6 +12,8 @@ var spinning : bool setget , _get_spinning;
 var stopped : bool setget , _get_stopped;
 var stopping : bool setget , _get_stopping;
 
+var targetdata : Array = [];
+
 func _ready():
 	Globals.register_singleton("Slot", self);
 	testSpinStart = false;
@@ -38,10 +40,12 @@ func start_spin():
 		reel.start_spin();
 		yield(get_tree().create_timer(reelStartDelay), "timeout")
 	
-func stop_spin():
+func stop_spin(data = null):
 	if(self.stopping || self.stopped): return;
-	for reel in reels:
-		reel.stop_spin([0,0,0,0]);
+	if(data != null): parse_spin_data(data);
+	else: parse_safe_spin_data();
+	for i in range(len(reels)):
+		reels[i].stop_spin(targetdata[i]);
 		yield(get_tree().create_timer(reelStopDelay), "timeout")
 
 func _get_spinning():
@@ -55,3 +59,9 @@ func _get_stopped():
 func _get_stopping():
 	for reel in reels: if(reel.stopping): return true;
 	return false;
+	
+func parse_spin_data(data):
+	targetdata=data["view"];
+	
+func parse_safe_spin_data():
+	targetdata=[[0,0,0],[1,1,1],[2,2,2],[3,3,3],[4,4,4]];
