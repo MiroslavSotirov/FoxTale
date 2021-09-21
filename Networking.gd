@@ -151,10 +151,14 @@ func _request(method, url, body, finsignal):
 
 		var response = rb.get_string_from_utf8();
 		var json = JSON.parse(response);
-		if(json.error == OK):
-			_response = json.result;
-			prints("Response", url,_response);
+		if(response.empty() || json.error == OK):
 			var response_code = client.get_response_code();
+			if(!response.empty()): 
+				_response = json.result;
+				prints("Response", url,_response);
+			else:
+				_response["success"] = true;
+				
 			if( response_code >= 400 ):
 				emit_signal("fail", response_code)
 			elif(_response.has("code")):
@@ -176,6 +180,7 @@ func update_state(state):
 	self.roundID = state["roundID"];
 
 func on_fail(errcode):
+	Globals.singletons["UI"].show_error(str(errcode));
 	if(errcode == 900):
 		#JSON parse failure
 		pass;

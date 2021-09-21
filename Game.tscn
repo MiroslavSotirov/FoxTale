@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Slot/ReelSpinStartAnimation.tres" type="Animation" id=1]
 [ext_resource path="res://Slot/ReelSpinStopAnimation.tres" type="Animation" id=2]
@@ -32,6 +32,9 @@
 [ext_resource path="res://Textures/symbols/blur/FT_Symbols_blur_3.png" type="Texture" id=30]
 [ext_resource path="res://Textures/symbols/normal/FT_Symbols_1.png" type="Texture" id=31]
 [ext_resource path="res://Misc/SlotContainerZoom.gd" type="Script" id=32]
+[ext_resource path="res://UI/UI.gd" type="Script" id=33]
+[ext_resource path="res://UI/default_dynfont_big.tres" type="DynamicFont" id=34]
+[ext_resource path="res://ErrorPopup.gd" type="Script" id=35]
 
 [node name="Game" type="Control"]
 anchor_right = 1.0
@@ -242,13 +245,52 @@ anims/ReelSpinStopAnimation = ExtResource( 2 )
 [node name="Features" type="Node" parent="SlotContainer/Slot"]
 
 [node name="UIContainer" type="Control" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
+script = ExtResource( 33 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ErrorPopup" type="Popup" parent="UIContainer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -200.0
+margin_top = -100.0
+margin_right = 200.0
+margin_bottom = 100.0
+popup_exclusive = true
+script = ExtResource( 35 )
+
+[node name="Panel" type="Panel" parent="UIContainer/ErrorPopup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="UIContainer/ErrorPopup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 34 )
+text = "Error Description"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="UIContainer/ErrorPopup"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 25.0
+margin_top = -100.0
+margin_right = -25.0
+margin_bottom = -25.0
+custom_fonts/font = ExtResource( 34 )
+text = "ok"
 
 [node name="LandscapeUI" type="Control" parent="UIContainer"]
 anchor_right = 1.0
@@ -265,7 +307,7 @@ anchor_bottom = 1.0
 [node name="Networking" type="Node" parent="."]
 script = ExtResource( 8 )
 init_sessionID = "demotoken"
-game = "fox-tale"
+game = "supa-crew"
 mode = "demo"
 operator = "mav"
 currency = "USD"
@@ -276,6 +318,7 @@ tiles = [ ExtResource( 31 ), ExtResource( 18 ), ExtResource( 20 ), ExtResource( 
 tilesBlur = [ ExtResource( 26 ), ExtResource( 12 ), ExtResource( 30 ), ExtResource( 13 ), ExtResource( 15 ), ExtResource( 27 ), ExtResource( 23 ), ExtResource( 29 ), ExtResource( 28 ), ExtResource( 25 ) ]
 
 [node name="Fader" type="ColorRect" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 input_pass_on_modal_close_click = false
@@ -288,4 +331,5 @@ __meta__ = {
 [node name="Tween" type="Tween" parent="Fader"]
 
 [connection signal="pressed" from="IntroContainer/Button" to="." method="on_play_button_pressed"]
+[connection signal="pressed" from="UIContainer/ErrorPopup/Button" to="UIContainer/ErrorPopup" method="_on_Button_pressed"]
 [connection signal="tween_all_completed" from="Fader/Tween" to="Fader" method="_tween_completed"]
