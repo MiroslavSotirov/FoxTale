@@ -150,8 +150,9 @@ func _request(method, url, body, finsignal):
 		client.close();
 
 		var response = rb.get_string_from_utf8();
+		if(response.empty()): response = "{}";
 		var json = JSON.parse(response);
-		if(response.empty() || json.error == OK):
+		if(json.error == OK):
 			var response_code = client.get_response_code();
 			if(!response.empty()): 
 				_response = json.result;

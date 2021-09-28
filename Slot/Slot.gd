@@ -13,6 +13,12 @@ var stopped : bool setget , _get_stopped;
 var stopping : bool setget , _get_stopping;
 
 var targetdata : Array = [];
+var reels_spinning : int = 0;
+
+signal apply_tile_features(spindata, reeldata);
+signal onstartspin;
+signal onstopping;
+signal onstopped;
 
 func _ready():
 	Globals.register_singleton("Slot", self);
@@ -22,7 +28,13 @@ func _ready():
 	for i in range(len(reels)):
 		reels[i] = get_node(reels[i]);
 		reels[i].slot = self;
+		reels[i].index = i;
 		reels[i].initialize();
+		reels[i].connect("onstopped", self, "_on_reel_stopped");
+
+func _on_reel_stopped():
+	reels_spinning -= 1;
+	if(reels_spinning == 0): emit_signal("onstopped");
 
 func _test_spin_start_set(val):
 	if(!val): return;
@@ -40,6 +52,9 @@ func start_spin():
 		reel.start_spin();
 		yield(get_tree().create_timer(reelStartDelay), "timeout")
 	
+	reels_spinning = len(reels);
+	emit_signal("onstartspin");
+	
 func stop_spin(data = null):
 	if(self.stopping || self.stopped): return;
 	if(data != null): parse_spin_data(data);
@@ -47,10 +62,10 @@ func stop_spin(data = null):
 	for i in range(len(reels)):
 		reels[i].stop_spin(targetdata[i]);
 		yield(get_tree().create_timer(reelStopDelay), "timeout")
+	emit_signal("onstopping");
 
 func _get_spinning():
-	for reel in reels: if(reel.spinning): return true;
-	return false;
+	return reels_spinning > 0;
 	
 func _get_stopped():
 	for reel in reels: if(!reel.stopped): return false;
@@ -61,7 +76,21 @@ func _get_stopping():
 	return false;
 	
 func parse_spin_data(data):
-	targetdata=data["view"];
+	var spindata = [];
+	for reelids in data["view"]:
+		var reeldata = [];
+		for tileid in reelids:
+			reeldata.append(TileData.new(tileid))
+		spindata.append(reeldata);
+	
+	emit_signal("apply_tile_features", data, spindata);
+	
+	targetdata=spindata;
 	
 func parse_safe_spin_data():
-	targetdata=[[0,0,0],[1,1,1],[2,2,2],[3,3,3],[4,4,4]];
+	targetdata=[
+		[TileData.new(1),TileData.new(1),TileData.new(1)],\
+		[TileData.new(2),TileData.new(2),TileData.new(2)],\
+		[TileData.new(3),TileData.new(3),TileData.new(3)],\
+		[TileData.new(4),TileData.new(4),TileData.new(4)],\
+		];

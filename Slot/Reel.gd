@@ -29,6 +29,8 @@ var spinning : bool = false;
 var stopped : bool = true;
 var stopping : bool = false;
 
+var index : int = 0;
+
 var _spinPositionNormal : int = 0;
 var _spinPositionTarget : float = 0;
 
@@ -53,12 +55,13 @@ func start_spin():
 func _start_spin_anim_end():
 	for tile in currentTiles: tile.blur = true;
 	
-func stop_spin(ids):
+func stop_spin(data):
+	data.invert(); ## TODO!
 	#for i in range(stopExtraDistance + topTileCount): queueData.push_back(_generate_random_tiledata());
-	for n in ids: queueData.push_back(TileData.new(n));
+	for n in data: queueData.push_back(n);
 	for i in range(stopExtraDistance + topTileCount): queueData.push_back(_generate_random_tiledata());
 
-	targetData = ids;
+	targetData = data;
 	#spinPosition = fmod(spinPosition, tileDistance * totalTileCount);
 	_spinPositionTarget = spinPosition - fmod(spinPosition, tileDistance) + len(queueData)*tileDistance;
 	stopping = true;

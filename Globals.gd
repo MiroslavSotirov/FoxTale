@@ -47,4 +47,4 @@ func _resolution_changed(newres : Vector2):
 	prints("New screen ratio ", newres, landscape, portrait, screenratio, zoom)
 
 func check_can_spin():
-	return !(singletons["Fader"].visible || singletons["Slot"].spinning);
+	return !singletons["Fader"].visible && !singletons["Slot"].spinning && singletons["Game"].round_ended;

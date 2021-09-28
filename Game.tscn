@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Slot/ReelSpinStartAnimation.tres" type="Animation" id=1]
 [ext_resource path="res://Slot/ReelSpinStopAnimation.tres" type="Animation" id=2]
@@ -35,6 +35,11 @@
 [ext_resource path="res://UI/UI.gd" type="Script" id=33]
 [ext_resource path="res://UI/default_dynfont_big.tres" type="DynamicFont" id=34]
 [ext_resource path="res://ErrorPopup.gd" type="Script" id=35]
+[ext_resource path="res://Slot/Features/Nudger.gd" type="Script" id=36]
+[ext_resource path="res://Slot/Features/PopupTiles.gd" type="Script" id=37]
+[ext_resource path="res://Textures/slot/FSReels.png" type="Texture" id=38]
+[ext_resource path="res://Textures/slot/FSReelsTopOverlap.png" type="Texture" id=39]
+[ext_resource path="res://Textures/slot/FSTXTLine.png" type="Texture" id=40]
 
 [node name="Game" type="Control"]
 anchor_right = 1.0
@@ -67,7 +72,6 @@ __meta__ = {
 }
 
 [node name="SlotContainer" type="Control" parent="."]
-visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -108,8 +112,19 @@ __meta__ = {
 availableTiles = [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ]
 reels = [ NodePath("ReelContainer/Reel1"), NodePath("ReelContainer/Reel2"), NodePath("ReelContainer/Reel3"), NodePath("ReelContainer/Reel4"), NodePath("ReelContainer/Reel5") ]
 
-[node name="SlotBackground" type="Sprite" parent="SlotContainer/Slot"]
+[node name="Background" type="Control" parent="SlotContainer/Slot"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Normal" type="Sprite" parent="SlotContainer/Slot/Background"]
 texture = ExtResource( 10 )
+
+[node name="FreeSpins" type="Sprite" parent="SlotContainer/Slot/Background"]
+visible = false
+texture = ExtResource( 38 )
 
 [node name="ReelContainer" type="Control" parent="SlotContainer/Slot"]
 margin_left = -803.0
@@ -242,7 +257,44 @@ tileScene = ExtResource( 5 )
 anims/ReelSpinStartAnimation = ExtResource( 1 )
 anims/ReelSpinStopAnimation = ExtResource( 2 )
 
+[node name="FreeSpinsOverlap" type="Control" parent="SlotContainer/Slot"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FreeSpins" type="Sprite" parent="SlotContainer/Slot/FreeSpinsOverlap"]
+visible = false
+position = Vector2( -5, -402 )
+texture = ExtResource( 39 )
+
+[node name="Text" type="Sprite" parent="SlotContainer/Slot/FreeSpinsOverlap"]
+position = Vector2( 0, -427.653 )
+texture = ExtResource( 40 )
+
 [node name="Features" type="Node" parent="SlotContainer/Slot"]
+
+[node name="Nudger" type="Node" parent="SlotContainer/Slot/Features"]
+script = ExtResource( 36 )
+
+[node name="PopupTiles" type="Node" parent="SlotContainer/Slot/Features"]
+script = ExtResource( 37 )
+
+[node name="FreeSpinsOverlay" type="Control" parent="SlotContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BigWin" type="Control" parent="SlotContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="UIContainer" type="Control" parent="."]
 anchor_right = 1.0
@@ -303,6 +355,10 @@ __meta__ = {
 [node name="PortraitUI" type="Control" parent="UIContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Networking" type="Node" parent="."]
 script = ExtResource( 8 )
@@ -316,6 +372,8 @@ currency = "USD"
 script = ExtResource( 11 )
 tiles = [ ExtResource( 31 ), ExtResource( 18 ), ExtResource( 20 ), ExtResource( 19 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 14 ), ExtResource( 24 ), ExtResource( 21 ), ExtResource( 22 ) ]
 tilesBlur = [ ExtResource( 26 ), ExtResource( 12 ), ExtResource( 30 ), ExtResource( 13 ), ExtResource( 15 ), ExtResource( 27 ), ExtResource( 23 ), ExtResource( 29 ), ExtResource( 28 ), ExtResource( 25 ) ]
+
+[node name="HTTPRequest" type="HTTPRequest" parent="AssetLoader"]
 
 [node name="Fader" type="ColorRect" parent="."]
 visible = false
