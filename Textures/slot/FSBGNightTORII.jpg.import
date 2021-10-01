@@ -15,14 +15,14 @@ dest_files=[ "res://.import/FSBGNightTORII.jpg-aedd98c40bae67decf674f4f4b385780.
 [params]
 
 compress/mode=1
-compress/lossy_quality=0.0
+compress/lossy_quality=0.75
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=true
 flags/mipmaps=false
-flags/anisotropic=false
+flags/anisotropic=true
 flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false

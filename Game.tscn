@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=2]
+[gd_scene load_steps=74 format=2]
 
 [ext_resource path="res://Slot/ReelSpinStartAnimation.tres" type="Animation" id=1]
 [ext_resource path="res://Slot/ReelSpinStopAnimation.tres" type="Animation" id=2]
@@ -59,6 +59,18 @@
 [ext_resource path="res://Textures/particles/PNG (Black background)/prah1.png" type="Texture" id=57]
 [ext_resource path="res://Textures/particles/PNG (Black background)/twirl_02.png" type="Texture" id=58]
 [ext_resource path="res://Textures/particles/PNG (Black background)/glow1.png" type="Texture" id=59]
+[ext_resource path="res://Textures/slot/FSBGNightNOTORII.jpg" type="Texture" id=60]
+[ext_resource path="res://Textures/slot/FSBGNightTORII.jpg" type="Texture" id=61]
+[ext_resource path="res://Translations/en/Win-big-with-mystic-fox-and-choose-your-path-to-fortune--.png" type="Texture" id=62]
+
+[sub_resource type="SpineSkeletonDataResource" id=1]
+atlas_res = ExtResource( 42 )
+skeleton_json_res = ExtResource( 43 )
+animations = null
+skins = null
+
+[sub_resource type="SpineAnimationStateDataResource" id=2]
+skeleton = SubResource( 1 )
 
 [sub_resource type="SpineSkeletonDataResource" id=5]
 atlas_res = ExtResource( 45 )
@@ -107,15 +119,6 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.3, 2 )
 }
 
-[sub_resource type="SpineSkeletonDataResource" id=1]
-atlas_res = ExtResource( 42 )
-skeleton_json_res = ExtResource( 43 )
-animations = null
-skins = null
-
-[sub_resource type="SpineAnimationStateDataResource" id=2]
-skeleton = SubResource( 1 )
-
 [node name="Game" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -142,21 +145,51 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="FSBGNightNOTORII" type="Sprite" parent="IntroContainer/Centering"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 60 )
+
+[node name="FSBGNightTORII" type="Sprite" parent="IntroContainer/Centering/FSBGNightNOTORII"]
+position = Vector2( -37, -248 )
+texture = ExtResource( 61 )
+
+[node name="FoxLeft" type="SpineSprite" parent="IntroContainer/Centering"]
+position = Vector2( 375, 60 )
+scale = Vector2( 0.5, 0.5 )
+animation_state_data_res = SubResource( 2 )
+script = ExtResource( 44 )
+skin = "fox1"
+startanimation = "idle"
+
+[node name="FoxRight" type="SpineSprite" parent="IntroContainer/Centering"]
+position = Vector2( -375, 60 )
+rotation = 3.14159
+scale = Vector2( 0.5, -0.5 )
+animation_state_data_res = SubResource( 2 )
+script = ExtResource( 44 )
+skin = "fox2"
+startanimation = "idle"
+
+[node name="Win-big-with-mystic-fox-and-choose-your-path-to-fortune--" type="Sprite" parent="IntroContainer/Centering"]
+position = Vector2( 0, -20 )
+texture = ExtResource( 62 )
+
 [node name="Logo" type="SpineSprite" parent="IntroContainer/Centering"]
 position = Vector2( 0, -150 )
-scale = Vector2( 0.5, 0.5 )
+scale = Vector2( 0.75, 0.75 )
 animation_state_data_res = SubResource( 4 )
 script = ExtResource( 44 )
 skin = "default"
-startanimation = "popup"
-loop = false
+startanimation = "idle"
 
 [node name="CustomButton" type="Control" parent="IntroContainer/Centering"]
-margin_left = -150.0
-margin_right = 150.0
-margin_bottom = 200.0
+margin_left = -112.5
+margin_top = 100.0
+margin_right = 187.5
+margin_bottom = 300.0
 grow_horizontal = 2
 grow_vertical = 2
+rect_scale = Vector2( 0.75, 0.75 )
 mouse_default_cursor_shape = 2
 script = ExtResource( 56 )
 __meta__ = {
