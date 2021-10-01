@@ -1,0 +1,14 @@
+[remap]
+
+importer="raiix.spine_runtime.atlas"
+type="SpineAtlasResource"
+path="res://.import/Junior_Symbol.atlas-9c601b845a3c220527daefd5b1941522.spatlas"
+
+[deps]
+
+source_file="res://Animations/symbol/Junior_Symbol.atlas"
+dest_files=[ "res://.import/Junior_Symbol.atlas-9c601b845a3c220527daefd5b1941522.spatlas" ]
+
+[params]
+
+normal_texture_prefix="n"

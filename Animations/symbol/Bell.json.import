@@ -1,0 +1,13 @@
+[remap]
+
+importer="raiix.spine_runtime.json"
+type="SpineSkeletonJsonDataResource"
+path="res://.import/Bell.json-8386700d46668bff0e3e1f78357a49d3.spjson"
+
+[deps]
+
+source_file="res://Animations/symbol/Bell.json"
+dest_files=[ "res://.import/Bell.json-8386700d46668bff0e3e1f78357a49d3.spjson" ]
+
+[params]
+

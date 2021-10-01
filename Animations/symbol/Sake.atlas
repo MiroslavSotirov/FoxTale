@@ -1,0 +1,35 @@
+Sake.png
+size:379,722
+filter:Linear,Linear
+pma:true
+Fx/170 (1)
+bounds:2,2,142,151
+offsets:46,38,217,218
+rotate:90
+Fx/170 (2)
+bounds:190,5,166,171
+offsets:30,27,217,218
+rotate:90
+Fx/170 (3)
+bounds:192,173,180,182
+offsets:21,21,217,218
+rotate:90
+Fx/170 (4)
+bounds:192,355,185,187
+offsets:19,18,217,218
+Fx/170 (5)
+bounds:2,465,187,188
+offsets:16,18,217,218
+rotate:90
+Fx/170 (6)
+bounds:2,146,186,164
+offsets:15,40,217,218
+Fx/170 (7)
+bounds:2,312,188,151
+offsets:16,53,217,218
+sake
+bounds:200,544,176,176
+offsets:1,9,192,186
+shadow
+bounds:2,654,196,66
+offsets:10,7,240,90

@@ -1,17 +1,15 @@
 extends SpineSprite
 
+export(String) var skin;
+export(String) var startanimation;
+export(bool) var loop = true;
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	get_animation_state().add_animation("sneak")
-	
+	play_anim(startanimation, loop);
+	set_skin(skin);
 
+func set_skin(skin):
+	get_skeleton().set_skin_by_name(skin);
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func play_anim(anim, loop):		
+	get_animation_state().set_animation(anim, loop);

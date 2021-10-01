@@ -1,0 +1,14 @@
+[remap]
+
+importer="raiix.spine_runtime.atlas"
+type="SpineAtlasResource"
+path="res://.import/Fox.atlas-93e42d4ebb2e2ee8dac461894c4c43e5.spatlas"
+
+[deps]
+
+source_file="res://Animations/symbol/Fox.atlas"
+dest_files=[ "res://.import/Fox.atlas-93e42d4ebb2e2ee8dac461894c4c43e5.spatlas" ]
+
+[params]
+
+normal_texture_prefix="n"

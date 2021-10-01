@@ -1,0 +1,16 @@
+Bell.png
+size:247,431
+filter:Linear,Linear
+pma:true
+bell
+bounds:2,255,182,174
+blinks
+bounds:186,293,136,52
+offsets:1,1,138,57
+rotate:90
+roup
+bounds:2,110,143,214
+rotate:90
+shadow_bell
+bounds:2,2,243,106
+offsets:10,4,258,114

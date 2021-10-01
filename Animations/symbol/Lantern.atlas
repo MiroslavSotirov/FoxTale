@@ -1,0 +1,13 @@
+Lantern.png
+size:514,251
+filter:Linear,Linear
+pma:true
+lantern
+bounds:312,2,247,200
+rotate:90
+lantern2
+bounds:2,5,30,15
+offsets:0,2,30,17
+light
+bounds:2,22,308,227
+offsets:10,2,329,242

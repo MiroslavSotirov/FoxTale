@@ -1,0 +1,27 @@
+Anticipation.png
+size:750,1003
+filter:Linear,Linear
+pma:true
+blinksL
+bounds:2,125,148,803
+offsets:3,26,152,834
+blinksR
+bounds:152,120,149,803
+offsets:1,26,153,834
+gr-leaf1
+bounds:2,930,71,192
+offsets:1,2,73,196
+rotate:90
+gr-leaf2
+bounds:370,903,184,98
+offsets:1,2,186,102
+light back
+bounds:303,2,445,898
+offsets:23,37,487,956
+yl-leaf1
+bounds:556,902,107,99
+offsets:9,9,126,120
+yl-leaf2
+bounds:196,925,76,172
+offsets:2,4,87,177
+rotate:90

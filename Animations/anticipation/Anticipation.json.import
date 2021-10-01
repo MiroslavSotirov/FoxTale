@@ -1,0 +1,13 @@
+[remap]
+
+importer="raiix.spine_runtime.json"
+type="SpineSkeletonJsonDataResource"
+path="res://.import/Anticipation.json-6555d0b7841bd54aae147600f31d031b.spjson"
+
+[deps]
+
+source_file="res://Animations/anticipation/Anticipation.json"
+dest_files=[ "res://.import/Anticipation.json-6555d0b7841bd54aae147600f31d031b.spjson" ]
+
+[params]
+

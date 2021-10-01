@@ -1,0 +1,13 @@
+[remap]
+
+importer="raiix.spine_runtime.json"
+type="SpineSkeletonJsonDataResource"
+path="res://.import/Freespin.json-92cee72dda4cff22a9898922d7528116.spjson"
+
+[deps]
+
+source_file="res://Animations/symbol/Freespin.json"
+dest_files=[ "res://.import/Freespin.json-92cee72dda4cff22a9898922d7528116.spjson" ]
+
+[params]
+

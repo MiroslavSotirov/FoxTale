@@ -1,0 +1,89 @@
+Freespin.png
+size:1560,308
+filter:Linear,Linear
+pma:true
+Fx/47 (11)
+bounds:980,94,96,95
+offsets:7,3,104,104
+rotate:90
+Fx/47 (12)
+bounds:1077,94,96,95
+offsets:7,3,104,104
+rotate:90
+Fx/47 (13)
+bounds:1174,94,96,95
+offsets:8,3,104,104
+rotate:90
+Fx/47 (14)
+bounds:1220,211,95,95
+offsets:9,3,104,104
+Fx/47 (15)
+bounds:1037,2,94,90
+offsets:10,3,104,104
+Fx/47 (16)
+bounds:1133,3,92,89
+offsets:11,4,104,104
+Fx/47 (17)
+bounds:1227,3,91,89
+offsets:12,4,104,104
+Fx/47 (18)
+bounds:850,2,89,80
+offsets:12,5,104,104
+Fx/47 (19)
+bounds:1271,122,87,78
+offsets:12,7,104,104
+rotate:90
+Fx/47 (20)
+bounds:1317,220,86,77
+offsets:12,8,104,104
+rotate:90
+Fx/47 (21)
+bounds:1320,3,70,28
+offsets:12,57,104,104
+TXT
+bounds:841,84,222,137
+offsets:5,1,233,139
+rotate:90
+TXT_Light
+bounds:702,66,240,137
+offsets:6,1,247,139
+rotate:90
+back
+bounds:576,28,278,124
+offsets:3,1,282,126
+rotate:90
+base
+bounds:980,192,114,238
+rotate:90
+baseL
+bounds:1396,7,127,148
+rotate:90
+baseR
+bounds:1425,155,133,151
+offsets:2,1,136,153
+bg
+bounds:322,20,286,252
+offsets:1,1,288,254
+rotate:90
+fener
+bounds:702,23,41,71
+rotate:90
+frame
+bounds:2,26,318,280
+offsets:1,1,320,282
+hand
+bounds:1271,95,31,25
+offsets:1,1,33,27
+head
+bounds:1320,33,74,87
+offsets:1,1,76,89
+headL
+bounds:1351,136,72,82
+offsets:1,1,74,84
+headR
+bounds:941,8,74,94
+offsets:1,1,76,96
+rotate:90
+sleev
+bounds:775,28,36,73
+rotate:90

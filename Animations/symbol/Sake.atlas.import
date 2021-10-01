@@ -1,0 +1,14 @@
+[remap]
+
+importer="raiix.spine_runtime.atlas"
+type="SpineAtlasResource"
+path="res://.import/Sake.atlas-e269ab48b51350ff796966d40a75f35a.spatlas"
+
+[deps]
+
+source_file="res://Animations/symbol/Sake.atlas"
+dest_files=[ "res://.import/Sake.atlas-e269ab48b51350ff796966d40a75f35a.spatlas" ]
+
+[params]
+
+normal_texture_prefix="n"

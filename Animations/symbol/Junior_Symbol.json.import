@@ -1,0 +1,13 @@
+[remap]
+
+importer="raiix.spine_runtime.json"
+type="SpineSkeletonJsonDataResource"
+path="res://.import/Junior_Symbol.json-7bcf9fec19bc8ab463b799e38d888b65.spjson"
+
+[deps]
+
+source_file="res://Animations/symbol/Junior_Symbol.json"
+dest_files=[ "res://.import/Junior_Symbol.json-7bcf9fec19bc8ab463b799e38d888b65.spjson" ]
+
+[params]
+

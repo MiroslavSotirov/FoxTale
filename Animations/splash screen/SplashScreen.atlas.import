@@ -1,0 +1,14 @@
+[remap]
+
+importer="raiix.spine_runtime.atlas"
+type="SpineAtlasResource"
+path="res://.import/SplashScreen.atlas-1ac384a12ba97d1b2a36214b4d23fa64.spatlas"
+
+[deps]
+
+source_file="res://Animations/splash screen/SplashScreen.atlas"
+dest_files=[ "res://.import/SplashScreen.atlas-1ac384a12ba97d1b2a36214b4d23fa64.spatlas" ]
+
+[params]
+
+normal_texture_prefix="n"

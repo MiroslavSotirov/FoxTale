@@ -1,0 +1,13 @@
+[remap]
+
+importer="raiix.spine_runtime.json"
+type="SpineSkeletonJsonDataResource"
+path="res://.import/Sake.json-0d2239ad889ef55acfb20a9bbf05b2c0.spjson"
+
+[deps]
+
+source_file="res://Animations/symbol/Sake.json"
+dest_files=[ "res://.import/Sake.json-0d2239ad889ef55acfb20a9bbf05b2c0.spjson" ]
+
+[params]
+

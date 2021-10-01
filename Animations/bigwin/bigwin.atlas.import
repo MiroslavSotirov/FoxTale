@@ -1,0 +1,14 @@
+[remap]
+
+importer="raiix.spine_runtime.atlas"
+type="SpineAtlasResource"
+path="res://.import/bigwin.atlas-1dfb8f33f0dc28e257ab3fe61a623a17.spatlas"
+
+[deps]
+
+source_file="res://Animations/bigwin/bigwin.atlas"
+dest_files=[ "res://.import/bigwin.atlas-1dfb8f33f0dc28e257ab3fe61a623a17.spatlas" ]
+
+[params]
+
+normal_texture_prefix="n"

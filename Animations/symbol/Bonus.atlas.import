@@ -1,0 +1,14 @@
+[remap]
+
+importer="raiix.spine_runtime.atlas"
+type="SpineAtlasResource"
+path="res://.import/Bonus.atlas-71933459cdf5c9a21b2f9636878a71b2.spatlas"
+
+[deps]
+
+source_file="res://Animations/symbol/Bonus.atlas"
+dest_files=[ "res://.import/Bonus.atlas-71933459cdf5c9a21b2f9636878a71b2.spatlas" ]
+
+[params]
+
+normal_texture_prefix="n"

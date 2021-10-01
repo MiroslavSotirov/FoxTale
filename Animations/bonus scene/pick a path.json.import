@@ -1,0 +1,13 @@
+[remap]
+
+importer="raiix.spine_runtime.json"
+type="SpineSkeletonJsonDataResource"
+path="res://.import/pick a path.json-9dba1cd94eb2f457b6e7336cded1dec3.spjson"
+
+[deps]
+
+source_file="res://Animations/bonus scene/pick a path.json"
+dest_files=[ "res://.import/pick a path.json-9dba1cd94eb2f457b6e7336cded1dec3.spjson" ]
+
+[params]
+
