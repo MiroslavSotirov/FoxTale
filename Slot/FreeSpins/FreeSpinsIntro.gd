@@ -11,8 +11,11 @@ func show():
 	yield($Animation, "animation_complete")
 	$Animation.play_anim("idle", true);
 	$AnimationPlayer.play("ShowButton");
-	$CustomButton.pressed = false;
+	$CustomButton.pressed = false
 
 func on_play_button_pressed():
+	yield($Animation, "animation_complete")
+	$Animation.play_anim("close", false);
+	yield(get_tree().create_timer(2.0), "timeout")
 	emit_signal("anim_end");
 	$AnimationPlayer.play("Hide");
