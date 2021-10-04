@@ -19,7 +19,9 @@ func on_play_button_pressed():
 	
 func show_slot():
 	Globals.singletons["Fader"].tween(0,1,0.5);
+	print("test1");
 	yield(Globals.singletons["Fader"], "done")
+	print("test2");
 	$IntroContainer.queue_free();
 	$SlotContainer.visible = true;
 	$UIContainer.visible = true;
@@ -65,3 +67,28 @@ func check_resolution_for_changes():
 func init_data_received(data):
 	pass
 
+var testfs = false;
+
+func _input(ev):
+	if ev is InputEventKey and ev.scancode == KEY_K and not ev.echo:
+		start_fs();
+
+func start_fs():
+	if(testfs): return;
+	testfs = true;
+	$SlotContainer/FreeSpinsIntro.show();	
+	Globals.singletons["FaderBright"].tween(0.0,1.0,1);
+	yield(get_tree().create_timer(1), "timeout")
+	Globals.singletons["FaderBright"].tween(1.0,0.0,1);	
+	yield($SlotContainer/FreeSpinsIntro, "anim_end");
+	$SlotContainer/AnimationPlayer.play("normal_to_fs");
+	Globals.singletons["FaderBright"].tween(0,0.6,1);
+	yield(get_tree().create_timer(1.0), "timeout")
+	Globals.singletons["FaderBright"].tween(0.6,0.0,1);
+	yield(get_tree().create_timer(0.25), "timeout")
+	$SlotContainer/Slot/Overlay/FoxLeft.play_anim_then_loop("convert_color", "idle_gold");
+	$SlotContainer/Slot/Overlay/FoxRight.play_anim_then_loop("convert_color", "idle_gold");
+	testfs = false;
+	
+func end_fs():
+	$SlotContainer/AnimationPlayer.play("fs_to_normal");
