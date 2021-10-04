@@ -85,7 +85,7 @@ func start_fs():
 	Globals.singletons["FaderBright"].tween(0,0.6,1);
 	yield(get_tree().create_timer(1.0), "timeout")
 	Globals.singletons["FaderBright"].tween(0.6,0.0,1);
-	yield(get_tree().create_timer(0.25), "timeout")
+	yield(get_tree().create_timer(1), "timeout")
 	$SlotContainer/Slot/Overlay/FoxLeft.play_anim_then_loop("convert_color", "idle_gold");
 	$SlotContainer/Slot/Overlay/FoxRight.play_anim_then_loop("convert_color", "idle_gold");
 	testfs = false;

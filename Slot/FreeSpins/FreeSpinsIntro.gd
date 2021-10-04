@@ -14,6 +14,8 @@ func show():
 	$CustomButton.pressed = false
 
 func on_play_button_pressed():
+	$Animation.set_timescale(3);
+	$AnimationPlayer.play("HideButton");
 	yield($Animation, "animation_complete")
 	$Animation.play_anim("close", false);
 	yield(get_tree().create_timer(2.0), "timeout")
