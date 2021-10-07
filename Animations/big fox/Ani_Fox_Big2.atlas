@@ -1,0 +1,320 @@
+Ani_Fox_Big2.png
+size: 2017, 1286
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+BackParticlesG
+  rotate: false
+  xy: 2, 426
+  size: 721, 860
+  orig: 725, 863
+  offset: 2, 1
+  index: -1
+BacklightG
+  rotate: false
+  xy: 725, 460
+  size: 653, 826
+  orig: 749, 905
+  offset: 53, 49
+  index: -1
+Bandana1
+  rotate: true
+  xy: 1731, 67
+  size: 146, 127
+  orig: 151, 138
+  offset: 0, 11
+  index: -1
+Bandana1G
+  rotate: false
+  xy: 1018, 4
+  size: 148, 128
+  orig: 153, 139
+  offset: 0, 11
+  index: -1
+Bandana2
+  rotate: false
+  xy: 1886, 425
+  size: 51, 45
+  orig: 51, 45
+  offset: 0, 0
+  index: -1
+Bandana2G
+  rotate: false
+  xy: 1636, 22
+  size: 52, 46
+  orig: 52, 46
+  offset: 0, 0
+  index: -1
+Bandana3
+  rotate: true
+  xy: 492, 5
+  size: 67, 41
+  orig: 67, 41
+  offset: 0, 0
+  index: -1
+Bandana3G
+  rotate: true
+  xy: 448, 4
+  size: 68, 42
+  orig: 68, 42
+  offset: 0, 0
+  index: -1
+BandanaBack
+  rotate: false
+  xy: 2, 6
+  size: 143, 66
+  orig: 143, 66
+  offset: 0, 0
+  index: -1
+BandanaBackG
+  rotate: false
+  xy: 1860, 6
+  size: 146, 69
+  orig: 146, 69
+  offset: 0, 0
+  index: -1
+Body
+  rotate: false
+  xy: 746, 17
+  size: 270, 318
+  orig: 282, 318
+  offset: 0, 0
+  index: -1
+BodyG
+  rotate: false
+  xy: 1579, 617
+  size: 270, 318
+  orig: 282, 318
+  offset: 0, 0
+  index: -1
+F1Head
+  rotate: false
+  xy: 1380, 283
+  size: 197, 229
+  orig: 199, 231
+  offset: 1, 1
+  index: -1
+F1HeadG
+  rotate: true
+  xy: 1579, 215
+  size: 198, 230
+  orig: 200, 232
+  offset: 1, 1
+  index: -1
+F1PlatformStone1
+  rotate: true
+  xy: 1397, 12
+  size: 69, 92
+  orig: 81, 95
+  offset: 11, 2
+  index: -1
+F1PlatformStone2
+  rotate: false
+  xy: 1812, 415
+  size: 72, 61
+  orig: 75, 66
+  offset: 2, 4
+  index: -1
+F1PlatformStone3
+  rotate: false
+  xy: 1491, 36
+  size: 55, 45
+  orig: 58, 49
+  offset: 1, 2
+  index: -1
+F2Head
+  rotate: true
+  xy: 1336, 83
+  size: 198, 230
+  orig: 198, 230
+  offset: 0, 0
+  index: -1
+F2HeadG
+  rotate: true
+  xy: 1579, 415
+  size: 200, 231
+  orig: 200, 231
+  offset: 0, 0
+  index: -1
+FPlatform
+  rotate: false
+  xy: 1380, 937
+  size: 543, 349
+  orig: 545, 351
+  offset: 1, 1
+  index: -1
+FPlatformBack
+  rotate: true
+  xy: 1925, 830
+  size: 456, 71
+  orig: 458, 73
+  offset: 1, 1
+  index: -1
+Leg1
+  rotate: false
+  xy: 1860, 77
+  size: 142, 160
+  orig: 142, 160
+  offset: 0, 0
+  index: -1
+Leg1G
+  rotate: true
+  xy: 1568, 70
+  size: 143, 161
+  orig: 143, 161
+  offset: 0, 0
+  index: -1
+Leg2n2
+  rotate: false
+  xy: 1924, 691
+  size: 91, 137
+  orig: 93, 139
+  offset: 1, 1
+  index: -1
+Leg2n2G
+  rotate: false
+  xy: 1924, 552
+  size: 91, 137
+  orig: 91, 137
+  offset: 0, 0
+  index: -1
+Leg2n3
+  rotate: false
+  xy: 1811, 239
+  size: 79, 174
+  orig: 81, 177
+  offset: 1, 2
+  index: -1
+Leg2n3G
+  rotate: false
+  xy: 1254, 161
+  size: 80, 174
+  orig: 80, 175
+  offset: 0, 1
+  index: -1
+Leg3n1
+  rotate: true
+  xy: 1336, 284
+  size: 51, 21
+  orig: 53, 23
+  offset: 1, 1
+  index: -1
+Leg3n1G
+  rotate: true
+  xy: 1812, 562
+  size: 53, 22
+  orig: 55, 24
+  offset: 1, 1
+  index: -1
+Leg3n2
+  rotate: true
+  xy: 271, 18
+  size: 54, 122
+  orig: 62, 124
+  offset: 4, 1
+  index: -1
+Leg3n2G
+  rotate: true
+  xy: 147, 15
+  size: 57, 122
+  orig: 63, 126
+  offset: 5, 1
+  index: -1
+Leg3n3
+  rotate: false
+  xy: 1243, 39
+  size: 57, 93
+  orig: 60, 95
+  offset: 1, 1
+  index: -1
+Leg3n3G
+  rotate: true
+  xy: 1302, 23
+  size: 58, 93
+  orig: 60, 95
+  offset: 1, 1
+  index: -1
+PlatformBackG
+  rotate: true
+  xy: 1851, 478
+  size: 457, 71
+  orig: 459, 73
+  offset: 1, 1
+  index: -1
+PlatformDropShadowG
+  rotate: false
+  xy: 746, 337
+  size: 630, 121
+  orig: 668, 145
+  offset: 18, 9
+  index: -1
+PlatformG
+  rotate: false
+  xy: 2, 74
+  size: 544, 350
+  orig: 546, 352
+  offset: 1, 1
+  index: -1
+PlatformStone1G
+  rotate: true
+  xy: 1168, 24
+  size: 108, 73
+  orig: 111, 93
+  offset: 2, 17
+  index: -1
+PlatformStone2G
+  rotate: false
+  xy: 395, 4
+  size: 51, 68
+  orig: 61, 73
+  offset: 8, 3
+  index: -1
+PlatformStone3G
+  rotate: false
+  xy: 1548, 8
+  size: 86, 60
+  orig: 91, 65
+  offset: 2, 3
+  index: -1
+PlatformStone4G
+  rotate: false
+  xy: 1924, 472
+  size: 87, 78
+  orig: 89, 89
+  offset: 1, 10
+  index: -1
+Tail
+  rotate: false
+  xy: 548, 4
+  size: 196, 420
+  orig: 196, 420
+  offset: 0, 0
+  index: -1
+TailG
+  rotate: false
+  xy: 1380, 514
+  size: 197, 421
+  orig: 197, 421
+  offset: 0, 0
+  index: -1
+leg2n1
+  rotate: true
+  xy: 1998, 1232
+  size: 54, 17
+  orig: 56, 19
+  offset: 1, 1
+  index: -1
+leg2n1G
+  rotate: false
+  xy: 1491, 15
+  size: 55, 19
+  orig: 55, 19
+  offset: 0, 0
+  index: -1
+water-fx
+  rotate: false
+  xy: 1018, 134
+  size: 234, 201
+  orig: 250, 240
+  offset: 11, 20
+  index: -1
