@@ -41,8 +41,6 @@
 [ext_resource path="res://Textures/slot/FSReelsTopOverlap.png" type="Texture" id=39]
 [ext_resource path="res://Textures/slot/FSTXTLine.png" type="Texture" id=40]
 [ext_resource path="res://Textures/slot/FSBGNight.jpg" type="Texture" id=41]
-[ext_resource path="res://Animations/big fox/Fox_Big.atlas" type="SpineAtlasResource" id=42]
-[ext_resource path="res://Animations/big fox/Fox_Big.json" type="SpineSkeletonJsonDataResource" id=43]
 [ext_resource path="res://SpineSprite.gd" type="Script" id=44]
 [ext_resource path="res://Animations/logo/FT_Logo_Export.atlas" type="SpineAtlasResource" id=45]
 [ext_resource path="res://Animations/logo/FT_Logo_Export.json" type="SpineSkeletonJsonDataResource" id=46]
@@ -79,10 +77,12 @@
 [ext_resource path="res://Animations/bonus scene/torrigates.json" type="SpineSkeletonJsonDataResource" id=77]
 [ext_resource path="res://Animations/bonus scene/torrigates.atlas" type="SpineAtlasResource" id=78]
 [ext_resource path="res://Slot/BonusScene/BonusScene.gd" type="Script" id=79]
+[ext_resource path="res://Animations/big fox/Ani_Fox_Big2.atlas" type="SpineAtlasResource" id=80]
+[ext_resource path="res://Animations/big fox/Fox_Big_v2.json" type="SpineSkeletonJsonDataResource" id=81]
 
 [sub_resource type="SpineSkeletonDataResource" id=1]
-atlas_res = ExtResource( 42 )
-skeleton_json_res = ExtResource( 43 )
+atlas_res = ExtResource( 80 )
+skeleton_json_res = ExtResource( 81 )
 animations = null
 skins = null
 
@@ -144,8 +144,8 @@ tracks/0/keys = {
 }
 
 [sub_resource type="SpineSkeletonDataResource" id=14]
-atlas_res = ExtResource( 42 )
-skeleton_json_res = ExtResource( 43 )
+atlas_res = ExtResource( 80 )
+skeleton_json_res = ExtResource( 81 )
 animations = null
 skins = null
 
@@ -397,13 +397,13 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.3, 2 )
 }
 
-[sub_resource type="Animation" id=34]
+[sub_resource type="Animation" id=29]
 resource_name = "Hide"
 
-[sub_resource type="Animation" id=35]
+[sub_resource type="Animation" id=30]
 resource_name = "HideButton"
 
-[sub_resource type="Animation" id=36]
+[sub_resource type="Animation" id=31]
 resource_name = "Show"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:visible")
@@ -466,19 +466,19 @@ tracks/4/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=37]
+[sub_resource type="Animation" id=32]
 resource_name = "ShowButton"
 
-[sub_resource type="SpineSkeletonDataResource" id=29]
+[sub_resource type="SpineSkeletonDataResource" id=33]
 atlas_res = ExtResource( 71 )
 skeleton_json_res = ExtResource( 72 )
 animations = null
 skins = null
 
-[sub_resource type="SpineAnimationStateDataResource" id=30]
-skeleton = SubResource( 29 )
+[sub_resource type="SpineAnimationStateDataResource" id=34]
+skeleton = SubResource( 33 )
 
-[sub_resource type="Animation" id=31]
+[sub_resource type="Animation" id=35]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Background/Normal:visible")
 tracks/0/interp = 1
@@ -528,7 +528,7 @@ tracks/3/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=32]
+[sub_resource type="Animation" id=36]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Background/Normal:visible")
 tracks/0/interp = 1
@@ -578,7 +578,7 @@ tracks/3/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="CanvasItemMaterial" id=33]
+[sub_resource type="CanvasItemMaterial" id=37]
 blend_mode = 1
 light_mode = 1
 
@@ -1571,10 +1571,10 @@ texture = ExtResource( 51 )
 anims/Pressed = SubResource( 28 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/BonusScene"]
-anims/Hide = SubResource( 34 )
-anims/HideButton = SubResource( 35 )
-anims/Show = SubResource( 36 )
-anims/ShowButton = SubResource( 37 )
+anims/Hide = SubResource( 29 )
+anims/HideButton = SubResource( 30 )
+anims/Show = SubResource( 31 )
+anims/ShowButton = SubResource( 32 )
 
 [node name="BigWin" type="Control" parent="SlotContainer"]
 visible = false
@@ -1585,7 +1585,7 @@ __meta__ = {
 }
 
 [node name="Animation" type="SpineSprite" parent="SlotContainer/BigWin"]
-animation_state_data_res = SubResource( 30 )
+animation_state_data_res = SubResource( 34 )
 script = ExtResource( 44 )
 skin = "default"
 startanimation = "loop_bigwin"
@@ -1599,8 +1599,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer"]
-anims/fs_to_normal = SubResource( 31 )
-anims/normal_to_fs = SubResource( 32 )
+anims/fs_to_normal = SubResource( 35 )
+anims/normal_to_fs = SubResource( 36 )
 
 [node name="UIContainer" type="Control" parent="."]
 visible = false
@@ -1700,7 +1700,7 @@ __meta__ = {
 
 [node name="FaderBright" type="ColorRect" parent="."]
 visible = false
-material = SubResource( 33 )
+material = SubResource( 37 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 input_pass_on_modal_close_click = false
