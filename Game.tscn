@@ -1,4 +1,4 @@
-[gd_scene load_steps=117 format=2]
+[gd_scene load_steps=132 format=2]
 
 [ext_resource path="res://Slot/ReelSpinStartAnimation.tres" type="Animation" id=1]
 [ext_resource path="res://Slot/ReelSpinStopAnimation.tres" type="Animation" id=2]
@@ -41,6 +41,8 @@
 [ext_resource path="res://Textures/slot/FSReelsTopOverlap.png" type="Texture" id=39]
 [ext_resource path="res://Textures/slot/FSTXTLine.png" type="Texture" id=40]
 [ext_resource path="res://Textures/slot/FSBGNight.jpg" type="Texture" id=41]
+[ext_resource path="res://Animations/bonus scene/torii.atlas" type="SpineAtlasResource" id=42]
+[ext_resource path="res://Textures/slot/Ground1.png" type="Texture" id=43]
 [ext_resource path="res://SpineSprite.gd" type="Script" id=44]
 [ext_resource path="res://Animations/logo/FT_Logo_Export.atlas" type="SpineAtlasResource" id=45]
 [ext_resource path="res://Animations/logo/FT_Logo_Export.json" type="SpineSkeletonJsonDataResource" id=46]
@@ -75,10 +77,18 @@
 [ext_resource path="res://Animations/bonus scene/pick a path.atlas" type="SpineAtlasResource" id=75]
 [ext_resource path="res://Animations/bonus scene/pick a path.json" type="SpineSkeletonJsonDataResource" id=76]
 [ext_resource path="res://Animations/bonus scene/torrigates.json" type="SpineSkeletonJsonDataResource" id=77]
-[ext_resource path="res://Animations/bonus scene/torrigates.atlas" type="SpineAtlasResource" id=78]
+[ext_resource path="res://Slot/BonusScene/BonusSceneButton.gd" type="Script" id=78]
 [ext_resource path="res://Slot/BonusScene/BonusScene.gd" type="Script" id=79]
 [ext_resource path="res://Animations/big fox/Ani_Fox_Big2.atlas" type="SpineAtlasResource" id=80]
 [ext_resource path="res://Animations/big fox/Fox_Big_v2.json" type="SpineSkeletonJsonDataResource" id=81]
+[ext_resource path="res://Textures/slot/BonusBGDarken59O.jpg" type="Texture" id=82]
+[ext_resource path="res://Textures/slot/Ground3FOX2.png" type="Texture" id=83]
+[ext_resource path="res://Textures/slot/Ground3FOX1.png" type="Texture" id=84]
+[ext_resource path="res://Textures/slot/Ground2Fox2.png" type="Texture" id=85]
+[ext_resource path="res://Textures/slot/Ground2Fox1.png" type="Texture" id=86]
+[ext_resource path="res://Textures/slot/Ground2Stone.png" type="Texture" id=87]
+[ext_resource path="res://Textures/slot/Ground3Stones.png" type="Texture" id=88]
+[ext_resource path="res://base_big_font.tres" type="BitmapFont" id=89]
 
 [sub_resource type="SpineSkeletonDataResource" id=1]
 atlas_res = ExtResource( 80 )
@@ -367,7 +377,7 @@ tracks/2/keys = {
 }
 
 [sub_resource type="SpineSkeletonDataResource" id=24]
-atlas_res = ExtResource( 78 )
+atlas_res = ExtResource( 42 )
 skeleton_json_res = ExtResource( 77 )
 animations = null
 skins = null
@@ -375,16 +385,18 @@ skins = null
 [sub_resource type="SpineAnimationStateDataResource" id=25]
 skeleton = SubResource( 24 )
 
-[sub_resource type="SpineSkeletonDataResource" id=26]
+[sub_resource type="CanvasItemMaterial" id=26]
+
+[sub_resource type="SpineSkeletonDataResource" id=27]
 atlas_res = ExtResource( 75 )
 skeleton_json_res = ExtResource( 76 )
 animations = null
 skins = null
 
-[sub_resource type="SpineAnimationStateDataResource" id=27]
-skeleton = SubResource( 26 )
+[sub_resource type="SpineAnimationStateDataResource" id=28]
+skeleton = SubResource( 27 )
 
-[sub_resource type="Animation" id=28]
+[sub_resource type="Animation" id=29]
 length = 2.0
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("Centering/ButtonRoot:position:y")
@@ -397,14 +409,86 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.3, 2 )
 }
 
-[sub_resource type="Animation" id=29]
-resource_name = "Hide"
-
 [sub_resource type="Animation" id=30]
-resource_name = "HideButton"
 
 [sub_resource type="Animation" id=31]
-resource_name = "Show"
+tracks/0/type = "value"
+tracks/0/path = NodePath("CustomButton:enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CustomButton:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -112.5, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CustomButton:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CustomButton:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 3, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Fade:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=32]
+resource_name = "HideWin"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Fade:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=33]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:visible")
 tracks/0/interp = 1
@@ -465,20 +549,522 @@ tracks/4/keys = {
 "update": 1,
 "values": [ false ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("Fade:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.588235 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Layer1:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Layer1:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Layer1:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Layer1:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Layer2:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Layer2:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.309804, 0.54902, 1, 1 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Layer2:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -75 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Layer2:scale")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.6, 0.6 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Layer3:scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.35, 0.35 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Layer3:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -125 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("Layer3:modulate")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.14902, 0.317647, 0.717647, 1 ) ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("Layer3:visible")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
-[sub_resource type="Animation" id=32]
-resource_name = "ShowButton"
+[sub_resource type="Animation" id=34]
+tracks/0/type = "value"
+tracks/0/path = NodePath("CustomButton:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CustomButton:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CustomButton:enabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CustomButton:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -112.5, 50 ), Vector2( -112.5, 0 ) ]
+}
 
-[sub_resource type="SpineSkeletonDataResource" id=33]
+[sub_resource type="Animation" id=35]
+resource_name = "ShowWin"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Fade:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.25, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.588235 ) ]
+}
+
+[sub_resource type="Animation" id=36]
+resource_name = "ToLayer2"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Layer1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Layer1:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 2, 2 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Layer1:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 200 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Layer2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Color( 0.309804, 0.54902, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Layer2:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 0.6, 0.6 ), Vector2( 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Layer2:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -75 ), Vector2( 0, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Layer3:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Color( 0.14902, 0.317647, 0.717647, 1 ), Color( 0.309804, 0.54902, 1, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Layer3:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -125 ), Vector2( 0, -75 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Layer3:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 0.35, 0.35 ), Vector2( 0.6, 0.6 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Background2:scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 1.23307e-06, 2 ),
+"transitions": PoolRealArray( 1, 0.5 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.5, 1.5 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Background2:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 1.23307e-06, 2 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 200 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Background2:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 1.23307e-06, 2 ),
+"transitions": PoolRealArray( 1, 0.5 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Background2:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=37]
+resource_name = "ToLayer3"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Layer2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Layer2:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 2, 2 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Layer2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 200 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Layer3:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Color( 0.309804, 0.54902, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Layer3:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -75 ), Vector2( 0, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Layer3:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 0.6, 0.6 ), Vector2( 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Background2:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 1.23307e-06, 2 ),
+"transitions": PoolRealArray( 1, 0.5 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.5, 1.5 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Background2:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 1.23307e-06, 2 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 200 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Background2:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 1.23307e-06, 2 ),
+"transitions": PoolRealArray( 1, 0.5 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Background2:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="SpineSkeletonDataResource" id=38]
 atlas_res = ExtResource( 71 )
 skeleton_json_res = ExtResource( 72 )
 animations = null
 skins = null
 
-[sub_resource type="SpineAnimationStateDataResource" id=34]
-skeleton = SubResource( 33 )
+[sub_resource type="SpineAnimationStateDataResource" id=39]
+skeleton = SubResource( 38 )
 
-[sub_resource type="Animation" id=35]
+[sub_resource type="Animation" id=40]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Background/Normal:visible")
 tracks/0/interp = 1
@@ -528,7 +1114,7 @@ tracks/3/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=36]
+[sub_resource type="Animation" id=41]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Background/Normal:visible")
 tracks/0/interp = 1
@@ -578,7 +1164,7 @@ tracks/3/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="CanvasItemMaterial" id=37]
+[sub_resource type="CanvasItemMaterial" id=42]
 blend_mode = 1
 light_mode = 1
 
@@ -1383,7 +1969,6 @@ anims/Show = SubResource( 22 )
 anims/ShowButton = SubResource( 23 )
 
 [node name="BonusScene" type="Control" parent="SlotContainer"]
-modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 79 )
@@ -1394,14 +1979,119 @@ __meta__ = {
 [node name="Background" type="Sprite" parent="SlotContainer/BonusScene"]
 texture = ExtResource( 60 )
 
-[node name="ToriGates" type="SpineSprite" parent="SlotContainer/BonusScene"]
+[node name="Background2" type="Sprite" parent="SlotContainer/BonusScene"]
+texture = ExtResource( 60 )
+
+[node name="Layer3" type="Node2D" parent="SlotContainer/BonusScene"]
+modulate = Color( 0.14902, 0.317647, 0.717647, 1 )
+position = Vector2( 0, -125 )
+scale = Vector2( 0.35, 0.35 )
+
+[node name="ToriLeft" type="SpineSprite" parent="SlotContainer/BonusScene/Layer3"]
+position = Vector2( -400, 140 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+animation_state_data_res = SubResource( 25 )
+script = ExtResource( 44 )
+skin = "torii5"
+startanimation = "float"
+
+[node name="ToriRight" type="SpineSprite" parent="SlotContainer/BonusScene/Layer3"]
+position = Vector2( 400, 140 )
+animation_state_data_res = SubResource( 25 )
+script = ExtResource( 44 )
+skin = "torii6"
+startanimation = "float"
+
+[node name="Ground1" type="Sprite" parent="SlotContainer/BonusScene/Layer3"]
+position = Vector2( 0, 400 )
+scale = Vector2( 1.1, 1.1 )
+texture = ExtResource( 43 )
+
+[node name="GoldenFox2" type="Sprite" parent="SlotContainer/BonusScene/Layer3"]
+position = Vector2( 800, 0 )
+texture = ExtResource( 84 )
+
+[node name="GoldenFox1" type="Sprite" parent="SlotContainer/BonusScene/Layer3"]
+position = Vector2( -800, 0 )
+texture = ExtResource( 83 )
+
+[node name="GoldStone" type="Sprite" parent="SlotContainer/BonusScene/Layer3"]
+position = Vector2( 0, 120 )
+texture = ExtResource( 88 )
+
+[node name="Layer2" type="Node2D" parent="SlotContainer/BonusScene"]
+modulate = Color( 0.309804, 0.54902, 1, 1 )
+position = Vector2( 0, -75 )
+scale = Vector2( 0.6, 0.6 )
+
+[node name="ToriLeft" type="SpineSprite" parent="SlotContainer/BonusScene/Layer2"]
+position = Vector2( -400, 140 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+animation_state_data_res = SubResource( 25 )
+script = ExtResource( 44 )
+skin = "torii3"
+startanimation = "float"
+
+[node name="ToriRight" type="SpineSprite" parent="SlotContainer/BonusScene/Layer2"]
+position = Vector2( 400, 140 )
+animation_state_data_res = SubResource( 25 )
+script = ExtResource( 44 )
+skin = "torii4"
+startanimation = "float"
+
+[node name="Ground1" type="Sprite" parent="SlotContainer/BonusScene/Layer2"]
+position = Vector2( 0, 400 )
+scale = Vector2( 1.1, 1.1 )
+texture = ExtResource( 43 )
+
+[node name="StoneFox2" type="Sprite" parent="SlotContainer/BonusScene/Layer2"]
+position = Vector2( 1000, 90 )
+rotation = 0.261799
+texture = ExtResource( 85 )
+
+[node name="StoneFox1" type="Sprite" parent="SlotContainer/BonusScene/Layer2"]
+position = Vector2( -1000, 90 )
+rotation = -0.261799
+texture = ExtResource( 86 )
+
+[node name="Stone" type="Sprite" parent="SlotContainer/BonusScene/Layer2"]
+position = Vector2( 50, 267 )
+scale = Vector2( 1.2, 1.2 )
+texture = ExtResource( 87 )
+
+[node name="Layer1" type="Node2D" parent="SlotContainer/BonusScene"]
+
+[node name="ToriLeft" type="SpineSprite" parent="SlotContainer/BonusScene/Layer1"]
+position = Vector2( -400, 140 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+animation_state_data_res = SubResource( 25 )
+script = ExtResource( 44 )
+skin = "torii1"
+startanimation = "float"
+
+[node name="ToriRight" type="SpineSprite" parent="SlotContainer/BonusScene/Layer1"]
+position = Vector2( 400, 140 )
 animation_state_data_res = SubResource( 25 )
 script = ExtResource( 44 )
 skin = "torii2"
-startanimation = "popup"
+startanimation = "float"
+
+[node name="Ground1" type="Sprite" parent="SlotContainer/BonusScene/Layer1"]
+position = Vector2( 0, 400 )
+scale = Vector2( 1.1, 1.1 )
+texture = ExtResource( 43 )
+
+[node name="Fade" type="Sprite" parent="SlotContainer/BonusScene"]
+modulate = Color( 1, 1, 1, 0 )
+material = SubResource( 26 )
+texture = ExtResource( 82 )
 
 [node name="Text" type="SpineSprite" parent="SlotContainer/BonusScene"]
-animation_state_data_res = SubResource( 27 )
+position = Vector2( 0, 400 )
+animation_state_data_res = SubResource( 28 )
 script = ExtResource( 44 )
 skin = "default"
 startanimation = "popup"
@@ -1410,9 +2100,8 @@ startanimation = "popup"
 visible = false
 modulate = Color( 1, 1, 1, 0 )
 margin_left = -112.5
-margin_top = 450.0
 margin_right = 187.5
-margin_bottom = 650.0
+margin_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
 rect_scale = Vector2( 0.75, 0.75 )
@@ -1568,13 +2257,39 @@ position = Vector2( 0, -86 )
 texture = ExtResource( 51 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/BonusScene/CustomButton"]
-anims/Pressed = SubResource( 28 )
+anims/Pressed = SubResource( 29 )
+
+[node name="LeftButton" type="Control" parent="SlotContainer/BonusScene"]
+visible = false
+margin_left = -800.0
+margin_top = -500.0
+margin_right = -50.0
+margin_bottom = 300.0
+script = ExtResource( 78 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RightButton" type="Control" parent="SlotContainer/BonusScene"]
+visible = false
+margin_left = 50.0
+margin_top = -500.0
+margin_right = 800.0
+margin_bottom = 300.0
+script = ExtResource( 78 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/BonusScene"]
-anims/Hide = SubResource( 29 )
-anims/HideButton = SubResource( 30 )
-anims/Show = SubResource( 31 )
-anims/ShowButton = SubResource( 32 )
+anims/Hide = SubResource( 30 )
+anims/HideButton = SubResource( 31 )
+anims/HideWin = SubResource( 32 )
+anims/Show = SubResource( 33 )
+anims/ShowButton = SubResource( 34 )
+anims/ShowWin = SubResource( 35 )
+anims/ToLayer2 = SubResource( 36 )
+anims/ToLayer3 = SubResource( 37 )
 
 [node name="BigWin" type="Control" parent="SlotContainer"]
 visible = false
@@ -1585,7 +2300,7 @@ __meta__ = {
 }
 
 [node name="Animation" type="SpineSprite" parent="SlotContainer/BigWin"]
-animation_state_data_res = SubResource( 34 )
+animation_state_data_res = SubResource( 39 )
 script = ExtResource( 44 )
 skin = "default"
 startanimation = "loop_bigwin"
@@ -1599,8 +2314,17 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer"]
-anims/fs_to_normal = SubResource( 35 )
-anims/normal_to_fs = SubResource( 36 )
+anims/fs_to_normal = SubResource( 40 )
+anims/normal_to_fs = SubResource( 41 )
+
+[node name="Label" type="Label" parent="SlotContainer"]
+margin_right = 500.0
+margin_bottom = 500.0
+custom_fonts/font = ExtResource( 89 )
+text = "145x"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="UIContainer" type="Control" parent="."]
 visible = false
@@ -1700,7 +2424,7 @@ __meta__ = {
 
 [node name="FaderBright" type="ColorRect" parent="."]
 visible = false
-material = SubResource( 37 )
+material = SubResource( 42 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 input_pass_on_modal_close_click = false
@@ -1714,7 +2438,9 @@ default = Color( 1, 1, 1, 1 )
 
 [connection signal="pressed" from="IntroContainer/Centering/CustomButton" to="." method="on_play_button_pressed"]
 [connection signal="pressed" from="SlotContainer/FreeSpinsIntro/CustomButton" to="SlotContainer/FreeSpinsIntro" method="on_play_button_pressed"]
-[connection signal="pressed" from="SlotContainer/BonusScene/CustomButton" to="SlotContainer/FreeSpinsIntro" method="on_play_button_pressed"]
+[connection signal="pressed" from="SlotContainer/BonusScene/CustomButton" to="SlotContainer/BonusScene" method="on_play_button_pressed"]
+[connection signal="pressed" from="SlotContainer/BonusScene/LeftButton" to="SlotContainer/BonusScene" method="left_button_pressed"]
+[connection signal="pressed" from="SlotContainer/BonusScene/RightButton" to="SlotContainer/BonusScene" method="right_button_pressed"]
 [connection signal="pressed" from="UIContainer/ErrorPopup/Button" to="UIContainer/ErrorPopup" method="_on_Button_pressed"]
 [connection signal="tween_completed" from="Fader/Tween" to="Fader" method="_tween_completed"]
 [connection signal="tween_completed" from="FaderBright/Tween" to="FaderBright" method="_tween_completed"]

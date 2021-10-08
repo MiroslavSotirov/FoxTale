@@ -71,7 +71,7 @@ var testfs = false;
 
 func _input(ev):
 	if ev is InputEventKey and ev.scancode == KEY_K and not ev.echo:
-		start_fs();
+		start_bonus();
 
 func start_fs():
 	if(testfs): return;
@@ -92,3 +92,14 @@ func start_fs():
 	
 func end_fs():
 	$SlotContainer/AnimationPlayer.play("fs_to_normal");
+	$SlotContainer/Slot/Overlay/FoxLeft.play_anim_then_loop("convert_back", "idle");
+	$SlotContainer/Slot/Overlay/FoxRight.play_anim_then_loop("convert_back", "idle");
+
+func start_bonus():
+	if(testfs): return;
+	testfs = true;
+	$SlotContainer/BonusScene.show();	
+	Globals.singletons["FaderBright"].tween(0.0,1.0,1);
+	yield(get_tree().create_timer(1), "timeout")
+	Globals.singletons["FaderBright"].tween(1.0,0.0,1);	
+	testfs = false;

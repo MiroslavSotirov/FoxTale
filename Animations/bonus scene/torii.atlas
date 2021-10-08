@@ -1,0 +1,61 @@
+torii.png
+size: 3691, 1368
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+GateGlow
+  rotate: false
+  xy: 2, 244
+  size: 1188, 1124
+  orig: 1332, 1283
+  offset: 74, 77
+  index: -1
+T1
+  rotate: false
+  xy: 2881, 687
+  size: 808, 681
+  orig: 823, 688
+  offset: 11, 2
+  index: -1
+T2
+  rotate: false
+  xy: 2037, 689
+  size: 842, 679
+  orig: 848, 683
+  offset: 3, 3
+  index: -1
+T3
+  rotate: false
+  xy: 1192, 8
+  size: 842, 679
+  orig: 848, 683
+  offset: 3, 3
+  index: -1
+T4
+  rotate: false
+  xy: 2036, 6
+  size: 808, 681
+  orig: 823, 688
+  offset: 11, 2
+  index: -1
+T5
+  rotate: false
+  xy: 2846, 4
+  size: 808, 681
+  orig: 823, 687
+  offset: 10, 1
+  index: -1
+T6
+  rotate: false
+  xy: 1192, 689
+  size: 843, 679
+  orig: 847, 683
+  offset: 2, 3
+  index: -1
+TDropShadow
+  rotate: false
+  xy: 2, 180
+  size: 817, 62
+  orig: 839, 73
+  offset: 11, 6
+  index: -1

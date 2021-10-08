@@ -1,7 +1,7 @@
 {
 "skeleton": {
-	"hash": "nnF3Wj9UJeY",
-	"spine": "4.0.33",
+	"hash": "3OxO+fNCUmo",
+	"spine": "4.0.41",
 	"x": -601.38,
 	"y": -280.65,
 	"width": 1243.41,
@@ -143,8 +143,7 @@
 			},
 			"TDropShadow": {
 				"translate": [
-					{ "y": 15.86, "curve": "stepped" },
-					{ "time": 1.3333, "y": 15.86 }
+					{ "y": 15.86 }
 				],
 				"scale": [
 					{
@@ -165,7 +164,6 @@
 		"slots": {
 			"GateGlow": {
 				"rgba": [
-					{ "color": "ffffff00", "curve": "stepped" },
 					{ "time": 0.1667, "color": "ffffff00" },
 					{ "time": 0.3333, "color": "ffffffd7" },
 					{ "time": 0.6667, "color": "ffffffff" },
@@ -177,8 +175,7 @@
 				"rgba": [
 					{ "color": "ffffff00" },
 					{ "time": 0.1667, "color": "ffffffff" },
-					{ "time": 0.3333, "color": "ffffff00", "curve": "stepped" },
-					{ "time": 1, "color": "ffffff00" }
+					{ "time": 0.3333, "color": "ffffff00" }
 				]
 			}
 		},

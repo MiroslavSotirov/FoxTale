@@ -1,0 +1,31 @@
+[gd_resource type="BitmapFont" load_steps=17 format=2]
+
+[ext_resource path="res://addons/BitmapFontEasy/bmpfonthelper.gd" type="Script" id=1]
+[ext_resource path="res://Textures/font/7.png" type="Texture" id=2]
+[ext_resource path="res://Textures/font/3.png" type="Texture" id=3]
+[ext_resource path="res://Textures/font/4.png" type="Texture" id=4]
+[ext_resource path="res://Textures/font/5.png" type="Texture" id=5]
+[ext_resource path="res://Textures/font/$.png" type="Texture" id=6]
+[ext_resource path="res://Textures/font/0.png" type="Texture" id=7]
+[ext_resource path="res://Textures/font/6.png" type="Texture" id=8]
+[ext_resource path="res://Textures/font/x.png" type="Texture" id=9]
+[ext_resource path="res://Textures/font/1.png" type="Texture" id=10]
+[ext_resource path="res://Textures/font/2.png" type="Texture" id=11]
+[ext_resource path="res://Textures/font/,.png" type="Texture" id=12]
+[ext_resource path="res://Textures/font/xBig.png" type="Texture" id=13]
+[ext_resource path="res://Textures/font/8.png" type="Texture" id=14]
+[ext_resource path="res://Textures/font/€.png" type="Texture" id=15]
+[ext_resource path="res://Textures/font/9.png" type="Texture" id=16]
+
+[resource]
+textures = [ ExtResource( 7 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 2 ), ExtResource( 14 ), ExtResource( 16 ), ExtResource( 9 ), ExtResource( 13 ), ExtResource( 12 ), ExtResource( 6 ), ExtResource( 15 ) ]
+chars = PoolIntArray( 88, 11, 0, 0, 150, 201, 0, 0, 125, 120, 10, 0, 0, 151, 201, 0, 0, 125, 56, 8, 0, 0, 151, 201, 0, 0, 125, 48, 0, 0, 0, 149, 200, 0, 0, 125, 57, 9, 0, 0, 151, 201, 0, 0, 125, 49, 1, 0, 0, 151, 201, 0, 0, 125, 50, 2, 0, 0, 152, 201, 0, 0, 125, 51, 3, 0, 0, 150, 201, 0, 0, 125, 8364, 14, 0, 0, 152, 201, 0, 0, 125, 36, 13, 0, 0, 151, 201, 0, 0, 125, 52, 4, 0, 0, 151, 201, 0, 0, 125, 53, 5, 0, 0, 152, 201, 0, 0, 125, 46, 12, 0, 0, 150, 201, 0, 0, 125, 54, 6, 0, 0, 151, 201, 0, 0, 125, 55, 7, 0, 0, 151, 201, 0, 0, 125 )
+script = ExtResource( 1 )
+charset = [ "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "x", "X", ".", "$", "€" ]
+textureSet = [ ExtResource( 7 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 2 ), ExtResource( 14 ), ExtResource( 16 ), ExtResource( 9 ), ExtResource( 13 ), ExtResource( 12 ), ExtResource( 6 ), ExtResource( 15 ) ]
+globalOffset = Vector2( 0, 0 )
+globalAdvance = 125.0
+letterSpecificOffset = {
+}
+letterSpecificAdvance = {
+}

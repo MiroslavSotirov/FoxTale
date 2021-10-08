@@ -25,13 +25,13 @@ func _on_pressed():
 	pressed = true;
 
 func _on_mouse_entered():
-	if pressed: return;
 	hovered = true;
+	if pressed: return;
 	$Centering/ButtonRoot/ButtonNormal.visible = false;
 	$Centering/ButtonRoot/ButtonHover.visible = true;
 
 func _on_mouse_exited():
-	if pressed: return;
 	hovered = false;
+	if pressed: return;
 	$Centering/ButtonRoot/ButtonHover.visible = false;
 	$Centering/ButtonRoot/ButtonNormal.visible = true;
