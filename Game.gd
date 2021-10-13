@@ -44,6 +44,8 @@ func try_spin():
 	round_ended = false;
 	Globals.singletons["Slot"].start_spin();
 	Globals.singletons["Networking"].request_spin();
+#	var force = funcref(Globals.singletons["Networking"], "force_freespin");
+#	Globals.singletons["Networking"].request_force(force);
 	var data = yield(Globals.singletons["Networking"], "spinreceived");
 	if(data.has("freeSpinsRemaining")): freespins = data["freeSpinsRemaining"];
 	else: freespins = 0;

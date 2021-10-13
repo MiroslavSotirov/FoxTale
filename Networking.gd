@@ -3,6 +3,8 @@ extends Node
 signal initreceived (data);
 signal spinreceived (data);
 signal closereceived (data);
+signal forcespinreceived (data);
+signal forceclosereceived (data);
 signal fail(errorcode);
 signal success();
 
@@ -67,15 +69,28 @@ func request_init():
 	update_state(lastround);
 	self.wallet = _response["wallet"];	
 	
-	if(lastround.has("freeSpinsRemaining")):
-		Globals.singletons["Game"].freespins = lastround["freeSpinsRemaining"];
-		if(lastround["nextAction"] == "finish"):
-			request_close();
-	elif(!lastround["closed"]):
-		#show lastround["Win"]
-		request_close();
+#	if(self.next_action == "finish"):
+#		request_close();
+		
+func force_freespin(data):
+	if(data["nextAction"] == "freespin"):
+		return true
+	return false
 	
-func request_spin():
+func request_force(forcefunc):
+	while true:
+		request_spin("forcespinreceived");
+		var data = yield(self, "forcespinreceived")
+		update_state(data);
+		if(self.next_action == "finish"):
+			request_close("forceclosereceived");
+			yield(self, "forceclosereceived")
+			self.next_action = ""
+		if(forcefunc.call_func(data)):
+			emit_signal("spinreceived", data)
+			break
+	
+func request_spin(sig = "spinreceived"):
 	if(waiting_for_response): return printerr("Trying to request while waiting for response");
 	
 	var data = {
@@ -86,14 +101,14 @@ func request_spin():
 		"wallet" : wallet,
 		"force" : "",
 	}
-	if(Globals.singletons["Game"].freespins > 0):
+	if(self.next_action == "freespin"):
 		data["action"] = "freespin";
-	htmlpost("/v2/rgs/play2", JSON.print(data), "spinreceived");
-	data = yield(self, "spinreceived");
+	htmlpost("/v2/rgs/play2", JSON.print(data), sig);
+	data = yield(self, sig);
 	lastround = data;
 	update_state(data);
 
-func request_close():
+func request_close(sig = "closereceived"):
 	if(waiting_for_response): return printerr("Trying to request while waiting for response");
 	var data = {
 		"game" : game,
@@ -101,8 +116,8 @@ func request_close():
 		"wallet": wallet
 		
 	}
-	htmlput("/v2/rgs/close", JSON.print(data), "closereceived");
-	yield(self, "closereceived");
+	htmlput("/v2/rgs/close", JSON.print(data), sig);
+	yield(self, sig);
 	print("Round closed");
 	
 func htmlget(url, finsignal):
@@ -191,7 +206,13 @@ func update_state(state):
 	self.sessionID = state["host/verified-token"];
 	self.stateID = state["stateID"];
 	self.roundID = state["roundID"];
-
+	self.next_action = state["nextAction"]
+	if(self.next_action == "finish"):
+		if(state["closed"]):
+			self.next_action = "";
+		elif(state["action"] == "freespin" && self.stateID == self.roundID):
+			self.next_action = "freespin";
+			
 func on_fail(errcode):
 	Globals.singletons["UI"].show_error(str(errcode));
 	if(errcode == 900):
