@@ -1,4 +1,4 @@
-[gd_scene load_steps=132 format=2]
+[gd_scene load_steps=151 format=2]
 
 [ext_resource path="res://Slot/ReelSpinStartAnimation.tres" type="Animation" id=1]
 [ext_resource path="res://Slot/ReelSpinStopAnimation.tres" type="Animation" id=2]
@@ -89,6 +89,19 @@
 [ext_resource path="res://Textures/slot/Ground2Stone.png" type="Texture" id=87]
 [ext_resource path="res://Textures/slot/Ground3Stones.png" type="Texture" id=88]
 [ext_resource path="res://base_big_font.tres" type="BitmapFont" id=89]
+[ext_resource path="res://Textures/symbols/blur/FT_Symbols_blur_12.png" type="Texture" id=90]
+[ext_resource path="res://Textures/symbols/blur/FT_Symbols_blur_13.png" type="Texture" id=91]
+[ext_resource path="res://Textures/symbols/normal/FT_Symbols_13.png" type="Texture" id=92]
+[ext_resource path="res://Textures/slot/FT_EXPORT_47.png" type="Texture" id=93]
+[ext_resource path="res://Textures/symbols/normal/FT_Symbols_12.png" type="Texture" id=94]
+[ext_resource path="res://Slot/Features/PopupTile/FreeSpinPopupTile.tscn" type="PackedScene" id=95]
+[ext_resource path="res://Slot/Features/PopupTile/BonusPopupTile.tscn" type="PackedScene" id=96]
+[ext_resource path="res://Slot/Features/PopupTile/WildPopupTile.tscn" type="PackedScene" id=97]
+[ext_resource path="res://Slot/Features/BigWin.gd" type="Script" id=98]
+[ext_resource path="res://Slot/Features/WinBar.gd" type="Script" id=99]
+[ext_resource path="res://Slot/Features/WinLines.gd" type="Script" id=100]
+[ext_resource path="res://Slot/Features/WinTile.tscn" type="PackedScene" id=101]
+[ext_resource path="res://Slot/Features/WinLineParticles.tscn" type="PackedScene" id=102]
 
 [sub_resource type="SpineSkeletonDataResource" id=1]
 atlas_res = ExtResource( 80 )
@@ -1055,16 +1068,154 @@ tracks/9/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="SpineSkeletonDataResource" id=38]
+[sub_resource type="Animation" id=38]
+resource_name = "Hide"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=39]
+resource_name = "Show"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="SpineSkeletonDataResource" id=40]
 atlas_res = ExtResource( 71 )
 skeleton_json_res = ExtResource( 72 )
 animations = null
 skins = null
 
-[sub_resource type="SpineAnimationStateDataResource" id=39]
-skeleton = SubResource( 38 )
+[sub_resource type="SpineAnimationStateDataResource" id=41]
+skeleton = SubResource( 40 )
 
-[sub_resource type="Animation" id=40]
+[sub_resource type="Animation" id=42]
+resource_name = "Hide"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=43]
+resource_name = "Show"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=44]
+resource_name = "Hide"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=45]
+resource_name = "Show"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=46]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Background/Normal:visible")
 tracks/0/interp = 1
@@ -1114,7 +1265,7 @@ tracks/3/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=41]
+[sub_resource type="Animation" id=47]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Background/Normal:visible")
 tracks/0/interp = 1
@@ -1164,7 +1315,7 @@ tracks/3/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="CanvasItemMaterial" id=42]
+[sub_resource type="CanvasItemMaterial" id=48]
 blend_mode = 1
 light_mode = 1
 
@@ -1515,6 +1666,7 @@ texture = ExtResource( 51 )
 anims/Pressed = SubResource( 13 )
 
 [node name="SlotContainer" type="Control" parent="."]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -1727,6 +1879,37 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="WinlinesOverlap" type="Control" parent="SlotContainer/Slot"]
+modulate = Color( 1, 1, 1, 0 )
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+default = Color( 1, 1, 1, 1 )
+
+[node name="Normal" type="ColorRect" parent="SlotContainer/Slot/WinlinesOverlap"]
+margin_left = -740.0
+margin_top = -378.0
+margin_right = 740.0
+margin_bottom = 412.0
+color = Color( 0.0862745, 0.152941, 0.101961, 0.698039 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FreeSpins" type="ColorRect" parent="SlotContainer/Slot/WinlinesOverlap"]
+visible = false
+margin_left = -740.0
+margin_top = -378.0
+margin_right = 740.0
+margin_bottom = 412.0
+color = Color( 0.0117647, 0.0352941, 0.172549, 0.698039 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="SlotContainer/Slot/WinlinesOverlap"]
+
 [node name="Overlay" type="Control" parent="SlotContainer/Slot"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1756,6 +1939,11 @@ script = ExtResource( 36 )
 
 [node name="PopupTiles" type="Node" parent="SlotContainer/Slot/Features"]
 script = ExtResource( 37 )
+popup_tiles = {
+9: ExtResource( 97 ),
+10: ExtResource( 96 ),
+11: ExtResource( 95 )
+}
 
 [node name="FreeSpinsIntro" type="Control" parent="SlotContainer"]
 visible = false
@@ -1969,6 +2157,7 @@ anims/Show = SubResource( 22 )
 anims/ShowButton = SubResource( 23 )
 
 [node name="BonusScene" type="Control" parent="SlotContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 79 )
@@ -2291,40 +2480,101 @@ anims/ShowWin = SubResource( 35 )
 anims/ToLayer2 = SubResource( 36 )
 anims/ToLayer3 = SubResource( 37 )
 
+[node name="WinLines" type="Control" parent="SlotContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 100 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+lines = [ [ 1, 1, 1, 1, 1 ], [ 0, 0, 0, 0, 0 ], [ 2, 2, 2, 2, 2 ], [ 0, 1, 2, 1, 0 ], [ 2, 1, 0, 1, 2 ], [ 0, 0, 1, 2, 2 ], [ 2, 2, 1, 0, 0 ], [ 1, 0, 1, 2, 1 ], [ 1, 2, 1, 0, 1 ], [ 1, 0, 0, 1, 0 ], [ 1, 2, 2, 1, 2 ], [ 0, 1, 0, 0, 1 ], [ 2, 1, 2, 2, 1 ], [ 0, 2, 0, 2, 0 ], [ 2, 0, 2, 0, 2 ], [ 1, 0, 2, 0, 1 ], [ 1, 2, 0, 2, 1 ], [ 0, 1, 1, 1, 0 ], [ 2, 1, 1, 1, 2 ], [ 0, 2, 2, 2, 0 ] ]
+lines_count = 20
+tile_scene = ExtResource( 101 )
+line_scene = ExtResource( 102 )
+
+[node name="LinesContainer" type="Control" parent="SlotContainer/WinLines"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TilesContainer" type="Control" parent="SlotContainer/WinLines"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/WinLines"]
+anims/Hide = SubResource( 38 )
+anims/Show = SubResource( 39 )
+
 [node name="BigWin" type="Control" parent="SlotContainer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 98 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Sprite" type="Sprite" parent="SlotContainer/BigWin"]
+modulate = Color( 1, 1, 1, 0.588235 )
+texture = ExtResource( 82 )
 
 [node name="Animation" type="SpineSprite" parent="SlotContainer/BigWin"]
-animation_state_data_res = SubResource( 39 )
+position = Vector2( 0, -150 )
+animation_state_data_res = SubResource( 41 )
 script = ExtResource( 44 )
 skin = "default"
-startanimation = "loop_bigwin"
+startanimation = "start_bigwin"
+
+[node name="Glow" type="Sprite" parent="SlotContainer/BigWin"]
+modulate = Color( 1, 1, 1, 0.588235 )
+position = Vector2( 0, 275 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 93 )
+
+[node name="CounterText" type="Label" parent="SlotContainer/BigWin"]
+margin_top = 350.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = ExtResource( 89 )
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/BigWin"]
+anims/Hide = SubResource( 42 )
+anims/Show = SubResource( 43 )
 
 [node name="WinBar" type="Control" parent="SlotContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 99 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="CounterText" type="Label" parent="SlotContainer/WinBar"]
+margin_top = 900.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = ExtResource( 89 )
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/WinBar"]
+anims/Hide = SubResource( 44 )
+anims/Show = SubResource( 45 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer"]
-anims/fs_to_normal = SubResource( 40 )
-anims/normal_to_fs = SubResource( 41 )
-
-[node name="Label" type="Label" parent="SlotContainer"]
-margin_right = 500.0
-margin_bottom = 500.0
-custom_fonts/font = ExtResource( 89 )
-text = "145x"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+anims/fs_to_normal = SubResource( 46 )
+anims/normal_to_fs = SubResource( 47 )
 
 [node name="UIContainer" type="Control" parent="."]
 visible = false
@@ -2405,8 +2655,8 @@ currency = "USD"
 
 [node name="AssetLoader" type="Node" parent="."]
 script = ExtResource( 11 )
-tiles = [ ExtResource( 31 ), ExtResource( 18 ), ExtResource( 20 ), ExtResource( 19 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 14 ), ExtResource( 24 ), ExtResource( 21 ), ExtResource( 22 ) ]
-tilesBlur = [ ExtResource( 26 ), ExtResource( 12 ), ExtResource( 30 ), ExtResource( 13 ), ExtResource( 15 ), ExtResource( 27 ), ExtResource( 23 ), ExtResource( 29 ), ExtResource( 28 ), ExtResource( 25 ) ]
+tiles = [ ExtResource( 31 ), ExtResource( 18 ), ExtResource( 20 ), ExtResource( 19 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 14 ), ExtResource( 24 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 94 ), ExtResource( 92 ) ]
+tilesBlur = [ ExtResource( 26 ), ExtResource( 12 ), ExtResource( 30 ), ExtResource( 13 ), ExtResource( 15 ), ExtResource( 27 ), ExtResource( 23 ), ExtResource( 29 ), ExtResource( 28 ), ExtResource( 25 ), ExtResource( 90 ), ExtResource( 91 ) ]
 
 [node name="HTTPRequest" type="HTTPRequest" parent="AssetLoader"]
 
@@ -2424,7 +2674,7 @@ __meta__ = {
 
 [node name="FaderBright" type="ColorRect" parent="."]
 visible = false
-material = SubResource( 42 )
+material = SubResource( 48 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 input_pass_on_modal_close_click = false

@@ -1,3 +1,4 @@
+extends Object
 
 var id = 1;
 var feature;

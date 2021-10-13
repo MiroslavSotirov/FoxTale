@@ -48,3 +48,6 @@ func _resolution_changed(newres : Vector2):
 
 func check_can_spin():
 	return !singletons["Fader"].visible && !singletons["Slot"].spinning && singletons["Game"].round_ended;
+
+func format_money(v):
+	return ("%.2f" % v) + "$";

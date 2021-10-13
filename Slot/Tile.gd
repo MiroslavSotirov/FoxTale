@@ -2,6 +2,7 @@ extends Sprite
 const TileData = preload("TileData.gd")
 export (float) var reelPosition : float;
 export (int) var reelIndex : int;
+export (int) var tileIndex : int;
 export (bool) var blur : bool setget _setblur;
 
 signal ondiscard (tile, pos);
@@ -15,7 +16,8 @@ func setTileData(data):
 	if(blur): self.texture = Globals.singletons["AssetLoader"].tilesBlur[self.data.id];
 	else: self.texture = Globals.singletons["AssetLoader"].tiles[self.data.id];
 
-	if(self.data.feature != null): self.data.feature.init(self);
+	if(self.data.feature != null && is_instance_valid(self.data.feature)): 
+		self.data.feature.init(self);
 	
 func _setblur(val):
 	if(self.data == null): return
@@ -25,10 +27,3 @@ func _setblur(val):
 
 func _process(delta):
 	position.y = reelPosition + fmod(reel.spinPosition, reel.tileDistance) + reel.spinPositionOffset + reel.topOffset;
-
-func _discard():
-	if(reel == null || get_parent() == null): return;
-	get_parent().remove_child(self);
-	reel.discardedTiles.push_back(self);
-	emit_signal("ondiscard", self);
-

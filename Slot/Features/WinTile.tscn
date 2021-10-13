@@ -1,0 +1,68 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://Animations/symbol/Lantern.atlas" type="SpineAtlasResource" id=1]
+[ext_resource path="res://Animations/symbol/Bell.json" type="SpineSkeletonJsonDataResource" id=2]
+[ext_resource path="res://Animations/symbol/Junior_Symbol.json" type="SpineSkeletonJsonDataResource" id=3]
+[ext_resource path="res://Animations/symbol/Sake.json" type="SpineSkeletonJsonDataResource" id=4]
+[ext_resource path="res://Animations/symbol/Fox.json" type="SpineSkeletonJsonDataResource" id=5]
+[ext_resource path="res://Animations/symbol/Fox.atlas" type="SpineAtlasResource" id=6]
+[ext_resource path="res://Animations/symbol/Lantern.json" type="SpineSkeletonJsonDataResource" id=7]
+[ext_resource path="res://Animations/symbol/Sake.atlas" type="SpineAtlasResource" id=8]
+[ext_resource path="res://Animations/symbol/Junior_Symbol.atlas" type="SpineAtlasResource" id=9]
+[ext_resource path="res://Animations/symbol/Bell.atlas" type="SpineAtlasResource" id=10]
+[ext_resource path="res://Slot/Features/WinTile.gd" type="Script" id=11]
+[ext_resource path="res://Animations/symbol/Wild.atlas" type="SpineAtlasResource" id=12]
+[ext_resource path="res://Animations/symbol/Wild.json" type="SpineSkeletonJsonDataResource" id=13]
+
+[sub_resource type="SpineSkeletonDataResource" id=1]
+atlas_res = ExtResource( 10 )
+skeleton_json_res = ExtResource( 2 )
+animations = null
+skins = null
+
+[sub_resource type="SpineSkeletonDataResource" id=2]
+atlas_res = ExtResource( 6 )
+skeleton_json_res = ExtResource( 5 )
+animations = null
+skins = null
+
+[sub_resource type="SpineSkeletonDataResource" id=3]
+atlas_res = ExtResource( 1 )
+skeleton_json_res = ExtResource( 7 )
+animations = null
+skins = null
+
+[sub_resource type="SpineSkeletonDataResource" id=4]
+atlas_res = ExtResource( 8 )
+skeleton_json_res = ExtResource( 4 )
+animations = null
+skins = null
+
+[sub_resource type="SpineSkeletonDataResource" id=5]
+atlas_res = ExtResource( 12 )
+skeleton_json_res = ExtResource( 13 )
+animations = null
+skins = null
+
+[sub_resource type="SpineSkeletonDataResource" id=6]
+atlas_res = ExtResource( 9 )
+skeleton_json_res = ExtResource( 3 )
+animations = null
+skins = null
+
+[sub_resource type="SpineAnimationStateDataResource" id=8]
+resource_local_to_scene = true
+
+[node name="WinTile" type="Node2D"]
+script = ExtResource( 11 )
+bell = SubResource( 1 )
+fox = SubResource( 2 )
+lantern = SubResource( 3 )
+sake = SubResource( 4 )
+wild = SubResource( 5 )
+junior = SubResource( 6 )
+id = -1
+
+[node name="SpineSprite" type="SpineSprite" parent="."]
+animation_state_data_res = SubResource( 8 )
+overlap = true

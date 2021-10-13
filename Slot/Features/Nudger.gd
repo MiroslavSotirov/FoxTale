@@ -13,7 +13,7 @@ func _ready():
 		nudge_values["reel"+str(reel.index)] = 0;
 
 func has_feature(spindata):
-	return true;
+	return false;
 	
 func activate(spindata):
 	if(false): emit_signal("activationend");

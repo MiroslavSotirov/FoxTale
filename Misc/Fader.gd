@@ -1,4 +1,4 @@
-extends ColorRect
+extends Control
 var _tween : Tween;
 
 export(Color) var default;
@@ -15,13 +15,13 @@ func tween(from, to, time):
 	cfrom.a = from;
 	var cto = default;
 	cto.a = to;
-	color = cfrom;
+	modulate = cfrom;
 	$Tween.interpolate_property(
-		self, "color", 
+		self, "modulate", 
 		cfrom, cto, time,
 		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$Tween.start();
 	
 func _tween_completed(obj, key):
-	self.visible = self.color.a > 0;
+	self.visible = self.modulate.a > 0;
 	emit_signal("done")

@@ -40,6 +40,9 @@ func initialize():
 	for i in range(totalTileCount):
 		_generate_tile_at(i-topTileCount);
 		currentTiles[i].setTileData(_generate_random_tiledata());
+		
+func get_tile_at(y):
+	return currentTiles[topTileCount+y];
 	
 func _process(delta):
 	if(spinSpeedMultiplier != 0):
@@ -100,22 +103,30 @@ func move(amount : float):
 
 func shift_down_tiles():
 	if(len(queueData)==0): queueData.push_back(_generate_random_tiledata());
-		
+
+	var lastTile = currentTiles[len(currentTiles)-1];
+	if(lastTile.data.feature != null): lastTile.data.feature.discard(lastTile);
+	
 	var order = range(1,len(currentTiles));
 	order.invert();
 	for i in order:
 		currentTiles[i].setTileData(currentTiles[i-1].data);
-		
-	currentTiles[0].setTileData(queueData.pop_front());
+	
+	var firstTile = currentTiles[0];
+	firstTile.setTileData(queueData.pop_front());	
 	
 func shift_up_tiles():
 	if(len(queueData)==0): queueData.push_back(_generate_random_tiledata());
-		
+	
+	var lastTile = currentTiles[0];
+	if(lastTile.data.feature != null): lastTile.data.feature.discard(lastTile);
+	
 	var order = range(len(currentTiles)-1);
 	for i in order:
 		currentTiles[i].setTileData(currentTiles[i+1].data);
-		
-	currentTiles[len(currentTiles)-1].setTileData(queueData.pop_front());	
+	
+	var firstTile = currentTiles[len(currentTiles)-1];
+	firstTile.setTileData(queueData.pop_front());	
 		
 func _generate_random_tiledata():
 	return TileData.new(slot.availableTiles[randi() % len(slot.availableTiles)]);
@@ -129,6 +140,7 @@ func _generate_tile_at(position):
 	newTile.reel = self;
 	newTile.reelPosition = _get_tile_pos(position);
 	newTile.reelIndex = position;
+	newTile.tileIndex = position;
 	currentTiles.insert(position+topTileCount, newTile);	
 	
 	$TileContainer.add_child(newTile);

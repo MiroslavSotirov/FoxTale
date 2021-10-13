@@ -93,4 +93,7 @@ func parse_safe_spin_data():
 		[TileData.new(2),TileData.new(2),TileData.new(2)],\
 		[TileData.new(3),TileData.new(3),TileData.new(3)],\
 		[TileData.new(4),TileData.new(4),TileData.new(4)],\
-		];
+	];
+
+func get_tile_at(x,y):
+	return reels[x].get_tile_at(y);
