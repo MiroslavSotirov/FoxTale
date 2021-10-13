@@ -5,8 +5,8 @@ export(int) var height = 1;
 
 var root;
 var expanded : bool = false;
+var offset : int = 0;
 
 func popup():
 	$SpineSprite.play_anim("popup_wildsmall", true);
-	pass;
-	
+	$SpineSprite.set_timescale(1);

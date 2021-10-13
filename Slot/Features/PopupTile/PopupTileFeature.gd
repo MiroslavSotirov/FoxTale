@@ -8,6 +8,8 @@ var registered : bool = false;
 var tileX;
 var tileY;
 
+signal popupcomplete;
+
 func _ready():
 	Globals.singletons["PopupTiles"].created_tiles.append(self);
 	
@@ -30,6 +32,12 @@ func register(tile):
 	registered = true;
 	tile.reel.connect("onstopped", self, "on_reel_stopped");
 	
-func on_reel_stopped():
+func popup():
 	$SpineSprite.play_anim(popup_animation, false);
 	$SpineSprite.set_timescale(1);
+	
+func on_reel_stopped():
+	popup();
+	yield($SpineSprite,"animation_complete");
+	emit_signal("popupcomplete");
+	Globals.singletons["PopupTiles"].popup_complete();

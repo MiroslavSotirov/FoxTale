@@ -20,6 +20,9 @@ var playerID : String= "";
 var wallet : String="";
 var waiting_for_response : bool = false;
 
+var next_action : String;
+var lastround = {};
+
 const ERROR = 1
 const OK = 0
 
@@ -44,8 +47,9 @@ func request_init():
 	}
 	htmlpost("/v2/rgs/init2", JSON.print(data), "initreceived");
 	data = yield(self, "initreceived");
-	var lastround = null;
+	lastround = null;
 	if("init" in data["lastRound"]): lastround = data["lastRound"]["init"];
+	elif("freespin" in data["lastRound"]): lastround = data["lastRound"]["freespin"];
 	elif("base" in data["lastRound"]): lastround = data["lastRound"]["base"];
 	else: return on_fail(901);
 	
@@ -61,8 +65,13 @@ func request_init():
 		lastround["balance"]["amount"]["amount"], 
 		lastround["balance"]["amount"]["currency"]);
 	update_state(lastround);
-	self.wallet = _response["wallet"];
-	if(not lastround["closed"]):
+	self.wallet = _response["wallet"];	
+	
+	if(lastround.has("freeSpinsRemaining")):
+		Globals.singletons["Game"].freespins = lastround["freeSpinsRemaining"];
+		if(lastround["nextAction"] == "finish"):
+			request_close();
+	elif(!lastround["closed"]):
 		#show lastround["Win"]
 		request_close();
 	
@@ -77,8 +86,11 @@ func request_spin():
 		"wallet" : wallet,
 		"force" : "",
 	}
+	if(Globals.singletons["Game"].freespins > 0):
+		data["action"] = "freespin";
 	htmlpost("/v2/rgs/play2", JSON.print(data), "spinreceived");
 	data = yield(self, "spinreceived");
+	lastround = data;
 	update_state(data);
 
 func request_close():

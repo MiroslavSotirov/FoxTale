@@ -2,6 +2,7 @@ extends Node
 
 var round_closed : bool = false;
 var round_ended : bool = true;
+var freespins : int = 0;
 var features = [];
 
 func _ready():
@@ -44,6 +45,8 @@ func try_spin():
 	Globals.singletons["Slot"].start_spin();
 	Globals.singletons["Networking"].request_spin();
 	var data = yield(Globals.singletons["Networking"], "spinreceived");
+	if(data.has("freeSpinsRemaining")): freespins = data["freeSpinsRemaining"];
+	else: freespins = 0;
 	Globals.singletons["Slot"].stop_spin(data);
 	
 	
@@ -54,6 +57,8 @@ func try_spin():
 	yield(Globals.singletons["Slot"], "onstopped");
 	
 	if(wins > 0):
+		if(Globals.singletons["PopupTiles"].popup_tile_count > 0): 
+			yield(Globals.singletons["PopupTiles"], "popuptilesend");
 		var line_wins = calculate_line_wins(data["wins"]);
 		var has_line_wins = line_wins > 0;
 		if(has_line_wins):
@@ -71,13 +76,14 @@ func try_spin():
 			yield(feature, "activationend");
 	
 	
-	if(!round_closed):
+	if(!round_closed && freespins == 0):
 		close_round();
 		yield(Globals.singletons["Networking"], "closereceived");
 		
 	round_ended = true;
 	
 func close_round():
+	if(freespins > 0): return;
 	Globals.singletons["Networking"].request_close();
 	yield(Globals.singletons["Networking"], "closereceived");
 	round_closed = true;

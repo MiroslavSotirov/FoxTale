@@ -39,19 +39,20 @@ func show_line(positions):
 	var global_positions = [];
 		
 	for pos in positions:
-		if(shown_tiles.has(pos)): continue;
-		
-		shown_tiles.append(pos);
 		var y = int(pos)%3;
 		var x = floor(pos/3);		
-		var wintile = tile_scene.instance();		
 		var tile = Globals.singletons["Slot"].get_tile_at(x,y);
-		$TilesContainer.add_child(wintile);
-		wintile.tileX = tile.reelIndex;
-		wintile.tileY = tile.tileIndex;
-		wintile.set_id(tile.data.id);
-		wintile.global_position = tile.global_position;
-		global_positions.append(tile.global_position);
+		if(shown_tiles.has(pos)): 
+			global_positions.append(tile.global_position);
+		else:
+			shown_tiles.append(pos);
+			var wintile = tile_scene.instance();		
+			$TilesContainer.add_child(wintile);
+			wintile.tileX = tile.reelIndex;
+			wintile.tileY = tile.tileIndex;
+			wintile.set_id(tile.data.id);
+			wintile.global_position = tile.global_position;
+			global_positions.append(tile.global_position);
 		
 	var winline = line_scene.instance();
 	$LinesContainer.add_child(winline);
