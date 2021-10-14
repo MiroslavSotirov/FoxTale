@@ -69,12 +69,14 @@ func request_init():
 	update_state(lastround);
 	self.wallet = _response["wallet"];	
 	
-#	if(self.next_action == "finish"):
-#		request_close();
+	if(self.next_action == "finish"):
+		request_close();
+		yield(self, "closereceived")
+		self.next_action = ""
 		
 func force_freespin(data):
 	if(data["nextAction"] == "freespin"):
-		return true
+		return true 
 	return false
 	
 func request_force(forcefunc):
@@ -210,7 +212,7 @@ func update_state(state):
 	if(self.next_action == "finish"):
 		if(state["closed"]):
 			self.next_action = "";
-		elif(state["action"] == "freespin" && self.stateID == self.roundID):
+		elif(state["action"] == "freespin" && self.stateID != self.roundID):
 			self.next_action = "freespin";
 			
 func on_fail(errcode):

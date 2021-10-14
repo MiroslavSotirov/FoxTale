@@ -32,9 +32,10 @@ func show_slot():
 
 func _process(delta):
 	if($SlotContainer.visible):		
-		if(Input.is_action_pressed("spin")): try_spin();
+		if(Input.is_action_pressed("spin")): try_spin(false);
+		if(Input.is_action_pressed("spinforce")): try_spin(true);
 			
-func try_spin():
+func try_spin(isforce):
 	if(!Globals.canSpin): return;
 	if(Globals.singletons["WinLines"].shown):
 		Globals.singletons["WinLines"].hide_lines();
@@ -45,9 +46,11 @@ func try_spin():
 	round_closed = false;
 	round_ended = false;
 	Globals.singletons["Slot"].start_spin();
-	Globals.singletons["Networking"].request_spin();
-#	var force = funcref(Globals.singletons["Networking"], "force_freespin");
-#	Globals.singletons["Networking"].request_force(force);
+	if(isforce):
+		var force = funcref(Globals.singletons["Networking"], "force_freespin");
+		Globals.singletons["Networking"].request_force(force);
+	else:
+		Globals.singletons["Networking"].request_spin();
 	var data = yield(Globals.singletons["Networking"], "spinreceived");
 	update_spins_count(data);
 	Globals.singletons["Slot"].stop_spin(data);
@@ -122,7 +125,9 @@ func calculate_line_wins(wins):
 	var n : float = 0;	
 	
 	for win in wins: 
-		if(!win.has("winline")): n+=float(win["win"]); #winline 0
+		if(!win.has("winline")): 
+			if(win.has("win")):
+				n+=float(win["win"]); #winline 0
 		elif(int(win["winline"]) > -1): n+=float(win["win"]);
 			
 	return n;	
