@@ -14,9 +14,11 @@ var tileY;
 
 func set_id(n):
 	var iswild = false;
+
 	if(n < 0): return;
 	if(n > 9): return;
 	id = n;
+	
 	if(id == 0):
 		$SpineSprite.animation_state_data_res.skeleton = junior;
 		$SpineSprite.get_skeleton().set_skin_by_name("10");
@@ -46,9 +48,18 @@ func set_id(n):
 	elif(id == 10):
 		pass;
 	elif(id == 11):
-		pass;	
+		pass;
+	
+	prints(tileX, tileY, id);
 	if(iswild):
-		Globals.singletons["PopupTiles"].get_tile_at(tileX, tileY).popup();
+		var expandedwild = Globals.singletons["ExpandingWilds"].get_expanded_wild_at(tileX, tileY);
+		var isexpandedwild = expandedwild != null;
+		if(isexpandedwild):
+			pass;
+		else:
+			var tile = Globals.singletons["PopupTiles"].get_tile_at(tileX, tileY);
+			tile.popup(true);
+			tile.change_z_index = false;
 	else:
 		$SpineSprite.setup_pose_trigger = true;
 		$SpineSprite.clear_tracks_trigger = true;

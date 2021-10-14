@@ -24,6 +24,8 @@ var slot;
 var totalTileCount : int;
 var queueData = [];
 var currentTiles = [];
+var tiles = {};
+var visible_tiles = [];
 
 var spinning : bool = false;
 var stopped : bool = true;
@@ -40,6 +42,9 @@ func initialize():
 	for i in range(totalTileCount):
 		_generate_tile_at(i-topTileCount);
 		currentTiles[i].setTileData(_generate_random_tiledata());
+		tiles[i-topTileCount] = currentTiles[i];
+		if(i >= topTileCount && i < topTileCount+visibleTileCount):
+			visible_tiles.append(currentTiles[i]);
 		
 func get_tile_at(y):
 	return currentTiles[topTileCount+y];
@@ -105,7 +110,8 @@ func shift_down_tiles():
 	if(len(queueData)==0): queueData.push_back(_generate_random_tiledata());
 
 	var lastTile = currentTiles[len(currentTiles)-1];
-	if(lastTile.data.feature != null): lastTile.data.feature.discard(lastTile);
+	if(lastTile.data.feature != null && is_instance_valid(lastTile.data.feature)): 
+		lastTile.data.feature.discard(lastTile);
 	
 	var order = range(1,len(currentTiles));
 	order.invert();
@@ -136,10 +142,9 @@ func _get_tile_pos(n):
 
 func _generate_tile_at(position):
 	var newTile = tileScene.instance();
-	newTile.connect("ondiscard", self, "_on_tile_discarded");
 	newTile.reel = self;
 	newTile.reelPosition = _get_tile_pos(position);
-	newTile.reelIndex = position;
+	newTile.reelIndex = index;
 	newTile.tileIndex = position;
 	currentTiles.insert(position+topTileCount, newTile);	
 	

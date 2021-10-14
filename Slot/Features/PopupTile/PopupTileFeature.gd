@@ -1,12 +1,15 @@
 extends Node2D
 
 export(String) var popup_animation;
+export(bool) var wait_for_popup = true;
+export(bool) var change_z_index = true;
 
 var previous_tile;
 var registered : bool = false;
 
 var tileX;
 var tileY;
+var id;
 
 signal popupcomplete;
 
@@ -31,13 +34,25 @@ func discard(tile):
 func register(tile):
 	registered = true;
 	tile.reel.connect("onstopped", self, "on_reel_stopped");
+	tile.reel.connect("onstartspin", self, "on_spin_start");
 	
-func popup():
-	$SpineSprite.play_anim(popup_animation, false);
+func popup(loop = false):
+	Globals.safe_set_parent(self, Globals.singletons["PopupTiles"]);
+	$SpineSprite.play_anim(popup_animation, loop);
 	$SpineSprite.set_timescale(1);
 	
 func on_reel_stopped():
 	popup();
 	yield($SpineSprite,"animation_complete");
+	if(change_z_index): unpop();
 	emit_signal("popupcomplete");
 	Globals.singletons["PopupTiles"].popup_complete();
+
+func unpop():
+	z_index = 0;
+	Globals.safe_set_parent(self, previous_tile);
+
+func on_spin_start():
+	unpop();
+
+

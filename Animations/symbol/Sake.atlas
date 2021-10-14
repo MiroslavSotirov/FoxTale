@@ -1,35 +1,68 @@
 Sake.png
-size:379,722
-filter:Linear,Linear
-pma:true
+size: 722, 384
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
 Fx/170 (1)
-bounds:2,2,142,151
-offsets:46,38,217,218
-rotate:90
+  rotate: false
+  xy: 578, 45
+  size: 142, 151
+  orig: 217, 218
+  offset: 46, 38
+  index: -1
 Fx/170 (2)
-bounds:190,5,166,171
-offsets:30,27,217,218
-rotate:90
+  rotate: false
+  xy: 410, 25
+  size: 166, 171
+  orig: 217, 218
+  offset: 30, 27
+  index: -1
 Fx/170 (3)
-bounds:192,173,180,182
-offsets:21,21,217,218
-rotate:90
+  rotate: false
+  xy: 191, 202
+  size: 180, 182
+  orig: 217, 218
+  offset: 21, 21
+  index: -1
 Fx/170 (4)
-bounds:192,355,185,187
-offsets:19,18,217,218
+  rotate: false
+  xy: 2, 7
+  size: 185, 187
+  orig: 217, 218
+  offset: 19, 18
+  index: -1
 Fx/170 (5)
-bounds:2,465,187,188
-offsets:16,18,217,218
-rotate:90
+  rotate: false
+  xy: 2, 196
+  size: 187, 188
+  orig: 217, 218
+  offset: 16, 18
+  index: -1
 Fx/170 (6)
-bounds:2,146,186,164
-offsets:15,40,217,218
+  rotate: true
+  xy: 551, 198
+  size: 186, 164
+  orig: 217, 218
+  offset: 15, 40
+  index: -1
 Fx/170 (7)
-bounds:2,312,188,151
-offsets:16,53,217,218
+  rotate: true
+  xy: 189, 6
+  size: 188, 151
+  orig: 217, 218
+  offset: 16, 53
+  index: -1
 sake
-bounds:200,544,176,176
-offsets:1,9,192,186
+  rotate: false
+  xy: 373, 208
+  size: 176, 176
+  orig: 192, 186
+  offset: 1, 9
+  index: -1
 shadow
-bounds:2,654,196,66
-offsets:10,7,240,90
+  rotate: true
+  xy: 342, 4
+  size: 196, 66
+  orig: 240, 90
+  offset: 10, 7
+  index: -1

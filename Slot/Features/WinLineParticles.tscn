@@ -13,8 +13,8 @@ colors = PoolColorArray( 0, 0, 0, 1, 0.835294, 0.8, 0.501961, 1, 0, 0, 0, 1 )
 
 [node name="LineParticles" type="CPUParticles2D"]
 material = SubResource( 1 )
-amount = 30
-lifetime = 2.0
+amount = 50
+lifetime = 3.0
 lifetime_randomness = 0.3
 local_coords = false
 texture = ExtResource( 1 )
@@ -22,7 +22,7 @@ emission_shape = 2
 emission_rect_extents = Vector2( 10, 10 )
 spread = 180.0
 gravity = Vector2( 0, 0 )
-initial_velocity = 25.0
+initial_velocity = 5.0
 initial_velocity_random = 1.0
 orbit_velocity_random = 1.0
 linear_accel_random = 1.0

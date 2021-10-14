@@ -1,16 +1,33 @@
 Bell.png
-size:247,431
-filter:Linear,Linear
-pma:true
+size: 247, 431
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
 bell
-bounds:2,255,182,174
+  rotate: false
+  xy: 2, 257
+  size: 182, 174
+  orig: 182, 174
+  offset: 0, 0
+  index: -1
 blinks
-bounds:186,293,136,52
-offsets:1,1,138,57
-rotate:90
+  rotate: true
+  xy: 186, 295
+  size: 136, 52
+  orig: 138, 57
+  offset: 1, 1
+  index: -1
 roup
-bounds:2,110,143,214
-rotate:90
+  rotate: true
+  xy: 2, 112
+  size: 143, 214
+  orig: 143, 214
+  offset: 0, 0
+  index: -1
 shadow_bell
-bounds:2,2,243,106
-offsets:10,4,258,114
+  rotate: false
+  xy: 2, 4
+  size: 243, 106
+  orig: 258, 114
+  offset: 10, 4
+  index: -1

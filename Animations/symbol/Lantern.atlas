@@ -1,13 +1,26 @@
 Lantern.png
-size:514,251
-filter:Linear,Linear
-pma:true
+size: 514, 251
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
 lantern
-bounds:312,2,247,200
-rotate:90
+  rotate: true
+  xy: 312, 4
+  size: 247, 200
+  orig: 247, 200
+  offset: 0, 0
+  index: -1
 lantern2
-bounds:2,5,30,15
-offsets:0,2,30,17
+  rotate: false
+  xy: 2, 7
+  size: 30, 15
+  orig: 30, 17
+  offset: 0, 2
+  index: -1
 light
-bounds:2,22,308,227
-offsets:10,2,329,242
+  rotate: false
+  xy: 2, 24
+  size: 308, 227
+  orig: 329, 242
+  offset: 10, 2
+  index: -1

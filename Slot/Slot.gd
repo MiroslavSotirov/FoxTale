@@ -31,6 +31,9 @@ func _ready():
 		reels[i].index = i;
 		reels[i].initialize();
 		reels[i].connect("onstopped", self, "_on_reel_stopped");
+		
+	Globals.visible_tiles_count = reels[0].visibleTileCount;
+	Globals.visible_reels_count = len(reels);
 
 func _on_reel_stopped():
 	reels_spinning -= 1;

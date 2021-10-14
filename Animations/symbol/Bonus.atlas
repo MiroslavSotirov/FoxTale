@@ -1,43 +1,82 @@
 Bonus.png
-size:636,1044
-filter:Linear,Linear
-pma:true
+size: 1476, 436
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
 TXT
-bounds:538,2,302,87
-offsets:1,1,304,89
-rotate:90
+  rotate: false
+  xy: 2, 4
+  size: 302, 87
+  orig: 304, 89
+  offset: 1, 1
+  index: -1
 TXT copy
-bounds:428,2,302,108
-offsets:0,1,303,110
-rotate:90
+  rotate: false
+  xy: 342, 33
+  size: 302, 108
+  orig: 303, 110
+  offset: 0, 1
+  index: -1
 Tree_2
-bounds:297,306,330,162
+  rotate: false
+  xy: 696, 4
+  size: 330, 162
+  orig: 330, 162
+  offset: 0, 0
+  index: -1
 bg
-bounds:347,470,287,251
-offsets:1,1,289,253
+  rotate: false
+  xy: 1017, 185
+  size: 287, 251
+  orig: 289, 253
+  offset: 1, 1
+  index: -1
 gate1
-bounds:2,350,352,293
-offsets:1,1,354,295
-rotate:90
+  rotate: false
+  xy: 342, 143
+  size: 352, 293
+  orig: 354, 295
+  offset: 1, 1
+  index: -1
 gate2
-bounds:2,2,64,54
-offsets:1,1,66,56
+  rotate: true
+  xy: 1420, 372
+  size: 64, 54
+  orig: 66, 56
+  offset: 1, 1
+  index: -1
 ray
-bounds:2,704,338,343
-offsets:10,8,371,359
-rotate:90
+  rotate: false
+  xy: 2, 93
+  size: 338, 343
+  orig: 371, 359
+  offset: 10, 8
+  index: -1
 shadow
-bounds:2,172,290,176
-offsets:4,4,299,188
+  rotate: false
+  xy: 1028, 7
+  size: 290, 176
+  orig: 299, 188
+  offset: 4, 4
+  index: -1
 stairs
-bounds:294,34,270,132
-offsets:1,1,272,134
-rotate:90
+  rotate: true
+  xy: 1320, 56
+  size: 270, 132
+  orig: 272, 134
+  offset: 1, 1
+  index: -1
 star
-bounds:2,58,112,108
-offsets:7,6,121,120
-rotate:90
+  rotate: false
+  xy: 1306, 328
+  size: 112, 108
+  orig: 121, 120
+  offset: 7, 6
+  index: -1
 tree
-bounds:347,723,319,268
-offsets:6,1,332,270
-rotate:90
+  rotate: false
+  xy: 696, 168
+  size: 319, 268
+  orig: 332, 270
+  offset: 6, 1
+  index: -1

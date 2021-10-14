@@ -1,23 +1,47 @@
 Junior_Symbol.png
-size:721,159
-filter:Linear,Linear
-pma:true
+size: 411, 273
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
 10
-bounds:2,2,174,155
-offsets:1,1,176,157
+  rotate: false
+  xy: 2, 118
+  size: 174, 155
+  orig: 176, 157
+  offset: 1, 1
+  index: -1
 a
-bounds:397,13,108,144
-offsets:1,1,110,146
+  rotate: false
+  xy: 283, 129
+  size: 108, 144
+  orig: 110, 146
+  offset: 1, 1
+  index: -1
 j
-bounds:507,8,102,149
-offsets:1,1,104,151
+  rotate: true
+  xy: 260, 18
+  size: 102, 149
+  orig: 104, 151
+  offset: 1, 1
+  index: -1
 k
-bounds:292,6,103,151
-offsets:1,1,105,153
+  rotate: false
+  xy: 178, 122
+  size: 103, 151
+  orig: 105, 153
+  offset: 1, 1
+  index: -1
 q
-bounds:178,11,112,146
-offsets:1,1,114,148
+  rotate: true
+  xy: 2, 4
+  size: 112, 146
+  orig: 114, 148
+  offset: 1, 1
+  index: -1
 star
-bounds:611,45,112,108
-offsets:7,6,121,120
-rotate:90
+  rotate: true
+  xy: 150, 4
+  size: 112, 108
+  orig: 121, 120
+  offset: 7, 6
+  index: -1

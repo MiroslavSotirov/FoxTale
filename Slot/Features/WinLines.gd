@@ -39,8 +39,9 @@ func show_line(positions):
 	var global_positions = [];
 		
 	for pos in positions:
-		var y = int(pos)%3;
-		var x = floor(pos/3);		
+		#TODO: dynamic
+		var y = int(pos)%Globals.visible_tiles_count;
+		var x = floor(pos/Globals.visible_tiles_count);		
 		var tile = Globals.singletons["Slot"].get_tile_at(x,y);
 		if(shown_tiles.has(pos)): 
 			global_positions.append(tile.global_position);
@@ -59,17 +60,6 @@ func show_line(positions):
 	winline.global_position = global_positions[0];
 	winline.positions = global_positions;
 	winline.next();
-		
-	
-	# wins:[
-	#	{
-	#		index:1:3, 
-	#		multiplier:1, 
-	#		payout: {count:3, multiplier:5, symbol:1}, 
-	#		symbol_positions:[0, 4, 8], 
-	#		win:0.150, 
-	#		winline:3
-	#	}]}
 	
 func hide_lines():
 	shown = false;

@@ -21,6 +21,8 @@ var zoom_resolution_to : float = 768;
 var landscaperatio : float = 16.0/9.0;
 var portraitratio : float = 9.0/20.0;
 
+var visible_reels_count : int = 0;
+var visible_tiles_count : int = 0;
 var canSpin : bool setget ,check_can_spin;
 	
 func _ready():
@@ -51,3 +53,13 @@ func check_can_spin():
 
 func format_money(v):
 	return ("%.2f" % v) + "$";
+
+func safe_set_parent(obj, newparent):
+	var pos = obj.global_position;
+	var scale = obj.global_scale;
+	obj.get_parent().remove_child(obj);
+	newparent.add_child(obj);
+	obj.global_scale = scale;
+	obj.global_position = pos;
+	if(obj.get_node_or_null("SpineSprite") != null):
+		obj.get_node("SpineSprite").update_skeleton();

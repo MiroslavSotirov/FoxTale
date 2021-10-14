@@ -1,28 +1,68 @@
 Fox.png
-size:529,551
-filter:Linear,Linear
-pma:true
+size: 370, 796
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
 110 (5)
-bounds:2,21,161,174
-offsets:10,5,182,187
+  rotate: false
+  xy: 201, 268
+  size: 161, 174
+  orig: 182, 187
+  offset: 10, 5
+  index: -1
 body
-bounds:250,203,144,118
-rotate:90
+  rotate: true
+  xy: 250, 450
+  size: 144, 118
+  orig: 144, 118
+  offset: 0, 0
+  index: -1
 eyes
-bounds:458,39,131,64
-rotate:90
+  rotate: true
+  xy: 294, 665
+  size: 131, 64
+  orig: 131, 64
+  offset: 0, 0
+  index: -1
 hairs
-bounds:165,2,193,132
-rotate:90
+  rotate: false
+  xy: 2, 130
+  size: 193, 132
+  orig: 193, 132
+  offset: 0, 0
+  index: -1
 head
-bounds:370,172,157,178
+  rotate: false
+  xy: 201, 88
+  size: 157, 178
+  orig: 157, 178
+  offset: 0, 0
+  index: -1
 lista
-bounds:2,197,246,150
+  rotate: false
+  xy: 2, 444
+  size: 246, 150
+  orig: 246, 150
+  offset: 0, 0
+  index: -1
 tail1
-bounds:2,349,290,200
-offsets:0,6,303,206
+  rotate: false
+  xy: 2, 596
+  size: 290, 200
+  orig: 303, 206
+  offset: 0, 6
+  index: -1
 tail2
-bounds:299,46,157,124
+  rotate: false
+  xy: 2, 4
+  size: 157, 124
+  orig: 157, 124
+  offset: 0, 0
+  index: -1
 tail3
-bounds:294,352,178,197
-offsets:0,0,202,197
+  rotate: true
+  xy: 2, 264
+  size: 178, 197
+  orig: 202, 197
+  offset: 0, 0
+  index: -1

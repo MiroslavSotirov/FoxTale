@@ -1,4 +1,4 @@
-[gd_scene load_steps=151 format=2]
+[gd_scene load_steps=152 format=2]
 
 [ext_resource path="res://Slot/ReelSpinStartAnimation.tres" type="Animation" id=1]
 [ext_resource path="res://Slot/ReelSpinStopAnimation.tres" type="Animation" id=2]
@@ -102,6 +102,7 @@
 [ext_resource path="res://Slot/Features/WinLines.gd" type="Script" id=100]
 [ext_resource path="res://Slot/Features/WinTile.tscn" type="PackedScene" id=101]
 [ext_resource path="res://Slot/Features/WinLineParticles.tscn" type="PackedScene" id=102]
+[ext_resource path="res://Slot/Features/ExpandingWilds.gd" type="Script" id=103]
 
 [sub_resource type="SpineSkeletonDataResource" id=1]
 atlas_res = ExtResource( 80 )
@@ -1872,6 +1873,20 @@ texture = ExtResource( 39 )
 position = Vector2( 0, -427.653 )
 texture = ExtResource( 40 )
 
+[node name="CounterText" type="Label" parent="SlotContainer/Slot/FreeSpinsOverlap/Text"]
+margin_left = -450.0
+margin_top = -75.0
+margin_right = -192.0
+margin_bottom = -66.0
+grow_horizontal = 0
+rect_scale = Vector2( 0.75, 0.75 )
+custom_fonts/font = ExtResource( 89 )
+text = "12"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="NormalOverlap" type="Control" parent="SlotContainer/Slot"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1937,13 +1952,16 @@ startanimation = "idle"
 [node name="Nudger" type="Node" parent="SlotContainer/Slot/Features"]
 script = ExtResource( 36 )
 
-[node name="PopupTiles" type="Node" parent="SlotContainer/Slot/Features"]
+[node name="PopupTiles" type="Node2D" parent="SlotContainer/Slot/Features"]
 script = ExtResource( 37 )
 popup_tiles = {
 9: ExtResource( 97 ),
 10: ExtResource( 96 ),
 11: ExtResource( 95 )
 }
+
+[node name="ExpandingWilds" type="Node" parent="SlotContainer/Slot/Features"]
+script = ExtResource( 103 )
 
 [node name="FreeSpinsIntro" type="Control" parent="SlotContainer"]
 visible = false
