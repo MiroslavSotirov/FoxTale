@@ -32,8 +32,11 @@ func set_timescale(scale):
 	timescale = scale;
 
 func update_skeleton():
+	#get_skeleton().update_world_transform();
+	#get_skeleton().set_bones_to_setup_pose();
+	#get_skeleton().set_to_setup_pose();
+	#get_animation_state().apply(get_skeleton());
+	#_on_animation_data_created();
 	get_skeleton().update_world_transform();
-	get_skeleton().set_bones_to_setup_pose();
-	get_skeleton().set_to_setup_pose();
-	get_animation_state().apply(get_skeleton());
-	manual_update(0);
+	#manual_update(0);
+	pass;

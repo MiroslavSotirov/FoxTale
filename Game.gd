@@ -110,7 +110,6 @@ func close_round():
 	round_closed = true;
 
 func update_spins_count(data):
-	print(data["freeSpinsRemaining"]);
 	if(data.has("freeSpinsRemaining")): 
 		freespins = data["freeSpinsRemaining"];
 		if(freespins == 0):

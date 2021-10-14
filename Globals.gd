@@ -55,11 +55,14 @@ func format_money(v):
 	return ("%.2f" % v) + "$";
 
 func safe_set_parent(obj, newparent):
+	#obj.visible = false;
 	var pos = obj.global_position;
 	var scale = obj.global_scale;
 	obj.get_parent().remove_child(obj);
 	newparent.add_child(obj);
 	obj.global_scale = scale;
 	obj.global_position = pos;
+
+	#obj.visible = true;
 	if(obj.get_node_or_null("SpineSprite") != null):
 		obj.get_node("SpineSprite").update_skeleton();
