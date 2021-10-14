@@ -6,7 +6,6 @@ var freespins : int = 0;
 var in_freespins : bool = false;
 var features = [];
 
-
 func _ready():
 	Globals.register_singleton("Game", self);
 	yield(Globals, "allready")
@@ -16,6 +15,7 @@ func _ready():
 	yield(Globals.singletons["Networking"], "initreceived");
 	round_closed = true; #Init should close previous round if open
 	Globals.singletons["Fader"].tween(1,0,0.5);
+	update_spins_count(Globals.singletons["Networking"].lastround);
 	
 func on_play_button_pressed():
 	show_slot();
@@ -110,6 +110,7 @@ func close_round():
 	round_closed = true;
 
 func update_spins_count(data):
+	print(data["freeSpinsRemaining"]);
 	if(data.has("freeSpinsRemaining")): 
 		freespins = data["freeSpinsRemaining"];
 		if(freespins == 0):

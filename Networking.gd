@@ -87,7 +87,7 @@ func request_force(forcefunc):
 		if(self.next_action == "finish"):
 			request_close("forceclosereceived");
 			yield(self, "forceclosereceived")
-			self.next_action = ""
+			self.next_action = "";
 		if(forcefunc.call_func(data)):
 			emit_signal("spinreceived", data)
 			break
