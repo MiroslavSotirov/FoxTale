@@ -36,23 +36,25 @@ func register(tile):
 	tile.reel.connect("onstopped", self, "on_reel_stopped");
 	tile.reel.connect("onstartspin", self, "on_spin_start");
 	
+func on_spin_start():
+	unpop();
+
 func popup(loop = false):
-	Globals.safe_set_parent(self, Globals.singletons["PopupTiles"]);
+	move_on_top();
 	$SpineSprite.play_anim(popup_animation, loop);
 	$SpineSprite.set_timescale(1);
 	
+func move_on_top():
+	z_index = 1;
+	Globals.safe_set_parent(self, Globals.singletons["PopupTiles"]);
+	
+func unpop():
+	z_index = 0;
+	Globals.safe_set_parent(self, previous_tile);
+
 func on_reel_stopped():
 	popup();
 	yield($SpineSprite,"animation_complete");
 	if(change_z_index): unpop();
 	emit_signal("popupcomplete");
 	Globals.singletons["PopupTiles"].popup_complete();
-
-func unpop():
-	z_index = 0;
-	Globals.safe_set_parent(self, previous_tile);
-
-func on_spin_start():
-	unpop();
-
-

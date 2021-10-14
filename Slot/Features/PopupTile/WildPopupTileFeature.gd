@@ -10,7 +10,7 @@ var covers : Array = [];
 signal expandend;
 
 func popup(loop = false):
-	Globals.safe_set_parent(self, Globals.singletons["PopupTiles"]);
+	move_on_top();
 	$SpineSprite.play_anim("popup_wildsmall", loop);
 	$SpineSprite.set_timescale(1);
 
@@ -18,8 +18,7 @@ func expand(root, middletile):
 	self.root = root;
 	previous_tile = root;
 	expanded = true;
-	z_index = 1;
-	Globals.safe_set_parent(self, Globals.singletons["PopupTiles"]);
+	move_on_top();
 	var scale = global_scale;
 	print("TRY EXPAND");
 	$SpineSprite.play_anim("wild_transform", false);

@@ -105,6 +105,7 @@ func request_spin(sig = "spinreceived"):
 	}
 	if(self.next_action == "freespin"):
 		data["action"] = "freespin";
+		
 	htmlpost("/v2/rgs/play2", JSON.print(data), sig);
 	data = yield(self, sig);
 	lastround = data;
@@ -116,7 +117,6 @@ func request_close(sig = "closereceived"):
 		"game" : game,
 		"round" : stateID,
 		"wallet": wallet
-		
 	}
 	htmlput("/v2/rgs/close", JSON.print(data), sig);
 	yield(self, sig);

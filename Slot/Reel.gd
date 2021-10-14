@@ -146,7 +146,7 @@ func _generate_tile_at(position):
 	newTile.reelPosition = _get_tile_pos(position);
 	newTile.reelIndex = index;
 	newTile.tileIndex = position;
-	currentTiles.insert(position+topTileCount, newTile);	
+	currentTiles.insert(position+topTileCount, newTile);
 	
 	$TileContainer.add_child(newTile);
 

@@ -36,6 +36,9 @@ func get_tiles_id(id):
 	for tile in created_tiles:
 		if(tile.id == id): arr.append(tile);
 	return arr;
+	
+func unpop_all():
+	for tile in created_tiles: tile.unpop();
 
 func popup_complete():
 	remaining_tile_count -= 1;

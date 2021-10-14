@@ -74,6 +74,7 @@ func try_spin(isforce):
 		var line_wins = calculate_line_wins(data["wins"]);
 		var has_line_wins = line_wins > 0;
 		if(has_line_wins):
+			Globals.singletons["PopupTiles"].unpop_all();
 			Globals.singletons["WinLines"].show_lines(data["wins"]);
 			yield(Globals.singletons["WinLines"], "ShowEnd")
 			if(line_wins > Globals.singletons["BigWin"].big_win_limit):
@@ -125,9 +126,8 @@ func calculate_line_wins(wins):
 	var n : float = 0;	
 	
 	for win in wins: 
-		if(!win.has("winline")): 
-			if(win.has("win")):
-				n+=float(win["win"]); #winline 0
+		if(win["index"].findn("freespin")>-1): continue;
+		if(!win.has("winline")): n+=float(win["win"]); #winline 0
 		elif(int(win["winline"]) > -1): n+=float(win["win"]);
 			
 	return n;	
