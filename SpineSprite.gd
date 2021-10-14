@@ -37,6 +37,9 @@ func update_skeleton():
 	#get_skeleton().set_to_setup_pose();
 	#get_animation_state().apply(get_skeleton());
 	#_on_animation_data_created();
-	get_skeleton().update_world_transform();
+	#prints(get_skeleton().is_valid(), get_animation_state().is_valid());
+	
+	#get_skeleton().update_world_transform();
 	#manual_update(0);
+
 	pass;
