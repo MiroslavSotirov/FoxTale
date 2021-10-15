@@ -67,7 +67,6 @@ func try_spin(isforce):
 		Globals.singletons["ExpandingWilds"].expand(data);
 		yield(Globals.singletons["ExpandingWilds"], "allexpanded");
 	
-	
 	if(wins > 0):
 		if(Globals.singletons["PopupTiles"].remaining_tile_count > 0): 
 			yield(Globals.singletons["PopupTiles"], "popuptilesend");
@@ -81,6 +80,14 @@ func try_spin(isforce):
 				Globals.singletons["BigWin"].show_wins(line_wins);
 				yield(Globals.singletons["BigWin"], "HideEnd")
 			
+		if(Globals.singletons["BonusPath"].has_feature(data)):
+			start_bonus(data);
+			yield(Globals.singletons["BonusPath"], "anim_end")
+			Globals.singletons["BigWin"].show_wins(Globals.singletons["BonusPath"].get_wins(data));
+			
+		#if(has_bonus):
+		#	pass
+		
 		Globals.singletons["WinBar"].show_wins(wins);
 
 	for feature in features:
@@ -140,11 +147,8 @@ func init_data_received(data):
 
 func _input(ev):
 	if ev is InputEventKey and ev.scancode == KEY_K and not ev.echo:
-		if(Globals.singletons["BigWin"].shown):
-			Globals.singletons["BigWin"].skip();
-		else:
-			Globals.singletons["BigWin"].show_win(250);
-		
+		if(!Globals.singletons["BonusPath"].shown):
+			Globals.singletons["BonusPath"].activate(25);
 
 func start_fs_instant():
 	Globals.singletons["WinlinesOverlap"].get_node("FreeSpins").visible = true;
@@ -181,8 +185,11 @@ func end_fs():
 	$SlotContainer/Slot/Overlay/FoxRight.play_anim_then_loop("convert_back", "idle");
 	in_freespins = false;
 	
-func start_bonus():
-	$SlotContainer/BonusScene.show();	
+func start_bonus(data):
+	for feature in data["features"]:
+		if(feature["data"]["type"] == "bonus"):
+			Globals.singletons["BonusPath"].activate(feature["data"]["amount"]);
+
 	Globals.singletons["FaderBright"].tween(0.0,1.0,1);
 	yield(get_tree().create_timer(1), "timeout")
 	Globals.singletons["FaderBright"].tween(1.0,0.0,1);

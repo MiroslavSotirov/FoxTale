@@ -37,7 +37,7 @@ func _process(delta):
 	if(_resolution != res):
 		_resolution_changed(res);
 		_resolution = res;
-
+		
 func _resolution_changed(newres : Vector2):
 	screenratio = clamp(inverse_lerp(landscaperatio, portraitratio, newres.x/newres.y), 0, 1);
 	landscape = screenratio > 0.5;
@@ -54,15 +54,17 @@ func check_can_spin():
 func format_money(v):
 	return ("%.2f" % v) + "$";
 
-func safe_set_parent(obj, newparent):
-	#obj.visible = false;
-	var pos = obj.global_position;
-	var scale = obj.global_scale;
+func safe_set_parent(obj, newparent):	
+	yield(VisualServer, "frame_post_draw");
+	var transform = obj.get_global_transform();
 	obj.get_parent().remove_child(obj);
 	newparent.add_child(obj);
-	obj.global_scale = scale;
-	obj.global_position = pos;
+	obj.set_global_transform(transform);
+	update_all(obj);		
+	obj.update();
 
-	#obj.visible = true;
-	if(obj.get_node_or_null("SpineSprite") != null):
-		obj.get_node("SpineSprite").update_skeleton();
+func update_all(obj):
+	for child in obj.get_children():
+		if("update" in child): child.update();
+		if("_draw" in child): child._draw();
+		update_all(child);

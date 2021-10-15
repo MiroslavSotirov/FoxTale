@@ -17,10 +17,10 @@ func _ready():
 	Globals.singletons["PopupTiles"].created_tiles.append(self);
 	
 func init(tile):
+	yield(VisualServer, "frame_pre_draw");
 	if(previous_tile):
 		previous_tile.remove_child(self);
-	else: register(tile);
-	
+	else: register(tile);		
 	tile.add_child(self);
 	tileX = tile.reelIndex;
 	tileY = tile.tileIndex;

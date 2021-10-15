@@ -41,5 +41,4 @@ func update_skeleton():
 	
 	#get_skeleton().update_world_transform();
 	#manual_update(0);
-
 	pass;

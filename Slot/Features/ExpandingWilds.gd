@@ -59,7 +59,6 @@ func expand(spindata):
 func get_expanded_wild_at(x, y):
 	var index = float((x*Globals.visible_tiles_count)+y);
 	for wild in expanded_wilds:
-		prints(x, y, index, wild.covers, wild.covers.has(index))
 		if(wild.covers.has(index)): return wild;
 	return null;
 	

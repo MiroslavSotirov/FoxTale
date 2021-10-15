@@ -46,3 +46,10 @@ func init(tile):
 func discard(tile):
 	tile.self_modulate.a = 1;
 	.discard(tile);
+
+func on_spin_start():
+	unpop();
+	#Hacky fix to flicker
+	#if(expanded):
+		#$SpineSprite.visible = false;
+		#$Symbol.visible = true;

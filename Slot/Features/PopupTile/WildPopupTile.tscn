@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Animations/symbol/Wild.atlas" type="SpineAtlasResource" id=1]
 [ext_resource path="res://Animations/symbol/Wild.json" type="SpineSkeletonJsonDataResource" id=2]
 [ext_resource path="res://Slot/Features/PopupTile/WildPopupTileFeature.gd" type="Script" id=3]
 [ext_resource path="res://SpineSprite.gd" type="Script" id=4]
+[ext_resource path="res://Textures/symbols/normal/FT_Symbols_11.png" type="Texture" id=5]
 
 [sub_resource type="SpineSkeletonDataResource" id=1]
 atlas_res = ExtResource( 1 )
@@ -19,6 +20,12 @@ z_index = 1
 script = ExtResource( 3 )
 popup_animation = "popup_wildsmall"
 expanded_scale = Vector2( 0.75, 0.75 )
+
+[node name="Symbol" type="Sprite" parent="."]
+visible = false
+position = Vector2( 15, 5 )
+scale = Vector2( 1.35, 1.35 )
+texture = ExtResource( 5 )
 
 [node name="SpineSprite" type="SpineSprite" parent="."]
 animation_state_data_res = SubResource( 2 )

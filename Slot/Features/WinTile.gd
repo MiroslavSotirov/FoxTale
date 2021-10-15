@@ -50,7 +50,6 @@ func set_id(n):
 	elif(id == 11):
 		pass;
 	
-	prints(tileX, tileY, id);
 	if(iswild):
 		var expandedwild = Globals.singletons["ExpandingWilds"].get_expanded_wild_at(tileX, tileY);
 		var isexpandedwild = expandedwild != null;
