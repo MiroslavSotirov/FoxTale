@@ -2216,6 +2216,7 @@ anims/Show = SubResource( 22 )
 anims/ShowButton = SubResource( 23 )
 
 [node name="BonusScene" type="Control" parent="SlotContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 79 )

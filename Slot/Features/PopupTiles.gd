@@ -5,17 +5,21 @@ export(Dictionary) var popup_tiles : Dictionary;
 var created_tiles : Array = [];
 var popup_tile_count = 0;
 var remaining_tile_count = 0;
+var skipped : bool = false;
+var s : bool = false;
 
 signal popuptilesend;
 
 func _ready():
 	Globals.register_singleton("PopupTiles", self);
+	Globals.connect("skip", self, "on_try_skip");
 	yield(Globals, "allready")
 	Globals.singletons["Slot"].connect("apply_tile_features", self, "apply_to_tiles");
 
 func apply_to_tiles(spindata, reeldata):
 	popup_tile_count = 0;
 	remaining_tile_count = 0;
+	skipped = false;
 	for reel in reeldata:
 		for tiledata in reel:
 			var id = int(tiledata.id);
@@ -44,3 +48,6 @@ func popup_complete():
 	remaining_tile_count -= 1;
 	if(remaining_tile_count == 0):
 		emit_signal("popuptilesend");
+
+func on_try_skip():
+	skipped = true;

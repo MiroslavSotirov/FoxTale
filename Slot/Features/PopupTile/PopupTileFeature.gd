@@ -6,15 +6,17 @@ export(bool) var change_z_index = true;
 
 var previous_tile;
 var registered : bool = false;
+var skippable : bool = false;
 
-var tileX;
-var tileY;
-var id;
+var tileX : int;
+var tileY : int;
+var id : int;
 
 signal popupcomplete;
 
 func _ready():
 	Globals.singletons["PopupTiles"].created_tiles.append(self);
+	Globals.connect("skip", self, "on_try_skip");
 	
 func init(tile):
 	yield(VisualServer, "frame_pre_draw");
@@ -54,7 +56,14 @@ func unpop():
 
 func on_reel_stopped():
 	popup();
+	skippable = true;
 	yield($SpineSprite,"animation_complete");
+	$SpineSprite.set_timescale(1);
+	skippable = false;
 	if(change_z_index): unpop();
 	emit_signal("popupcomplete");
 	Globals.singletons["PopupTiles"].popup_complete();
+
+func on_try_skip():
+	if(skippable):
+		$SpineSprite.set_timescale(3);

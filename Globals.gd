@@ -8,6 +8,7 @@ signal resolutionchanged(landscape, portrait, ratio, zoom);
 signal configure_bets(bets, defaultbet, multiplier);
 signal update_balance(new, currency);
 signal update_view(view);
+signal skip;
 
 var currentBet : float;
 

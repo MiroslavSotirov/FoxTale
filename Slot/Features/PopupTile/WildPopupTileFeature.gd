@@ -49,7 +49,3 @@ func discard(tile):
 
 func on_spin_start():
 	unpop();
-	#Hacky fix to flicker
-	#if(expanded):
-		#$SpineSprite.visible = false;
-		#$Symbol.visible = true;

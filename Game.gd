@@ -7,6 +7,8 @@ var in_freespins : bool = false;
 var features = [];
 
 func _ready():
+	JS.connect("spin", self, "try_spin")
+	
 	Globals.register_singleton("Game", self);
 	yield(Globals, "allready")
 	Globals.singletons["Fader"].tween(1,1,0);
@@ -34,8 +36,9 @@ func _process(delta):
 	if($SlotContainer.visible):		
 		if(Input.is_action_pressed("spin")): try_spin(false);
 		if(Input.is_action_pressed("spinforce")): try_spin(true);
-			
-func try_spin(isforce):
+		if(Input.is_action_pressed("skip")): try_skip();
+		
+func try_spin(isforce = false):
 	if(!Globals.canSpin): return;
 	if(Globals.singletons["WinLines"].shown):
 		Globals.singletons["WinLines"].hide_lines();
@@ -145,10 +148,10 @@ func check_resolution_for_changes():
 func init_data_received(data):
 	pass
 
-func _input(ev):
-	if ev is InputEventKey and ev.scancode == KEY_K and not ev.echo:
-		if(!Globals.singletons["BonusPath"].shown):
-			Globals.singletons["BonusPath"].activate(25);
+#func _input(ev):
+#	if ev is InputEventKey and ev.scancode == KEY_K and not ev.echo:
+#		if(!Globals.singletons["BonusPath"].shown):
+#			Globals.singletons["BonusPath"].activate(25);
 
 func start_fs_instant():
 	Globals.singletons["WinlinesOverlap"].get_node("FreeSpins").visible = true;
@@ -194,3 +197,5 @@ func start_bonus(data):
 	yield(get_tree().create_timer(1), "timeout")
 	Globals.singletons["FaderBright"].tween(1.0,0.0,1);
 	
+func try_skip():
+	Globals.emit_signal("skip");

@@ -8,6 +8,22 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node",
+"class": "AudioManage",
+"language": "GDScript",
+"path": "res://addons/WebAudioExternal/AudioManager.gd"
+}, {
+"base": "Node",
+"class": "JavascriptManage",
+"language": "GDScript",
+"path": "res://addons/WebAudioExternal/JavascriptManager.gd"
+} ]
+_global_script_class_icons={
+"AudioManage": "",
+"JavascriptManage": ""
+}
+
 [application]
 
 config/name="BaseGodotSlot"
@@ -16,6 +32,7 @@ run/main_scene="res://Game.tscn"
 [autoload]
 
 Globals="*res://Globals.gd"
+JS="*res://JSComms/JS.gd"
 
 [display]
 
