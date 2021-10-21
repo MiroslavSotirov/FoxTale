@@ -12,11 +12,13 @@ func _ready():
 	JavaScript.eval("""
 		window.ElysiumGame = {
 			GameOutputEvent : "reserved",
-			GameKeepAliveEvent : new Event('gamekeepalive'),
+			GameKeepAliveEvent : new Event('elysiumgamekeepalive'),
+			GameReadyEvent : new Event('elysiumgameready'),
 			GameInputArray : [],
-			GameInputProcessedEvent : "reserved",
+			GameInputProcessedEvent : "reserved"
 		}
 	""",true);
+	JavaScript.eval("""window.dispatchEvent(window.ElysiumGame.GameReadyEvent)""", true);
 	
 func _process(delta):
 	if(!enabled): return;
@@ -29,7 +31,7 @@ func _process(delta):
 func output(data):
 	if(!enabled): return;
 	JavaScript.eval("""
-		window.ElysiumGame.GameOutputEvent = new CustomEvent('gameoutput', { data: %s });
+		window.ElysiumGame.GameOutputEvent = new CustomEvent('elysiumgameoutput', { data: %s });
 		window.dispatchEvent(window.ElysiumGame.GameOutputEvent)
 	""" % data, true);
 		
@@ -41,14 +43,14 @@ func _process_js_input():
 	var data = JSON.parse(input);
 	if(data.error > 0):
 		JavaScript.eval("""
-			window.ElysiumGame.GameInputProcessedEvent = new CustomEvent('gameinputprocessed', { input: %s, success: false });
+			window.ElysiumGame.GameInputProcessedEvent = new CustomEvent('elysiumgameinputprocessed', { input: %s, success: false });
 			window.dispatchEvent(window.ElysiumGame.GameInputProcessedEvent)
 		""" % input, true);
 		prints("Failed to process JS input!");
 	else:
 		emit_signal(data.result["type"], data.result["data"]);
 		JavaScript.eval("""
-			window.ElysiumGame.GameInputProcessedEvent = new CustomEvent('gameinputprocessed', { input: %s, success: true });
+			window.ElysiumGame.GameInputProcessedEvent = new CustomEvent('elysiumgameinputprocessed', { input: %s, success: true });
 			window.dispatchEvent(window.ElysiumGame.GameInputProcessedEvent)
 		""" % input, true);
 		prints("Input from JS processed");

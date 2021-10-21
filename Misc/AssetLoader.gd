@@ -22,5 +22,5 @@ func download_file(file):
 
 	#var test = load("res://test.scn");
 	#add_child(test.Instance());
-	#print(res[3]);
+	#print(res[3]); 
 	pass;

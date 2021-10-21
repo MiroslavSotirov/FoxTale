@@ -1541,7 +1541,7 @@ timescale = 0.25
 
 [node name="Bg" type="Sprite" parent="IntroContainer/Centering/Logo"]
 show_behind_parent = true
-position = Vector2( 0, -65 )
+position = Vector2( -167.99, -51.5609 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 67 )
 
@@ -1709,6 +1709,7 @@ texture = ExtResource( 51 )
 anims/Pressed = SubResource( 13 )
 
 [node name="SlotContainer" type="Control" parent="."]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -1752,6 +1753,7 @@ __meta__ = {
 }
 availableTiles = [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ]
 reels = [ NodePath("ReelContainer/Reel1"), NodePath("ReelContainer/Reel2"), NodePath("ReelContainer/Reel3"), NodePath("ReelContainer/Reel4"), NodePath("ReelContainer/Reel5") ]
+reelStopDelay = 0.1
 
 [node name="Background" type="Control" parent="SlotContainer/Slot"]
 anchor_right = 1.0
@@ -2738,7 +2740,7 @@ game = "fox-tale"
 mode = "demo"
 operator = "mav"
 currency = "USD"
-force = "freespins"
+force = "InstaWin"
 
 [node name="AssetLoader" type="Node" parent="."]
 script = ExtResource( 11 )

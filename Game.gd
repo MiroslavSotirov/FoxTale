@@ -14,6 +14,7 @@ func _ready():
 	Globals.singletons["Fader"].tween(1,1,0);
 	Globals.singletons["Networking"].connect("initreceived", self, "init_data_received");
 	Globals.singletons["Networking"].request_init();
+	Globals.singletons["Networking"].connect("spinreceived", self, "spin_received")
 	yield(Globals.singletons["Networking"], "initreceived");
 	round_closed = true; #Init should close previous round if open
 	Globals.singletons["Fader"].tween(1,0,0.5);
@@ -54,7 +55,8 @@ func try_spin(isforce = false):
 		Globals.singletons["Networking"].request_force(force);
 	else:
 		Globals.singletons["Networking"].request_spin();
-	var data = yield(Globals.singletons["Networking"], "spinreceived");
+
+func spin_received(data):
 	update_spins_count(data);
 	Globals.singletons["Slot"].stop_spin(data);
 		
@@ -148,10 +150,10 @@ func check_resolution_for_changes():
 func init_data_received(data):
 	pass
 
-#func _input(ev):
-#	if ev is InputEventKey and ev.scancode == KEY_K and not ev.echo:
-#		if(!Globals.singletons["BonusPath"].shown):
-#			Globals.singletons["BonusPath"].activate(25);
+func _input(ev):
+	if ev is InputEventKey and ev.scancode == KEY_K and not ev.echo:
+		if(!Globals.singletons["BonusPath"].shown):
+			Globals.singletons["BonusPath"].activate(50);
 
 func start_fs_instant():
 	Globals.singletons["WinlinesOverlap"].get_node("FreeSpins").visible = true;
