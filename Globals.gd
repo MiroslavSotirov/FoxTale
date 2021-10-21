@@ -16,9 +16,9 @@ var screenratio : float;
 var landscape : bool = false;
 var portrait : bool = false;
 
-var _resolution : Vector2;
-var zoom_resolution_from : float = 1024;
-var zoom_resolution_to : float = 768;
+var resolution : Vector2;
+var zoom_resolution_from : float = 2048;
+var zoom_resolution_to : float = 1024;
 var landscaperatio : float = 16.0/9.0;
 var portraitratio : float = 9.0/20.0;
 
@@ -35,11 +35,12 @@ func register_singleton(name, obj):
 
 func _process(delta):
 	var res = Vector2(OS.window_size.x, OS.window_size.y); #get_viewport().get_visible_rect().size;
-	if(_resolution != res):
+	if(resolution != res):
 		_resolution_changed(res);
-		_resolution = res;
+		resolution = res;
 		
 func _resolution_changed(newres : Vector2):
+	yield(VisualServer, "frame_post_draw");
 	screenratio = clamp(inverse_lerp(landscaperatio, portraitratio, newres.x/newres.y), 0, 1);
 	landscape = screenratio > 0.5;
 	portrait = screenratio <= 0.5;
@@ -57,6 +58,7 @@ func format_money(v):
 
 func safe_set_parent(obj, newparent):	
 	yield(VisualServer, "frame_post_draw");
+	if(obj == null || !is_instance_valid(obj)): return;
 	var transform = obj.get_global_transform();
 	obj.get_parent().remove_child(obj);
 	newparent.add_child(obj);

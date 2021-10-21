@@ -10,7 +10,7 @@ signal HideEnd;
 func _ready():
 	Globals.register_singleton("WinBar", self);
 
-func show_wins(target):
+func show_win(target):
 	if(shown): return;
 	
 	shown = true;	

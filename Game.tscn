@@ -1278,7 +1278,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
+"times": PoolRealArray( 1 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ false ]
@@ -1306,6 +1306,30 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Background/Normal:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Background/FreeSpins:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
 [sub_resource type="Animation" id=48]
@@ -1356,6 +1380,30 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Background/Normal:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Background/FreeSpins:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="CanvasItemMaterial" id=49]
@@ -1709,19 +1757,17 @@ texture = ExtResource( 51 )
 anims/Pressed = SubResource( 13 )
 
 [node name="SlotContainer" type="Control" parent="."]
-visible = false
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 512, 512 )
 mouse_filter = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 script = ExtResource( 32 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-zoomamount = Vector2( 0.5, 0.675 )
+zoomamount = Vector2( 0.45, 0.8 )
 
 [node name="Background" type="Control" parent="SlotContainer"]
 anchor_left = 0.5
@@ -1737,6 +1783,7 @@ texture = ExtResource( 9 )
 
 [node name="FreeSpins" type="Sprite" parent="SlotContainer/Background"]
 visible = false
+modulate = Color( 1, 1, 1, 0 )
 texture = ExtResource( 41 )
 
 [node name="Slot" type="Control" parent="SlotContainer"]
@@ -2009,8 +2056,10 @@ script = ExtResource( 103 )
 [node name="FreeSpinsIntro" type="Control" parent="SlotContainer"]
 visible = false
 modulate = Color( 1, 1, 1, 0 )
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 rect_pivot_offset = Vector2( 133.5, 161.875 )
 script = ExtResource( 70 )
 __meta__ = {
@@ -2219,8 +2268,10 @@ anims/ShowButton = SubResource( 23 )
 
 [node name="BonusScene" type="Control" parent="SlotContainer"]
 visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 script = ExtResource( 79 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2569,8 +2620,10 @@ anims/ToLayer2 = SubResource( 37 )
 anims/ToLayer3 = SubResource( 38 )
 
 [node name="WinLines" type="Control" parent="SlotContainer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 script = ExtResource( 100 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2639,15 +2692,16 @@ anims/Hide = SubResource( 43 )
 anims/Show = SubResource( 44 )
 
 [node name="WinBar" type="Control" parent="SlotContainer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = 0.5
+anchor_top = 0.9
+anchor_right = 0.5
+anchor_bottom = 0.9
 script = ExtResource( 99 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="CounterText" type="Label" parent="SlotContainer/WinBar"]
-margin_top = 900.0
 grow_horizontal = 2
 grow_vertical = 2
 custom_fonts/font = ExtResource( 89 )

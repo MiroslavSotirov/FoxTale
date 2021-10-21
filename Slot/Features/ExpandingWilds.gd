@@ -29,32 +29,36 @@ func expand(spindata):
 		
 	for feature in spindata["features"]:
 		if(feature["type"] != "ExpandingWild"): continue;
-		var wildToExpand = null;
-		var tiles = [];
-		for pos in feature["data"]["positions"]:
-			var y = int(pos)%Globals.visible_tiles_count;
-			var x = floor(pos/Globals.visible_tiles_count);	
-			var tile = 	Globals.singletons["Slot"].get_tile_at(x,y);
-			if(pos == feature["data"]["from"]):
-				wildToExpand = tile.data.feature;
-			tiles.append(tile);
-
-		#tiles.invert();
-		wildToExpand.covers = feature["data"]["positions"];
-		wildToExpand.expand(tiles[0], tiles[1]);
-		yield(wildToExpand, "expandend")
-		for i in range(len(tiles)):			
-			if(tiles[i].data.feature != null):
-				if(tiles[i].data.feature != wildToExpand):
-					tiles[i].data.feature.discard(tiles[i]);
-					tiles[i].data.feature = null;
-			tiles[i].data.id = wildID;
-			tiles[i].self_modulate.a = 0;
+		expand_wild(feature);
+		yield(get_tree().create_timer(0), "timeout");
 		
-		wildToExpand.init(tiles[0]);
-		expanded_wilds.append(wildToExpand);
-		tiles[0].data.feature = wildToExpand;
-		expand_complete();
+func expand_wild(feature):
+	var wildToExpand = null;
+	var tiles = [];
+	for pos in feature["data"]["positions"]:
+		var y = int(pos)%Globals.visible_tiles_count;
+		var x = floor(pos/Globals.visible_tiles_count);	
+		var tile = 	Globals.singletons["Slot"].get_tile_at(x,y);
+		if(pos == feature["data"]["from"]):
+			wildToExpand = tile.data.feature;
+		tiles.append(tile);
+
+	#tiles.invert();
+	wildToExpand.covers = feature["data"]["positions"];
+	wildToExpand.expand(tiles[0], tiles[1]);
+	yield(wildToExpand, "expandend")
+	for i in range(len(tiles)):			
+		if(tiles[i].data.feature != null):
+			if(tiles[i].data.feature != wildToExpand):
+				tiles[i].data.feature.discard(tiles[i]);
+				tiles[i].data.feature = null;
+		tiles[i].data.id = wildID;
+		tiles[i].self_modulate.a = 0;
+	
+	wildToExpand.init(tiles[0]);
+	expanded_wilds.append(wildToExpand);
+	tiles[0].data.feature = wildToExpand;
+	expand_complete();
 	
 func get_expanded_wild_at(x, y):
 	var index = float((x*Globals.visible_tiles_count)+y);

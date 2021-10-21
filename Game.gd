@@ -14,7 +14,6 @@ func _ready():
 	Globals.singletons["Fader"].tween(1,1,0);
 	Globals.singletons["Networking"].connect("initreceived", self, "init_data_received");
 	Globals.singletons["Networking"].request_init();
-	Globals.singletons["Networking"].connect("spinreceived", self, "spin_received")
 	yield(Globals.singletons["Networking"], "initreceived");
 	round_closed = true; #Init should close previous round if open
 	Globals.singletons["Fader"].tween(1,0,0.5);
@@ -50,13 +49,14 @@ func try_spin(isforce = false):
 	round_closed = false;
 	round_ended = false;
 	Globals.singletons["Slot"].start_spin();
+	yield(Globals.singletons["Slot"], "onstartspin");
+	
 	if(isforce):
 		var force = funcref(Globals.singletons["Networking"], "force_freespin");
 		Globals.singletons["Networking"].request_force(force);
 	else:
 		Globals.singletons["Networking"].request_spin();
-
-func spin_received(data):
+	var data = yield(Globals.singletons["Networking"], "spinreceived");
 	update_spins_count(data);
 	Globals.singletons["Slot"].stop_spin(data);
 		
@@ -82,18 +82,18 @@ func spin_received(data):
 			Globals.singletons["WinLines"].show_lines(data["wins"]);
 			yield(Globals.singletons["WinLines"], "ShowEnd")
 			if(line_wins > Globals.singletons["BigWin"].big_win_limit):
-				Globals.singletons["BigWin"].show_wins(line_wins);
+				Globals.singletons["BigWin"].show_win(line_wins);
 				yield(Globals.singletons["BigWin"], "HideEnd")
 			
 		if(Globals.singletons["BonusPath"].has_feature(data)):
 			start_bonus(data);
 			yield(Globals.singletons["BonusPath"], "anim_end")
-			Globals.singletons["BigWin"].show_wins(Globals.singletons["BonusPath"].get_wins(data));
+			Globals.singletons["BigWin"].show_win(Globals.singletons["BonusPath"].get_wins(data));
 			
 		#if(has_bonus):
 		#	pass
 		
-		Globals.singletons["WinBar"].show_wins(wins);
+		Globals.singletons["WinBar"].show_win(wins);
 
 	for feature in features:
 		if(feature.has_feature(data)):
@@ -151,10 +151,11 @@ func init_data_received(data):
 	pass
 
 func _input(ev):
-	if ev is InputEventKey and ev.scancode == KEY_K and not ev.echo:
-		if(!Globals.singletons["BonusPath"].shown):
-			Globals.singletons["BonusPath"].activate(50);
-
+#	if ev is InputEventKey and ev.scancode == KEY_K and not ev.echo:
+#		if(!Globals.singletons["BonusPath"].shown):
+#			Globals.singletons["BonusPath"].activate(25);
+	pass;
+	
 func start_fs_instant():
 	Globals.singletons["WinlinesOverlap"].get_node("FreeSpins").visible = true;
 	Globals.singletons["WinlinesOverlap"].get_node("Normal").visible = false;
