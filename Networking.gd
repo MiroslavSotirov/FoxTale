@@ -78,10 +78,17 @@ func force_freespin(data):
 	if(data["nextAction"] == "freespin"):
 		return true 
 	return false
+
+func force_bonus(data):
+	if(data.has("features")):
+		for feature in data["features"]:
+			if feature["type"] == "InstaWin":
+				return true
+	return false
 	
-func request_force(forcefunc):
+func request_force(forcefunc, forcestring = ""):
 	while true:
-		request_spin("forcespinreceived");
+		request_spin("forcespinreceived", forcestring);
 		var data = yield(self, "forcespinreceived")
 		update_state(data);
 		if(self.next_action == "finish"):
@@ -92,7 +99,7 @@ func request_force(forcefunc):
 			emit_signal("spinreceived", data)
 			break
 	
-func request_spin(sig = "spinreceived"):
+func request_spin(sig = "spinreceived", forcestring = ""):
 	if(waiting_for_response): return printerr("Trying to request while waiting for response");
 	
 	var data = {
@@ -101,7 +108,7 @@ func request_spin(sig = "spinreceived"):
 		"previousID" : stateID,
 		"action" : "base",
 		"wallet" : wallet,
-		"force" : "",
+		"force" : forcestring,
 	}
 	if(self.next_action == "freespin"):
 		data["action"] = "freespin";

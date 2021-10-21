@@ -53,7 +53,10 @@ func try_spin(isforce = false):
 	
 	if(isforce):
 		var force = funcref(Globals.singletons["Networking"], "force_freespin");
-		Globals.singletons["Networking"].request_force(force);
+		Globals.singletons["Networking"].request_force(force, 'filter:"freespin"');
+#	to force an InstaWin:
+#		var force = funcref(Globals.singletons["Networking"], "force_bonus");
+#		Globals.singletons["Networking"].request_force(force, 'filter:"InstaWin"');
 	else:
 		Globals.singletons["Networking"].request_spin();
 	var data = yield(Globals.singletons["Networking"], "spinreceived");
