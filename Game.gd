@@ -154,9 +154,9 @@ func init_data_received(data):
 	pass
 
 func _input(ev):
-#	if ev is InputEventKey and ev.scancode == KEY_K and not ev.echo:
-#		if(!Globals.singletons["BonusPath"].shown):
-#			Globals.singletons["BonusPath"].activate(25);
+	if ev is InputEventKey and ev.scancode == KEY_K and not ev.echo:
+		if(!Globals.singletons["BonusPath"].shown):
+			Globals.singletons["BonusPath"].activate(25);
 	pass;
 	
 func start_fs_instant():

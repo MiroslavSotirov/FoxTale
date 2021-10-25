@@ -1,4 +1,4 @@
-[gd_scene load_steps=153 format=2]
+[gd_scene load_steps=155 format=2]
 
 [ext_resource path="res://Slot/ReelSpinStartAnimation.tres" type="Animation" id=1]
 [ext_resource path="res://Slot/ReelSpinStopAnimation.tres" type="Animation" id=2]
@@ -500,7 +500,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -112.5, 0 ) ]
+"values": [ Vector2( -112.5, 150 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("CustomButton:visible")
@@ -537,6 +537,18 @@ tracks/4/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Text:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 2, 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 200 ), Vector2( 0, 400 ) ]
 }
 
 [sub_resource type="Animation" id=33]
@@ -770,6 +782,18 @@ tracks/17/keys = {
 "update": 1,
 "values": [ true ]
 }
+tracks/18/type = "value"
+tracks/18/path = NodePath("Text:position")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.75, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 100 ), Vector2( 0, 0 ) ]
+}
 
 [sub_resource type="Animation" id=35]
 tracks/0/type = "value"
@@ -818,7 +842,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( -112.5, 50 ), Vector2( -112.5, 0 ) ]
+"values": [ Vector2( -112.5, 200 ), Vector2( -112.5, 150 ) ]
 }
 
 [sub_resource type="Animation" id=36]
@@ -1406,7 +1430,37 @@ tracks/5/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="CanvasItemMaterial" id=49]
+[sub_resource type="Animation" id=49]
+resource_name = "to_transparent"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Background:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=50]
+resource_name = "to_visible"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Background:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="CanvasItemMaterial" id=51]
 blend_mode = 1
 light_mode = 1
 
@@ -1779,6 +1833,7 @@ __meta__ = {
 }
 
 [node name="Normal" type="Sprite" parent="SlotContainer/Background"]
+position = Vector2( 2.5199, 0 )
 texture = ExtResource( 9 )
 
 [node name="FreeSpins" type="Sprite" parent="SlotContainer/Background"]
@@ -1997,7 +2052,7 @@ margin_left = -740.0
 margin_top = -378.0
 margin_right = 740.0
 margin_bottom = 412.0
-color = Color( 0.0862745, 0.152941, 0.101961, 0.698039 )
+color = Color( 0, 0, 0, 0.823529 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -2008,7 +2063,7 @@ margin_left = -740.0
 margin_top = -378.0
 margin_right = 740.0
 margin_bottom = 412.0
-color = Color( 0.0117647, 0.0352941, 0.172549, 0.698039 )
+color = Color( 0.0117647, 0.0352941, 0.172549, 0.784314 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -2067,7 +2122,6 @@ __meta__ = {
 }
 
 [node name="FSBGNightNOTORII" type="Sprite" parent="SlotContainer/FreeSpinsIntro"]
-scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 60 )
 
 [node name="FSBGNightTORII" type="Sprite" parent="SlotContainer/FreeSpinsIntro/FSBGNightNOTORII"]
@@ -2268,6 +2322,7 @@ anims/ShowButton = SubResource( 23 )
 
 [node name="BonusScene" type="Control" parent="SlotContainer"]
 visible = false
+modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -2386,7 +2441,7 @@ scale = Vector2( 1.1, 1.1 )
 texture = ExtResource( 43 )
 
 [node name="Fade" type="Sprite" parent="SlotContainer/BonusScene"]
-modulate = Color( 1, 1, 1, 0.588235 )
+modulate = Color( 1, 1, 1, 0 )
 material = SubResource( 26 )
 texture = ExtResource( 82 )
 
@@ -2401,8 +2456,9 @@ startanimation = "popup"
 visible = false
 modulate = Color( 1, 1, 1, 0 )
 margin_left = -112.5
+margin_top = 150.0
 margin_right = 187.5
-margin_bottom = 200.0
+margin_bottom = 350.0
 grow_horizontal = 2
 grow_vertical = 2
 rect_scale = Vector2( 0.75, 0.75 )
@@ -2717,6 +2773,8 @@ anims/Show = SubResource( 46 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer"]
 anims/fs_to_normal = SubResource( 47 )
 anims/normal_to_fs = SubResource( 48 )
+anims/to_transparent = SubResource( 49 )
+anims/to_visible = SubResource( 50 )
 
 [node name="UIContainer" type="Control" parent="."]
 visible = false
@@ -2817,7 +2875,7 @@ __meta__ = {
 
 [node name="FaderBright" type="ColorRect" parent="."]
 visible = false
-material = SubResource( 49 )
+material = SubResource( 51 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 input_pass_on_modal_close_click = false
