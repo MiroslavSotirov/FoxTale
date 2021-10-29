@@ -1,4 +1,4 @@
-[gd_scene load_steps=155 format=2]
+[gd_scene load_steps=156 format=2]
 
 [ext_resource path="res://Slot/ReelSpinStartAnimation.tres" type="Animation" id=1]
 [ext_resource path="res://Slot/ReelSpinStopAnimation.tres" type="Animation" id=2]
@@ -53,7 +53,7 @@
 [ext_resource path="res://Textures/slot/button/ButtonOverlap.png" type="Texture" id=51]
 [ext_resource path="res://Textures/slot/button/ButtonBacklight.png" type="Texture" id=52]
 [ext_resource path="res://Textures/slot/button/ButtonBase.png" type="Texture" id=53]
-[ext_resource path="res://Translations/en/STARTTXT.png" type="Texture" id=54]
+[ext_resource path="res://Textures/slot/ReelsBottomFade.png" type="Texture" id=54]
 [ext_resource path="res://Textures/slot/button/ButtonNormal.png" type="Texture" id=55]
 [ext_resource path="res://UI/CustomButton.gd" type="Script" id=56]
 [ext_resource path="res://Textures/particles/PNG (Black background)/prah1.png" type="Texture" id=57]
@@ -61,7 +61,7 @@
 [ext_resource path="res://Textures/particles/PNG (Black background)/glow1.png" type="Texture" id=59]
 [ext_resource path="res://Textures/slot/FSBGNightNOTORII.jpg" type="Texture" id=60]
 [ext_resource path="res://Textures/slot/FSBGNightTORII.jpg" type="Texture" id=61]
-[ext_resource path="res://Translations/en/Win-big-with-mystic-fox-and-choose-your-path-to-fortune--.png" type="Texture" id=62]
+[ext_resource path="res://Textures/Win-big-with-mystic-fox-and-choose-your-path-to-fortune--.png" type="Texture" id=62]
 [ext_resource path="res://Textures/slot/GirlSplash.png" type="Texture" id=63]
 [ext_resource path="res://Textures/slot/FullSceneOVerlay49O.jpg" type="Texture" id=64]
 [ext_resource path="res://Textures/slot/CopyTXTBack.png" type="Texture" id=65]
@@ -79,8 +79,8 @@
 [ext_resource path="res://Animations/bonus scene/torrigates.json" type="SpineSkeletonJsonDataResource" id=77]
 [ext_resource path="res://Slot/BonusScene/BonusSceneButton.gd" type="Script" id=78]
 [ext_resource path="res://Slot/BonusScene/BonusPathFeature.gd" type="Script" id=79]
-[ext_resource path="res://Animations/big fox/Ani_Fox_Big2.atlas" type="SpineAtlasResource" id=80]
-[ext_resource path="res://Animations/big fox/Fox_Big_v2.json" type="SpineSkeletonJsonDataResource" id=81]
+[ext_resource path="res://Animations/big fox/Fox_Big.atlas" type="SpineAtlasResource" id=80]
+[ext_resource path="res://Animations/big fox/Fox_Big.json" type="SpineSkeletonJsonDataResource" id=81]
 [ext_resource path="res://Textures/slot/BonusBGDarken59O.jpg" type="Texture" id=82]
 [ext_resource path="res://Textures/slot/Ground3FOX2.png" type="Texture" id=83]
 [ext_resource path="res://Textures/slot/Ground3FOX1.png" type="Texture" id=84]
@@ -103,6 +103,7 @@
 [ext_resource path="res://Slot/Features/WinTile.tscn" type="PackedScene" id=101]
 [ext_resource path="res://Slot/Features/WinLineParticles.tscn" type="PackedScene" id=102]
 [ext_resource path="res://Slot/Features/ExpandingWilds.gd" type="Script" id=103]
+[ext_resource path="res://Textures/STARTTXT.png" type="Texture" id=104]
 
 [sub_resource type="SpineSkeletonDataResource" id=1]
 atlas_res = ExtResource( 80 )
@@ -1643,7 +1644,7 @@ timescale = 0.25
 
 [node name="Bg" type="Sprite" parent="IntroContainer/Centering/Logo"]
 show_behind_parent = true
-position = Vector2( -167.99, -51.5609 )
+position = Vector2( 0, -50 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 67 )
 
@@ -1797,7 +1798,7 @@ texture = ExtResource( 50 )
 
 [node name="STARTTXT" type="Sprite" parent="IntroContainer/Centering/CustomButton/Centering/ButtonRoot"]
 position = Vector2( 0, 25 )
-texture = ExtResource( 54 )
+texture = ExtResource( 104 )
 
 [node name="ButtonOverlapDropShadow" type="Sprite" parent="IntroContainer/Centering/CustomButton/Centering"]
 position = Vector2( 0, -80 )
@@ -1811,6 +1812,7 @@ texture = ExtResource( 51 )
 anims/Pressed = SubResource( 13 )
 
 [node name="SlotContainer" type="Control" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 512, 512 )
@@ -2002,6 +2004,10 @@ tileScene = ExtResource( 5 )
 anims/ReelSpinStartAnimation = ExtResource( 1 )
 anims/ReelSpinStopAnimation = ExtResource( 2 )
 
+[node name="ReelsBottomFade" type="Sprite" parent="SlotContainer/Slot"]
+position = Vector2( 1, 392 )
+texture = ExtResource( 54 )
+
 [node name="FreeSpinsOverlap" type="Control" parent="SlotContainer/Slot"]
 visible = false
 anchor_right = 1.0
@@ -2039,7 +2045,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Logo" type="SpineSprite" parent="SlotContainer/Slot/NormalOverlap"]
+position = Vector2( 0, -430 )
+scale = Vector2( 0.65, 0.65 )
+animation_state_data_res = SubResource( 6 )
+script = ExtResource( 44 )
+skin = "default"
+startanimation = "idle"
+timescale = 0.25
+
 [node name="WinlinesOverlap" type="Control" parent="SlotContainer/Slot"]
+visible = false
 modulate = Color( 1, 1, 1, 0 )
 script = ExtResource( 7 )
 __meta__ = {
@@ -2080,6 +2096,7 @@ __meta__ = {
 [node name="FoxLeft" type="SpineSprite" parent="SlotContainer/Slot/Overlay"]
 position = Vector2( -880, 500 )
 animation_state_data_res = SubResource( 15 )
+empty_animation_duration = 0.0
 script = ExtResource( 44 )
 skin = "fox1"
 startanimation = "idle"
@@ -2088,6 +2105,7 @@ startanimation = "idle"
 position = Vector2( 880, 500 )
 scale = Vector2( -1, 1 )
 animation_state_data_res = SubResource( 15 )
+empty_animation_duration = 0.0
 script = ExtResource( 44 )
 skin = "fox2"
 startanimation = "idle"
@@ -2286,7 +2304,7 @@ texture = ExtResource( 50 )
 
 [node name="STARTTXT" type="Sprite" parent="SlotContainer/FreeSpinsIntro/CustomButton/Centering/ButtonRoot"]
 position = Vector2( 0, 25 )
-texture = ExtResource( 54 )
+texture = ExtResource( 104 )
 
 [node name="ButtonOverlapDropShadow" type="Sprite" parent="SlotContainer/FreeSpinsIntro/CustomButton/Centering"]
 position = Vector2( 0, -80 )
@@ -2603,7 +2621,7 @@ texture = ExtResource( 50 )
 
 [node name="STARTTXT" type="Sprite" parent="SlotContainer/BonusScene/CustomButton/Centering/ButtonRoot"]
 position = Vector2( 0, 25 )
-texture = ExtResource( 54 )
+texture = ExtResource( 104 )
 
 [node name="ButtonOverlapDropShadow" type="Sprite" parent="SlotContainer/BonusScene/CustomButton/Centering"]
 position = Vector2( 0, -80 )
@@ -2709,8 +2727,12 @@ anims/Show = SubResource( 40 )
 
 [node name="BigWin" type="Control" parent="SlotContainer"]
 visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_right = -1024.0
+margin_bottom = -1024.0
 script = ExtResource( 98 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2718,6 +2740,8 @@ __meta__ = {
 
 [node name="Sprite" type="Sprite" parent="SlotContainer/BigWin"]
 modulate = Color( 1, 1, 1, 0.588235 )
+position = Vector2( 512, 514.125 )
+scale = Vector2( 3, 3 )
 texture = ExtResource( 82 )
 
 [node name="Animation" type="SpineSprite" parent="SlotContainer/BigWin"]

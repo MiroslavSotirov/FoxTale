@@ -19,9 +19,12 @@ signal HideEnd;
 
 func _ready():
 	Globals.register_singleton("BigWin", self);
+	VisualServer.canvas_item_set_z_index(get_canvas_item(), 10)
 
 func show_win(target, is_total=false):
 	if(shown): return;
+	
+	#Globals.singletons[""]
 	
 	shown = true;
 	in_big_win = !is_total;
@@ -68,6 +71,7 @@ func set_text(v):
 func switch_to_superwin():
 	print("switch to superwin");
 	transition = true;
+	yield($Animation, "animation_complete");
 	$Animation.play_anim_then_loop("start_superwin", "loop_superwin");
 	yield($Animation, "animation_complete");
 	in_big_win = false;
@@ -77,6 +81,7 @@ func switch_to_superwin():
 func switch_to_megawin():
 	print("switch to megawin");
 	transition = true;
+	yield($Animation, "animation_complete");
 	$Animation.play_anim_then_loop("start_megawin", "loop_megawin");
 	yield($Animation, "animation_complete");
 	in_super_win = false;

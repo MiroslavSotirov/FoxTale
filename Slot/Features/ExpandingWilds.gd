@@ -26,12 +26,15 @@ func expand(spindata):
 	to_expand = 0;
 	for feature in spindata["features"]:
 		if(feature["type"] == "ExpandingWild"): to_expand += 1;
-		
+	
+	Globals.singletons["Game"].foxes_expand_anim_start();
+	yield(Globals.singletons["Game"], "fox_animation_end")
 	for feature in spindata["features"]:
 		if(feature["type"] != "ExpandingWild"): continue;
 		expand_wild(feature);
 		yield(get_tree().create_timer(0), "timeout");
-		
+
+	
 func expand_wild(feature):
 	var wildToExpand = null;
 	var tiles = [];

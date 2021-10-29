@@ -6,6 +6,8 @@ var freespins : int = 0;
 var in_freespins : bool = false;
 var features = [];
 
+signal fox_animation_end;
+
 func _ready():
 	JS.connect("spin", self, "try_spin")
 	
@@ -26,6 +28,8 @@ func show_slot():
 	Globals.singletons["Fader"].tween(0,1,0.5);
 	if(freespins > 0): start_fs_instant();
 	yield(Globals.singletons["Fader"], "done")
+	if(freespins == 0):
+		show_logo();
 
 	$IntroContainer.queue_free();
 	$SlotContainer.visible = true;
@@ -46,17 +50,20 @@ func try_spin(isforce = false):
 	if(Globals.singletons["WinBar"].shown):
 		Globals.singletons["WinBar"].hide();
 	
+	if(len(Globals.singletons["ExpandingWilds"].expanded_wilds) > 0):
+		foxes_expand_anim_end();
+		
 	round_closed = false;
 	round_ended = false;
 	Globals.singletons["Slot"].start_spin();
 	yield(Globals.singletons["Slot"], "onstartspin");
 	
 	if(isforce):
-		var force = funcref(Globals.singletons["Networking"], "force_freespin");
-		Globals.singletons["Networking"].request_force(force, 'filter:"freespin"');
+		#var force = funcref(Globals.singletons["Networking"], "force_freespin");
+		#Globals.singletons["Networking"].request_force(force, 'filter:"freespin"');
 #	to force an InstaWin:
-#		var force = funcref(Globals.singletons["Networking"], "force_bonus");
-#		Globals.singletons["Networking"].request_force(force, 'filter:"InstaWin"');
+		var force = funcref(Globals.singletons["Networking"], "force_bonus");
+		Globals.singletons["Networking"].request_force(force, 'filter:"InstaWin"');
 	else:
 		Globals.singletons["Networking"].request_spin();
 	var data = yield(Globals.singletons["Networking"], "spinreceived");
@@ -106,6 +113,7 @@ func try_spin(isforce = false):
 	if(!in_freespins && freespins > 0): 
 		if(Globals.singletons["PopupTiles"].remaining_tile_count > 0): 
 			yield(Globals.singletons["PopupTiles"], "popuptilesend");
+		Globals.singletons["WinBar"].hide();
 		start_fs();
 		yield($SlotContainer/FreeSpinsIntro, "anim_end");
 		
@@ -157,7 +165,6 @@ func _input(ev):
 	if ev is InputEventKey and ev.scancode == KEY_K and not ev.echo:
 		if(!Globals.singletons["BonusPath"].shown):
 			Globals.singletons["BonusPath"].activate(25);
-	pass;
 	
 func start_fs_instant():
 	Globals.singletons["WinlinesOverlap"].get_node("FreeSpins").visible = true;
@@ -205,3 +212,27 @@ func start_bonus(data):
 	
 func try_skip():
 	Globals.emit_signal("skip");
+	
+func show_logo():
+	var logo = $SlotContainer/Slot/NormalOverlap/Logo;
+	logo.set_timescale(1);
+	logo.play_anim("popup", false);
+	yield(logo, "animation_complete");
+	logo.set_timescale(0.25);
+	logo.play_anim("idle", true);
+
+func foxes_expand_anim_start():
+	yield(get_tree(), "idle_frame")
+	if(in_freespins): return emit_signal("fox_animation_end");
+	$SlotContainer/Slot/Overlay/FoxLeft.play_anim_then_loop("convert_color", "idle_gold");
+	$SlotContainer/Slot/Overlay/FoxRight.play_anim_then_loop("convert_color", "idle_gold");
+	yield($SlotContainer/Slot/Overlay/FoxRight, "animation_complete");
+	emit_signal("fox_animation_end");
+	
+func foxes_expand_anim_end():
+	yield(get_tree(), "idle_frame")
+	if(in_freespins): return emit_signal("fox_animation_end");
+	$SlotContainer/Slot/Overlay/FoxLeft.play_anim_then_loop("convert_back", "idle");
+	$SlotContainer/Slot/Overlay/FoxRight.play_anim_then_loop("convert_back", "idle");
+	yield($SlotContainer/Slot/Overlay/FoxRight, "animation_complete");
+	emit_signal("fox_animation_end");

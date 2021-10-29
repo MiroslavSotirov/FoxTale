@@ -32,7 +32,7 @@ func set_text(v):
 	$CounterText.text = Globals.format_money(v);
 
 func hide():
-	tween.queue_free();
+	if(tween != null): tween.queue_free();
 	shown = false;
 	$AnimationPlayer.play("Hide");
 	yield($AnimationPlayer, "animation_finished");

@@ -1,14 +1,5 @@
 {
-"skeleton": {
-	"hash": "J59WeYAS0TQ",
-	"spine": "4.0.45",
-	"x": -57,
-	"y": -74,
-	"width": 114,
-	"height": 148,
-	"images": "./Junior_symbol/",
-	"audio": ""
-},
+"skeleton": { "hash": "z16tf1EjyXw", "spine": "4.0.45", "x": -57, "y": -74, "width": 114, "height": 148 },
 "bones": [
 	{ "name": "root" },
 	{ "name": "All", "parent": "root" },

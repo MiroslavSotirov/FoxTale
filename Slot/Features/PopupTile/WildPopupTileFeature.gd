@@ -22,7 +22,7 @@ func expand(root, middletile):
 	var scale = global_scale;
 	print("TRY EXPAND");
 	$SpineSprite.play_anim("wild_transform", false);
-	$SpineSprite.set_timescale(1);
+	$SpineSprite.set_timescale(1.5);
 	yield(get_tree(), "idle_frame");
 	$Tween.interpolate_property(self, "global_position", 
 		null, middletile.global_position, 0.5, 
@@ -33,6 +33,7 @@ func expand(root, middletile):
 	$Tween.start();
 	
 	yield($SpineSprite,"animation_complete")
+	$SpineSprite.set_timescale(1);
 	$SpineSprite.play_anim("idle_wildbig", true);
 	emit_signal("expandend");
 	

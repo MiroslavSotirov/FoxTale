@@ -17,6 +17,9 @@ func set_skin(skin):
 
 func play_anim(anim, loop):
 	_waiting_change = false;
+	yield(VisualServer, "frame_post_draw");
+	get_skeleton().set_slots_to_setup_pose();
+	
 	get_animation_state().clear_tracks();
 	get_animation_state().set_animation(anim, loop);
 	set_timescale(timescale);
@@ -30,15 +33,3 @@ func play_anim_then_loop(anim, loopanim):
 func set_timescale(scale):
 	get_animation_state().set_time_scale(scale);
 	timescale = scale;
-
-func update_skeleton():
-	#get_skeleton().update_world_transform();
-	#get_skeleton().set_bones_to_setup_pose();
-	#get_skeleton().set_to_setup_pose();
-	#get_animation_state().apply(get_skeleton());
-	#_on_animation_data_created();
-	#prints(get_skeleton().is_valid(), get_animation_state().is_valid());
-	
-	#get_skeleton().update_world_transform();
-	#manual_update(0);
-	pass;

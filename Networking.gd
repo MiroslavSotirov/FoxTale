@@ -50,8 +50,9 @@ func request_init():
 	htmlpost("/v2/rgs/init2", JSON.print(data), "initreceived");
 	data = yield(self, "initreceived");
 	lastround = null;
-	if("init" in data["lastRound"]): lastround = data["lastRound"]["init"];
-	elif("freespin" in data["lastRound"]): lastround = data["lastRound"]["freespin"];
+	
+	if("freespin" in data["lastRound"]): lastround = data["lastRound"]["freespin"];
+	elif("init" in data["lastRound"]): lastround = data["lastRound"]["init"];
 	elif("base" in data["lastRound"]): lastround = data["lastRound"]["base"];
 	else: return on_fail(901);
 	
