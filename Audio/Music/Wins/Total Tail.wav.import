@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Total Tail.wav-ec244a16e37ea5896737336010fe6882.sample"
+
+[deps]
+
+source_file="res://Audio/Music/Wins/Total Tail.wav"
+dest_files=[ "res://.import/Total Tail.wav-ec244a16e37ea5896737336010fe6882.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=true
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=1

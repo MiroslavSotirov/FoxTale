@@ -15,11 +15,15 @@ var tween : Tween;
 var amount : float;
 var target : float;
 
+var skippable : bool = false;
+
 signal HideEnd;
 
 func _ready():
 	Globals.register_singleton("BigWin", self);
-	VisualServer.canvas_item_set_z_index(get_canvas_item(), 10)
+	VisualServer.canvas_item_set_z_index(get_canvas_item(), 20);
+	yield(Globals, "allready");
+	Globals.connect("skip", self, "skip");
 
 func show_win(target, is_total=false):
 	if(shown): return;
@@ -51,9 +55,11 @@ func show_win(target, is_total=false):
 		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	tween.start();
 	tween.connect("tween_all_completed", self, "hide");
+	skippable = true;
 	
 func skip():
-	tween.playback_speed = 5;
+	if(!skippable): return;
+	tween.playback_speed = 10;
 
 func set_text(v):
 	amount = v;
@@ -89,6 +95,8 @@ func switch_to_megawin():
 	transition = false;
 	
 func hide():
+	print("HIDE");
+	skippable = false;
 	tween.queue_free();
 	shown = false;
 	yield($Animation, "animation_complete");

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Reel Stop_.wav-9e653f88162565e676019a05f8022241.sample"
+
+[deps]
+
+source_file="res://Audio/SFX/Extra Sounds/Reel Stop_.wav"
+dest_files=[ "res://.import/Reel Stop_.wav-9e653f88162565e676019a05f8022241.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=true
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=1

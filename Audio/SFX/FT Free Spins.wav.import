@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/FT Free Spins.wav-e7e8e7640175ff40221452c95310e3bb.sample"
+
+[deps]
+
+source_file="res://Audio/SFX/FT Free Spins.wav"
+dest_files=[ "res://.import/FT Free Spins.wav-e7e8e7640175ff40221452c95310e3bb.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=true
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=1

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Spin Stop 3.wav-5bef25fa352a55351f2e2810a256744e.sample"
+
+[deps]
+
+source_file="res://Audio/SFX/Extra Sounds/Spin Stop 3.wav"
+dest_files=[ "res://.import/Spin Stop 3.wav-5bef25fa352a55351f2e2810a256744e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=true
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=1

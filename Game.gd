@@ -83,6 +83,7 @@ func try_spin(isforce = false):
 		yield(Globals.singletons["ExpandingWilds"], "allexpanded");
 	
 	if(wins > 0):
+		var hasPathBonus = Globals.singletons["BonusPath"].has_feature(data);
 		if(Globals.singletons["PopupTiles"].remaining_tile_count > 0): 
 			yield(Globals.singletons["PopupTiles"], "popuptilesend");
 		var line_wins = calculate_line_wins(data["wins"]);
@@ -91,18 +92,19 @@ func try_spin(isforce = false):
 			Globals.singletons["PopupTiles"].unpop_all();
 			Globals.singletons["WinLines"].show_lines(data["wins"]);
 			yield(Globals.singletons["WinLines"], "ShowEnd")
-			if(line_wins > Globals.singletons["BigWin"].big_win_limit):
+			if(!hasPathBonus && line_wins > Globals.singletons["BigWin"].big_win_limit):
 				Globals.singletons["BigWin"].show_win(line_wins);
 				yield(Globals.singletons["BigWin"], "HideEnd")
 			
-		if(Globals.singletons["BonusPath"].has_feature(data)):
+		if(hasPathBonus):
+			if(has_line_wins): 
+				yield(get_tree().create_timer(0.5), "timeout");
+				Globals.singletons["WinLines"].hide_lines();
 			start_bonus(data);
 			yield(Globals.singletons["BonusPath"], "anim_end")
-			Globals.singletons["BigWin"].show_win(Globals.singletons["BonusPath"].get_wins(data));
-			
-		#if(has_bonus):
-		#	pass
-		
+			Globals.singletons["BigWin"].show_win(Globals.singletons["BonusPath"].get_wins(data) + line_wins);
+			yield(Globals.singletons["BigWin"], "HideEnd")
+
 		Globals.singletons["WinBar"].show_win(wins);
 
 	for feature in features:
@@ -134,6 +136,9 @@ func close_round():
 
 func update_spins_count(data):
 	if(data.has("freeSpinsRemaining")): 
+		if(in_freespins && data["freespinsRemaining"] > freespins):
+			increase_fs();
+			yield($SlotContainer/FreeSpinsIntro, "anim_end");
 		freespins = data["freeSpinsRemaining"];
 		if(freespins == 0):
 			$SlotContainer/Slot/FreeSpinsOverlap/Text/CounterText.text = "";
@@ -163,8 +168,9 @@ func init_data_received(data):
 
 func _input(ev):
 	if ev is InputEventKey and ev.scancode == KEY_K and not ev.echo:
+		#increase_fs();
 		if(!Globals.singletons["BonusPath"].shown):
-			Globals.singletons["BonusPath"].activate(25);
+			Globals.singletons["BonusPath"].activate(50);
 	
 func start_fs_instant():
 	Globals.singletons["WinlinesOverlap"].get_node("FreeSpins").visible = true;
@@ -176,6 +182,7 @@ func start_fs_instant():
 	in_freespins = true;
 	
 func start_fs():
+	Globals.singletons["WinLines"].hide_lines();
 	Globals.singletons["WinlinesOverlap"].get_node("FreeSpins").visible = true;
 	Globals.singletons["WinlinesOverlap"].get_node("Normal").visible = false;
 	$SlotContainer/FreeSpinsIntro.show();	
@@ -193,6 +200,14 @@ func start_fs():
 	$SlotContainer/Slot/FreeSpinsOverlap/Text/CounterText.text = str(freespins);
 	in_freespins = true;
 	
+func increase_fs():
+	$SlotContainer/FreeSpinsIntro.show_fast();	
+	Globals.singletons["FaderBright"].tween(0.0,1.0,1);
+	yield(get_tree().create_timer(1), "timeout");
+	Globals.singletons["FaderBright"].tween(1.0,0.0,1);	
+	yield($SlotContainer/FreeSpinsIntro, "anim_end");
+	
+	
 func end_fs():
 	Globals.singletons["WinlinesOverlap"].get_node("FreeSpins").visible = false;
 	Globals.singletons["WinlinesOverlap"].get_node("Normal").visible = true;
@@ -203,7 +218,7 @@ func end_fs():
 	
 func start_bonus(data):
 	for feature in data["features"]:
-		if(feature["data"]["type"] == "bonus"):
+		if(feature["type"] == "InstaWin"):
 			Globals.singletons["BonusPath"].activate(feature["data"]["amount"]);
 
 	Globals.singletons["FaderBright"].tween(0.0,1.0,1);

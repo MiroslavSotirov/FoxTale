@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Spin Start.wav-754935a42ad00ad502a0cc4ce0b7e510.sample"
+
+[deps]
+
+source_file="res://Audio/SFX/Extra Sounds/Spin Start.wav"
+dest_files=[ "res://.import/Spin Start.wav-754935a42ad00ad502a0cc4ce0b7e510.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=true
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=1

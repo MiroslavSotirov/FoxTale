@@ -33,5 +33,5 @@ func _updatetex():
 func _process(delta):
 	position.y = reelPosition + fmod(reel.spinPosition, reel.tileDistance) + reel.spinPositionOffset + reel.topOffset;
 
-func _on_visibility_changed(n):
+func _on_visibility_changed():
 	if(visible): _updatetex();

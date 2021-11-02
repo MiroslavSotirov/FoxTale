@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Super Win Endless Short.wav-0f5d7e1896ef49abd463eb43a7b42792.sample"
+
+[deps]
+
+source_file="res://Audio/Music/Wins/Short/Super Win Endless Short.wav"
+dest_files=[ "res://.import/Super Win Endless Short.wav-0f5d7e1896ef49abd463eb43a7b42792.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=true
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=1

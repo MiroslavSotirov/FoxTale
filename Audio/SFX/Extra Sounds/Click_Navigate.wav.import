@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Click_Navigate.wav-9e208ee3bd6918f0816a302248f76b71.sample"
+
+[deps]
+
+source_file="res://Audio/SFX/Extra Sounds/Click_Navigate.wav"
+dest_files=[ "res://.import/Click_Navigate.wav-9e208ee3bd6918f0816a302248f76b71.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=true
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=1

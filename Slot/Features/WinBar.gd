@@ -5,6 +5,7 @@ var tween : Tween;
 var amount : float;
 var target : float;
 
+signal CountEnd
 signal HideEnd;
 
 func _ready():
@@ -25,14 +26,19 @@ func show_win(target):
 		0, self.target, 1, 
 		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	tween.start();
-	#tween.connect("tween_all_completed", self, "hide");
+	tween.connect("tween_all_completed", self, "count_end");
 
 func set_text(v):
 	amount = v;
 	$CounterText.text = Globals.format_money(v);
+	
+func count_end():
+	emit_signal("CountEnd");
 
 func hide():
-	if(tween != null): tween.queue_free();
+	if(tween != null && is_instance_valid(tween)): 
+		tween.queue_free();
+		tween = null;
 	shown = false;
 	$AnimationPlayer.play("Hide");
 	yield($AnimationPlayer, "animation_finished");

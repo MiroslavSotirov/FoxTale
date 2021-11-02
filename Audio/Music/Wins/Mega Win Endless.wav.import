@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Mega Win Endless.wav-7884a8bd7a3178cd2aafadd238628d4b.sample"
+
+[deps]
+
+source_file="res://Audio/Music/Wins/Mega Win Endless.wav"
+dest_files=[ "res://.import/Mega Win Endless.wav-7884a8bd7a3178cd2aafadd238628d4b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=true
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=1

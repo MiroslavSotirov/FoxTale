@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Mega Win Endless Short.wav-3596bff3bd1fe0cf60857d43bcb47860.sample"
+
+[deps]
+
+source_file="res://Audio/Music/Wins/Short/Mega Win Endless Short.wav"
+dest_files=[ "res://.import/Mega Win Endless Short.wav-3596bff3bd1fe0cf60857d43bcb47860.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=true
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=1

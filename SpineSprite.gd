@@ -15,14 +15,15 @@ func _ready():
 func set_skin(skin):
 	get_skeleton().set_skin_by_name(skin);
 
-func play_anim(anim, loop):
+func play_anim(anim, loop, timescale_override=null):
 	_waiting_change = false;
 	yield(VisualServer, "frame_post_draw");
 	get_skeleton().set_slots_to_setup_pose();
 	
 	get_animation_state().clear_tracks();
 	get_animation_state().set_animation(anim, loop);
-	set_timescale(timescale);
+	if(timescale_override != null): set_timescale(timescale_override, false);
+	else: set_timescale(timescale);
 	
 func play_anim_then_loop(anim, loopanim):
 	play_anim(anim, false);
@@ -30,6 +31,10 @@ func play_anim_then_loop(anim, loopanim):
 	yield(self, "animation_complete");
 	if(_waiting_change): play_anim(loopanim, true);
 
-func set_timescale(scale):
+func set_timescale(scale, permanent=true):
 	get_animation_state().set_time_scale(scale);
-	timescale = scale;
+	if(permanent): timescale = scale;
+
+func reset_pose():
+	get_skeleton().set_bones_to_setup_pose();
+	get_skeleton().set_slots_to_setup_pose();
