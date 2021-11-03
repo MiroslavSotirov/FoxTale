@@ -19,6 +19,7 @@ skeleton = SubResource( 1 )
 z_index = 1
 script = ExtResource( 3 )
 popup_animation = "popup_wildsmall"
+hit_sfx = "Wild Small"
 expanded_scale = Vector2( 0.75, 0.75 )
 
 [node name="Symbol" type="Sprite" parent="."]

@@ -10,6 +10,7 @@ var covers : Array = [];
 signal expandend;
 
 func popup(loop = false):
+	Globals.singletons["Audio"].play(hit_sfx)
 	move_on_top();
 	$SpineSprite.play_anim("popup_wildsmall", loop);
 	$SpineSprite.set_timescale(1);
@@ -21,6 +22,7 @@ func expand(root, middletile):
 	move_on_top();
 	var scale = global_scale;
 	print("TRY EXPAND");
+	Globals.singletons["Audio"].play("Wild Big")
 	$SpineSprite.play_anim("wild_transform", false);
 	$SpineSprite.set_timescale(1.5);
 	yield(get_tree(), "idle_frame");

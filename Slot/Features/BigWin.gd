@@ -29,7 +29,8 @@ func show_win(target, is_total=false):
 	if(shown): return;
 	
 	#Globals.singletons[""]
-	
+	if(is_total): Globals.singletons["Audio"].change_music("Total Endless");
+	else: Globals.singletons["Audio"].change_music("Big Win Endless");
 	shown = true;
 	in_big_win = !is_total;
 	in_super_win = false;
@@ -76,6 +77,7 @@ func set_text(v):
 
 func switch_to_superwin():
 	print("switch to superwin");
+	Globals.singletons["Audio"].change_music("Super Win Endless");
 	transition = true;
 	yield($Animation, "animation_complete");
 	$Animation.play_anim_then_loop("start_superwin", "loop_superwin");
@@ -87,6 +89,7 @@ func switch_to_superwin():
 func switch_to_megawin():
 	print("switch to megawin");
 	transition = true;
+	Globals.singletons["Audio"].change_music("Mega Win Endless");
 	yield($Animation, "animation_complete");
 	$Animation.play_anim_then_loop("start_megawin", "loop_megawin");
 	yield($Animation, "animation_complete");
@@ -108,4 +111,6 @@ func hide():
 	yield($Animation, "animation_complete");
 	$AnimationPlayer.play("Hide");
 	yield($AnimationPlayer, "animation_finished");
+	if(Globals.in_freespins): Globals.singletons["Audio"].change_music("Free Spins Endless");
+	else: Globals.singletons["Audio"].change_music("Kagura Suzu Endless");
 	emit_signal("HideEnd");

@@ -3,6 +3,7 @@ extends Node2D
 export(String) var popup_animation;
 export(bool) var wait_for_popup = true;
 export(bool) var change_z_index = true;
+export(String) var hit_sfx;
 
 var previous_tile;
 var registered : bool = false;
@@ -42,6 +43,7 @@ func on_spin_start():
 	unpop();
 
 func popup(loop = false):
+	Globals.singletons["Audio"].play(hit_sfx)
 	move_on_top();
 	$SpineSprite.play_anim(popup_animation, loop);
 	$SpineSprite.set_timescale(1);

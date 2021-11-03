@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "a7MF5cg6tmY", "spine": "4.0.45", "x": -123.37, "y": -114.83, "width": 287, "height": 284.8 },
+"skeleton": { "hash": "a7MF5cg6tmY", "spine": "4.0.45", "x": -101.86, "y": -99.96, "width": 274, "height": 204 },
 "bones": [
 	{ "name": "root" },
 	{ "name": "sake", "parent": "root", "rotation": 120.37, "x": -6.07, "y": 8.24 },

@@ -27,7 +27,6 @@ func _process(delta):
 	for i in range(JavaScript.eval("""window.ElysiumGame.GameInputArray.length""", true)):
 		_process_js_input();
 		
-
 func output(data):
 	if(!enabled): return;
 	JavaScript.eval("""
@@ -54,3 +53,33 @@ func _process_js_input():
 			window.dispatchEvent(window.ElysiumGame.GameInputProcessedEvent)
 		""" % input, true);
 		prints("Input from JS processed");
+		
+func play_sound(sfx):
+	if(!enabled): return;
+	JavaScript.eval("""
+		window.ElysiumSoundEngine.play("%s");
+	""" % sfx, true);
+	
+func stop_sound(sfx):
+	if(!enabled): return;
+	JavaScript.eval("""
+		window.ElysiumSoundEngine.stop("%s");
+	""" % sfx, true);
+
+func loop_sound(sfx):
+	if(!enabled): return;
+	JavaScript.eval("""
+		window.ElysiumSoundEngine.loop("%s");
+	""" % sfx, true);
+	
+func pause_sound(sfx):
+	if(!enabled): return;
+	JavaScript.eval("""
+		window.ElysiumSoundEngine.pause("%s");
+	""" % sfx, true);
+
+func fade_sound(sfx, from, to, duration):
+	if(!enabled): return;
+	JavaScript.eval("""
+		window.ElysiumSoundEngine.fade("%s", %s, %s, %s);
+	""" % [sfx, from, to, duration], true);

@@ -17,7 +17,7 @@ func show_win(target):
 	shown = true;	
 	amount = 0;
 	self.target = target;
-	
+	Globals.singletons["Audio"].loop("Coins Endless")
 	$AnimationPlayer.play("Show");
 	$CounterText.text = Globals.format_money(0);
 	tween = Tween.new();
@@ -33,6 +33,7 @@ func set_text(v):
 	$CounterText.text = Globals.format_money(v);
 	
 func count_end():
+	Globals.singletons["Audio"].stop("Coins Endless")
 	emit_signal("CountEnd");
 
 func hide():

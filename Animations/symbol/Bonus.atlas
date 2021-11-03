@@ -1,82 +1,82 @@
 
 Bonus.png
-size: 1476, 436
+size: 793, 807
 format: RGBA8888
 filter: Linear, Linear
 repeat: none
 TXT
   rotate: false
-  xy: 2, 4
+  xy: 340, 452
   size: 302, 87
   orig: 304, 89
   offset: 1, 1
   index: -1
 TXT copy
   rotate: false
-  xy: 342, 33
+  xy: 0, 2
   size: 302, 108
   orig: 303, 110
   offset: 0, 1
   index: -1
 Tree_2
-  rotate: false
-  xy: 696, 4
+  rotate: true
+  xy: 596, 97
   size: 330, 162
   orig: 330, 162
   offset: 0, 0
   index: -1
 bg
   rotate: false
-  xy: 1017, 185
+  xy: 295, 199
   size: 287, 251
   orig: 289, 253
   offset: 1, 1
   index: -1
 gate1
-  rotate: false
-  xy: 342, 143
+  rotate: true
+  xy: 0, 112
   size: 352, 293
   orig: 354, 295
   offset: 1, 1
   index: -1
 gate2
-  rotate: true
-  xy: 1420, 372
+  rotate: false
+  xy: 596, 41
   size: 64, 54
   orig: 66, 56
   offset: 1, 1
   index: -1
 ray
   rotate: false
-  xy: 2, 93
+  xy: 0, 466
   size: 338, 343
   orig: 371, 359
   offset: 10, 8
   index: -1
 shadow
   rotate: false
-  xy: 1028, 7
+  xy: 304, 21
   size: 290, 176
   orig: 299, 188
   offset: 4, 4
   index: -1
 stairs
   rotate: true
-  xy: 1320, 56
+  xy: 661, 539
   size: 270, 132
   orig: 272, 134
   offset: 1, 1
   index: -1
 star
   rotate: false
-  xy: 1306, 328
+  xy: 644, 429
   size: 112, 108
   orig: 121, 120
   offset: 7, 6
   index: -1
 tree
   rotate: false
-  xy: 696, 168
+  xy: 340, 541
   size: 319, 268
   orig: 332, 270
   offset: 6, 1

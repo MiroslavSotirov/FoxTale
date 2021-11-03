@@ -8,6 +8,7 @@ func show():
 	$Animation.visible = false;
 	$AnimationPlayer.play("Show");
 	yield(get_tree().create_timer(2.0), "timeout")
+	Globals.singletons["Audio"].play("FT Free Spins")
 	$Animation.play_anim("popup", false);
 	$Animation.visible = true;
 	yield($Animation, "animation_complete")
@@ -28,6 +29,7 @@ func show_fast():
 	$Animation.visible = false;
 	$AnimationPlayer.play("Show");
 	yield(get_tree().create_timer(2.0), "timeout")
+	Globals.singletons["Audio"].play("FT Free Spins");
 	$Animation.play_anim("popup", false);
 	$Animation.visible = true;
 	yield($Animation, "animation_complete")

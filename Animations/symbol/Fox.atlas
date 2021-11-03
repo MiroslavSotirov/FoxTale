@@ -1,68 +1,68 @@
 
 Fox.png
-size: 370, 796
+size: 373, 771
 format: RGBA8888
 filter: Linear, Linear
 repeat: none
 110 (5)
   rotate: false
-  xy: 201, 268
+  xy: 0, 46
   size: 161, 174
   orig: 182, 187
   offset: 10, 5
   index: -1
 body
   rotate: true
-  xy: 250, 450
+  xy: 248, 427
   size: 144, 118
   orig: 144, 118
   offset: 0, 0
   index: -1
 eyes
   rotate: true
-  xy: 294, 665
+  xy: 292, 642
   size: 131, 64
   orig: 131, 64
   offset: 0, 0
   index: -1
 hairs
   rotate: false
-  xy: 2, 130
+  xy: 180, 287
   size: 193, 132
   orig: 193, 132
   offset: 0, 0
   index: -1
 head
-  rotate: false
-  xy: 201, 88
+  rotate: true
+  xy: 180, 128
   size: 157, 178
   orig: 157, 178
   offset: 0, 0
   index: -1
 lista
   rotate: false
-  xy: 2, 444
+  xy: 0, 421
   size: 246, 150
   orig: 246, 150
   offset: 0, 0
   index: -1
 tail1
   rotate: false
-  xy: 2, 596
+  xy: 0, 573
   size: 290, 200
   orig: 303, 206
   offset: 0, 6
   index: -1
 tail2
   rotate: false
-  xy: 2, 4
+  xy: 163, 2
   size: 157, 124
   orig: 157, 124
   offset: 0, 0
   index: -1
 tail3
-  rotate: true
-  xy: 2, 264
+  rotate: false
+  xy: 0, 222
   size: 178, 197
   orig: 202, 197
   offset: 0, 0

@@ -20,13 +20,20 @@ func _ready():
 	round_closed = true; #Init should close previous round if open
 	Globals.singletons["Fader"].tween(1,0,0.5);
 	update_spins_count(Globals.singletons["Networking"].lastround);
+	Globals.singletons["Audio"].change_music("Kagura Suzu Endless");
+	$IntroContainer/Centering/CustomButton.enabled = true;
 	
 func on_play_button_pressed():
+	Globals.singletons["Audio"].play("Click_Navigate");
 	show_slot();
 	
 func show_slot():
-	Globals.singletons["Fader"].tween(0,1,0.5);
-	if(freespins > 0): start_fs_instant();
+	Globals.singletons["Fader"].tween(0,1,1.1);
+	if(freespins > 0): 
+		start_fs_instant();
+	else:
+		Globals.singletons["Audio"].change_music("Kagura Suzu Endless");
+		
 	yield(Globals.singletons["Fader"], "done")
 	if(freespins == 0):
 		show_logo();
@@ -150,8 +157,7 @@ func update_spins_count(data):
 
 func calculate_line_wins(wins):
 	if(wins == null): return 0;
-	
-	var n : float = 0;	
+	var n : float = 0;
 	
 	for win in wins: 
 		if(win["index"].findn("freespin")>-1): continue;
@@ -173,6 +179,7 @@ func _input(ev):
 			Globals.singletons["BonusPath"].activate(50);
 	
 func start_fs_instant():
+	Globals.singletons["Audio"].change_music("Free Spins Endless");
 	Globals.singletons["WinlinesOverlap"].get_node("FreeSpins").visible = true;
 	Globals.singletons["WinlinesOverlap"].get_node("Normal").visible = false;
 	$SlotContainer/Slot/Overlay/FoxLeft.play_anim_then_loop("convert_color", "idle_gold");
@@ -182,6 +189,7 @@ func start_fs_instant():
 	in_freespins = true;
 	
 func start_fs():
+	Globals.singletons["Audio"].change_music("Free Spins Endless");
 	Globals.singletons["WinLines"].hide_lines();
 	Globals.singletons["WinlinesOverlap"].get_node("FreeSpins").visible = true;
 	Globals.singletons["WinlinesOverlap"].get_node("Normal").visible = false;
@@ -207,7 +215,6 @@ func increase_fs():
 	Globals.singletons["FaderBright"].tween(1.0,0.0,1);	
 	yield($SlotContainer/FreeSpinsIntro, "anim_end");
 	
-	
 func end_fs():
 	Globals.singletons["WinlinesOverlap"].get_node("FreeSpins").visible = false;
 	Globals.singletons["WinlinesOverlap"].get_node("Normal").visible = true;
@@ -215,6 +222,7 @@ func end_fs():
 	$SlotContainer/Slot/Overlay/FoxLeft.play_anim_then_loop("convert_back", "idle");
 	$SlotContainer/Slot/Overlay/FoxRight.play_anim_then_loop("convert_back", "idle");
 	in_freespins = false;
+	Globals.singletons["Audio"].change_music("Kagura Suzu Endless");
 	
 func start_bonus(data):
 	for feature in data["features"]:
@@ -231,6 +239,7 @@ func try_skip():
 func show_logo():
 	var logo = $SlotContainer/Slot/NormalOverlap/Logo;
 	logo.set_timescale(1);
+	Globals.singletons["Audio"].play("Fox Tale")
 	logo.play_anim("popup", false);
 	yield(logo, "animation_complete");
 	logo.set_timescale(0.25);
@@ -239,14 +248,19 @@ func show_logo():
 func foxes_expand_anim_start():
 	yield(get_tree(), "idle_frame")
 	if(in_freespins): return emit_signal("fox_animation_end");
+	$SlotContainer/AnimationPlayer.play("normal_to_fs_fox");
+	Globals.singletons["Audio"].play("Fox Magic")
+	$SlotContainer/Slot/Overlay/FoxLeft.set_timescale(2,false);
+	$SlotContainer/Slot/Overlay/FoxRight.set_timescale(2,false);
 	$SlotContainer/Slot/Overlay/FoxLeft.play_anim_then_loop("convert_color", "idle_gold");
 	$SlotContainer/Slot/Overlay/FoxRight.play_anim_then_loop("convert_color", "idle_gold");
-	yield($SlotContainer/Slot/Overlay/FoxRight, "animation_complete");
+	yield(get_tree().create_timer(0.5), "timeout");
 	emit_signal("fox_animation_end");
 	
 func foxes_expand_anim_end():
 	yield(get_tree(), "idle_frame")
 	if(in_freespins): return emit_signal("fox_animation_end");
+	$SlotContainer/AnimationPlayer.play("fs_to_normal_fox");
 	$SlotContainer/Slot/Overlay/FoxLeft.play_anim_then_loop("convert_back", "idle");
 	$SlotContainer/Slot/Overlay/FoxRight.play_anim_then_loop("convert_back", "idle");
 	yield($SlotContainer/Slot/Overlay/FoxRight, "animation_complete");

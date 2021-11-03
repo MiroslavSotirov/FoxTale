@@ -1,25 +1,62 @@
+
 FT_Logo_Export.png
-size:1847,600
-filter:Linear,Linear
-pma:true
+size: 847, 1315
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
 LBackTITLE
-bounds:2,290,868,308
+  rotate: true
+  xy: 281, 47
+  size: 868, 308
+  orig: 868, 308
+  offset: 0, 0
+  index: -1
 LLeafs
-bounds:872,342,913,256
+  rotate: true
+  xy: 591, 2
+  size: 913, 256
+  orig: 913, 256
+  offset: 0, 0
+  index: -1
 LLeafsBacklight
-bounds:2,9,864,279
-offsets:12,20,886,316
+  rotate: true
+  xy: 0, 51
+  size: 864, 279
+  orig: 886, 316
+  offset: 12, 20
+  index: -1
 LTXT
-bounds:872,163,808,177
-offsets:1,1,810,179
+  rotate: false
+  xy: 0, 917
+  size: 810, 179
+  orig: 810, 179
+  offset: 0, 0
+  index: -1
 LUnderline
-bounds:1787,31,567,58
-rotate:90
+  rotate: false
+  xy: 131, 1259
+  size: 567, 58
+  orig: 567, 58
+  offset: 0, 0
+  index: -1
 TXTBackligh
-bounds:868,2,788,159
-offsets:21,15,827,191
+  rotate: false
+  xy: 0, 1098
+  size: 788, 159
+  orig: 827, 191
+  offset: 21, 15
+  index: -1
 Tree
-bounds:1682,244,49,48
+  rotate: false
+  xy: 80, 1269
+  size: 49, 48
+  orig: 49, 48
+  offset: 0, 0
+  index: -1
 star
-bounds:1682,294,78,46
-offsets:2,10,81,70
+  rotate: false
+  xy: 0, 1271
+  size: 78, 46
+  orig: 81, 70
+  offset: 2, 10
+  index: -1

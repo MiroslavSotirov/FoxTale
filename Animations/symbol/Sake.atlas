@@ -1,68 +1,68 @@
 
 Sake.png
-size: 722, 384
+size: 374, 739
 format: RGBA8888
 filter: Linear, Linear
 repeat: none
 Fx/170 (1)
-  rotate: false
-  xy: 578, 45
+  rotate: true
+  xy: 0, 2
   size: 142, 151
   orig: 217, 218
   offset: 46, 38
   index: -1
 Fx/170 (2)
-  rotate: false
-  xy: 410, 25
+  rotate: true
+  xy: 190, 215
   size: 166, 171
   orig: 217, 218
   offset: 30, 27
   index: -1
 Fx/170 (3)
-  rotate: false
-  xy: 191, 202
+  rotate: true
+  xy: 190, 383
   size: 180, 182
   orig: 217, 218
   offset: 21, 21
   index: -1
 Fx/170 (4)
-  rotate: false
-  xy: 2, 7
+  rotate: true
+  xy: 0, 146
   size: 185, 187
   orig: 217, 218
   offset: 19, 18
   index: -1
 Fx/170 (5)
-  rotate: false
-  xy: 2, 196
+  rotate: true
+  xy: 0, 486
   size: 187, 188
   orig: 217, 218
   offset: 16, 18
   index: -1
 Fx/170 (6)
   rotate: true
-  xy: 551, 198
+  xy: 189, 27
   size: 186, 164
   orig: 217, 218
   offset: 15, 40
   index: -1
 Fx/170 (7)
-  rotate: true
-  xy: 189, 6
+  rotate: false
+  xy: 0, 333
   size: 188, 151
   orig: 217, 218
   offset: 16, 53
   index: -1
 sake
   rotate: false
-  xy: 373, 208
+  xy: 198, 565
   size: 176, 176
   orig: 192, 186
   offset: 1, 9
   index: -1
 shadow
-  rotate: true
-  xy: 342, 4
+  rotate: false
+  xy: 0, 675
   size: 196, 66
   orig: 240, 90
   offset: 10, 7

@@ -1,6 +1,10 @@
 extends Control
 const TileData = preload("TileData.gd")
 
+export (String) var reel_spin_sfx : String;
+export (String) var reel_stop_sfx : String;
+export (String) var reel_start_sfx : String;
+
 export (Array) var availableTiles : Array = [];
 export (Array) var reels : Array = [];
 export (bool) var testSpinStart : bool setget _test_spin_start_set;
@@ -36,6 +40,7 @@ func _ready():
 	Globals.visible_reels_count = len(reels);
 
 func _on_reel_stopped():
+	Globals.singletons["Audio"].stop(reel_spin_sfx)
 	reels_spinning -= 1;
 	if(reels_spinning == 0): emit_signal("onstopped");
 
@@ -51,6 +56,8 @@ func _test_spin_stop_set(val):
 
 func start_spin():
 	if(self.spinning): return;
+	Globals.singletons["Audio"].play(reel_start_sfx)
+	Globals.singletons["Audio"].loop(reel_spin_sfx)
 	for reel in reels:
 		reel.start_spin();
 		yield(get_tree().create_timer(reelStartDelay), "timeout")
@@ -62,6 +69,7 @@ func stop_spin(data = null):
 	if(self.stopping || self.stopped): return;
 	if(data != null): parse_spin_data(data);
 	else: parse_safe_spin_data();
+	
 	for i in range(len(reels)):
 		reels[i].stop_spin(targetdata[i]);
 		yield(get_tree().create_timer(reelStopDelay), "timeout")

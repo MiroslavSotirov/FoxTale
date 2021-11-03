@@ -29,9 +29,10 @@ func has_feature(data):
 func get_wins(data):
 	for win in data["wins"]:
 		if(!win.has("winline")): continue;
-		if(int(win["winline"]) == -1): return win["win"];
+		if(int(win["winline"]) == -1): return float(win["win"]);
 
 func activate(totalmultiplier):
+	Globals.singletons["Audio"].change_music("Bonus Theme Endless");
 	#15 18 21 24 27 30 35 40
 	shown = true;
 	var steps = 2;
@@ -77,6 +78,7 @@ func activate(totalmultiplier):
 	$Text.visible = false;
 	$AnimationPlayer.play("Show");
 	yield(get_tree().create_timer(1.0), "timeout")
+	Globals.singletons["Audio"].play("Pick A Path")
 	$Text.play_anim_then_loop("popup", "loop");
 	$Text.visible = true;
 	yield($Text, "animation_complete")
@@ -86,6 +88,7 @@ func activate(totalmultiplier):
 
 func on_play_button_pressed():
 	$AnimationPlayer.play("HideButton");
+	Globals.singletons["Audio"].play("Click_Navigate");
 	yield($AnimationPlayer, "animation_finished")
 	$LeftButton.visible = true;
 	$RightButton.visible = true;
@@ -186,6 +189,7 @@ func go_to_next_stage():
 			$Layer3/ToriLeft.play_anim("Idle", false, 0);
 	current_layer += 1;
 	
+	Globals.singletons["Audio"].play("Pick A Path")
 	$Text.play_anim_then_loop("popup", "loop");
 	yield($Text, "animation_complete")
 	$LeftButton.enabled = true;
@@ -193,11 +197,11 @@ func go_to_next_stage():
 	$LeftButton.pressed = false;
 	$RightButton.pressed = false;
 	
-	
 func show_multiplier(right, not_last_layer):
 	var parent = _lasttori.get_parent();
 	parent.remove_child(_lasttori);
 	add_child_below_node($Fade, _lasttori);
+	Globals.singletons["Audio"].play("Torii")
 	_lasttori.set_timescale(1);
 	_lasttori.play_anim_then_loop("popup", "float");
 
@@ -225,11 +229,12 @@ func show_multiplier(right, not_last_layer):
 		$CenterCounterText/AnimationPlayer.play("Show");
 	var target = center_counter_amount + layer_wins[current_layer-1];
 	while(center_counter_amount < target):
+		Globals.singletons["Audio"].play("Click_Navigate 2")
 		center_counter_amount += 1;
 		$CenterCounterText.text = "x"+str(center_counter_amount);
 		yield(get_tree().create_timer(0.1), "timeout")
 			
-	yield(get_tree().create_timer(2.0), "timeout")
+	yield(get_tree().create_timer(1.0), "timeout")
 	$AnimationPlayer.play("HideWin");
 	yield($AnimationPlayer, "animation_finished")
 	Globals.singletons["FaderBright"].tween(0.6,0.0,1);

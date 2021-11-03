@@ -1,33 +1,33 @@
 
 Bell.png
-size: 247, 431
+size: 243, 427
 format: RGBA8888
 filter: Linear, Linear
 repeat: none
 bell
   rotate: false
-  xy: 2, 257
+  xy: 0, 255
   size: 182, 174
   orig: 182, 174
   offset: 0, 0
   index: -1
 blinks
   rotate: true
-  xy: 186, 295
+  xy: 184, 293
   size: 136, 52
   orig: 138, 57
   offset: 1, 1
   index: -1
 roup
   rotate: true
-  xy: 2, 112
+  xy: 0, 110
   size: 143, 214
   orig: 143, 214
   offset: 0, 0
   index: -1
 shadow_bell
   rotate: false
-  xy: 2, 4
+  xy: 0, 2
   size: 243, 106
   orig: 258, 114
   offset: 10, 4

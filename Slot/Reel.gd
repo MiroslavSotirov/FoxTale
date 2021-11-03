@@ -76,6 +76,7 @@ func stop_spin(data):
 	emit_signal("onstopping");
 	
 func stop_spin_anim():
+	Globals.singletons["Audio"].play(slot.reel_stop_sfx);
 	for tile in currentTiles: tile.blur = false;
 	$AnimationPlayer.play("ReelSpinStopAnimation");
 	
