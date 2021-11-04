@@ -111,6 +111,6 @@ func hide():
 	yield($Animation, "animation_complete");
 	$AnimationPlayer.play("Hide");
 	yield($AnimationPlayer, "animation_finished");
-	if(Globals.in_freespins): Globals.singletons["Audio"].change_music("Free Spins Endless");
+	if(Globals.singletons["Game"].in_freespins): Globals.singletons["Audio"].change_music("Free Spins Endless");
 	else: Globals.singletons["Audio"].change_music("Kagura Suzu Endless");
 	emit_signal("HideEnd");

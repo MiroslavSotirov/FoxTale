@@ -13,14 +13,14 @@ light_mode = 1
 offsets = PoolRealArray( 0, 0.233813, 1 )
 colors = PoolColorArray( 0, 0, 0, 1, 0.835294, 0.8, 0.501961, 1, 0, 0, 0, 1 )
 
-[sub_resource type="CanvasItemMaterial" id=4]
+[sub_resource type="CanvasItemMaterial" id=3]
 blend_mode = 1
 light_mode = 1
 
-[sub_resource type="Curve" id=5]
+[sub_resource type="Curve" id=4]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="Gradient" id=3]
+[sub_resource type="Gradient" id=5]
 colors = PoolColorArray( 0, 1, 0.501961, 0, 0.992157, 0.92549, 0.498039, 1 )
 
 [node name="LineParticles" type="CPUParticles2D"]
@@ -52,11 +52,11 @@ script = ExtResource( 2 )
 [node name="Tween" type="Tween" parent="."]
 
 [node name="Trail" type="Line2D" parent="."]
-material = SubResource( 4 )
+material = SubResource( 3 )
 width = 20.0
-width_curve = SubResource( 5 )
+width_curve = SubResource( 4 )
 default_color = Color( 1, 1, 1, 1 )
-gradient = SubResource( 3 )
+gradient = SubResource( 5 )
 texture = ExtResource( 4 )
 texture_mode = 2
 joint_mode = 2

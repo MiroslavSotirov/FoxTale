@@ -49,13 +49,13 @@ func request_init():
 	}
 	htmlpost("/v2/rgs/init2", JSON.print(data), "initreceived");
 	data = yield(self, "initreceived");
-	lastround = null;
-	
-	if("freespin" in data["lastRound"]): lastround = data["lastRound"]["freespin"];
-	elif("init" in data["lastRound"]): lastround = data["lastRound"]["init"];
-	elif("base" in data["lastRound"]): lastround = data["lastRound"]["base"];
-	else: return on_fail(901);
-	
+	lastround = {};
+
+	for rounddata in data["lastRound"].values():
+		for key in rounddata.keys():
+			if(lastround.has(key)): prints("Duplicate round data key ", key);
+			lastround[key] = rounddata[key];
+			
 	Globals.currentBet = float(data["defaultBet"]); ## TODO
 	
 	Globals.emit_signal("configure_bets", 
@@ -68,7 +68,7 @@ func request_init():
 		lastround["balance"]["amount"]["amount"], 
 		lastround["balance"]["amount"]["currency"]);
 	update_state(lastround);
-	self.wallet = _response["wallet"];	
+	self.wallet = _response["wallet"];
 	
 	if(self.next_action == "finish"):
 		request_close();

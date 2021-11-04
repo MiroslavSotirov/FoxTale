@@ -12,6 +12,7 @@ var shown_tiles : Array;
 signal ShowEnd;
 
 func _ready():
+
 	Globals.register_singleton("WinLines", self);
 	
 func set_lines_count(n):
@@ -59,7 +60,7 @@ func show_line(positions):
 	$LinesContainer.add_child(winline);
 	winline.global_position = global_positions[0];
 	winline.positions = global_positions;
-	winline.next();
+	winline.init();
 	
 func hide_lines():
 	shown = false;

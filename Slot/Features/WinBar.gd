@@ -9,6 +9,7 @@ signal CountEnd
 signal HideEnd;
 
 func _ready():
+	VisualServer.canvas_item_set_z_index(get_canvas_item(), 19)
 	Globals.register_singleton("WinBar", self);
 
 func show_win(target):
@@ -34,12 +35,14 @@ func set_text(v):
 	
 func count_end():
 	Globals.singletons["Audio"].stop("Coins Endless")
+	$AnimationPlayer.play("GoDown");
 	emit_signal("CountEnd");
 
 func hide():
-	if(tween != null && is_instance_valid(tween)): 
+	if(tween != null && is_instance_valid(tween)):
 		tween.queue_free();
 		tween = null;
+		set_text(target);
 	shown = false;
 	$AnimationPlayer.play("Hide");
 	yield($AnimationPlayer, "animation_finished");

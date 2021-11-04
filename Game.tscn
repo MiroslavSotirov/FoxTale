@@ -1,4 +1,4 @@
-[gd_scene load_steps=166 format=2]
+[gd_scene load_steps=168 format=2]
 
 [ext_resource path="res://Slot/ReelSpinStartAnimation.tres" type="Animation" id=1]
 [ext_resource path="res://Slot/ReelSpinStopAnimation.tres" type="Animation" id=2]
@@ -108,6 +108,7 @@
 [ext_resource path="res://Textures/slot/MBase.png" type="Texture" id=106]
 [ext_resource path="res://Animations/bonus scene/torrigates.atlas" type="SpineAtlasResource" id=107]
 [ext_resource path="res://Audio/AudioSystem.gd" type="Script" id=108]
+[ext_resource path="res://Textures/slot/FSReelsBottomFade.png" type="Texture" id=109]
 
 [sub_resource type="SpineSkeletonDataResource" id=1]
 atlas_res = ExtResource( 80 )
@@ -1333,6 +1334,33 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
+[sub_resource type="Animation" id=58]
+resource_name = "GoDown"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 2, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ), Vector2( 0.5, 0.5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:anchor_top")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.4, 0.7, 1 ),
+"transitions": PoolRealArray( 2, 0.5, 1 ),
+"update": 0,
+"values": [ 0.5, 0.7, 0.9 ]
+}
+
 [sub_resource type="Animation" id=49]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -1357,6 +1385,18 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:anchor_top")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.9 ]
 }
 
 [sub_resource type="Animation" id=50]
@@ -1384,10 +1424,34 @@ tracks/1/keys = {
 "update": 1,
 "values": [ true ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:rect_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:anchor_top")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.5 ]
+}
 
 [sub_resource type="Animation" id=51]
 tracks/0/type = "value"
-tracks/0/path = NodePath("Background/Normal:visible")
+tracks/0/path = NodePath("Slot/NormalOverlap:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -1399,43 +1463,43 @@ tracks/0/keys = {
 "values": [ true ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Background/FreeSpins:visible")
+tracks/1/path = NodePath("Slot/FreeSpinsOverlap:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 1 ),
+"times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ false ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Slot/NormalOverlap:visible")
+tracks/2/path = NodePath("Slot/Background/FreeSpins:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ true, false ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Slot/FreeSpinsOverlap:visible")
+tracks/3/path = NodePath("Slot/Background/FreeSpins:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Background/Normal:modulate")
+tracks/4/path = NodePath("Slot/Background/Normal:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -1447,7 +1511,7 @@ tracks/4/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Background/FreeSpins:modulate")
+tracks/5/path = NodePath("Slot/Background/Normal:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -1455,8 +1519,56 @@ tracks/5/enabled = true
 tracks/5/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Background/Normal:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Background/Normal:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Background/FreeSpins:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Background/FreeSpins:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
 }
 
 [sub_resource type="Animation" id=56]
@@ -1512,7 +1624,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id=52]
 tracks/0/type = "value"
-tracks/0/path = NodePath("Background/Normal:visible")
+tracks/0/path = NodePath("Slot/NormalOverlap:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -1524,7 +1636,7 @@ tracks/0/keys = {
 "values": [ false ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Background/FreeSpins:visible")
+tracks/1/path = NodePath("Slot/FreeSpinsOverlap:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -1536,7 +1648,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Slot/NormalOverlap:visible")
+tracks/2/path = NodePath("Slot/Background/FreeSpins:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -1545,10 +1657,10 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ true ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Slot/FreeSpinsOverlap:visible")
+tracks/3/path = NodePath("Slot/Background/FreeSpins:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -1556,11 +1668,11 @@ tracks/3/enabled = true
 tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Background/Normal:modulate")
+tracks/4/path = NodePath("Slot/Background/Normal:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -1572,7 +1684,7 @@ tracks/4/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Background/FreeSpins:modulate")
+tracks/5/path = NodePath("Slot/Background/Normal:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -1580,8 +1692,56 @@ tracks/5/enabled = true
 tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Background/FreeSpins:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Background/FreeSpins:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Background/Normal:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Background/Normal:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=57]
@@ -1676,7 +1836,6 @@ __meta__ = {
 }
 
 [node name="IntroContainer" type="Control" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -2011,6 +2170,7 @@ texture = ExtResource( 51 )
 anims/Pressed = SubResource( 13 )
 
 [node name="SlotContainer" type="Control" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 512, 512 )
@@ -2072,6 +2232,8 @@ texture = ExtResource( 10 )
 
 [node name="FreeSpins" type="Sprite" parent="SlotContainer/Slot/Background"]
 visible = false
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 8, 3 )
 texture = ExtResource( 38 )
 
 [node name="ReelContainer" type="Control" parent="SlotContainer/Slot"]
@@ -2205,10 +2367,6 @@ tileScene = ExtResource( 5 )
 anims/ReelSpinStartAnimation = ExtResource( 1 )
 anims/ReelSpinStopAnimation = ExtResource( 2 )
 
-[node name="ReelsBottomFade" type="Sprite" parent="SlotContainer/Slot"]
-position = Vector2( 1, 392 )
-texture = ExtResource( 54 )
-
 [node name="FreeSpinsOverlap" type="Control" parent="SlotContainer/Slot"]
 visible = false
 anchor_right = 1.0
@@ -2239,6 +2397,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ReelsBottomFade" type="Sprite" parent="SlotContainer/Slot/FreeSpinsOverlap"]
+position = Vector2( 4, 402 )
+texture = ExtResource( 109 )
+
 [node name="NormalOverlap" type="Control" parent="SlotContainer/Slot"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -2254,6 +2416,10 @@ script = ExtResource( 44 )
 skin = "default"
 startanimation = "idle"
 timescale = 0.25
+
+[node name="ReelsBottomFade" type="Sprite" parent="SlotContainer/Slot/NormalOverlap"]
+position = Vector2( 1, 392 )
+texture = ExtResource( 54 )
 
 [node name="WinlinesOverlap" type="Control" parent="SlotContainer/Slot"]
 visible = false
@@ -3132,6 +3298,7 @@ anims/ToLayer2 = SubResource( 41 )
 anims/ToLayer3 = SubResource( 42 )
 
 [node name="WinLines" type="Control" parent="SlotContainer"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -3210,10 +3377,12 @@ anims/Hide = SubResource( 47 )
 anims/Show = SubResource( 48 )
 
 [node name="WinBar" type="Control" parent="SlotContainer"]
+visible = false
 anchor_left = 0.5
-anchor_top = 0.9
+anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.9
+rect_scale = Vector2( 1.1, 1.1 )
 script = ExtResource( 99 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -3229,8 +3398,15 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/WinBar"]
+anims/GoDown = SubResource( 58 )
 anims/Hide = SubResource( 49 )
 anims/Show = SubResource( 50 )
+
+[node name="RedGlow" type="Sprite" parent="SlotContainer/WinBar"]
+show_behind_parent = true
+position = Vector2( 0, 100 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 93 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer"]
 anims/fs_to_normal = SubResource( 51 )

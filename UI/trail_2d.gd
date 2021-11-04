@@ -1,12 +1,3 @@
-"""
-Author: Oussama BOUKHELF
-License: MIT
-Version: 0.1
-Email: o.boukhelf@gmail.com
-Description: Advanced 2D/3D Trail system.
-Note: This is a simple implementation, I will update it later on.
-"""
-
 extends Line2D
 
 export(bool) var update := true;
@@ -19,7 +10,6 @@ var target
 var trail_points := []
 var offset := Vector2()
 
-
 class Point:
 	var position := Vector2()
 	var age := 0.0
@@ -31,7 +21,7 @@ class Point:
 	
 	func update(delta :float, points :Array) -> void:
 		self.age -= delta
-		self.position.y += movementmultiplier * delta;
+		self.position.y += movementmultiplier * delta * 3;
 		if self.age <= 0:
 			points.erase(self)
 
@@ -53,7 +43,7 @@ func _emit():
 	
 	if trail_points[-1].position.distance_squared_to(_position) > distance*distance:
 		trail_points.push_back(point)
-"res://Textures/particles/circle_05_s.png"	
+
 func update_points() -> void:
 	var delta = get_process_delta_time()
 		

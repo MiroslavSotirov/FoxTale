@@ -19,6 +19,9 @@ func _ready():
 	yield(Globals.singletons["Networking"], "initreceived");
 	round_closed = true; #Init should close previous round if open
 	Globals.singletons["Fader"].tween(1,0,0.5);
+	var data = Globals.singletons["Networking"].lastround;
+	if(data.has("freeSpinsRemaining")): freespins = data["freeSpinsRemaining"]; 
+	
 	update_spins_count(Globals.singletons["Networking"].lastround);
 	Globals.singletons["Audio"].change_music("Kagura Suzu Endless");
 	$IntroContainer/Centering/CustomButton.enabled = true;
@@ -29,7 +32,9 @@ func on_play_button_pressed():
 	
 func show_slot():
 	Globals.singletons["Fader"].tween(0,1,1.1);
+
 	if(freespins > 0): 
+		prints("FREE SPINS", freespins)
 		start_fs_instant();
 	else:
 		Globals.singletons["Audio"].change_music("Kagura Suzu Endless");
@@ -143,7 +148,7 @@ func close_round():
 
 func update_spins_count(data):
 	if(data.has("freeSpinsRemaining")): 
-		if(in_freespins && data["freespinsRemaining"] > freespins):
+		if(in_freespins && data["freeSpinsRemaining"] > freespins):
 			increase_fs();
 			yield($SlotContainer/FreeSpinsIntro, "anim_end");
 		freespins = data["freeSpinsRemaining"];
