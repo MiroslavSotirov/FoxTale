@@ -5,6 +5,7 @@ func _ready():
 	VisualServer.canvas_item_set_z_index(get_canvas_item(), 20)
 	
 func show():
+	Globals.singletons["Audio"].change_music("Free Spins Endless");
 	$Animation.visible = false;
 	$AnimationPlayer.play("Show");
 	yield(get_tree().create_timer(2.0), "timeout")
@@ -26,6 +27,7 @@ func on_play_button_pressed():
 	$AnimationPlayer.play("Hide");
 
 func show_fast():
+	Globals.singletons["Audio"].change_music("Free Spins Endless");
 	$Animation.visible = false;
 	$AnimationPlayer.play("Show");
 	yield(get_tree().create_timer(2.0), "timeout")

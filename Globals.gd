@@ -27,6 +27,7 @@ var visible_tiles_count : int = 0;
 var canSpin : bool setget ,check_can_spin;
 	
 func _ready():
+	JS.connect("set_stake", self, "set_stake");
 	yield(get_tree(),"idle_frame")
 	emit_signal("allready");
 
@@ -60,7 +61,8 @@ func safe_set_parent(obj, newparent):
 	yield(VisualServer, "frame_post_draw");
 	if(obj == null || !is_instance_valid(obj)): return;
 	var transform = obj.get_global_transform();
-	obj.get_parent().remove_child(obj);
+	if(obj.get_parent() != null):
+		obj.get_parent().remove_child(obj);
 	newparent.add_child(obj);
 	obj.set_global_transform(transform);
 	update_all(obj);		
@@ -71,3 +73,19 @@ func update_all(obj):
 		if("update" in child): child.update();
 		if("_draw" in child): child._draw();
 		update_all(child);
+		
+func set_jurisdiction(jrd):
+	pass;
+	
+func set_debug(dbg):
+	pass;
+	
+func set_currency(currency):
+	singletons["Networking"].set_currency(currency);
+	
+func set_stake(stake):
+	currentBet = float(stake);
+	
+func set_language(lang):
+	pass;
+	

@@ -43,6 +43,7 @@ func hide():
 		tween.queue_free();
 		tween = null;
 		set_text(target);
+		Globals.singletons["Audio"].stop("Coins Endless")
 	shown = false;
 	$AnimationPlayer.play("Hide");
 	yield($AnimationPlayer, "animation_finished");

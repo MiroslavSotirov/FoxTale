@@ -62,11 +62,14 @@ func request_init():
 		data["stakeValues"], 
 		data["defaultBet"], 
 		data["reelSets"]["base"]["betMultiplier"]);
+		
 	Globals.emit_signal("update_view", 
 		lastround["view"]);
+		
 	Globals.emit_signal("update_balance", 
 		lastround["balance"]["amount"]["amount"], 
 		lastround["balance"]["amount"]["currency"]);
+		
 	update_state(lastround);
 	self.wallet = _response["wallet"];
 	
@@ -208,10 +211,24 @@ func _request(method, url, body, finsignal):
 	else:
 		emit_signal("fail", 902);
 
-
 func get_auth():
 	return "Maverick-Host-Token " + sessionID;
+	
+func set_token(token):
+	self.sessionID = str(token);
 
+func set_operator(operator):
+	self.operator = str(operator);
+	
+func set_wallet(wallet):
+	self.wallet = str(wallet);
+
+func set_currency(currency):
+	self.currency = str(currency);
+	
+func set_mode(mode):
+	self.mode = str(mode);
+	
 func update_state(state):
 	self.sessionID = state["host/verified-token"];
 	self.stateID = state["stateID"];

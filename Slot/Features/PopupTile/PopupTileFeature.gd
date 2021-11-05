@@ -8,6 +8,7 @@ export(String) var hit_sfx;
 var previous_tile;
 var registered : bool = false;
 var skippable : bool = false;
+var to_remove : bool = false;
 
 var tileX : int;
 var tileY : int;
@@ -20,21 +21,25 @@ func _ready():
 	Globals.connect("skip", self, "on_try_skip");
 	
 func init(tile):
+	if(to_remove): return
 	yield(VisualServer, "frame_pre_draw");
-	if(previous_tile):
+	if(previous_tile && get_parent() == previous_tile):
 		previous_tile.remove_child(self);
-	else: register(tile);		
-	tile.add_child(self);
+	else: register(tile);	
+	if(get_parent() != tile):	
+		tile.add_child(self);
 	tileX = tile.reelIndex;
 	tileY = tile.tileIndex;
 	previous_tile = tile;	
 
 func discard(tile):
 	prints("discarded "+name, tile.reelIndex);
+	to_remove = true;
 	queue_free();
 	Globals.singletons["PopupTiles"].created_tiles.erase(self);
 
 func register(tile):
+	if(registered): return;
 	registered = true;
 	tile.reel.connect("onstopped", self, "on_reel_stopped");
 	tile.reel.connect("onstartspin", self, "on_spin_start");

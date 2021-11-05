@@ -31,6 +31,7 @@ func show_win(target, is_total=false):
 	#Globals.singletons[""]
 	if(is_total): Globals.singletons["Audio"].change_music("Total Endless");
 	else: Globals.singletons["Audio"].change_music("Big Win Endless");
+	Globals.singletons["Audio"].loop("Coins Endless");
 	shown = true;
 	in_big_win = !is_total;
 	in_super_win = false;
@@ -99,6 +100,9 @@ func switch_to_megawin():
 	
 func hide():
 	print("HIDE");
+	Globals.singletons["Audio"].stop("Coins Endless");
+	Globals.singletons["Audio"].play("Junior");
+
 	skippable = false;
 	tween.queue_free();
 	shown = false;

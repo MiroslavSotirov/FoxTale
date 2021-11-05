@@ -505,7 +505,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=34]
-length = 2.0
+length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -513,7 +513,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 1.2, 2 ),
+"times": PoolRealArray( 0, 0.2, 2.2, 3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.833333 ), Color( 1, 1, 1, 0 ) ]
@@ -525,7 +525,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5, 1.2, 2 ),
+"times": PoolRealArray( 0, 0.5, 2.2, 3 ),
 "transitions": PoolRealArray( 0.25, 2, 2, 1 ),
 "update": 0,
 "values": [ Vector2( 1, 1 ), Vector2( 2, 2 ), Vector2( 2, 2 ), Vector2( 2.25, 2.25 ) ]
@@ -1360,6 +1360,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [ 0.5, 0.7, 0.9 ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:margin_top")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.4, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -100.0, 0 ]
+}
 
 [sub_resource type="Animation" id=49]
 tracks/0/type = "value"
@@ -1397,6 +1409,30 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 0.9 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:margin_top")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath(".:rect_scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ) ]
 }
 
 [sub_resource type="Animation" id=50]
@@ -1447,6 +1483,18 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 0.5 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath(".:margin_top")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ -100.0 ]
 }
 
 [sub_resource type="Animation" id=51]
@@ -1836,6 +1884,7 @@ __meta__ = {
 }
 
 [node name="IntroContainer" type="Control" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -2170,7 +2219,6 @@ texture = ExtResource( 51 )
 anims/Pressed = SubResource( 13 )
 
 [node name="SlotContainer" type="Control" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 512, 512 )
@@ -2240,7 +2288,7 @@ texture = ExtResource( 38 )
 margin_left = -803.0
 margin_top = -373.0
 margin_right = 797.0
-margin_bottom = 393.0
+margin_bottom = 407.0
 rect_clip_content = true
 mouse_filter = 2
 __meta__ = {
@@ -2694,7 +2742,7 @@ texture = ExtResource( 74 )
 [node name="Fog2" type="Sprite" parent="SlotContainer/FreeSpinsIntro"]
 modulate = Color( 0.431373, 0.920392, 1, 0.966667 )
 material = SubResource( 19 )
-position = Vector2( 479.127, 58.2182 )
+position = Vector2( 469.783, 102.268 )
 scale = Vector2( 5, 5 )
 texture = ExtResource( 73 )
 
@@ -3378,11 +3426,12 @@ anims/Show = SubResource( 48 )
 
 [node name="WinBar" type="Control" parent="SlotContainer"]
 visible = false
+modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 0.9
 anchor_right = 0.5
 anchor_bottom = 0.9
-rect_scale = Vector2( 1.1, 1.1 )
+rect_scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 99 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -3392,6 +3441,7 @@ __meta__ = {
 grow_horizontal = 2
 grow_vertical = 2
 custom_fonts/font = ExtResource( 89 )
+text = "123"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -3401,6 +3451,13 @@ __meta__ = {
 anims/GoDown = SubResource( 58 )
 anims/Hide = SubResource( 49 )
 anims/Show = SubResource( 50 )
+
+[node name="RedGlow2" type="Sprite" parent="SlotContainer/WinBar"]
+modulate = Color( 0, 0, 0, 1 )
+show_behind_parent = true
+position = Vector2( 0, 100 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 93 )
 
 [node name="RedGlow" type="Sprite" parent="SlotContainer/WinBar"]
 show_behind_parent = true

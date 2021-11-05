@@ -26,10 +26,12 @@ func has_feature(data):
 		if(feature["type"] == "InstaWin"): return true;
 	return false;
 
-func get_wins(data):
+func get_wins():
+	var data = Globals.singletons["Networking"].lastround
 	for win in data["wins"]:
 		if(!win.has("winline")): continue;
 		if(int(win["winline"]) == -1): return float(win["win"]);
+	return 0; #DEBUG
 
 func activate(totalmultiplier):
 	Globals.singletons["Audio"].change_music("Bonus Theme Endless");
@@ -212,12 +214,14 @@ func show_multiplier(right, not_last_layer):
 	else:
 		$TextLeftPosition.add_child(counter_text)
 	
-	counter_text.get_node("COLLECT").visible = !not_last_layer;
-
 	counter_text.rect_pivot_offset = counter_text.rect_size/2;
 	counter_text.rect_position = -counter_text.rect_size/2;
-	counter_text.get_node("Background").position = counter_text.rect_size/2;
-	counter_text.get_node("Background").position.y += 100;
+	var pos = counter_text.rect_size/2;
+	counter_text.get_node("Background").position = pos - Vector2.UP * 100;
+
+	counter_text.get_node("COLLECT").visible = !not_last_layer;
+	counter_text.get_node("COLLECT").position.x = pos.x;
+	
 	counter_text.visible = true;
 	
 	$AnimationPlayer.play("ShowWin");
@@ -243,9 +247,11 @@ func show_multiplier(right, not_last_layer):
 	emit_signal("_show_mult_end");
 	
 func last_layer_end():
-	$AnimationPlayer.play("Hide");
 	if(center_counter_shown):
 		$CenterCounterText/AnimationPlayer.play("Hide");
+	Globals.singletons["BigWin"].show_win(get_wins());
+	yield(Globals.singletons["BigWin"], "HideEnd")
+	$AnimationPlayer.play("Hide");
 	yield($AnimationPlayer, "animation_finished")
 	emit_signal("anim_end");
 	shown = false;
