@@ -1334,7 +1334,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=58]
+[sub_resource type="Animation" id=49]
 resource_name = "GoDown"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_scale")
@@ -1373,7 +1373,7 @@ tracks/2/keys = {
 "values": [ -100.0, 0 ]
 }
 
-[sub_resource type="Animation" id=49]
+[sub_resource type="Animation" id=50]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -1435,7 +1435,7 @@ tracks/4/keys = {
 "values": [ Vector2( 0.5, 0.5 ) ]
 }
 
-[sub_resource type="Animation" id=50]
+[sub_resource type="Animation" id=51]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -1497,7 +1497,7 @@ tracks/4/keys = {
 "values": [ -100.0 ]
 }
 
-[sub_resource type="Animation" id=51]
+[sub_resource type="Animation" id=52]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Slot/NormalOverlap:visible")
 tracks/0/interp = 1
@@ -1619,7 +1619,7 @@ tracks/9/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=56]
+[sub_resource type="Animation" id=53]
 resource_name = "fs_to_normal_fox"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Background/Normal:visible")
@@ -1670,7 +1670,7 @@ tracks/3/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=52]
+[sub_resource type="Animation" id=54]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Slot/NormalOverlap:visible")
 tracks/0/interp = 1
@@ -1792,7 +1792,7 @@ tracks/9/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=57]
+[sub_resource type="Animation" id=55]
 resource_name = "normal_to_fs_fox"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Background/Normal:visible")
@@ -1843,7 +1843,7 @@ tracks/3/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=53]
+[sub_resource type="Animation" id=56]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Background:modulate")
 tracks/0/interp = 1
@@ -1857,7 +1857,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=54]
+[sub_resource type="Animation" id=57]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Background:modulate")
 tracks/0/interp = 1
@@ -1871,7 +1871,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="CanvasItemMaterial" id=55]
+[sub_resource type="CanvasItemMaterial" id=58]
 blend_mode = 1
 light_mode = 1
 
@@ -1884,7 +1884,6 @@ __meta__ = {
 }
 
 [node name="IntroContainer" type="Control" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -2219,6 +2218,7 @@ texture = ExtResource( 51 )
 anims/Pressed = SubResource( 13 )
 
 [node name="SlotContainer" type="Control" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 512, 512 )
@@ -3448,9 +3448,9 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/WinBar"]
-anims/GoDown = SubResource( 58 )
-anims/Hide = SubResource( 49 )
-anims/Show = SubResource( 50 )
+anims/GoDown = SubResource( 49 )
+anims/Hide = SubResource( 50 )
+anims/Show = SubResource( 51 )
 
 [node name="RedGlow2" type="Sprite" parent="SlotContainer/WinBar"]
 modulate = Color( 0, 0, 0, 1 )
@@ -3466,12 +3466,12 @@ scale = Vector2( 3, 3 )
 texture = ExtResource( 93 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer"]
-anims/fs_to_normal = SubResource( 51 )
-anims/fs_to_normal_fox = SubResource( 56 )
-anims/normal_to_fs = SubResource( 52 )
-anims/normal_to_fs_fox = SubResource( 57 )
-anims/to_transparent = SubResource( 53 )
-anims/to_visible = SubResource( 54 )
+anims/fs_to_normal = SubResource( 52 )
+anims/fs_to_normal_fox = SubResource( 53 )
+anims/normal_to_fs = SubResource( 54 )
+anims/normal_to_fs_fox = SubResource( 55 )
+anims/to_transparent = SubResource( 56 )
+anims/to_visible = SubResource( 57 )
 
 [node name="UIContainer" type="Control" parent="."]
 visible = false
@@ -3575,7 +3575,7 @@ __meta__ = {
 
 [node name="FaderBright" type="ColorRect" parent="."]
 visible = false
-material = SubResource( 55 )
+material = SubResource( 58 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 input_pass_on_modal_close_click = false

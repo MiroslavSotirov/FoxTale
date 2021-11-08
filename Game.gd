@@ -12,18 +12,31 @@ var features = [];
 signal fox_animation_end;
 
 func _ready():
-	JS.connect("spin", self, "try_spin")	
+	JS.connect("init", self, "init_data_received");
+	
 	Globals.register_singleton("Game", self);
 	yield(Globals, "allready")
 	yield(get_tree(),"idle_frame")
 	Globals.singletons["Fader"].tween(1,1,0);
 	Globals.singletons["Networking"].connect("initreceived", self, "init_data_received");
-	Globals.singletons["Networking"].request_init();
-	yield(Globals.singletons["Networking"], "initreceived");
+	if(JS.enabled): Globals.singletons["Networking"].output("", "elysiumgamerequestinit");
+	else: Globals.singletons["Networking"].request_init();
+	
+func init_data_received(data):
 	round_closed = true; #Init should close previous round if open
 	Globals.singletons["Fader"].tween(1,0,0.5);
-	var data = Globals.singletons["Networking"].lastround;
-	if(data.has("freeSpinsRemaining")): freespins = data["freeSpinsRemaining"]; 
+	if(JS.enabled):
+		if(data.has("freeSpinsRemaining")): freespins = data["freeSpinsRemaining"]; 
+	else:
+		var lastround = Globals.singletons["Networking"].lastround;
+		if(lastround.has("freeSpinsRemaining")): freespins = lastround["freeSpinsRemaining"]; 
+
+	Globals.singletons["Networking"].connect("spinreceived", self, "spin_data_received");
+	Globals.singletons["Networking"].connect("closereceived", self, "close_round_received");
+	
+	JS.connect("spinstart", self, "start_spin");
+	JS.connect("spindata", self,"spin_data_received");
+	JS.connect("close", self,"close_round_received");	
 	
 	update_spins_count(Globals.singletons["Networking"].lastround);
 	Globals.singletons["Audio"].change_music("Kagura Suzu Endless");
@@ -54,18 +67,21 @@ func show_slot():
 
 func _process(delta):
 	if($SlotContainer.visible):		
-		if(Input.is_action_pressed("spin")): try_spin(false);
-		if(Input.is_action_pressed("spinforce")): try_spin(true);
-		if(Input.is_action_pressed("skip")): try_skip();
+		if(Input.is_action_pressed("spin")): start_spin(false);
+		if(Input.is_action_pressed("spinforce")): start_spin(true);
+		if(Input.is_action_pressed("skip")): start_spin();
 		
-	if(in_freespins && Globals.canSpin):
-		freespins_timer += delta;
-		if(freespins_timer > 1.0):
-			try_spin();
-			freespins_timer = 0.0;
-		
-func try_spin(isforce = false):
+	#if(in_freespins && Globals.canSpin):
+	#	freespins_timer += delta;
+	#	if(freespins_timer > 1.0):
+	#		start_spin();
+	#		freespins_timer = 0.0;
+
+func start_spin(isforce = false):
 	if(!Globals.canSpin): return;
+
+	round_closed = false;
+	round_ended = false;
 	
 	JS.output("spin_start");
 	
@@ -77,21 +93,28 @@ func try_spin(isforce = false):
 	
 	if(len(Globals.singletons["ExpandingWilds"].expanded_wilds) > 0):
 		foxes_expand_anim_end();
-		
-	round_closed = false;
-	round_ended = false;
 	Globals.singletons["Slot"].start_spin();
+	
 	yield(Globals.singletons["Slot"], "onstartspin");
 	
-	if(isforce):
-		#var force = funcref(Globals.singletons["Networking"], "force_freespin");
-		#Globals.singletons["Networking"].request_force(force, 'filter:"freespin"');
-#	to force an InstaWin:
-		var force = funcref(Globals.singletons["Networking"], "force_bonus");
-		Globals.singletons["Networking"].request_force(force, 'filter:"InstaWin"');
+	if(JS.enabled):
+		pass
 	else:
-		Globals.singletons["Networking"].request_spin();
-	var data = yield(Globals.singletons["Networking"], "spinreceived");
+		if(isforce):
+			#var force = funcref(Globals.singletons["Networking"], "force_freespin");
+			#Globals.singletons["Networking"].request_force(force, 'filter:"freespin"');
+	#	to force an InstaWin:
+			var force = funcref(Globals.singletons["Networking"], "force_bonus");
+			Globals.singletons["Networking"].request_force(force, 'filter:"InstaWin"');
+		else:
+			Globals.singletons["Networking"].request_spin();
+
+func spin_data_received(data):
+	if(!Globals.singletons["Slot"].allspinning):
+		yield(Globals.singletons["Slot"], "onstartspin");
+	end_spin(data);
+	
+func end_spin(data):
 	update_spins_count(data);
 	Globals.singletons["Slot"].stop_spin(data);
 		
@@ -155,15 +178,20 @@ func try_spin(isforce = false):
 	if(!round_closed && freespins == 0):
 		close_round();
 		yield(Globals.singletons["Networking"], "closereceived");
+		
 	prints("FS COUNT: ",freespins);
 	JS.output("spin_start");
 	round_ended = true;
+	JS.output("", "elysiumgameroundend");
 	
 func close_round():
 	if(freespins > 0): return;
-	Globals.singletons["Networking"].request_close();
-	yield(Globals.singletons["Networking"], "closereceived");
+	if(JS.enabled): JS.output("", "elysiumgameclose");
+	else: Globals.singletons["Networking"].request_close();
+	
+func close_round_received():
 	round_closed = true;
+	Globals.singletons["Networking"].emit_signal("closereceived");
 
 func update_spins_count(data):
 	if(data.has("freeSpinsRemaining")): 
@@ -190,9 +218,6 @@ func calculate_line_wins(wins):
 	
 func check_resolution_for_changes():
 	pass;
-
-func init_data_received(data):
-	pass
 
 func _input(ev):
 	if ev is InputEventKey and ev.scancode == KEY_K and not ev.echo:

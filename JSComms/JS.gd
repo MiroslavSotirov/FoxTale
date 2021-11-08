@@ -1,5 +1,6 @@
 extends Node
 
+signal init (data);
 signal spin (data);
 signal set_stake (stake);
 

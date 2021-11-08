@@ -12,6 +12,7 @@ export (bool) var testSpinStop : bool setget _test_spin_stop_set;
 export (float) var reelStartDelay = 0.01;
 export (float) var reelStopDelay = 0.01;
 
+var allspinning : bool setget , _get_allspinning;
 var spinning : bool setget , _get_spinning;
 var stopped : bool setget , _get_stopped;
 var stopping : bool setget , _get_stopping;
@@ -77,6 +78,9 @@ func stop_spin(data = null):
 
 func _get_spinning():
 	return reels_spinning > 0;
+	
+func _get_allspinning():
+	return reels_spinning == len(reels);
 	
 func _get_stopped():
 	for reel in reels: if(!reel.stopped): return false;
