@@ -63,7 +63,7 @@ func show_slot():
 	$SlotContainer.visible = true;
 	$UIContainer.visible = true;
 	Globals.singletons["Fader"].tween(1,0,0.5);
-	JS.output("show_ui");
+	JS.output("", "elysiumgameshowui");
 
 func _process(delta):
 	if($SlotContainer.visible):		
@@ -83,7 +83,7 @@ func start_spin(isforce = false):
 	round_closed = false;
 	round_ended = false;
 	
-	JS.output("spin_start");
+	JS.output("", "elysiumgamespinstart");
 	
 	if(Globals.singletons["WinLines"].shown):
 		Globals.singletons["WinLines"].hide_lines();
@@ -180,7 +180,6 @@ func end_spin(data):
 		yield(Globals.singletons["Networking"], "closereceived");
 		
 	prints("FS COUNT: ",freespins);
-	JS.output("spin_start");
 	round_ended = true;
 	JS.output("", "elysiumgameroundend");
 	
