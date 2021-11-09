@@ -1,7 +1,9 @@
 extends Node
 
 signal init (data);
-signal spin (data);
+signal spinstart (data);
+signal spindata (data);
+signal close (data);
 signal set_stake (stake);
 
 var enabled : bool;
@@ -69,18 +71,19 @@ func _process_js_input():
 	var input = JavaScript.eval("""
 		window.Elysium.Game.InputArray.shift()
 	""", true);
-	prints("Received input from JS", input);
+	prints("AAAAAAA Received input from JS", input);
 	var data = JSON.parse(input);
 	if(data.error > 0):
 		JavaScript.eval("""
-			window.Elysium.Game.InputProcessedEvent = new CustomEvent('elysiumgameinputprocessed', { input: %s, success: false });
+			window.Elysium.Game.InputProcessedEvent = new CustomEvent('elysiumgameinputprocessed', { input: '%s', success: false });
 			window.dispatchEvent(window.Elysium.Game.InputProcessedEvent)
 		""" % input, true);
 		prints("Failed to process JS input!");
 	else:
+		prints(data.result["type"], data.result["data"]);
 		emit_signal(data.result["type"], data.result["data"]);
 		JavaScript.eval("""
-			window.Elysium.Game.InputProcessedEvent = new CustomEvent('elysiumgameinputprocessed', { input: %s, success: true });
+			window.Elysium.Game.InputProcessedEvent = new CustomEvent('elysiumgameinputprocessed', { input: '%s', success: true });
 			window.dispatchEvent(window.Elysium.Game.InputProcessedEvent)
 		""" % input, true);
 		prints("Input from JS processed");

@@ -1,6 +1,7 @@
 extends Node
 
 signal initreceived (data);
+signal initcomplete;
 signal spinreceived (data);
 signal closereceived (data);
 signal forcespinreceived (data);
@@ -49,6 +50,9 @@ func request_init():
 	}
 	htmlpost("/v2/rgs/init2", JSON.print(data), "initreceived");
 	data = yield(self, "initreceived");
+	init_received(data);
+		
+func init_received(data):
 	lastround = {};
 
 	for rounddata in data["lastRound"].values():
@@ -77,6 +81,8 @@ func request_init():
 		request_close();
 		yield(self, "closereceived")
 		self.next_action = ""
+		
+	emit_signal("initcomplete");
 		
 func force_freespin(data):
 	if(data["nextAction"] == "freespin"):

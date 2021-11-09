@@ -12,24 +12,22 @@ var features = [];
 signal fox_animation_end;
 
 func _ready():
-	JS.connect("init", self, "init_data_received");
+
 	
 	Globals.register_singleton("Game", self);
 	yield(Globals, "allready")
 	yield(get_tree(),"idle_frame")
 	Globals.singletons["Fader"].tween(1,1,0);
-	Globals.singletons["Networking"].connect("initreceived", self, "init_data_received");
+	JS.connect("init", Globals.singletons["Networking"], "init_received");
+	Globals.singletons["Networking"].connect("initcomplete", self, "init_data_received");
 	if(JS.enabled): Globals.singletons["Networking"].output("", "elysiumgamerequestinit");
 	else: Globals.singletons["Networking"].request_init();
 	
-func init_data_received(data):
+func init_data_received():
 	round_closed = true; #Init should close previous round if open
-	Globals.singletons["Fader"].tween(1,0,0.5);
-	if(JS.enabled):
-		if(data.has("freeSpinsRemaining")): freespins = data["freeSpinsRemaining"]; 
-	else:
-		var lastround = Globals.singletons["Networking"].lastround;
-		if(lastround.has("freeSpinsRemaining")): freespins = lastround["freeSpinsRemaining"]; 
+	
+	var lastround = Globals.singletons["Networking"].lastround;
+	if(lastround.has("freeSpinsRemaining")): freespins = lastround["freeSpinsRemaining"]; 
 
 	Globals.singletons["Networking"].connect("spinreceived", self, "spin_data_received");
 	Globals.singletons["Networking"].connect("closereceived", self, "close_round_received");
@@ -41,6 +39,7 @@ func init_data_received(data):
 	update_spins_count(Globals.singletons["Networking"].lastround);
 	Globals.singletons["Audio"].change_music("Kagura Suzu Endless");
 	$IntroContainer/Centering/CustomButton.enabled = true;
+	Globals.singletons["Fader"].tween(1,0,0.5);
 	
 func on_play_button_pressed():
 	Globals.singletons["Audio"].play("Click_Navigate");
@@ -67,8 +66,8 @@ func show_slot():
 
 func _process(delta):
 	if($SlotContainer.visible):		
-		if(Input.is_action_pressed("spin")): start_spin(false);
-		if(Input.is_action_pressed("spinforce")): start_spin(true);
+		if(Input.is_action_pressed("spin")): start_spin(null, false);
+		if(Input.is_action_pressed("spinforce")): start_spin(null, true);
 		if(Input.is_action_pressed("skip")): start_spin();
 		
 	#if(in_freespins && Globals.canSpin):
@@ -77,7 +76,7 @@ func _process(delta):
 	#		start_spin();
 	#		freespins_timer = 0.0;
 
-func start_spin(isforce = false):
+func start_spin(data=null, isforce = false):
 	if(!Globals.canSpin): return;
 
 	round_closed = false;
@@ -93,6 +92,7 @@ func start_spin(isforce = false):
 	
 	if(len(Globals.singletons["ExpandingWilds"].expanded_wilds) > 0):
 		foxes_expand_anim_end();
+		
 	Globals.singletons["Slot"].start_spin();
 	
 	yield(Globals.singletons["Slot"], "onstartspin");
