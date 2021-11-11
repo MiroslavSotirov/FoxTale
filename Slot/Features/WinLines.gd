@@ -39,11 +39,11 @@ func show_lines(windata):
 func show_line(positions, lineid):
 	var line_positions = [];
 	
+	var linex = 0
 	for pos in lines[lineid]:
-		var y = int(pos)%Globals.visible_tiles_count;
-		var x = floor(pos/Globals.visible_tiles_count);		
-		var tile = Globals.singletons["Slot"].get_tile_at(x,y);
+		var tile = Globals.singletons["Slot"].get_tile_at(linex,pos);
 		line_positions.append(tile.global_position);
+		linex += 1;
 	
 	for pos in positions:
 		#TODO: dynamic
