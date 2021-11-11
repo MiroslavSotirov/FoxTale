@@ -1,4 +1,4 @@
-[gd_scene load_steps=171 format=2]
+[gd_scene load_steps=173 format=2]
 
 [ext_resource path="res://Slot/ReelSpinStartAnimation.tres" type="Animation" id=1]
 [ext_resource path="res://Slot/ReelSpinStopAnimation.tres" type="Animation" id=2]
@@ -103,6 +103,7 @@
 [ext_resource path="res://Slot/Features/WinTile.tscn" type="PackedScene" id=101]
 [ext_resource path="res://Slot/Features/WinLineParticles.tscn" type="PackedScene" id=102]
 [ext_resource path="res://Slot/Features/ExpandingWilds.gd" type="Script" id=103]
+[ext_resource path="res://Textures/slot/ReelsTopOverlap.png" type="Texture" id=104]
 [ext_resource path="res://Textures/slot/COLLECT.png" type="Texture" id=105]
 [ext_resource path="res://Textures/slot/MBase.png" type="Texture" id=106]
 [ext_resource path="res://Animations/bonus scene/torrigates.atlas" type="SpineAtlasResource" id=107]
@@ -268,6 +269,47 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0, -300 ), Vector2( 0, -100 ) ]
+}
+
+[sub_resource type="Animation" id=62]
+resource_name = "lightrayshow"
+length = 10.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 4.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.513726, 0.807843, 1, 0 ), Color( 0.0862745, 0.443137, 1, 0.423529 ), Color( 0.513726, 0.658824, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 4.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 15, 5 ), Vector2( 17, 7 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 4.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -200 ), Vector2( 0, -200 ) ]
 }
 
 [sub_resource type="SpineSkeletonDataResource" id=17]
@@ -1425,34 +1467,34 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.5, 1 ),
+"times": PoolRealArray( 0, 0.2, 0.7, 1 ),
 "transitions": PoolRealArray( 1, 2, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 1, 1 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ), Vector2( 0.5, 0.5 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath(".:anchor_top")
+tracks/1/path = NodePath(".:margin_top")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.4, 0.7, 1 ),
-"transitions": PoolRealArray( 2, 0.5, 1 ),
+"times": PoolRealArray( 0, 0.4, 1 ),
+"transitions": PoolRealArray( 1, 2, 1 ),
 "update": 0,
-"values": [ 0.5, 0.7, 0.9 ]
+"values": [ -100.0, -100.0, 400 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath(".:margin_top")
+tracks/2/path = NodePath("RedGlow:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.4, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.25, 1 ),
 "update": 0,
-"values": [ -100.0, 0 ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
 [sub_resource type="Animation" id=53]
@@ -1555,7 +1597,7 @@ tracks/2/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath(".:anchor_top")
+tracks/3/path = NodePath(".:margin_top")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -1563,11 +1605,11 @@ tracks/3/enabled = true
 tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.5 ]
+"update": 1,
+"values": [ -100.0 ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath(".:margin_top")
+tracks/4/path = NodePath("RedGlow:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -1575,8 +1617,8 @@ tracks/4/enabled = true
 tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ -100.0 ]
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=55]
@@ -1964,7 +2006,6 @@ __meta__ = {
 }
 
 [node name="IntroContainer" type="Control" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -2007,10 +2048,10 @@ skin = "fox2"
 startanimation = "idle"
 
 [node name="lightrays" type="Sprite" parent="IntroContainer/Centering"]
-modulate = Color( 0.266216, 0.533933, 1, 0.245239 )
+modulate = Color( 0.513726, 0.696028, 1, 0 )
 material = SubResource( 3 )
 position = Vector2( 0, -200 )
-scale = Vector2( 16.1244, 6.12438 )
+scale = Vector2( 16.5007, 6.50069 )
 texture = ExtResource( 62 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="IntroContainer/Centering/lightrays"]
@@ -2319,6 +2360,7 @@ texture = ExtResource( 51 )
 anims/Pressed = SubResource( 15 )
 
 [node name="SlotContainer" type="Control" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 512, 512 )
@@ -2344,20 +2386,30 @@ __meta__ = {
 position = Vector2( 2.5199, 0 )
 texture = ExtResource( 9 )
 
+[node name="lightrays" type="Sprite" parent="SlotContainer/Background/Normal"]
+modulate = Color( 1, 0.960784, 0.513726, 0 )
+material = SubResource( 3 )
+position = Vector2( 0, -149.931 )
+scale = Vector2( 11.251, 7 )
+texture = ExtResource( 62 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/Background/Normal/lightrays"]
+anims/lightrayshow = SubResource( 16 )
+
 [node name="FreeSpins" type="Sprite" parent="SlotContainer/Background"]
 visible = false
 modulate = Color( 1, 1, 1, 0 )
 texture = ExtResource( 41 )
 
-[node name="lightrays" type="Sprite" parent="SlotContainer/Background"]
-modulate = Color( 1, 0.960784, 0.513726, 0.193012 )
+[node name="lightrays" type="Sprite" parent="SlotContainer/Background/FreeSpins"]
+modulate = Color( 0.118418, 0.470562, 1, 0.39168 )
 material = SubResource( 3 )
-position = Vector2( 0, -187.562 )
-scale = Vector2( 10.6866, 7 )
+position = Vector2( 0, -200 )
+scale = Vector2( 15.4511, 5.45112 )
 texture = ExtResource( 62 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/Background/lightrays"]
-anims/lightrayshow = SubResource( 16 )
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/Background/FreeSpins/lightrays"]
+anims/lightrayshow = SubResource( 62 )
 
 [node name="Slot" type="Control" parent="SlotContainer"]
 anchor_left = 0.5
@@ -2396,9 +2448,9 @@ texture = ExtResource( 38 )
 
 [node name="ReelContainer" type="Control" parent="SlotContainer/Slot"]
 margin_left = -803.0
-margin_top = -385.0
+margin_top = -390.0
 margin_right = 797.0
-margin_bottom = 407.0
+margin_bottom = 408.0
 rect_clip_content = true
 mouse_filter = 2
 __meta__ = {
@@ -2503,8 +2555,8 @@ anims/ReelSpinStopAnimation = ExtResource( 2 )
 
 [node name="Reel5" type="Control" parent="SlotContainer/Slot/ReelContainer"]
 anchor_bottom = 1.0
-margin_left = 1400.0
-margin_right = 1400.0
+margin_left = 1398.0
+margin_right = 1398.0
 grow_horizontal = 0
 mouse_filter = 2
 script = ExtResource( 3 )
@@ -2565,6 +2617,10 @@ anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="TopOverlat" type="Sprite" parent="SlotContainer/Slot/NormalOverlap"]
+position = Vector2( 2, -400 )
+texture = ExtResource( 104 )
 
 [node name="Logo" type="SpineSprite" parent="SlotContainer/Slot/NormalOverlap"]
 position = Vector2( 0, -430 )
@@ -3574,17 +3630,15 @@ anims/GoDown = SubResource( 52 )
 anims/Hide = SubResource( 53 )
 anims/Show = SubResource( 54 )
 
-[node name="RedGlow2" type="Sprite" parent="SlotContainer/WinBar"]
-modulate = Color( 0, 0, 0, 1 )
+[node name="RedGlow" type="Sprite" parent="SlotContainer/WinBar"]
 show_behind_parent = true
 position = Vector2( 0, 100 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 93 )
 
-[node name="RedGlow" type="Sprite" parent="SlotContainer/WinBar"]
+[node name="RedGlow2" type="Sprite" parent="SlotContainer/WinBar/RedGlow"]
+modulate = Color( 0, 0, 0, 1 )
 show_behind_parent = true
-position = Vector2( 0, 100 )
-scale = Vector2( 3, 3 )
 texture = ExtResource( 93 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer"]
@@ -3711,7 +3765,8 @@ default = Color( 1, 1, 1, 1 )
 
 [connection signal="ready" from="IntroContainer/Centering/lightrays/AnimationPlayer" to="IntroContainer/Centering/lightrays/AnimationPlayer" method="play" binds= [ "lightrayshow" ]]
 [connection signal="pressed" from="IntroContainer/Centering/CustomButton" to="." method="on_play_button_pressed"]
-[connection signal="ready" from="SlotContainer/Background/lightrays/AnimationPlayer" to="SlotContainer/Background/lightrays/AnimationPlayer" method="play" binds= [ "lightrayshow" ]]
+[connection signal="ready" from="SlotContainer/Background/Normal/lightrays/AnimationPlayer" to="SlotContainer/Background/Normal/lightrays/AnimationPlayer" method="play" binds= [ "lightrayshow" ]]
+[connection signal="ready" from="SlotContainer/Background/FreeSpins/lightrays/AnimationPlayer" to="SlotContainer/Background/FreeSpins/lightrays/AnimationPlayer" method="play" binds= [ "lightrayshow" ]]
 [connection signal="pressed" from="SlotContainer/FreeSpinsIntro/CustomButton" to="SlotContainer/FreeSpinsIntro" method="on_play_button_pressed"]
 [connection signal="pressed" from="SlotContainer/BonusScene/CustomButton" to="SlotContainer/BonusScene" method="on_play_button_pressed"]
 [connection signal="mouse_entered" from="SlotContainer/BonusScene/LeftButton" to="SlotContainer/BonusScene" method="left_button_hover"]
