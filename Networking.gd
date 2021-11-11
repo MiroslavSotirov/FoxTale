@@ -59,9 +59,7 @@ func init_received(data):
 		for key in rounddata.keys():
 			if(lastround.has(key)): prints("Duplicate round data key ", key);
 			lastround[key] = rounddata[key];
-			
-	Globals.currentBet = float(data["defaultBet"]); ## TODO
-	
+				
 	Globals.emit_signal("configure_bets", 
 		data["stakeValues"], 
 		data["defaultBet"], 
@@ -77,12 +75,13 @@ func init_received(data):
 	update_state(lastround);
 	self.wallet = _response["wallet"];
 	
-	if(self.next_action == "finish"):
-		request_close();
-		yield(self, "closereceived")
-		self.next_action = ""
+	if(!JS.enabled):
+		if(self.next_action == "finish"):
+			request_close();
+			yield(self, "closereceived")
+			self.next_action = ""
 		
-	emit_signal("initcomplete");
+	emit_signal("initcomplete");	
 		
 func force_freespin(data):
 	if(data["nextAction"] == "freespin"):

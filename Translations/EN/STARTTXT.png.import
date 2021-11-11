@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/STARTTXT.png-288173d42667b6e77280487d1044e033.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://Translations/EN/STARTTXT.png"
+dest_files=[ "res://.import/STARTTXT.png-288173d42667b6e77280487d1044e033.stex" ]
+
+[params]
+
+compress/mode=1
+compress/lossy_quality=0.8
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=true
+process/HDR_as_SRGB=false
+process/invert_color=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0

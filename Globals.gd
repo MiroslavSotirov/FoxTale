@@ -25,12 +25,18 @@ var portraitratio : float = 9.0/20.0;
 var visible_reels_count : int = 0;
 var visible_tiles_count : int = 0;
 var canSpin : bool setget ,check_can_spin;
+
+var current_language = "NONE";
 	
 func _ready():
 	JS.connect("set_stake", self, "set_stake");
+	connect("configure_bets", self, "configure_bets");
 	yield(get_tree(),"idle_frame")
 	emit_signal("allready");
-
+	yield(get_tree(),"idle_frame")
+	yield(get_tree(),"idle_frame")
+	if(current_language == "NONE"): set_language("EN");
+	
 func register_singleton(name, obj):
 	singletons[name] = obj;
 
@@ -87,5 +93,14 @@ func set_stake(stake):
 	currentBet = float(stake);
 	
 func set_language(lang):
-	pass;
+	prints("LANGUAGE SET TO ",lang);
+	current_language = lang;
+	singletons["AssetLoader"].download_language(lang);
 	
+func configure_bets(bets, defaultbet, multiplier):
+	currentBet = float(defaultbet);
+	var biggestbet = float(bets[-1]) * float(multiplier);
+	singletons["BigWin"].big_win_limit = biggestbet * 1.05;
+	singletons["BigWin"].super_win_limit = biggestbet * 2;
+	singletons["BigWin"].mega_win_limit = biggestbet * 3;
+

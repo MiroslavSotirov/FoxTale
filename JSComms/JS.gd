@@ -71,7 +71,7 @@ func _process_js_input():
 	var input = JavaScript.eval("""
 		window.Elysium.Game.InputArray.shift()
 	""", true);
-	prints("AAAAAAA Received input from JS", input);
+	prints("Received input from JS", input);
 	var data = JSON.parse(input);
 	if(data.error > 0):
 		JavaScript.eval("""
@@ -123,3 +123,12 @@ func output_bets(bets, defaultbet, multiplier):
 		JSON.print({"bets":bets, "defaultbet":defaultbet, "multiplier":multiplier}), 
 		"elysiumgamestakes"
 	);
+
+func get_path():
+	if(!enabled): return null;
+	var path = JavaScript.eval("""
+		window.location.origin+window.location.pathname;
+	""", true);
+	if(path.ends_with(".html")):
+		path = path.replace(path.split("/", false)[-1], "");
+	return path;

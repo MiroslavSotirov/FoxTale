@@ -27,7 +27,8 @@ func has_feature(data):
 	return false;
 
 func get_wins():
-	var data = Globals.singletons["Networking"].lastround
+	var data = Globals.singletons["Networking"].lastround;
+	if(data == null): return 0;
 	for win in data["wins"]:
 		if(!win.has("winline")): continue;
 		if(int(win["winline"]) == -1): return float(win["win"]);
@@ -200,6 +201,7 @@ func go_to_next_stage():
 	$RightButton.pressed = false;
 	
 func show_multiplier(right, not_last_layer):
+	yield(VisualServer, "frame_post_draw");
 	var parent = _lasttori.get_parent();
 	parent.remove_child(_lasttori);
 	add_child_below_node($Fade, _lasttori);
@@ -242,6 +244,7 @@ func show_multiplier(right, not_last_layer):
 	$AnimationPlayer.play("HideWin");
 	yield($AnimationPlayer, "animation_finished")
 	Globals.singletons["FaderBright"].tween(0.6,0.0,1);
+	yield(VisualServer, "frame_post_draw");
 	remove_child(_lasttori);
 	parent.add_child(_lasttori);
 	emit_signal("_show_mult_end");

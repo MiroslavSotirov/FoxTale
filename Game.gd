@@ -8,7 +8,7 @@ var freespins_timer : float = 0;
 var in_freespins : bool = false;
 var features = [];
 
-
+signal ready_to_close_round;
 signal fox_animation_end;
 
 func _ready():
@@ -22,6 +22,7 @@ func _ready():
 	Globals.singletons["Networking"].connect("initcomplete", self, "init_data_received");
 	if(JS.enabled): Globals.singletons["Networking"].output("", "elysiumgamerequestinit");
 	else: Globals.singletons["Networking"].request_init();
+	
 	
 func init_data_received():
 	round_closed = true; #Init should close previous round if open
@@ -65,10 +66,12 @@ func show_slot():
 	JS.output("", "elysiumgameshowui");
 
 func _process(delta):
-	if($SlotContainer.visible):		
+	if(!JS.enabled && $SlotContainer.visible):		
 		if(Input.is_action_pressed("spin")): start_spin(null, false);
 		if(Input.is_action_pressed("spinforce")): start_spin(null, true);
-		if(Input.is_action_pressed("skip")): start_spin();
+		if(Input.is_action_pressed("skip")):
+			if(Globals.canSpin): start_spin();
+			else: try_skip();
 		
 	#if(in_freespins && Globals.canSpin):
 	#	freespins_timer += delta;
@@ -177,20 +180,21 @@ func end_spin(data):
 	
 	if(!round_closed && freespins == 0):
 		close_round();
-		yield(Globals.singletons["Networking"], "closereceived");
+		yield(self, "ready_to_close_round");
 		
 	prints("FS COUNT: ",freespins);
 	round_ended = true;
+	print("elysiumgameroundend");
 	JS.output("", "elysiumgameroundend");
 	
-func close_round():
+func close_round(_data=null):
 	if(freespins > 0): return;
 	if(JS.enabled): JS.output("", "elysiumgameclose");
 	else: Globals.singletons["Networking"].request_close();
 	
-func close_round_received():
+func close_round_received(_data=null):
 	round_closed = true;
-	Globals.singletons["Networking"].emit_signal("closereceived");
+	emit_signal("ready_to_close_round");
 
 func update_spins_count(data):
 	if(data.has("freeSpinsRemaining")): 

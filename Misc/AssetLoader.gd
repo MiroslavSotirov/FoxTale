@@ -5,22 +5,31 @@ export(Array) var tilesBlur;
 var assets_to_load = [];
 
 signal all_loaded;
+signal lang_downloaded (lang);
 
 func _ready():
 	Globals.register_singleton("AssetLoader", self);
-	#download_file("http://18.157.77.77:3000/test/EN.pck");
+	
 
-func download_file(file):
-	#$HTTPRequest.download_file = "res://EN.pck";
-	#$HTTPRequest.request(file);
-	#var res = yield($HTTPRequest, "request_completed");
-	#result, response_code, headers, body
-	#var test = load("res://Translations/test.tscn")
+func download_language(lang):
+	if(JS.enabled):
+		lang = lang.to_upper();
 
-	#ProjectSettings.load_resource_pack("res://EN.pck")
-	#test = load("res://Translations/test.tscn")
-
-	#var test = load("res://test.scn");
-	#add_child(test.Instance());
-	#print(res[3]); 
-	pass;
+		var path = JS.get_path()+"translations/"+lang+".pck";
+		prints(path);
+		$HTTPRequest.download_file = "res://"+lang+".pck";
+		$HTTPRequest.request(path);
+		var res = yield($HTTPRequest, "request_completed");
+		#result, response_code, headers, body
+		if(res[0] != 0):
+			prints("Error downloading language ", res[0], lang, "falling back to EN");
+			download_language("EN");
+			return;
+			
+		ProjectSettings.load_resource_pack("res://"+lang+".pck")
+		emit_signal("lang_downloaded", lang);
+		prints("LOADED NEW LANGUAGE ", lang);
+	else:
+		ProjectSettings.load_resource_pack("res://Translations/"+lang+".pck")
+		emit_signal("lang_downloaded", lang);
+		prints("LOADED NEW LANGUAGE ", lang);

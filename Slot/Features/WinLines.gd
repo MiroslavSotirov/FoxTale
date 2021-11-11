@@ -71,6 +71,7 @@ func hide_lines():
 		c.queue_free();
 
 	for c in $TilesContainer.get_children():
+		c.reset();
 		$TilesContainer.remove_child(c)
 		c.queue_free();
 	

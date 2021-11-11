@@ -59,6 +59,7 @@ func set_id(n):
 			var tile = Globals.singletons["PopupTiles"].get_tile_at(tileX, tileY);
 			tile.popup(true);
 			tile.change_z_index = false;
+			Globals.singletons["Slot"].get_tile_at(tileX, tileY).visible = false;
 	else:
 		$SpineSprite.setup_pose_trigger = true;
 		$SpineSprite.clear_tracks_trigger = true;
@@ -72,3 +73,7 @@ func set_id(n):
 			elif(name == "animation"):
 				$SpineSprite.get_animation_state().set_animation("animation", true);
 				break;
+		Globals.singletons["Slot"].get_tile_at(tileX, tileY).visible = false;
+
+func reset():
+	Globals.singletons["Slot"].get_tile_at(tileX, tileY).visible = true;
