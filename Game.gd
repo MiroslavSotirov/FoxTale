@@ -115,6 +115,7 @@ func start_spin(data=null, isforce = false):
 func spin_data_received(data):
 	if(!Globals.singletons["Slot"].allspinning):
 		yield(Globals.singletons["Slot"], "onstartspin");
+	Globals.singletons["Networking"].update_state(data)
 	end_spin(data);
 	
 func end_spin(data):
