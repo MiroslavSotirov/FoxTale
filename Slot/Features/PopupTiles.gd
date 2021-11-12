@@ -6,7 +6,6 @@ var created_tiles : Array = [];
 var popup_tile_count = 0;
 var remaining_tile_count = 0;
 var skipped : bool = false;
-var s : bool = false;
 
 signal popuptilesend;
 
@@ -26,7 +25,8 @@ func apply_to_tiles(spindata, reeldata):
 			if(popup_tiles.has(id)):
 				tiledata.feature = popup_tiles[id].instance();
 				tiledata.feature.id = id;
-				if(tiledata.feature.wait_for_popup): remaining_tile_count +=1;
+				if(tiledata.feature.wait_for_popup): 
+					remaining_tile_count +=1;
 				popup_tile_count += 1;
 
 	
@@ -46,7 +46,9 @@ func unpop_all():
 
 func popup_complete():
 	remaining_tile_count -= 1;
+	print(remaining_tile_count)
 	if(remaining_tile_count == 0):
+		print("all popped")
 		emit_signal("popuptilesend");
 
 func on_try_skip():

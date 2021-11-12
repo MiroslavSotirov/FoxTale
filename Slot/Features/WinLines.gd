@@ -12,7 +12,6 @@ var shown_tiles : Array;
 signal ShowEnd;
 
 func _ready():
-
 	Globals.register_singleton("WinLines", self);
 	
 func set_lines_count(n):
@@ -31,7 +30,10 @@ func show_lines(windata):
 	visible = true;
 	Globals.singletons["WinlinesOverlap"].tween(0,1,0.5);
 	for win in windata:
-		if(win.has("winline") && win["winline"] < 0): continue;
+		if(win.has("winline")):
+			if(win["winline"] < 0): continue;
+		else:
+			win["winline"] = 0;
 		show_line(win["symbol_positions"], int(win["winline"]));
 		yield(get_tree().create_timer(0.1), "timeout")
 	emit_signal("ShowEnd");
@@ -42,7 +44,7 @@ func show_line(positions, lineid):
 	var linex = 0
 	for pos in lines[lineid]:
 		var tile = Globals.singletons["Slot"].get_tile_at(linex,pos);
-		line_positions.append(tile.global_position);
+		line_positions.append(tile);
 		linex += 1;
 	
 	for pos in positions:
@@ -61,7 +63,7 @@ func show_line(positions, lineid):
 		
 	var winline = line_scene.instance();
 	$LinesContainer.add_child(winline);
-	winline.global_position = line_positions[0];
+	winline.global_position = line_positions[0].global_position;
 	winline.positions = line_positions;
 	winline.init();
 	

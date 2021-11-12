@@ -3,6 +3,7 @@ const TileData = preload("TileData.gd")
 
 export (String) var reel_spin_sfx : String;
 export (String) var reel_stop_sfx : String;
+export (float) var reel_stop_volume : float;
 export (String) var reel_start_sfx : String;
 
 export (Array) var availableTiles : Array = [];

@@ -20,7 +20,8 @@ z_index = 1
 script = ExtResource( 3 )
 popup_animation = "popup_wildsmall"
 hit_sfx = "Wild Small"
-expanded_scale = Vector2( 0.75, 0.75 )
+expanded_scale = Vector2( 0.8, 0.8 )
+expanded_offset = Vector2( 0, 30 )
 
 [node name="Symbol" type="Sprite" parent="."]
 visible = false

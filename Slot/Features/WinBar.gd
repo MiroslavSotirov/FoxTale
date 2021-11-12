@@ -39,6 +39,7 @@ func count_end():
 	emit_signal("CountEnd");
 
 func hide():
+	if(!shown): return;
 	if(tween != null && is_instance_valid(tween)):
 		tween.queue_free();
 		tween = null;

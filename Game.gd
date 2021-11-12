@@ -23,7 +23,6 @@ func _ready():
 	if(JS.enabled): Globals.singletons["Networking"].output("", "elysiumgamerequestinit");
 	else: Globals.singletons["Networking"].request_init();
 	
-	
 func init_data_received():
 	round_closed = true; #Init should close previous round if open
 	
@@ -34,11 +33,13 @@ func init_data_received():
 	Globals.singletons["Networking"].connect("closereceived", self, "close_round_received");
 	
 	JS.connect("spinstart", self, "start_spin");
-	JS.connect("spindata", self,"spin_data_received");
-	JS.connect("close", self,"close_round_received");	
+	JS.connect("spindata", self, "spin_data_received");
+	JS.connect("close", self, "close_round_received");	
+	JS.connect("skip", self, "try_skip");	
 	
 	update_spins_count(Globals.singletons["Networking"].lastround);
 	Globals.singletons["Audio"].change_music("Kagura Suzu Endless");
+	
 	$IntroContainer/Centering/CustomButton.enabled = true;
 	Globals.singletons["Fader"].tween(1,0,0.5);
 	
@@ -115,6 +116,8 @@ func start_spin(data=null, isforce = false):
 func spin_data_received(data):
 	if(!Globals.singletons["Slot"].allspinning):
 		yield(Globals.singletons["Slot"], "onstartspin");
+	if(JS.enabled):
+		Globals.singletons["Networking"].lastround = data;
 	Globals.singletons["Networking"].update_state(data)
 	end_spin(data);
 	
@@ -127,7 +130,7 @@ func end_spin(data):
 	if(wins == 0): close_round();
 	
 	yield(Globals.singletons["Slot"], "onstopped");
-
+	prints("TEST", Globals.singletons["PopupTiles"].remaining_tile_count > 0);
 	if(Globals.singletons["ExpandingWilds"].has_feature(data)):
 		if(Globals.singletons["PopupTiles"].remaining_tile_count > 0): 
 			yield(Globals.singletons["PopupTiles"], "popuptilesend");
@@ -285,7 +288,7 @@ func start_bonus(data):
 	yield(get_tree().create_timer(1), "timeout")
 	Globals.singletons["FaderBright"].tween(1.0,0.0,1);
 	
-func try_skip():
+func try_skip(data=null):
 	Globals.emit_signal("skip");
 	
 func show_logo():
@@ -313,6 +316,7 @@ func foxes_expand_anim_end():
 	yield(get_tree(), "idle_frame")
 	if(in_freespins): return emit_signal("fox_animation_end");
 	$SlotContainer/AnimationPlayer.play("fs_to_normal_fox");
+	Globals.singletons["Audio"].play("Magic Fox")
 	$SlotContainer/Slot/Overlay/FoxLeft.play_anim_then_loop("convert_back", "idle");
 	$SlotContainer/Slot/Overlay/FoxRight.play_anim_then_loop("convert_back", "idle");
 	yield($SlotContainer/Slot/Overlay/FoxRight, "animation_complete");

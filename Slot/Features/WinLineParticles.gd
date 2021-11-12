@@ -4,18 +4,22 @@ var positions = [];
 var curve : Curve2D;
 var position_index : int = 0;
 var f : float = 0;
-var startx = 200;
-var endx = 200;
+var startx = 75;
+var endx = 75;
 
 func _ready():
 	pass;
 	
 func init():
+	set_as_toplevel(true);
 	curve = Curve2D.new();
 	for p in positions:
-		curve.add_point(p);
+		curve.add_point(p.global_position);
 		
 func _process(delta):
+	for i in range(len(positions)):
+		curve.set_point_position(i, positions[i].global_position);
+	
 	f += delta * 2.0;
 		
 	move_to(get_pos(f-0.3),get_pos(f),get_pos(f+0.3));

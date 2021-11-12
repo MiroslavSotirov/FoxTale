@@ -4,6 +4,7 @@ signal init (data);
 signal spinstart (data);
 signal spindata (data);
 signal close (data);
+signal skip (data);
 signal set_stake (stake);
 
 var enabled : bool;
@@ -88,11 +89,17 @@ func _process_js_input():
 		""" % input, true);
 		prints("Input from JS processed");
 		
-func play_sound(sfx):
+func play_sound(sfx, volume=1):
 	if(!enabled): return;
 	JavaScript.eval("""
-		window.Elysium.SoundEngine.play("%s");
-	""" % sfx, true);
+		window.Elysium.SoundEngine.play("%s", %s);
+	""" % [sfx, volume], true);
+
+func loop_sound(sfx, volume=1):
+	if(!enabled): return;
+	JavaScript.eval("""
+		window.Elysium.SoundEngine.loop("%s", %s);
+	""" % [sfx, volume], true);
 	
 func stop_sound(sfx):
 	if(!enabled): return;
@@ -100,11 +107,6 @@ func stop_sound(sfx):
 		window.Elysium.SoundEngine.stop("%s");
 	""" % sfx, true);
 
-func loop_sound(sfx):
-	if(!enabled): return;
-	JavaScript.eval("""
-		window.Elysium.SoundEngine.loop("%s");
-	""" % sfx, true);
 	
 func pause_sound(sfx):
 	if(!enabled): return;

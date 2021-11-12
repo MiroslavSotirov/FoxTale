@@ -32,6 +32,7 @@ var stopped : bool = true;
 var stopping : bool = false;
 
 var index : int = 0;
+var additional_stop_distance : int = 0;
 
 var _spinPositionNormal : int = 0;
 var _spinPositionTarget : float = 0;
@@ -65,10 +66,11 @@ func _start_spin_anim_end():
 	
 func stop_spin(data):
 	data.invert(); ## TODO!
-	#for i in range(stopExtraDistance + topTileCount): queueData.push_back(_generate_random_tiledata());
+	for i in range(additional_stop_distance): queueData.push_back(_generate_random_tiledata());
 	for n in data: queueData.push_back(n);
 	for i in range(stopExtraDistance + topTileCount): queueData.push_back(_generate_random_tiledata());
-
+	additional_stop_distance = 0;
+	
 	targetData = data;
 	#spinPosition = fmod(spinPosition, tileDistance * totalTileCount);
 	_spinPositionTarget = spinPosition - fmod(spinPosition, tileDistance) + len(queueData)*tileDistance;
@@ -76,7 +78,7 @@ func stop_spin(data):
 	emit_signal("onstopping");
 	
 func stop_spin_anim():
-	Globals.singletons["Audio"].play(slot.reel_stop_sfx);
+	Globals.singletons["Audio"].play(slot.reel_stop_sfx, slot.reel_stop_volume);
 	for tile in currentTiles: tile.blur = false;
 	$AnimationPlayer.play("ReelSpinStopAnimation");
 	

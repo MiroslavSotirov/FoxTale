@@ -57,7 +57,7 @@ func set_id(n):
 			expandedwild.move_on_top();	
 		else:
 			var tile = Globals.singletons["PopupTiles"].get_tile_at(tileX, tileY);
-			tile.popup(true);
+			tile.popup(true, false);
 			tile.change_z_index = false;
 			Globals.singletons["Slot"].get_tile_at(tileX, tileY).visible = false;
 	else:
