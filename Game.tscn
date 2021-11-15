@@ -2038,10 +2038,10 @@ skin = "fox2"
 startanimation = "idle"
 
 [node name="lightrays" type="Sprite" parent="IntroContainer/Centering"]
-modulate = Color( 0.172563, 0.486677, 1, 0.338032 )
+modulate = Color( 0.513726, 0.716347, 1, 0 )
 material = SubResource( 3 )
 position = Vector2( 0, -200 )
-scale = Vector2( 15.7931, 5.79307 )
+scale = Vector2( 16.228, 6.22798 )
 texture = ExtResource( 62 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="IntroContainer/Centering/lightrays"]
@@ -2377,10 +2377,10 @@ position = Vector2( 2.5199, 0 )
 texture = ExtResource( 9 )
 
 [node name="lightrays" type="Sprite" parent="SlotContainer/Background/Normal"]
-modulate = Color( 1, 0.960784, 0.513726, 0.266044 )
+modulate = Color( 1, 0.960784, 0.513726, 0 )
 material = SubResource( 3 )
-position = Vector2( 0, -220.693 )
-scale = Vector2( 10.1896, 7 )
+position = Vector2( 0, -177.202 )
+scale = Vector2( 10.842, 7 )
 texture = ExtResource( 62 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/Background/Normal/lightrays"]
@@ -2392,10 +2392,10 @@ modulate = Color( 1, 1, 1, 0 )
 texture = ExtResource( 41 )
 
 [node name="lightrays" type="Sprite" parent="SlotContainer/Background/FreeSpins"]
-modulate = Color( 0.172563, 0.486677, 1, 0.338032 )
+modulate = Color( 0.513726, 0.716347, 1, 0 )
 material = SubResource( 3 )
 position = Vector2( 0, -200 )
-scale = Vector2( 15.7931, 5.79307 )
+scale = Vector2( 16.228, 6.22798 )
 texture = ExtResource( 62 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/Background/FreeSpins/lightrays"]
@@ -3727,7 +3727,7 @@ __meta__ = {
 
 [node name="Networking" type="Node" parent="."]
 script = ExtResource( 8 )
-init_sessionID = "demotoken"
+init_sessionID = "123"
 game = "fox-tale"
 mode = "demo"
 operator = "mav"
