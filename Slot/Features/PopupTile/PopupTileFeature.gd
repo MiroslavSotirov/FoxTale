@@ -37,7 +37,6 @@ func init(tile):
 	previous_tile = tile;	
 
 func discard(tile):
-	prints("discarded "+name, tile.reelIndex);
 	to_remove = true;
 	queue_free();
 	Globals.singletons["PopupTiles"].created_tiles.erase(self);

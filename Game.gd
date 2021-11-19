@@ -4,31 +4,24 @@ var round_closed : bool = false;
 var round_ended : bool = true;
 var freespins : int = 0;
 var increase_fs : bool = false;
-var freespins_timer : float = 0;
 var in_freespins : bool = false;
+var fs_ended : bool = false;
 var features = [];
 
 signal ready_to_close_round;
 signal fox_animation_end;
 
 func _ready():
-
-	
+	Globals.singletons["Fader"].tween(1,1,0);
 	Globals.register_singleton("Game", self);
 	yield(Globals, "allready")
 	yield(get_tree(),"idle_frame")
-	Globals.singletons["Fader"].tween(1,1,0);
 	JS.connect("init", Globals.singletons["Networking"], "init_received");
 	Globals.singletons["Networking"].connect("initcomplete", self, "init_data_received");
-	if(JS.enabled): Globals.singletons["Networking"].output("", "elysiumgamerequestinit");
-	else: Globals.singletons["Networking"].request_init();
 	
 func init_data_received():
 	round_closed = true; #Init should close previous round if open
 	
-	var lastround = Globals.singletons["Networking"].lastround;
-	if(lastround.has("freeSpinsRemaining")): freespins = lastround["freeSpinsRemaining"]; 
-
 	Globals.singletons["Networking"].connect("spinreceived", self, "spin_data_received");
 	Globals.singletons["Networking"].connect("closereceived", self, "close_round_received");
 	
@@ -36,8 +29,7 @@ func init_data_received():
 	JS.connect("spindata", self, "spin_data_received");
 	JS.connect("close", self, "close_round_received");	
 	JS.connect("skip", self, "try_skip");	
-	
-	update_spins_count(Globals.singletons["Networking"].lastround);
+
 	Globals.singletons["Audio"].change_music("Kagura Suzu Endless");
 	
 	$IntroContainer/Centering/CustomButton.enabled = true;
@@ -49,21 +41,27 @@ func on_play_button_pressed():
 	
 func show_slot():
 	Globals.singletons["Fader"].tween(0,1,1.1);
+	yield(Globals.singletons["Fader"], "done")
+	
+	var lastround = Globals.singletons["Networking"].lastround;
+	update_spins_count(lastround);
 
 	if(freespins > 0): 
 		prints("FREE SPINS", freespins)
+		Globals.singletons["WinBar"].show_win(lastround["cumulativeWin"], true);
 		start_fs_instant();
 	else:
 		Globals.singletons["Audio"].change_music("Kagura Suzu Endless");
 		
-	yield(Globals.singletons["Fader"], "done")
 	if(freespins == 0):
 		show_logo();
-
+	
 	$IntroContainer.queue_free();
 	$SlotContainer.visible = true;
 	$UIContainer.visible = true;
+		
 	Globals.singletons["Fader"].tween(1,0,0.5);
+	yield(Globals.singletons["Fader"], "done");
 	JS.output("", "elysiumgameshowui");
 
 func _process(delta):
@@ -73,12 +71,6 @@ func _process(delta):
 		if(Input.is_action_pressed("skip")):
 			if(Globals.canSpin): start_spin();
 			else: try_skip();
-		
-	#if(in_freespins && Globals.canSpin):
-	#	freespins_timer += delta;
-	#	if(freespins_timer > 1.0):
-	#		start_spin();
-	#		freespins_timer = 0.0;
 
 func start_spin(data=null, isforce = false):
 	if(!Globals.canSpin): return;
@@ -91,12 +83,14 @@ func start_spin(data=null, isforce = false):
 	if(Globals.singletons["WinLines"].shown):
 		Globals.singletons["WinLines"].hide_lines();
 		
-	if(Globals.singletons["WinBar"].shown):
+	if(Globals.singletons["WinBar"].shown && !in_freespins):
 		Globals.singletons["WinBar"].hide();
 	
 	if(len(Globals.singletons["ExpandingWilds"].expanded_wilds) > 0):
 		foxes_expand_anim_end();
 		
+	fs_ended = false;
+	
 	Globals.singletons["Slot"].start_spin();
 	
 	yield(Globals.singletons["Slot"], "onstartspin");
@@ -130,10 +124,11 @@ func end_spin(data):
 	if(wins == 0): close_round();
 	
 	yield(Globals.singletons["Slot"], "onstopped");
-	prints("TEST", Globals.singletons["PopupTiles"].remaining_tile_count > 0);
+
 	if(Globals.singletons["ExpandingWilds"].has_feature(data)):
 		if(Globals.singletons["PopupTiles"].remaining_tile_count > 0): 
 			yield(Globals.singletons["PopupTiles"], "popuptilesend");
+		JS.output("expandingwild", "elysiumgamefeature");
 		Globals.singletons["ExpandingWilds"].expand(data);
 		yield(Globals.singletons["ExpandingWilds"], "allexpanded");
 	
@@ -141,13 +136,16 @@ func end_spin(data):
 		var hasPathBonus = Globals.singletons["BonusPath"].has_feature(data);
 		if(Globals.singletons["PopupTiles"].remaining_tile_count > 0): 
 			yield(Globals.singletons["PopupTiles"], "popuptilesend");
+
 		var line_wins = calculate_line_wins(data["wins"]);
 		var has_line_wins = line_wins > 0;
 		if(has_line_wins):
+			JS.output("linewin", "elysiumgamefeature");
 			Globals.singletons["PopupTiles"].unpop_all();
 			Globals.singletons["WinLines"].show_lines(data["wins"]);
 			yield(Globals.singletons["WinLines"], "ShowEnd")
 			if(line_wins > Globals.singletons["BigWin"].big_win_limit):
+				JS.output("bigwin", "elysiumgamefeature");
 				Globals.singletons["BigWin"].show_win(line_wins);
 				yield(Globals.singletons["BigWin"], "HideEnd")
 			
@@ -155,10 +153,14 @@ func end_spin(data):
 			if(has_line_wins): 
 				yield(get_tree().create_timer(0.5), "timeout");
 				Globals.singletons["WinLines"].hide_lines();
+			JS.output("pathbonus", "elysiumgamefeature");
 			start_bonus(data);
 			yield(Globals.singletons["BonusPath"], "anim_end")
-
-		Globals.singletons["WinBar"].show_win(wins);
+	
+		if(in_freespins):
+			Globals.singletons["WinBar"].show_win(data["cumulativeWin"], true);
+		else:
+			Globals.singletons["WinBar"].show_win(wins, false);
 
 	for feature in features:
 		if(feature.has_feature(data)):
@@ -169,26 +171,34 @@ func end_spin(data):
 		if(Globals.singletons["PopupTiles"].remaining_tile_count > 0): 
 			yield(Globals.singletons["PopupTiles"], "popuptilesend");
 		increase_fs = false;
+		JS.output("freespinsinfreespins", "elysiumgamefeature");
 		increase_fs();
 		yield($SlotContainer/FreeSpinsIntro, "anim_end");
+		$SlotContainer/Slot/FreeSpinsOverlap/Text/CounterText.text = str(freespins);
 	
 	if(!in_freespins && freespins > 0): 
 		if(Globals.singletons["PopupTiles"].remaining_tile_count > 0): 
 			yield(Globals.singletons["PopupTiles"], "popuptilesend");
 		Globals.singletons["WinBar"].hide();
+		JS.output("freespins", "elysiumgamefeature");
 		start_fs();
 		yield($SlotContainer/FreeSpinsIntro, "anim_end");
+		$SlotContainer/Slot/FreeSpinsOverlap/Text/CounterText.text = str(freespins);
 		
 	if(in_freespins && freespins == 0):
 		end_fs();
-	
+		Globals.singletons["BigWin"].show_win(data["cumulativeWin"], true);
+		Globals.singletons["WinBar"].hide();
+		yield(Globals.singletons["BigWin"], "HideEnd")
+		Globals.singletons["WinBar"].show_win(data["cumulativeWin"], true);
+		
 	if(!round_closed && freespins == 0):
 		close_round();
 		yield(self, "ready_to_close_round");
 		
 	prints("FS COUNT: ",freespins);
 	round_ended = true;
-	print("elysiumgameroundend");
+	
 	JS.output("", "elysiumgameroundend");
 	
 func close_round(_data=null):
@@ -201,12 +211,13 @@ func close_round_received(_data=null):
 	emit_signal("ready_to_close_round");
 
 func update_spins_count(data):
-	if(data.has("freeSpinsRemaining")): 
+	if(data.has("freeSpinsRemaining")):
 		increase_fs = in_freespins && data["freeSpinsRemaining"] > freespins
-		freespins = data["freeSpinsRemaining"];
+		freespins = int(data["freeSpinsRemaining"]);
+
 		if(freespins == 0):
 			$SlotContainer/Slot/FreeSpinsOverlap/Text/CounterText.text = "";
-		else:
+		elif(!increase_fs):
 			$SlotContainer/Slot/FreeSpinsOverlap/Text/CounterText.text = str(freespins);
 	else: 
 		freespins = 0;
@@ -238,7 +249,7 @@ func start_fs_instant():
 	$SlotContainer/Slot/Overlay/FoxLeft.play_anim_then_loop("convert_color", "idle_gold");
 	$SlotContainer/Slot/Overlay/FoxRight.play_anim_then_loop("convert_color", "idle_gold");
 	$SlotContainer/AnimationPlayer.play("normal_to_fs");
-	$SlotContainer/Slot/FreeSpinsOverlap/Text/CounterText.text = str(freespins);
+	
 	in_freespins = true;
 	
 func start_fs():
@@ -258,9 +269,8 @@ func start_fs():
 	Globals.singletons["Audio"].play("Magic Fox")
 	$SlotContainer/Slot/Overlay/FoxLeft.play_anim_then_loop("convert_color", "idle_gold");
 	$SlotContainer/Slot/Overlay/FoxRight.play_anim_then_loop("convert_color", "idle_gold");
-	$SlotContainer/Slot/FreeSpinsOverlap/Text/CounterText.text = str(freespins);
+
 	in_freespins = true;
-	freespins_timer = 0.0;
 	
 func increase_fs():
 	$SlotContainer/FreeSpinsIntro.show_fast();	
@@ -268,14 +278,19 @@ func increase_fs():
 	yield(get_tree().create_timer(1), "timeout");
 	Globals.singletons["FaderBright"].tween(1.0,0.0,1);	
 	yield($SlotContainer/FreeSpinsIntro, "anim_end");
-	freespins_timer = 0.0;
 	
 func end_fs():
+	if(len(Globals.singletons["ExpandingWilds"].expanded_wilds) == 0):
+		$SlotContainer/AnimationPlayer.play("fs_to_normal");
+		$SlotContainer/Slot/Overlay/FoxLeft.play_anim_then_loop("convert_back", "idle");
+		$SlotContainer/Slot/Overlay/FoxRight.play_anim_then_loop("convert_back", "idle");
+	else:
+		$SlotContainer/AnimationPlayer.play("fs_to_fox");
+		
 	Globals.singletons["WinlinesOverlap"].get_node("FreeSpins").visible = false;
 	Globals.singletons["WinlinesOverlap"].get_node("Normal").visible = true;
-	$SlotContainer/AnimationPlayer.play("fs_to_normal");
-	$SlotContainer/Slot/Overlay/FoxLeft.play_anim_then_loop("convert_back", "idle");
-	$SlotContainer/Slot/Overlay/FoxRight.play_anim_then_loop("convert_back", "idle");
+
+	fs_ended = true;
 	in_freespins = false;
 	Globals.singletons["Audio"].change_music("Kagura Suzu Endless");
 	
@@ -301,7 +316,7 @@ func show_logo():
 	logo.play_anim("idle", true);
 
 func foxes_expand_anim_start():
-	yield(get_tree(), "idle_frame")
+	yield(get_tree(), "idle_frame");
 	if(in_freespins): return emit_signal("fox_animation_end");
 	$SlotContainer/AnimationPlayer.play("normal_to_fs_fox");
 	Globals.singletons["Audio"].play("Magic Fox")
@@ -313,7 +328,7 @@ func foxes_expand_anim_start():
 	emit_signal("fox_animation_end");
 	
 func foxes_expand_anim_end():
-	yield(get_tree(), "idle_frame")
+	yield(get_tree(), "idle_frame")	
 	if(in_freespins): return emit_signal("fox_animation_end");
 	$SlotContainer/AnimationPlayer.play("fs_to_normal_fox");
 	Globals.singletons["Audio"].play("Magic Fox")

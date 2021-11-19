@@ -44,9 +44,7 @@ func apply_to_tiles(spindata, reeldata):
 		else: 
 			anticipation.append(false);
 		reelid += 1;
-	
-	prints("ANTICIPATION: ", anticipation, activating_reel);
-	
+			
 	reelid = 0;
 	var n = 1;
 	for reel_anticipation in anticipation:
@@ -63,7 +61,6 @@ func on_reel_stopped(reel):
 	if(!has_anticipation): return;
 	
 	if(reel.index == activating_reel): 
-		prints("activate at reel ", activating_reel);
 		Globals.singletons["Audio"].fade("Anticipation", 1, 1, 0);
 		Globals.singletons["Audio"].loop("Anticipation");
 		for i in range(len(anticipation)):

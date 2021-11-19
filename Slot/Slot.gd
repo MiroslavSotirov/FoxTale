@@ -40,6 +40,11 @@ func _ready():
 		
 	Globals.visible_tiles_count = reels[0].visibleTileCount;
 	Globals.visible_reels_count = len(reels);
+	
+func assign_tiles(tilearray):
+	for x in range(Globals.visible_reels_count):
+		for y in range(Globals.visible_tiles_count):
+			get_tile_at(x,y).setTileData(TileData.new(tilearray[x][y]));
 
 func _on_reel_stopped():
 	Globals.singletons["Audio"].stop(reel_spin_sfx)

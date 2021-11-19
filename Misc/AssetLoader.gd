@@ -3,13 +3,12 @@ export(Array) var tiles;
 export(Array) var tilesBlur;
 
 var assets_to_load = [];
+var language_loaded : bool = false;
 
-signal all_loaded;
 signal lang_downloaded (lang);
 
 func _ready():
 	Globals.register_singleton("AssetLoader", self);
-	
 
 func download_language(lang):
 	if(JS.enabled):
@@ -27,9 +26,12 @@ func download_language(lang):
 			return;
 			
 		ProjectSettings.load_resource_pack("res://"+lang+".pck")
+		language_loaded = true;
 		emit_signal("lang_downloaded", lang);
 		prints("LOADED NEW LANGUAGE ", lang);
 	else:
 		ProjectSettings.load_resource_pack("res://Translations/"+lang+".pck")
+		language_loaded = true;
+		yield(get_tree(), "idle_frame");
 		emit_signal("lang_downloaded", lang);
 		prints("LOADED NEW LANGUAGE ", lang);

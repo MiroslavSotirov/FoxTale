@@ -61,7 +61,7 @@ func show_win(target, is_total=false):
 	
 func skip():
 	if(!skippable): return;
-	tween.playback_speed = 10;
+	tween.playback_speed = 30;
 
 func set_text(v):
 	amount = v;
@@ -99,7 +99,6 @@ func switch_to_megawin():
 	transition = false;
 	
 func hide():
-	print("HIDE");
 	Globals.singletons["Audio"].stop("Coins Endless");
 	Globals.singletons["Audio"].play("Junior");
 

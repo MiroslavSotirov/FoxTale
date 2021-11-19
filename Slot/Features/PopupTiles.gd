@@ -46,9 +46,7 @@ func unpop_all():
 
 func popup_complete():
 	remaining_tile_count -= 1;
-	print(remaining_tile_count)
 	if(remaining_tile_count == 0):
-		print("all popped")
 		emit_signal("popuptilesend");
 
 func on_try_skip():

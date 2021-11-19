@@ -28,14 +28,20 @@ var canSpin : bool setget ,check_can_spin;
 
 var current_language = "NONE";
 	
-func _ready():
+func loading_done():
+	print("loading done");
 	JS.connect("set_stake", self, "set_stake");
 	connect("configure_bets", self, "configure_bets");
 	yield(get_tree(),"idle_frame")
 	emit_signal("allready");
 	yield(get_tree(),"idle_frame")
 	yield(get_tree(),"idle_frame")
-	if(current_language == "NONE"): set_language("EN");
+	_resolution_changed(resolution);
+
+	if(JS.enabled): 
+		JS.output("", "elysiumgamerequestinit");
+	else: 
+		singletons["Networking"].request_init();
 	
 func register_singleton(name, obj):
 	singletons[name] = obj;
@@ -92,13 +98,14 @@ func set_currency(currency):
 func set_stake(stake):
 	currentBet = float(stake);
 	
-func set_language(lang):
+func set_language(lang : String):
+	lang = lang.to_upper();
 	prints("LANGUAGE SET TO ",lang);
 	current_language = lang;
 	singletons["AssetLoader"].download_language(lang);
 	
 func configure_bets(bets, defaultbet, multiplier):
-	currentBet = float(defaultbet);
+	currentBet = float(bets[-1]);
 	var biggestbet = float(bets[-1]) * float(multiplier);
 	singletons["BigWin"].big_win_limit = biggestbet * 1.05;
 	singletons["BigWin"].super_win_limit = biggestbet * 2;

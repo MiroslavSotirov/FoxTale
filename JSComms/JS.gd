@@ -22,20 +22,24 @@ func _ready():
 			KeepAliveEvent : new Event('elysiumgamekeepalive'),
 			ReadyEvent : new Event('elysiumgameready'),
 			InputArray : [],
-			InputProcessedEvent : "reserved"
+			InputProcessedEvent : "reserved",
+			FPS: 0
 		}
 	""",true);
 	
-	var paramsstring = JavaScript.eval("""JSON.stringify(Array.from((new URLSearchParams(window.location.search)).entries()))""", true);
-	var params = JSON.parse(paramsstring).result;
-	prints("Parameters:",params);
-	process_params(params);
+	#var paramsstring = JavaScript.eval("""JSON.stringify(Array.from((new URLSearchParams(window.location.search)).entries()))""", true);
+	#var params = JSON.parse(paramsstring).result;
+	#prints("Parameters:",params);
+	#process_params(params);
 	
 	JavaScript.eval("""window.dispatchEvent(window.Elysium.Game.ReadyEvent)""", true);
 	
 func _process(delta):
 	if(!enabled): return;
-	JavaScript.eval("""window.dispatchEvent(window.Elysium.Game.KeepAliveEvent)""", true);
+	JavaScript.eval("""
+		window.dispatchEvent(window.Elysium.Game.KeepAliveEvent);
+		window.Elysium.Game.FPS = %s;
+	""" % Performance.get_monitor(Performance.TIME_FPS), true);
 	
 	for i in range(JavaScript.eval("""window.Elysium.Game.InputArray.length""", true)):
 		_process_js_input();
@@ -61,12 +65,12 @@ func process_params(params):
 			Globals.set_jurisdiction(param[1]);
 		
 func output(data, event="elysiumgameoutput"):
-		if(!enabled): return;
-		prints(data, event);
-		JavaScript.eval("""
-			window.Elysium.Game.OutputEvent = new CustomEvent("%s", { data: `%s` });
-			window.dispatchEvent(window.Elysium.Game.OutputEvent)
-		""" % [event, data], true);
+	if(!enabled): return;
+	prints(data, event);
+	JavaScript.eval("""
+		window.Elysium.Game.OutputEvent = new CustomEvent("%s", {detail: { data: `%s` }});
+		window.dispatchEvent(window.Elysium.Game.OutputEvent)
+	""" % [event, data], true);
 		
 func _process_js_input():
 	var input = JavaScript.eval("""
@@ -92,21 +96,22 @@ func _process_js_input():
 func play_sound(sfx, volume=1):
 	if(!enabled): return;
 	JavaScript.eval("""
-		window.Elysium.SoundEngine.play("%s", %s);
-	""" % [sfx, volume], true);
+		window.Elysium.SoundEngine.volume("%s", %s);
+		window.Elysium.SoundEngine.play("%s");
+	""" % [sfx, volume, sfx], true);
 
 func loop_sound(sfx, volume=1):
 	if(!enabled): return;
 	JavaScript.eval("""
-		window.Elysium.SoundEngine.loop("%s", %s);
-	""" % [sfx, volume], true);
+		window.Elysium.SoundEngine.volume("%s", %s);
+		window.Elysium.SoundEngine.loop("%s");
+	""" % [sfx, volume, sfx], true);
 	
 func stop_sound(sfx):
 	if(!enabled): return;
 	JavaScript.eval("""
 		window.Elysium.SoundEngine.stop("%s");
 	""" % sfx, true);
-
 	
 func pause_sound(sfx):
 	if(!enabled): return;

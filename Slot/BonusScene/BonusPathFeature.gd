@@ -28,7 +28,7 @@ func has_feature(data):
 
 func get_wins():
 	var data = Globals.singletons["Networking"].lastround;
-	if(data == null): return 0;
+	if(data == null || !("wins" in data)): return 0;
 	for win in data["wins"]:
 		if(!win.has("winline")): continue;
 		if(int(win["winline"]) == -1): return float(win["win"]);
@@ -107,7 +107,6 @@ func on_play_button_pressed():
 		$Layer1/ToriLeft.play_anim("Idle", false, 0);
 		
 func right_button_pressed():
-	print("RIGHT");
 	$LeftButton.enabled = false;
 	$RightButton.enabled = false;
 	_lasttori = $Layer1/ToriRight;
@@ -121,7 +120,6 @@ func right_button_pressed():
 	else: last_layer_end();
 	
 func left_button_pressed():
-	print("Left");
 	$LeftButton.enabled = false;
 	$RightButton.enabled = false;
 	_lasttori = $Layer1/ToriLeft;
@@ -246,7 +244,7 @@ func show_multiplier(right, not_last_layer):
 	Globals.singletons["FaderBright"].tween(0.6,0.0,1);
 	yield(VisualServer, "frame_post_draw");
 	remove_child(_lasttori);
-	parent.add_child(_lasttori);
+	parent.add_child_below_node(parent.get_node("ToriMarker"), _lasttori);
 	emit_signal("_show_mult_end");
 	
 func last_layer_end():

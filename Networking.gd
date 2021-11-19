@@ -57,7 +57,7 @@ func init_received(data):
 
 	for rounddata in data["lastRound"].values():
 		for key in rounddata.keys():
-			if(lastround.has(key)): prints("Duplicate round data key ", key);
+			#if(lastround.has(key)): prints("Duplicate round data key ", key, rounddata[key]);
 			lastround[key] = rounddata[key];
 				
 	Globals.emit_signal("configure_bets", 
@@ -80,7 +80,17 @@ func init_received(data):
 			request_close();
 			yield(self, "closereceived")
 			self.next_action = ""
+			
+	if("featureview" in lastround): Globals.singletons["Slot"].assign_tiles(lastround["featureview"]);
+	else: Globals.singletons["Slot"].assign_tiles(lastround["view"]);
+			
+	if("language" in data):
+		Globals.set_language(data["language"]);
+	else:
+		Globals.set_language("en");
 		
+	yield(Globals.singletons["AssetLoader"], "lang_downloaded");
+	
 	emit_signal("initcomplete");	
 		
 func force_freespin(data):

@@ -23,6 +23,7 @@ func expand(root, middletile):
 	move_on_top();
 	var scale = global_scale;
 
+	skippable = true;
 	Globals.singletons["Audio"].play("Wild Big")
 	$SpineSprite.play_anim("wild_transform", false);
 	$SpineSprite.set_timescale(1.5);
@@ -36,6 +37,7 @@ func expand(root, middletile):
 	$Tween.start();
 	
 	yield($SpineSprite,"animation_complete")
+	skippable = false;
 	$SpineSprite.set_timescale(1);
 	$SpineSprite.play_anim("idle_wildbig", true);
 	emit_signal("expandend");
@@ -53,3 +55,9 @@ func discard(tile):
 
 func on_spin_start():
 	unpop();
+
+func on_try_skip():
+	if(skippable):
+		$Tween.playback_speed = 3;
+
+	.on_try_skip();
