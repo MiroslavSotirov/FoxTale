@@ -1,0 +1,14 @@
+[remap]
+
+importer="raiix.spine_runtime.atlas"
+type="SpineAtlasResource"
+path="res://.import/FT_Logo_Export.atlas-cb495211e89f0adbf5b13a10c8fc0143.spatlas"
+
+[deps]
+
+source_file="res://Translations/DE/FT_Logo_Export.atlas"
+dest_files=[ "res://.import/FT_Logo_Export.atlas-cb495211e89f0adbf5b13a10c8fc0143.spatlas" ]
+
+[params]
+
+normal_texture_prefix="n"

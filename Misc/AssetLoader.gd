@@ -30,7 +30,7 @@ func download_language(lang):
 		emit_signal("lang_downloaded", lang);
 		prints("LOADED NEW LANGUAGE ", lang);
 	else:
-		ProjectSettings.load_resource_pack("res://Translations/"+lang+".pck")
+		ProjectSettings.load_resource_pack("res://Translations/export/"+lang+".pck")
 		language_loaded = true;
 		yield(get_tree(), "idle_frame");
 		emit_signal("lang_downloaded", lang);

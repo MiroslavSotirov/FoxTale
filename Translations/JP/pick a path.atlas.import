@@ -1,0 +1,14 @@
+[remap]
+
+importer="raiix.spine_runtime.atlas"
+type="SpineAtlasResource"
+path="res://.import/pick a path.atlas-7f80ad238a9ea9d45cf575832c4b1b74.spatlas"
+
+[deps]
+
+source_file="res://Translations/JP/pick a path.atlas"
+dest_files=[ "res://.import/pick a path.atlas-7f80ad238a9ea9d45cf575832c4b1b74.spatlas" ]
+
+[params]
+
+normal_texture_prefix="n"

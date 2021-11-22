@@ -6,11 +6,18 @@ export(bool) var loop = true;
 export(float) var timescale = 1;
 
 var current_anim : String;
+var currently_looping : bool;
 
 func _ready():
 	#get_animation_state().disable_queue();
 	play_anim(startanimation, loop);
 	set_skin(skin);
+	
+func set_new_state_data(data, newskin=null):
+	self.animation_state_data_res = data;
+	yield(get_tree(), "idle_frame");
+	if(newskin): set_skin(newskin);	
+	play_anim(current_anim, currently_looping);
 
 func set_skin(skin):
 	get_skeleton().set_skin_by_name(skin);
@@ -22,6 +29,7 @@ func play_anim(anim, loop, timescale_override=null):
 	
 	get_animation_state().clear_tracks();
 	get_animation_state().set_animation(anim, loop);
+	currently_looping = loop;
 	if(timescale_override != null): set_timescale(timescale_override, false);
 	else: set_timescale(timescale);
 	

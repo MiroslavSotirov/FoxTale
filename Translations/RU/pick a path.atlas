@@ -1,0 +1,18 @@
+pick a path.png
+size:725,1655
+filter:Linear,Linear
+Leafs_ru
+bounds:0,206,1449,379
+offsets:12,14,1475,409
+rotate:90
+PickAPathGlow_ru
+bounds:381,268,1387,193
+offsets:43,87,1475,409
+rotate:90
+PickAPath_ru
+bounds:576,282,1373,149
+offsets:48,101,1475,409
+rotate:90
+backlight
+bounds:0,0,491,204
+offsets:5,7,502,211

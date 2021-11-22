@@ -1,0 +1,13 @@
+[remap]
+
+importer="raiix.spine_runtime.json"
+type="SpineSkeletonJsonDataResource"
+path="res://.import/FT_Logo_Export.json-92f1d36dcfdf0ef7002b1433b9d05783.spjson"
+
+[deps]
+
+source_file="res://Translations/CN/FT_Logo_Export.json"
+dest_files=[ "res://.import/FT_Logo_Export.json-92f1d36dcfdf0ef7002b1433b9d05783.spjson" ]
+
+[params]
+

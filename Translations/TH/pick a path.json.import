@@ -1,0 +1,13 @@
+[remap]
+
+importer="raiix.spine_runtime.json"
+type="SpineSkeletonJsonDataResource"
+path="res://.import/pick a path.json-ff1b10eb109b4d8650565124e04b21b0.spjson"
+
+[deps]
+
+source_file="res://Translations/TH/pick a path.json"
+dest_files=[ "res://.import/pick a path.json-ff1b10eb109b4d8650565124e04b21b0.spjson" ]
+
+[params]
+

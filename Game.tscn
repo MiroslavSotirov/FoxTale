@@ -1,4 +1,4 @@
-[gd_scene load_steps=177 format=2]
+[gd_scene load_steps=176 format=2]
 
 [ext_resource path="res://Slot/ReelSpinStartAnimation.tres" type="Animation" id=1]
 [ext_resource path="res://Slot/ReelSpinStopAnimation.tres" type="Animation" id=2]
@@ -74,8 +74,8 @@
 [ext_resource path="res://Animations/bigwin/bigwin.json" type="SpineSkeletonJsonDataResource" id=72]
 [ext_resource path="res://Textures/particles/PNG (Black background)/smoke_05.png" type="Texture" id=73]
 [ext_resource path="res://Textures/particles/PNG (Black background)/smoke_06.png" type="Texture" id=74]
-[ext_resource path="res://Animations/bonus scene/pick a path.atlas" type="SpineAtlasResource" id=75]
-[ext_resource path="res://Animations/bonus scene/pick a path.json" type="SpineSkeletonJsonDataResource" id=76]
+[ext_resource path="res://Translations/EN/pickapath_data.tres" type="SpineAnimationStateDataResource" id=75]
+[ext_resource path="res://Misc/LanguageAssetSwapperSpine.gd" type="Script" id=76]
 [ext_resource path="res://Animations/bonus scene/torrigates3.json" type="SpineSkeletonJsonDataResource" id=77]
 [ext_resource path="res://Slot/BonusScene/BonusSceneButton.gd" type="Script" id=78]
 [ext_resource path="res://Slot/BonusScene/BonusPathFeature.gd" type="Script" id=79]
@@ -104,7 +104,7 @@
 [ext_resource path="res://Slot/Features/WinLineParticles.tscn" type="PackedScene" id=102]
 [ext_resource path="res://Slot/Features/ExpandingWilds.gd" type="Script" id=103]
 [ext_resource path="res://Textures/slot/ReelsTopOverlap.png" type="Texture" id=104]
-[ext_resource path="res://Textures/slot/COLLECT.png" type="Texture" id=105]
+[ext_resource path="res://Translations/EN/collect.png" type="Texture" id=105]
 [ext_resource path="res://Textures/slot/MBase.png" type="Texture" id=106]
 [ext_resource path="res://Animations/bonus scene/torrigates.atlas" type="SpineAtlasResource" id=107]
 [ext_resource path="res://Audio/AudioSystem.gd" type="Script" id=108]
@@ -112,6 +112,7 @@
 [ext_resource path="res://Misc/LanguageAssetSwapper.gd" type="Script" id=110]
 [ext_resource path="res://Slot/Features/Anticipation.gd" type="Script" id=111]
 [ext_resource path="res://Slot/Features/Anticipation.tscn" type="PackedScene" id=112]
+[ext_resource path="res://Translations/EN/logo_data.tres" type="SpineAnimationStateDataResource" id=113]
 
 [sub_resource type="SpineSkeletonDataResource" id=1]
 atlas_res = ExtResource( 80 )
@@ -173,15 +174,6 @@ light_mode = 1
 [sub_resource type="Gradient" id=6]
 offsets = PoolRealArray( 0, 0.077, 0.154, 0.231, 0.308, 0.385, 0.462, 0.539, 0.616, 0.693, 0.77, 0.847, 0.924, 1 )
 colors = PoolColorArray( 0, 0, 0, 1, 0.505882, 0.505882, 0.505882, 1, 0.682353, 0.682353, 0.682353, 1, 0.380392, 0.380392, 0.380392, 1, 0.741176, 0.741176, 0.741176, 1, 0.435294, 0.435294, 0.435294, 1, 0.763972, 0.763972, 0.763972, 1, 0.403922, 0.403922, 0.403922, 1, 0.741176, 0.741176, 0.741176, 1, 0.32549, 0.32549, 0.32549, 1, 0.592157, 0.588235, 0.588235, 1, 0.215044, 0.215044, 0.215044, 1, 0.0980392, 0.0980392, 0.0980392, 1, 0, 0, 0, 1 )
-
-[sub_resource type="SpineSkeletonDataResource" id=7]
-atlas_res = ExtResource( 45 )
-skeleton_json_res = ExtResource( 46 )
-animations = null
-skins = null
-
-[sub_resource type="SpineAnimationStateDataResource" id=8]
-skeleton = SubResource( 7 )
 
 [sub_resource type="CanvasItemMaterial" id=9]
 blend_mode = 1
@@ -313,6 +305,15 @@ tracks/2/keys = {
 "update": 0,
 "values": [ Vector2( 0, -200 ), Vector2( 0, -200 ) ]
 }
+
+[sub_resource type="SpineSkeletonDataResource" id=7]
+atlas_res = ExtResource( 45 )
+skeleton_json_res = ExtResource( 46 )
+animations = null
+skins = null
+
+[sub_resource type="SpineAnimationStateDataResource" id=8]
+skeleton = SubResource( 7 )
 
 [sub_resource type="SpineSkeletonDataResource" id=18]
 atlas_res = ExtResource( 80 )
@@ -557,16 +558,7 @@ skeleton = SubResource( 30 )
 
 [sub_resource type="CanvasItemMaterial" id=32]
 
-[sub_resource type="SpineSkeletonDataResource" id=33]
-atlas_res = ExtResource( 75 )
-skeleton_json_res = ExtResource( 76 )
-animations = null
-skins = null
-
-[sub_resource type="SpineAnimationStateDataResource" id=34]
-skeleton = SubResource( 33 )
-
-[sub_resource type="Animation" id=35]
+[sub_resource type="Animation" id=33]
 length = 2.0
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("Centering/ButtonRoot:position:y")
@@ -579,7 +571,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.3, 2 )
 }
 
-[sub_resource type="Animation" id=36]
+[sub_resource type="Animation" id=34]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -605,7 +597,7 @@ tracks/1/keys = {
 "values": [ Vector2( -250, 150 ), Vector2( -250, 150 ) ]
 }
 
-[sub_resource type="Animation" id=37]
+[sub_resource type="Animation" id=35]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -631,7 +623,7 @@ tracks/1/keys = {
 "values": [ Vector2( -250, 125 ), Vector2( -250, 150 ) ]
 }
 
-[sub_resource type="Animation" id=38]
+[sub_resource type="Animation" id=36]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -658,7 +650,7 @@ tracks/1/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1.5, 1.5 ), Vector2( 1.5, 1.5 ), Vector2( 1.6, 1.6 ) ]
 }
 
-[sub_resource type="Animation" id=39]
+[sub_resource type="Animation" id=37]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:visible")
 tracks/0/interp = 1
@@ -684,7 +676,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=40]
+[sub_resource type="Animation" id=38]
 tracks/0/type = "value"
 tracks/0/path = NodePath("CustomButton:enabled")
 tracks/0/interp = 1
@@ -770,7 +762,7 @@ tracks/6/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 0.6, 0.6 ) ]
 }
 
-[sub_resource type="Animation" id=41]
+[sub_resource type="Animation" id=39]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Fade:modulate")
 tracks/0/interp = 1
@@ -784,7 +776,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=42]
+[sub_resource type="Animation" id=40]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:visible")
 tracks/0/interp = 1
@@ -1026,7 +1018,7 @@ tracks/19/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=43]
+[sub_resource type="Animation" id=41]
 tracks/0/type = "value"
 tracks/0/path = NodePath("CustomButton:visible")
 tracks/0/interp = 1
@@ -1076,7 +1068,7 @@ tracks/3/keys = {
 "values": [ Vector2( -112.5, 200 ), Vector2( -112.5, 150 ) ]
 }
 
-[sub_resource type="Animation" id=44]
+[sub_resource type="Animation" id=42]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Fade:modulate")
 tracks/0/interp = 1
@@ -1090,7 +1082,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.588235 ) ]
 }
 
-[sub_resource type="Animation" id=45]
+[sub_resource type="Animation" id=43]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Layer1:modulate")
@@ -1249,7 +1241,7 @@ tracks/12/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=46]
+[sub_resource type="Animation" id=44]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Layer2:modulate")
@@ -1372,7 +1364,7 @@ tracks/9/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=47]
+[sub_resource type="Animation" id=45]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:visible")
 tracks/0/interp = 1
@@ -1386,7 +1378,7 @@ tracks/0/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=48]
+[sub_resource type="Animation" id=46]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:visible")
 tracks/0/interp = 1
@@ -1400,16 +1392,16 @@ tracks/0/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="SpineSkeletonDataResource" id=49]
+[sub_resource type="SpineSkeletonDataResource" id=47]
 atlas_res = ExtResource( 71 )
 skeleton_json_res = ExtResource( 72 )
 animations = null
 skins = null
 
-[sub_resource type="SpineAnimationStateDataResource" id=50]
-skeleton = SubResource( 49 )
+[sub_resource type="SpineAnimationStateDataResource" id=48]
+skeleton = SubResource( 47 )
 
-[sub_resource type="Animation" id=51]
+[sub_resource type="Animation" id=49]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -1435,7 +1427,7 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=52]
+[sub_resource type="Animation" id=50]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -1461,7 +1453,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=53]
+[sub_resource type="Animation" id=51]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_scale")
 tracks/0/interp = 1
@@ -1499,7 +1491,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=54]
+[sub_resource type="Animation" id=52]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -1561,7 +1553,7 @@ tracks/4/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=55]
+[sub_resource type="Animation" id=53]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -1623,7 +1615,7 @@ tracks/4/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=63]
+[sub_resource type="Animation" id=54]
 resource_name = "ShowBottom"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -1686,7 +1678,7 @@ tracks/4/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=64]
+[sub_resource type="Animation" id=55]
 resource_name = "fs_to_fox"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Slot/NormalOverlap:visible")
@@ -2188,10 +2180,10 @@ skin = "fox2"
 startanimation = "idle"
 
 [node name="lightrays" type="Sprite" parent="IntroContainer/Centering"]
-modulate = Color( 0.418054, 0.610549, 1, 0.0947936 )
+modulate = Color( 0.513726, 0.772475, 1, 0 )
 material = SubResource( 3 )
 position = Vector2( 0, -200 )
-scale = Vector2( 16.6615, 6.66154 )
+scale = Vector2( 15.4747, 5.47468 )
 texture = ExtResource( 62 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="IntroContainer/Centering/lightrays"]
@@ -2248,6 +2240,7 @@ hue_variation_random = 0.49
 
 [node name="BlurBg" type="Sprite" parent="IntroContainer/Centering"]
 modulate = Color( 1, 1, 1, 0.498039 )
+position = Vector2( -1.78186, 0 )
 texture = ExtResource( 64 )
 
 [node name="FirefliesParticles3" type="CPUParticles2D" parent="IntroContainer/Centering"]
@@ -2306,7 +2299,7 @@ texture = ExtResource( 63 )
 
 [node name="Logo" type="SpineSprite" parent="IntroContainer/Centering"]
 scale = Vector2( 0.75, 0.75 )
-animation_state_data_res = SubResource( 8 )
+animation_state_data_res = ExtResource( 113 )
 script = ExtResource( 44 )
 skin = "default"
 startanimation = "idle"
@@ -2317,6 +2310,11 @@ show_behind_parent = true
 position = Vector2( 0, -50 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 67 )
+
+[node name="SpineAssetSwapper" type="Node" parent="IntroContainer/Centering/Logo"]
+script = ExtResource( 76 )
+assetname = "logo_data.tres"
+node = NodePath("..")
 
 [node name="Text" type="Sprite" parent="IntroContainer/Centering"]
 position = Vector2( 0, 140 )
@@ -2480,11 +2478,10 @@ position = Vector2( 0, 7 )
 texture = ExtResource( 50 )
 
 [node name="STARTTXT" type="Sprite" parent="IntroContainer/Centering/CustomButton/Centering/ButtonRoot"]
-position = Vector2( 0, 25 )
 
 [node name="TextLangSwapper" type="Node" parent="IntroContainer/Centering/CustomButton/Centering/ButtonRoot"]
 script = ExtResource( 110 )
-assetname = "STARTTXT.png"
+assetname = "start.png"
 propertyname = "texture"
 node = NodePath("../STARTTXT")
 
@@ -2527,10 +2524,10 @@ position = Vector2( 2.5199, 0 )
 texture = ExtResource( 9 )
 
 [node name="lightrays" type="Sprite" parent="SlotContainer/Background/Normal"]
-modulate = Color( 1, 0.960784, 0.513726, 0.074606 )
+modulate = Color( 1, 0.960784, 0.513726, 0 )
 material = SubResource( 3 )
-position = Vector2( 0, -133.846 )
-scale = Vector2( 11.4923, 7 )
+position = Vector2( 0, -252.532 )
+scale = Vector2( 9.71202, 7 )
 texture = ExtResource( 62 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/Background/Normal/lightrays"]
@@ -2542,10 +2539,10 @@ modulate = Color( 1, 1, 1, 0 )
 texture = ExtResource( 41 )
 
 [node name="lightrays" type="Sprite" parent="SlotContainer/Background/FreeSpins"]
-modulate = Color( 0.418054, 0.610549, 1, 0.0947936 )
+modulate = Color( 0.513726, 0.772475, 1, 0 )
 material = SubResource( 3 )
 position = Vector2( 0, -200 )
-scale = Vector2( 16.6615, 6.66154 )
+scale = Vector2( 15.4747, 5.47468 )
 texture = ExtResource( 62 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/Background/FreeSpins/lightrays"]
@@ -2771,6 +2768,11 @@ script = ExtResource( 44 )
 skin = "default"
 startanimation = "idle"
 timescale = 0.25
+
+[node name="SpineAssetSwapper" type="Node" parent="SlotContainer/Slot/NormalOverlap/Logo"]
+script = ExtResource( 76 )
+assetname = "logo_data.tres"
+node = NodePath("..")
 
 [node name="ReelsBottomFade" type="Sprite" parent="SlotContainer/Slot/NormalOverlap"]
 position = Vector2( 1, 392 )
@@ -3039,11 +3041,10 @@ position = Vector2( 0, 7 )
 texture = ExtResource( 50 )
 
 [node name="STARTTXT" type="Sprite" parent="SlotContainer/FreeSpinsIntro/CustomButton/Centering/ButtonRoot"]
-position = Vector2( 0, 25 )
 
 [node name="TextLangSwapper" type="Node" parent="SlotContainer/FreeSpinsIntro/CustomButton/Centering/ButtonRoot"]
 script = ExtResource( 110 )
-assetname = "STARTTXT.png"
+assetname = "start.png"
 propertyname = "texture"
 node = NodePath("../STARTTXT")
 
@@ -3307,10 +3308,15 @@ texture = ExtResource( 82 )
 [node name="Text" type="SpineSprite" parent="SlotContainer/BonusScene"]
 visible = false
 scale = Vector2( 0.6, 0.6 )
-animation_state_data_res = SubResource( 34 )
+animation_state_data_res = ExtResource( 75 )
 script = ExtResource( 44 )
 skin = "default"
 startanimation = "popup"
+
+[node name="TextLangSwapper" type="Node" parent="SlotContainer/BonusScene/Text"]
+script = ExtResource( 76 )
+assetname = "pickapath_data.tres"
+node = NodePath("..")
 
 [node name="CustomButton" type="Control" parent="SlotContainer/BonusScene"]
 visible = false
@@ -3462,11 +3468,10 @@ position = Vector2( 0, 7 )
 texture = ExtResource( 50 )
 
 [node name="STARTTXT" type="Sprite" parent="SlotContainer/BonusScene/CustomButton/Centering/ButtonRoot"]
-position = Vector2( 0, 25 )
 
 [node name="TextLangSwapper" type="Node" parent="SlotContainer/BonusScene/CustomButton/Centering/ButtonRoot"]
 script = ExtResource( 110 )
-assetname = "STARTTXT.png"
+assetname = "start.png"
 propertyname = "texture"
 node = NodePath("../STARTTXT")
 
@@ -3479,7 +3484,7 @@ position = Vector2( 0, -86 )
 texture = ExtResource( 51 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/BonusScene/CustomButton"]
-anims/Pressed = SubResource( 35 )
+anims/Pressed = SubResource( 33 )
 
 [node name="LeftButton" type="Control" parent="SlotContainer/BonusScene"]
 visible = false
@@ -3638,8 +3643,8 @@ scale = Vector2( 2.25, 2.25 )
 texture = ExtResource( 42 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/BonusScene/CenterCounterText"]
-anims/Hide = SubResource( 36 )
-anims/Show = SubResource( 37 )
+anims/Hide = SubResource( 34 )
+anims/Show = SubResource( 35 )
 
 [node name="TextLeftPosition" type="Node2D" parent="SlotContainer/BonusScene"]
 position = Vector2( -384, -350 )
@@ -3668,22 +3673,28 @@ scale = Vector2( 1.25, 3 )
 texture = ExtResource( 93 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/BonusScene/CounterText"]
-anims/Show = SubResource( 38 )
+anims/Show = SubResource( 36 )
 
 [node name="COLLECT" type="Sprite" parent="SlotContainer/BonusScene/CounterText"]
 visible = false
 position = Vector2( 150, 255 )
 texture = ExtResource( 105 )
 
+[node name="TextLangSwapper" type="Node" parent="SlotContainer/BonusScene/CounterText/COLLECT"]
+script = ExtResource( 110 )
+assetname = "collect.png"
+propertyname = "texture"
+node = NodePath("..")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/BonusScene"]
-anims/Hide = SubResource( 39 )
-anims/HideButton = SubResource( 40 )
-anims/HideWin = SubResource( 41 )
-anims/Show = SubResource( 42 )
-anims/ShowButton = SubResource( 43 )
-anims/ShowWin = SubResource( 44 )
-anims/ToLayer2 = SubResource( 45 )
-anims/ToLayer3 = SubResource( 46 )
+anims/Hide = SubResource( 37 )
+anims/HideButton = SubResource( 38 )
+anims/HideWin = SubResource( 39 )
+anims/Show = SubResource( 40 )
+anims/ShowButton = SubResource( 41 )
+anims/ShowWin = SubResource( 42 )
+anims/ToLayer2 = SubResource( 43 )
+anims/ToLayer3 = SubResource( 44 )
 
 [node name="WinLines" type="Control" parent="SlotContainer"]
 visible = false
@@ -3715,8 +3726,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/WinLines"]
-anims/Hide = SubResource( 47 )
-anims/Show = SubResource( 48 )
+anims/Hide = SubResource( 45 )
+anims/Show = SubResource( 46 )
 
 [node name="BigWin" type="Control" parent="SlotContainer"]
 visible = false
@@ -3739,7 +3750,7 @@ texture = ExtResource( 82 )
 
 [node name="Animation" type="SpineSprite" parent="SlotContainer/BigWin"]
 position = Vector2( 0, -150 )
-animation_state_data_res = SubResource( 50 )
+animation_state_data_res = SubResource( 48 )
 script = ExtResource( 44 )
 skin = "default"
 startanimation = "start_bigwin"
@@ -3761,10 +3772,11 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/BigWin"]
-anims/Hide = SubResource( 51 )
-anims/Show = SubResource( 52 )
+anims/Hide = SubResource( 49 )
+anims/Show = SubResource( 50 )
 
 [node name="WinBar" type="Control" parent="SlotContainer"]
+modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -3787,10 +3799,10 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/WinBar"]
-anims/GoDown = SubResource( 53 )
-anims/Hide = SubResource( 54 )
-anims/Show = SubResource( 55 )
-anims/ShowBottom = SubResource( 63 )
+anims/GoDown = SubResource( 51 )
+anims/Hide = SubResource( 52 )
+anims/Show = SubResource( 53 )
+anims/ShowBottom = SubResource( 54 )
 
 [node name="RedGlow" type="Sprite" parent="SlotContainer/WinBar"]
 show_behind_parent = true
@@ -3804,7 +3816,7 @@ show_behind_parent = true
 texture = ExtResource( 93 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer"]
-anims/fs_to_fox = SubResource( 64 )
+anims/fs_to_fox = SubResource( 55 )
 anims/fs_to_normal = SubResource( 56 )
 anims/fs_to_normal_fox = SubResource( 57 )
 anims/normal_to_fs = SubResource( 58 )
@@ -3889,6 +3901,7 @@ mode = "demo"
 operator = "mav"
 currency = "USD"
 force = "InstaWin"
+default_lang = "EN"
 
 [node name="AssetLoader" type="Node" parent="."]
 script = ExtResource( 11 )

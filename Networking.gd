@@ -15,6 +15,7 @@ export (String) var mode : String;
 export (String) var operator : String;
 export (String) var currency : String;
 export (String) var force : String;
+export (String) var default_lang : String;
 
 var sessionID : String= "";
 var stateID : String= "";
@@ -87,7 +88,7 @@ func init_received(data):
 	if("language" in data):
 		Globals.set_language(data["language"]);
 	else:
-		Globals.set_language("en");
+		Globals.set_language(default_lang);
 		
 	yield(Globals.singletons["AssetLoader"], "lang_downloaded");
 	
