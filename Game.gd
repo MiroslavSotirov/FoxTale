@@ -115,6 +115,7 @@ func spin_data_received(data):
 	Globals.singletons["Networking"].update_state(data)
 	end_spin(data);
 	
+	
 func end_spin(data):
 	update_spins_count(data);
 	Globals.singletons["Slot"].stop_spin(data);
@@ -148,7 +149,13 @@ func end_spin(data):
 				JS.output("bigwin", "elysiumgamefeature");
 				Globals.singletons["BigWin"].show_win(line_wins);
 				yield(Globals.singletons["BigWin"], "HideEnd")
-			
+			elif(in_freespins):
+				Globals.singletons["FsWinbar"].show_win(wins, false);
+				yield(Globals.singletons["FsWinbar"], "CountEnd")
+				if(!Globals.singletons["WinBar"].shown):
+					Globals.singletons["WinBar"].set_text(float(line_wins));
+				Globals.singletons["FsWinbar"].hide(true);
+				
 		if(hasPathBonus):
 			if(has_line_wins): 
 				yield(get_tree().create_timer(0.5), "timeout");
@@ -238,6 +245,10 @@ func check_resolution_for_changes():
 	pass;
 
 func _input(ev):
+	if ev is InputEventKey and ev.scancode == KEY_F and not ev.echo:
+		if(!in_freespins): 
+			start_fs();
+		
 	if ev is InputEventKey and ev.scancode == KEY_K and not ev.echo:
 		#increase_fs();
 		if(!Globals.singletons["BonusPath"].shown):
@@ -253,6 +264,7 @@ func start_fs_instant():
 	in_freespins = true;
 	
 func start_fs():
+	in_freespins = true;
 	Globals.singletons["WinLines"].hide_lines();
 	Globals.singletons["WinlinesOverlap"].get_node("FreeSpins").visible = true;
 	Globals.singletons["WinlinesOverlap"].get_node("Normal").visible = false;
@@ -269,8 +281,7 @@ func start_fs():
 	Globals.singletons["Audio"].play("Magic Fox")
 	$SlotContainer/Slot/Overlay/FoxLeft.play_anim_then_loop("convert_color", "idle_gold");
 	$SlotContainer/Slot/Overlay/FoxRight.play_anim_then_loop("convert_color", "idle_gold");
-
-	in_freespins = true;
+	
 	
 func increase_fs():
 	$SlotContainer/FreeSpinsIntro.show_fast();	

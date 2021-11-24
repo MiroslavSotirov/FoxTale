@@ -89,9 +89,9 @@ func init_received(data):
 		Globals.set_language(data["language"]);
 	else:
 		Globals.set_language(default_lang);
-		
-	yield(Globals.singletons["AssetLoader"], "lang_downloaded");
 	
+	yield(Globals.singletons["AssetLoader"], "lang_downloaded");
+	JS.output("", "elysiumgameloadingcomplete");
 	emit_signal("initcomplete");	
 		
 func force_freespin(data):

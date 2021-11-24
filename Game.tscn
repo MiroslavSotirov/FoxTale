@@ -1,4 +1,4 @@
-[gd_scene load_steps=176 format=2]
+[gd_scene load_steps=180 format=2]
 
 [ext_resource path="res://Slot/ReelSpinStartAnimation.tres" type="Animation" id=1]
 [ext_resource path="res://Slot/ReelSpinStopAnimation.tres" type="Animation" id=2]
@@ -114,19 +114,19 @@
 [ext_resource path="res://Slot/Features/Anticipation.tscn" type="PackedScene" id=112]
 [ext_resource path="res://Translations/EN/logo_data.tres" type="SpineAnimationStateDataResource" id=113]
 
-[sub_resource type="SpineSkeletonDataResource" id=1]
+[sub_resource type="SpineSkeletonDataResource" id=38]
 atlas_res = ExtResource( 80 )
 skeleton_json_res = ExtResource( 81 )
 animations = null
 skins = null
 
-[sub_resource type="SpineAnimationStateDataResource" id=2]
-skeleton = SubResource( 1 )
+[sub_resource type="SpineAnimationStateDataResource" id=39]
+skeleton = SubResource( 38 )
 
-[sub_resource type="CanvasItemMaterial" id=3]
+[sub_resource type="CanvasItemMaterial" id=40]
 blend_mode = 1
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=41]
 resource_name = "lightrayshow"
 length = 10.0
 loop = true
@@ -167,39 +167,39 @@ tracks/2/keys = {
 "values": [ Vector2( 0, -200 ), Vector2( 0, -200 ) ]
 }
 
-[sub_resource type="CanvasItemMaterial" id=5]
+[sub_resource type="CanvasItemMaterial" id=42]
 blend_mode = 1
 light_mode = 1
 
-[sub_resource type="Gradient" id=6]
+[sub_resource type="Gradient" id=43]
 offsets = PoolRealArray( 0, 0.077, 0.154, 0.231, 0.308, 0.385, 0.462, 0.539, 0.616, 0.693, 0.77, 0.847, 0.924, 1 )
 colors = PoolColorArray( 0, 0, 0, 1, 0.505882, 0.505882, 0.505882, 1, 0.682353, 0.682353, 0.682353, 1, 0.380392, 0.380392, 0.380392, 1, 0.741176, 0.741176, 0.741176, 1, 0.435294, 0.435294, 0.435294, 1, 0.763972, 0.763972, 0.763972, 1, 0.403922, 0.403922, 0.403922, 1, 0.741176, 0.741176, 0.741176, 1, 0.32549, 0.32549, 0.32549, 1, 0.592157, 0.588235, 0.588235, 1, 0.215044, 0.215044, 0.215044, 1, 0.0980392, 0.0980392, 0.0980392, 1, 0, 0, 0, 1 )
 
-[sub_resource type="CanvasItemMaterial" id=9]
+[sub_resource type="CanvasItemMaterial" id=44]
 blend_mode = 1
 light_mode = 1
 
-[sub_resource type="Curve" id=10]
+[sub_resource type="Curve" id=45]
 min_value = -360.0
 max_value = 360.0
 _data = [ Vector2( 0, -58.9091 ), 0.0, 0.0, 0, 0, Vector2( 1, 150.545 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="Gradient" id=11]
+[sub_resource type="Gradient" id=46]
 offsets = PoolRealArray( 0, 0.281818, 0.486364, 1 )
 colors = PoolColorArray( 0, 0, 0, 1, 0, 0.180392, 0.2, 1, 0, 0.152941, 0.247059, 1, 0, 0, 0, 1 )
 
-[sub_resource type="Curve" id=12]
+[sub_resource type="Curve" id=47]
 _data = [ Vector2( 0, 0.370454 ), 0.0, 0.0, 0, 0, Vector2( 0.440329, 0.815909 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.425 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="Gradient" id=13]
+[sub_resource type="Gradient" id=48]
 offsets = PoolRealArray( 0, 0.127273, 1 )
 colors = PoolColorArray( 0.227451, 0.227451, 0.227451, 1, 0, 0.415686, 0.45098, 1, 0, 0, 0, 1 )
 
-[sub_resource type="Gradient" id=14]
+[sub_resource type="Gradient" id=49]
 offsets = PoolRealArray( 0, 0.127273, 1 )
 colors = PoolColorArray( 0.227451, 0.227451, 0.227451, 1, 0.423529, 0.054902, 0.305882, 1, 0, 0, 0, 1 )
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=50]
 length = 2.0
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("Centering/ButtonRoot:position:y")
@@ -224,7 +224,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.584314, 0.584314, 0.584314, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=51]
 resource_name = "lightrayshow"
 length = 10.0
 loop = true
@@ -265,7 +265,7 @@ tracks/2/keys = {
 "values": [ Vector2( 0, -300 ), Vector2( 0, -100 ) ]
 }
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=52]
 resource_name = "lightrayshow"
 length = 10.0
 loop = true
@@ -306,34 +306,34 @@ tracks/2/keys = {
 "values": [ Vector2( 0, -200 ), Vector2( 0, -200 ) ]
 }
 
-[sub_resource type="SpineSkeletonDataResource" id=7]
+[sub_resource type="SpineSkeletonDataResource" id=53]
 atlas_res = ExtResource( 45 )
 skeleton_json_res = ExtResource( 46 )
 animations = null
 skins = null
 
-[sub_resource type="SpineAnimationStateDataResource" id=8]
-skeleton = SubResource( 7 )
+[sub_resource type="SpineAnimationStateDataResource" id=54]
+skeleton = SubResource( 53 )
 
-[sub_resource type="SpineSkeletonDataResource" id=18]
+[sub_resource type="SpineSkeletonDataResource" id=55]
 atlas_res = ExtResource( 80 )
 skeleton_json_res = ExtResource( 81 )
 animations = null
 skins = null
 
-[sub_resource type="SpineAnimationStateDataResource" id=19]
-skeleton = SubResource( 18 )
+[sub_resource type="SpineAnimationStateDataResource" id=56]
+skeleton = SubResource( 55 )
 
-[sub_resource type="SpineSkeletonDataResource" id=20]
+[sub_resource type="SpineSkeletonDataResource" id=57]
 atlas_res = ExtResource( 69 )
 skeleton_json_res = ExtResource( 68 )
 animations = null
 skins = null
 
-[sub_resource type="SpineAnimationStateDataResource" id=21]
-skeleton = SubResource( 20 )
+[sub_resource type="SpineAnimationStateDataResource" id=58]
+skeleton = SubResource( 57 )
 
-[sub_resource type="Animation" id=22]
+[sub_resource type="Animation" id=59]
 length = 2.0
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("Centering/ButtonRoot:position:y")
@@ -346,10 +346,10 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.3, 2 )
 }
 
-[sub_resource type="CanvasItemMaterial" id=23]
+[sub_resource type="CanvasItemMaterial" id=60]
 blend_mode = 1
 
-[sub_resource type="Animation" id=24]
+[sub_resource type="Animation" id=61]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:visible")
 tracks/0/interp = 1
@@ -375,7 +375,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=25]
+[sub_resource type="Animation" id=62]
 tracks/0/type = "value"
 tracks/0/path = NodePath("CustomButton:enabled")
 tracks/0/interp = 1
@@ -401,7 +401,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=26]
+[sub_resource type="Animation" id=63]
 length = 3.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:visible")
@@ -500,7 +500,7 @@ tracks/7/keys = {
 "values": [ 0.0, 15.0 ]
 }
 
-[sub_resource type="Animation" id=27]
+[sub_resource type="Animation" id=64]
 tracks/0/type = "value"
 tracks/0/path = NodePath("CustomButton:modulate")
 tracks/0/interp = 1
@@ -538,27 +538,27 @@ tracks/2/keys = {
 "values": [ Vector2( -112.5, 450 ), Vector2( -112.5, 300 ), Vector2( -112.5, 350 ) ]
 }
 
-[sub_resource type="Curve" id=28]
+[sub_resource type="Curve" id=65]
 min_value = -360.0
 max_value = 360.0
 _data = [ Vector2( 0, -36 ), 0.0, 0.0, 0, 0, Vector2( 1, 62.1818 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="Gradient" id=29]
+[sub_resource type="Gradient" id=66]
 offsets = PoolRealArray( 0, 0.281818, 0.486364, 1 )
 colors = PoolColorArray( 0, 0, 0, 1, 0.490196, 0, 0.607843, 1, 0.396078, 0, 0.392157, 1, 0, 0, 0, 1 )
 
-[sub_resource type="SpineSkeletonDataResource" id=30]
+[sub_resource type="SpineSkeletonDataResource" id=67]
 atlas_res = ExtResource( 107 )
 skeleton_json_res = ExtResource( 77 )
 animations = null
 skins = null
 
-[sub_resource type="SpineAnimationStateDataResource" id=31]
-skeleton = SubResource( 30 )
+[sub_resource type="SpineAnimationStateDataResource" id=68]
+skeleton = SubResource( 67 )
 
-[sub_resource type="CanvasItemMaterial" id=32]
+[sub_resource type="CanvasItemMaterial" id=69]
 
-[sub_resource type="Animation" id=33]
+[sub_resource type="Animation" id=70]
 length = 2.0
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("Centering/ButtonRoot:position:y")
@@ -571,7 +571,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.3, 2 )
 }
 
-[sub_resource type="Animation" id=34]
+[sub_resource type="Animation" id=71]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -597,7 +597,7 @@ tracks/1/keys = {
 "values": [ Vector2( -250, 150 ), Vector2( -250, 150 ) ]
 }
 
-[sub_resource type="Animation" id=35]
+[sub_resource type="Animation" id=72]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -623,7 +623,7 @@ tracks/1/keys = {
 "values": [ Vector2( -250, 125 ), Vector2( -250, 150 ) ]
 }
 
-[sub_resource type="Animation" id=36]
+[sub_resource type="Animation" id=73]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -676,9 +676,9 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=38]
+[sub_resource type="Animation" id=74]
 tracks/0/type = "value"
-tracks/0/path = NodePath("CustomButton:enabled")
+tracks/0/path = NodePath("Centering/CustomButton:enabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -690,7 +690,7 @@ tracks/0/keys = {
 "values": [ false ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("CustomButton:rect_position")
+tracks/1/path = NodePath("Centering/CustomButton:rect_position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -702,7 +702,7 @@ tracks/1/keys = {
 "values": [ Vector2( -112.5, 150 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("CustomButton:visible")
+tracks/2/path = NodePath("Centering/CustomButton:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -714,7 +714,7 @@ tracks/2/keys = {
 "values": [ true, false ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("CustomButton:modulate")
+tracks/3/path = NodePath("Centering/CustomButton:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -726,7 +726,7 @@ tracks/3/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Fade:modulate")
+tracks/4/path = NodePath("Centering/Fade:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -738,7 +738,7 @@ tracks/4/keys = {
 "values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Text:position")
+tracks/5/path = NodePath("Centering/Text:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -750,7 +750,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, 200 ), Vector2( 0, 450 ) ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("Text:scale")
+tracks/6/path = NodePath("Centering/Text:scale")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -762,9 +762,9 @@ tracks/6/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 0.6, 0.6 ) ]
 }
 
-[sub_resource type="Animation" id=39]
+[sub_resource type="Animation" id=75]
 tracks/0/type = "value"
-tracks/0/path = NodePath("Fade:modulate")
+tracks/0/path = NodePath("Centering/Fade:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -776,7 +776,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=40]
+[sub_resource type="Animation" id=76]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:visible")
 tracks/0/interp = 1
@@ -802,7 +802,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("CustomButton:enabled")
+tracks/2/path = NodePath("Centering/CustomButton:enabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -814,7 +814,7 @@ tracks/2/keys = {
 "values": [ false ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("CustomButton:modulate")
+tracks/3/path = NodePath("Centering/CustomButton:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -826,7 +826,7 @@ tracks/3/keys = {
 "values": [ Color( 1, 1, 1, 0 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("CustomButton:visible")
+tracks/4/path = NodePath("Centering/CustomButton:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -838,7 +838,7 @@ tracks/4/keys = {
 "values": [ false ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Fade:modulate")
+tracks/5/path = NodePath("Centering/Fade:modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -850,7 +850,7 @@ tracks/5/keys = {
 "values": [ Color( 1, 1, 1, 0.588235 ) ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("Layer1:modulate")
+tracks/6/path = NodePath("Centering/Layer1:modulate")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -862,7 +862,7 @@ tracks/6/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("Layer1:visible")
+tracks/7/path = NodePath("Centering/Layer1:visible")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -874,7 +874,7 @@ tracks/7/keys = {
 "values": [ true ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("Layer1:scale")
+tracks/8/path = NodePath("Centering/Layer1:scale")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -886,7 +886,7 @@ tracks/8/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("Layer1:position")
+tracks/9/path = NodePath("Centering/Layer1:position")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
@@ -898,7 +898,7 @@ tracks/9/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 tracks/10/type = "value"
-tracks/10/path = NodePath("Layer2:visible")
+tracks/10/path = NodePath("Centering/Layer2:visible")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/imported = false
@@ -910,7 +910,7 @@ tracks/10/keys = {
 "values": [ true ]
 }
 tracks/11/type = "value"
-tracks/11/path = NodePath("Layer2:modulate")
+tracks/11/path = NodePath("Centering/Layer2:modulate")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/imported = false
@@ -922,7 +922,7 @@ tracks/11/keys = {
 "values": [ Color( 0.309804, 0.54902, 1, 1 ) ]
 }
 tracks/12/type = "value"
-tracks/12/path = NodePath("Layer2:position")
+tracks/12/path = NodePath("Centering/Layer2:position")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/imported = false
@@ -934,7 +934,7 @@ tracks/12/keys = {
 "values": [ Vector2( 0, -75 ) ]
 }
 tracks/13/type = "value"
-tracks/13/path = NodePath("Layer2:scale")
+tracks/13/path = NodePath("Centering/Layer2:scale")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/imported = false
@@ -946,7 +946,7 @@ tracks/13/keys = {
 "values": [ Vector2( 0.6, 0.6 ) ]
 }
 tracks/14/type = "value"
-tracks/14/path = NodePath("Layer3:scale")
+tracks/14/path = NodePath("Centering/Layer3:scale")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/imported = false
@@ -958,7 +958,7 @@ tracks/14/keys = {
 "values": [ Vector2( 0.35, 0.35 ) ]
 }
 tracks/15/type = "value"
-tracks/15/path = NodePath("Layer3:position")
+tracks/15/path = NodePath("Centering/Layer3:position")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/imported = false
@@ -970,7 +970,7 @@ tracks/15/keys = {
 "values": [ Vector2( 0, -125 ) ]
 }
 tracks/16/type = "value"
-tracks/16/path = NodePath("Layer3:modulate")
+tracks/16/path = NodePath("Centering/Layer3:modulate")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/imported = false
@@ -982,7 +982,7 @@ tracks/16/keys = {
 "values": [ Color( 0.14902, 0.317647, 0.717647, 1 ) ]
 }
 tracks/17/type = "value"
-tracks/17/path = NodePath("Layer3:visible")
+tracks/17/path = NodePath("Centering/Layer3:visible")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/imported = false
@@ -994,7 +994,7 @@ tracks/17/keys = {
 "values": [ true ]
 }
 tracks/18/type = "value"
-tracks/18/path = NodePath("Text:position")
+tracks/18/path = NodePath("Centering/Text:position")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/imported = false
@@ -1006,7 +1006,7 @@ tracks/18/keys = {
 "values": [ Vector2( 0, 100 ), Vector2( 0, 0 ) ]
 }
 tracks/19/type = "value"
-tracks/19/path = NodePath("Text:scale")
+tracks/19/path = NodePath("Centering/Text:scale")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/imported = false
@@ -1018,9 +1018,9 @@ tracks/19/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=41]
+[sub_resource type="Animation" id=77]
 tracks/0/type = "value"
-tracks/0/path = NodePath("CustomButton:visible")
+tracks/0/path = NodePath("Centering/CustomButton:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -1032,7 +1032,7 @@ tracks/0/keys = {
 "values": [ true ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("CustomButton:modulate")
+tracks/1/path = NodePath("Centering/CustomButton:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -1044,7 +1044,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("CustomButton:enabled")
+tracks/2/path = NodePath("Centering/CustomButton:enabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -1056,7 +1056,7 @@ tracks/2/keys = {
 "values": [ false, true ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("CustomButton:rect_position")
+tracks/3/path = NodePath("Centering/CustomButton:rect_position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -1068,9 +1068,9 @@ tracks/3/keys = {
 "values": [ Vector2( -112.5, 200 ), Vector2( -112.5, 150 ) ]
 }
 
-[sub_resource type="Animation" id=42]
+[sub_resource type="Animation" id=78]
 tracks/0/type = "value"
-tracks/0/path = NodePath("Fade:modulate")
+tracks/0/path = NodePath("Centering/Fade:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -1082,10 +1082,10 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.588235 ) ]
 }
 
-[sub_resource type="Animation" id=43]
+[sub_resource type="Animation" id=79]
 length = 2.0
 tracks/0/type = "value"
-tracks/0/path = NodePath("Layer1:modulate")
+tracks/0/path = NodePath("Centering/Layer1:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -1097,7 +1097,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Layer1:scale")
+tracks/1/path = NodePath("Centering/Layer1:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -1109,7 +1109,7 @@ tracks/1/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 2, 2 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Layer1:position")
+tracks/2/path = NodePath("Centering/Layer1:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -1121,7 +1121,7 @@ tracks/2/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, 200 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Layer2:modulate")
+tracks/3/path = NodePath("Centering/Layer2:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -1133,7 +1133,7 @@ tracks/3/keys = {
 "values": [ Color( 0.309804, 0.54902, 1, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Layer2:scale")
+tracks/4/path = NodePath("Centering/Layer2:scale")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -1145,7 +1145,7 @@ tracks/4/keys = {
 "values": [ Vector2( 0.6, 0.6 ), Vector2( 1, 1 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Layer2:position")
+tracks/5/path = NodePath("Centering/Layer2:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -1157,7 +1157,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0, -75 ), Vector2( 0, 0 ) ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("Layer3:modulate")
+tracks/6/path = NodePath("Centering/Layer3:modulate")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -1169,7 +1169,7 @@ tracks/6/keys = {
 "values": [ Color( 0.14902, 0.317647, 0.717647, 1 ), Color( 0.309804, 0.54902, 1, 1 ) ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("Layer3:position")
+tracks/7/path = NodePath("Centering/Layer3:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -1181,7 +1181,7 @@ tracks/7/keys = {
 "values": [ Vector2( 0, -125 ), Vector2( 0, -75 ) ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("Layer3:scale")
+tracks/8/path = NodePath("Centering/Layer3:scale")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -1193,7 +1193,7 @@ tracks/8/keys = {
 "values": [ Vector2( 0.35, 0.35 ), Vector2( 0.6, 0.6 ) ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("Background2:scale")
+tracks/9/path = NodePath("Centering/Background2:scale")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
@@ -1205,7 +1205,7 @@ tracks/9/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1.5, 1.5 ) ]
 }
 tracks/10/type = "value"
-tracks/10/path = NodePath("Background2:position")
+tracks/10/path = NodePath("Centering/Background2:position")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/imported = false
@@ -1217,7 +1217,7 @@ tracks/10/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, 200 ) ]
 }
 tracks/11/type = "value"
-tracks/11/path = NodePath("Background2:modulate")
+tracks/11/path = NodePath("Centering/Background2:modulate")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/imported = false
@@ -1229,7 +1229,7 @@ tracks/11/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/12/type = "value"
-tracks/12/path = NodePath("Background2:visible")
+tracks/12/path = NodePath("Centering/Background2:visible")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/imported = false
@@ -1241,10 +1241,10 @@ tracks/12/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=44]
+[sub_resource type="Animation" id=80]
 length = 2.0
 tracks/0/type = "value"
-tracks/0/path = NodePath("Layer2:modulate")
+tracks/0/path = NodePath("Centering/Layer2:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -1256,7 +1256,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Layer2:scale")
+tracks/1/path = NodePath("Centering/Layer2:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -1268,7 +1268,7 @@ tracks/1/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 2, 2 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Layer2:position")
+tracks/2/path = NodePath("Centering/Layer2:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -1280,7 +1280,7 @@ tracks/2/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, 200 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Layer3:modulate")
+tracks/3/path = NodePath("Centering/Layer3:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -1292,7 +1292,7 @@ tracks/3/keys = {
 "values": [ Color( 0.309804, 0.54902, 1, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Layer3:position")
+tracks/4/path = NodePath("Centering/Layer3:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -1304,7 +1304,7 @@ tracks/4/keys = {
 "values": [ Vector2( 0, -75 ), Vector2( 0, 0 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Layer3:scale")
+tracks/5/path = NodePath("Centering/Layer3:scale")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -1316,7 +1316,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0.6, 0.6 ), Vector2( 1, 1 ) ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("Background2:scale")
+tracks/6/path = NodePath("Centering/Background2:scale")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -1328,7 +1328,7 @@ tracks/6/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1.5, 1.5 ) ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("Background2:position")
+tracks/7/path = NodePath("Centering/Background2:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -1340,7 +1340,7 @@ tracks/7/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, 200 ) ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("Background2:modulate")
+tracks/8/path = NodePath("Centering/Background2:modulate")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -1352,7 +1352,7 @@ tracks/8/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("Background2:visible")
+tracks/9/path = NodePath("Centering/Background2:visible")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
@@ -1364,7 +1364,7 @@ tracks/9/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=45]
+[sub_resource type="Animation" id=81]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:visible")
 tracks/0/interp = 1
@@ -1378,7 +1378,7 @@ tracks/0/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=46]
+[sub_resource type="Animation" id=82]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:visible")
 tracks/0/interp = 1
@@ -1392,16 +1392,16 @@ tracks/0/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="SpineSkeletonDataResource" id=47]
+[sub_resource type="SpineSkeletonDataResource" id=83]
 atlas_res = ExtResource( 71 )
 skeleton_json_res = ExtResource( 72 )
 animations = null
 skins = null
 
-[sub_resource type="SpineAnimationStateDataResource" id=48]
-skeleton = SubResource( 47 )
+[sub_resource type="SpineAnimationStateDataResource" id=84]
+skeleton = SubResource( 83 )
 
-[sub_resource type="Animation" id=49]
+[sub_resource type="Animation" id=85]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -1427,7 +1427,7 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=50]
+[sub_resource type="Animation" id=86]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -1453,7 +1453,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=51]
+[sub_resource type="Animation" id=87]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_scale")
 tracks/0/interp = 1
@@ -1491,7 +1491,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=52]
+[sub_resource type="Animation" id=88]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -1553,7 +1553,7 @@ tracks/4/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=53]
+[sub_resource type="Animation" id=89]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -1615,8 +1615,7 @@ tracks/4/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=54]
-resource_name = "ShowBottom"
+[sub_resource type="Animation" id=90]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -1678,8 +1677,231 @@ tracks/4/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=55]
-resource_name = "fs_to_fox"
+[sub_resource type="Animation" id=99]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.6, 0.9 ),
+"transitions": PoolRealArray( 1, 2, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ), Vector2( 0.5, 0.5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:margin_top")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4, 0.9 ),
+"transitions": PoolRealArray( 1, 2, 1 ),
+"update": 0,
+"values": [ -100.0, -100.0, 400 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("RedGlow:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.2, 0.9, 1 ),
+"transitions": PoolRealArray( 0.25, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=100]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:margin_top")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 400 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:rect_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("RedGlow:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=101]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:rect_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:margin_top")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ -100.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("RedGlow:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=102]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:margin_top")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 400 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:rect_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("RedGlow:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=91]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Slot/NormalOverlap:visible")
 tracks/0/interp = 1
@@ -1753,7 +1975,7 @@ tracks/5/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=56]
+[sub_resource type="Animation" id=92]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Slot/NormalOverlap:visible")
 tracks/0/interp = 1
@@ -1875,7 +2097,7 @@ tracks/9/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=57]
+[sub_resource type="Animation" id=93]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Background/Normal:visible")
 tracks/0/interp = 1
@@ -1925,7 +2147,7 @@ tracks/3/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=58]
+[sub_resource type="Animation" id=94]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Slot/NormalOverlap:visible")
 tracks/0/interp = 1
@@ -2047,7 +2269,7 @@ tracks/9/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=59]
+[sub_resource type="Animation" id=95]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Background/Normal:visible")
 tracks/0/interp = 1
@@ -2097,7 +2319,7 @@ tracks/3/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=60]
+[sub_resource type="Animation" id=96]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Background:modulate")
 tracks/0/interp = 1
@@ -2111,7 +2333,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=61]
+[sub_resource type="Animation" id=97]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Background:modulate")
 tracks/0/interp = 1
@@ -2125,7 +2347,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="CanvasItemMaterial" id=62]
+[sub_resource type="CanvasItemMaterial" id=98]
 blend_mode = 1
 light_mode = 1
 
@@ -2165,7 +2387,7 @@ texture = ExtResource( 61 )
 [node name="FoxLeft" type="SpineSprite" parent="IntroContainer/Centering"]
 position = Vector2( 375, 60 )
 scale = Vector2( 0.5, 0.5 )
-animation_state_data_res = SubResource( 2 )
+animation_state_data_res = SubResource( 39 )
 script = ExtResource( 44 )
 skin = "fox1"
 startanimation = "idle"
@@ -2174,23 +2396,23 @@ startanimation = "idle"
 position = Vector2( -375, 60 )
 rotation = 3.14159
 scale = Vector2( 0.5, -0.5 )
-animation_state_data_res = SubResource( 2 )
+animation_state_data_res = SubResource( 39 )
 script = ExtResource( 44 )
 skin = "fox2"
 startanimation = "idle"
 
 [node name="lightrays" type="Sprite" parent="IntroContainer/Centering"]
-modulate = Color( 0.513726, 0.772475, 1, 0 )
-material = SubResource( 3 )
+modulate = Color( 0.226026, 0.513654, 1, 0.28506 )
+material = SubResource( 40 )
 position = Vector2( 0, -200 )
-scale = Vector2( 15.4747, 5.47468 )
+scale = Vector2( 15.9822, 5.9822 )
 texture = ExtResource( 62 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="IntroContainer/Centering/lightrays"]
-anims/lightrayshow = SubResource( 4 )
+anims/lightrayshow = SubResource( 41 )
 
 [node name="FirefliesParticles1" type="CPUParticles2D" parent="IntroContainer/Centering"]
-material = SubResource( 5 )
+material = SubResource( 42 )
 amount = 3
 lifetime = 6.0
 preprocess = 10.0
@@ -2209,12 +2431,12 @@ radial_accel_random = 1.0
 damping_random = 1.0
 scale_amount = 0.1
 scale_amount_random = 0.5
-color_ramp = SubResource( 6 )
+color_ramp = SubResource( 43 )
 hue_variation = -0.12
 hue_variation_random = 0.49
 
 [node name="FirefliesParticles2" type="CPUParticles2D" parent="IntroContainer/Centering"]
-material = SubResource( 5 )
+material = SubResource( 42 )
 amount = 3
 lifetime = 6.0
 preprocess = 10.0
@@ -2234,7 +2456,7 @@ radial_accel_random = 1.0
 damping_random = 1.0
 scale_amount = 0.1
 scale_amount_random = 0.5
-color_ramp = SubResource( 6 )
+color_ramp = SubResource( 43 )
 hue_variation = -0.12
 hue_variation_random = 0.49
 
@@ -2244,7 +2466,7 @@ position = Vector2( -1.78186, 0 )
 texture = ExtResource( 64 )
 
 [node name="FirefliesParticles3" type="CPUParticles2D" parent="IntroContainer/Centering"]
-material = SubResource( 5 )
+material = SubResource( 42 )
 amount = 3
 lifetime = 6.0
 preprocess = 10.0
@@ -2263,12 +2485,12 @@ radial_accel_random = 1.0
 damping_random = 1.0
 scale_amount = 0.1
 scale_amount_random = 0.5
-color_ramp = SubResource( 6 )
+color_ramp = SubResource( 43 )
 hue_variation = -0.12
 hue_variation_random = 0.49
 
 [node name="FirefliesParticles4" type="CPUParticles2D" parent="IntroContainer/Centering"]
-material = SubResource( 5 )
+material = SubResource( 42 )
 amount = 3
 lifetime = 6.0
 preprocess = 10.0
@@ -2288,7 +2510,7 @@ radial_accel_random = 1.0
 damping_random = 1.0
 scale_amount = 0.1
 scale_amount_random = 0.5
-color_ramp = SubResource( 6 )
+color_ramp = SubResource( 43 )
 hue_variation = -0.12
 hue_variation_random = 0.49
 
@@ -2354,7 +2576,7 @@ __meta__ = {
 }
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="IntroContainer/Centering/CustomButton/Centering"]
-material = SubResource( 9 )
+material = SubResource( 44 )
 amount = 3
 lifetime = 2.0
 preprocess = 10.0
@@ -2371,15 +2593,15 @@ damping = 50.0
 damping_random = 1.0
 angle = 360.0
 angle_random = 1.0
-angle_curve = SubResource( 10 )
+angle_curve = SubResource( 45 )
 scale_amount = 0.35
 scale_amount_random = 0.35
-color_ramp = SubResource( 11 )
+color_ramp = SubResource( 46 )
 hue_variation = -0.12
 hue_variation_random = 0.49
 
 [node name="CPUParticles2D2" type="CPUParticles2D" parent="IntroContainer/Centering/CustomButton/Centering"]
-material = SubResource( 9 )
+material = SubResource( 44 )
 position = Vector2( 0, 15 )
 amount = 15
 lifetime = 10.0
@@ -2397,13 +2619,13 @@ angle = 360.0
 angle_random = 1.0
 scale_amount = 0.5
 scale_amount_random = 0.35
-scale_amount_curve = SubResource( 12 )
-color_ramp = SubResource( 13 )
+scale_amount_curve = SubResource( 47 )
+color_ramp = SubResource( 48 )
 hue_variation = -0.12
 hue_variation_random = 0.49
 
 [node name="CPUParticles2D3" type="CPUParticles2D" parent="IntroContainer/Centering/CustomButton/Centering"]
-material = SubResource( 9 )
+material = SubResource( 44 )
 amount = 3
 lifetime = 10.0
 preprocess = 10.0
@@ -2420,13 +2642,13 @@ angle = 360.0
 angle_random = 1.0
 scale_amount = 0.5
 scale_amount_random = 0.35
-scale_amount_curve = SubResource( 12 )
-color_ramp = SubResource( 14 )
+scale_amount_curve = SubResource( 47 )
+color_ramp = SubResource( 49 )
 hue_variation = -0.12
 hue_variation_random = 0.49
 
 [node name="CPUParticles2D4" type="CPUParticles2D" parent="IntroContainer/Centering/CustomButton/Centering"]
-material = SubResource( 9 )
+material = SubResource( 44 )
 position = Vector2( 0, 25 )
 amount = 10
 preprocess = 10.0
@@ -2445,7 +2667,7 @@ angle = 360.0
 angle_random = 1.0
 scale_amount = 0.35
 scale_amount_random = 0.35
-color_ramp = SubResource( 11 )
+color_ramp = SubResource( 46 )
 hue_variation = -0.12
 hue_variation_random = 0.49
 
@@ -2494,7 +2716,7 @@ position = Vector2( 0, -86 )
 texture = ExtResource( 51 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="IntroContainer/Centering/CustomButton"]
-anims/Pressed = SubResource( 15 )
+anims/Pressed = SubResource( 50 )
 
 [node name="SlotContainer" type="Control" parent="."]
 visible = false
@@ -2524,14 +2746,14 @@ position = Vector2( 2.5199, 0 )
 texture = ExtResource( 9 )
 
 [node name="lightrays" type="Sprite" parent="SlotContainer/Background/Normal"]
-modulate = Color( 1, 0.960784, 0.513726, 0 )
-material = SubResource( 3 )
-position = Vector2( 0, -252.532 )
-scale = Vector2( 9.71202, 7 )
+modulate = Color( 1, 0.960784, 0.513726, 0.224353 )
+material = SubResource( 40 )
+position = Vector2( 0, -201.78 )
+scale = Vector2( 10.4733, 7 )
 texture = ExtResource( 62 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/Background/Normal/lightrays"]
-anims/lightrayshow = SubResource( 16 )
+anims/lightrayshow = SubResource( 51 )
 
 [node name="FreeSpins" type="Sprite" parent="SlotContainer/Background"]
 visible = false
@@ -2539,14 +2761,14 @@ modulate = Color( 1, 1, 1, 0 )
 texture = ExtResource( 41 )
 
 [node name="lightrays" type="Sprite" parent="SlotContainer/Background/FreeSpins"]
-modulate = Color( 0.513726, 0.772475, 1, 0 )
-material = SubResource( 3 )
+modulate = Color( 0.226026, 0.513654, 1, 0.28506 )
+material = SubResource( 40 )
 position = Vector2( 0, -200 )
-scale = Vector2( 15.4747, 5.47468 )
+scale = Vector2( 15.9822, 5.9822 )
 texture = ExtResource( 62 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/Background/FreeSpins/lightrays"]
-anims/lightrayshow = SubResource( 17 )
+anims/lightrayshow = SubResource( 52 )
 
 [node name="Slot" type="Control" parent="SlotContainer"]
 anchor_left = 0.5
@@ -2763,7 +2985,7 @@ texture = ExtResource( 104 )
 [node name="Logo" type="SpineSprite" parent="SlotContainer/Slot/NormalOverlap"]
 position = Vector2( 0, -430 )
 scale = Vector2( 0.65, 0.65 )
-animation_state_data_res = SubResource( 8 )
+animation_state_data_res = SubResource( 54 )
 script = ExtResource( 44 )
 skin = "default"
 startanimation = "idle"
@@ -2819,7 +3041,7 @@ __meta__ = {
 
 [node name="FoxLeft" type="SpineSprite" parent="SlotContainer/Slot/Overlay"]
 position = Vector2( -880, 500 )
-animation_state_data_res = SubResource( 19 )
+animation_state_data_res = SubResource( 56 )
 empty_animation_duration = 0.0
 script = ExtResource( 44 )
 skin = "fox1"
@@ -2828,7 +3050,7 @@ startanimation = "idle"
 [node name="FoxRight" type="SpineSprite" parent="SlotContainer/Slot/Overlay"]
 position = Vector2( 880, 500 )
 scale = Vector2( -1, 1 )
-animation_state_data_res = SubResource( 19 )
+animation_state_data_res = SubResource( 56 )
 empty_animation_duration = 0.0
 script = ExtResource( 44 )
 skin = "fox2"
@@ -2886,7 +3108,7 @@ texture = ExtResource( 61 )
 
 [node name="Animation" type="SpineSprite" parent="SlotContainer/FreeSpinsIntro"]
 position = Vector2( 0, 115.913 )
-animation_state_data_res = SubResource( 21 )
+animation_state_data_res = SubResource( 58 )
 script = ExtResource( 44 )
 skin = "default"
 startanimation = "popup"
@@ -2917,7 +3139,7 @@ __meta__ = {
 }
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="SlotContainer/FreeSpinsIntro/CustomButton/Centering"]
-material = SubResource( 9 )
+material = SubResource( 44 )
 amount = 3
 lifetime = 2.0
 preprocess = 10.0
@@ -2934,15 +3156,15 @@ damping = 50.0
 damping_random = 1.0
 angle = 360.0
 angle_random = 1.0
-angle_curve = SubResource( 10 )
+angle_curve = SubResource( 45 )
 scale_amount = 0.35
 scale_amount_random = 0.35
-color_ramp = SubResource( 11 )
+color_ramp = SubResource( 46 )
 hue_variation = -0.12
 hue_variation_random = 0.49
 
 [node name="CPUParticles2D2" type="CPUParticles2D" parent="SlotContainer/FreeSpinsIntro/CustomButton/Centering"]
-material = SubResource( 9 )
+material = SubResource( 44 )
 position = Vector2( 0, 15 )
 amount = 15
 lifetime = 10.0
@@ -2960,13 +3182,13 @@ angle = 360.0
 angle_random = 1.0
 scale_amount = 0.5
 scale_amount_random = 0.35
-scale_amount_curve = SubResource( 12 )
-color_ramp = SubResource( 13 )
+scale_amount_curve = SubResource( 47 )
+color_ramp = SubResource( 48 )
 hue_variation = -0.12
 hue_variation_random = 0.49
 
 [node name="CPUParticles2D3" type="CPUParticles2D" parent="SlotContainer/FreeSpinsIntro/CustomButton/Centering"]
-material = SubResource( 9 )
+material = SubResource( 44 )
 amount = 3
 lifetime = 10.0
 preprocess = 10.0
@@ -2983,13 +3205,13 @@ angle = 360.0
 angle_random = 1.0
 scale_amount = 0.5
 scale_amount_random = 0.35
-scale_amount_curve = SubResource( 12 )
-color_ramp = SubResource( 14 )
+scale_amount_curve = SubResource( 47 )
+color_ramp = SubResource( 49 )
 hue_variation = -0.12
 hue_variation_random = 0.49
 
 [node name="CPUParticles2D4" type="CPUParticles2D" parent="SlotContainer/FreeSpinsIntro/CustomButton/Centering"]
-material = SubResource( 9 )
+material = SubResource( 44 )
 position = Vector2( 0, 25 )
 amount = 10
 preprocess = 10.0
@@ -3008,7 +3230,7 @@ angle = 360.0
 angle_random = 1.0
 scale_amount = 0.35
 scale_amount_random = 0.35
-color_ramp = SubResource( 11 )
+color_ramp = SubResource( 46 )
 hue_variation = -0.12
 hue_variation_random = 0.49
 
@@ -3057,11 +3279,11 @@ position = Vector2( 0, -86 )
 texture = ExtResource( 51 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/FreeSpinsIntro/CustomButton"]
-anims/Pressed = SubResource( 22 )
+anims/Pressed = SubResource( 59 )
 
 [node name="Fog1" type="Sprite" parent="SlotContainer/FreeSpinsIntro"]
 modulate = Color( 0, 1, 1, 1 )
-material = SubResource( 23 )
+material = SubResource( 60 )
 position = Vector2( -472, 60 )
 rotation = 3.14159
 scale = Vector2( 5, 5 )
@@ -3069,42 +3291,52 @@ texture = ExtResource( 74 )
 
 [node name="Fog2" type="Sprite" parent="SlotContainer/FreeSpinsIntro"]
 modulate = Color( 0.411765, 0.917647, 1, 1 )
-material = SubResource( 23 )
+material = SubResource( 60 )
 position = Vector2( 472, 60 )
 scale = Vector2( 5, 5 )
 texture = ExtResource( 73 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/FreeSpinsIntro"]
-anims/Hide = SubResource( 24 )
-anims/HideButton = SubResource( 25 )
-anims/Show = SubResource( 26 )
-anims/ShowButton = SubResource( 27 )
+anims/Hide = SubResource( 61 )
+anims/HideButton = SubResource( 62 )
+anims/Show = SubResource( 63 )
+anims/ShowButton = SubResource( 64 )
 
 [node name="BonusScene" type="Control" parent="SlotContainer"]
 visible = false
 modulate = Color( 1, 1, 1, 0 )
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
 script = ExtResource( 79 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Background" type="Sprite" parent="SlotContainer/BonusScene"]
+[node name="Centering" type="Control" parent="SlotContainer/BonusScene"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="Sprite" parent="SlotContainer/BonusScene/Centering"]
 texture = ExtResource( 60 )
 
-[node name="Background2" type="Sprite" parent="SlotContainer/BonusScene"]
+[node name="Background2" type="Sprite" parent="SlotContainer/BonusScene/Centering"]
+modulate = Color( 1, 1, 1, 1 )
+scale = Vector2( 1, 1 )
 texture = ExtResource( 60 )
 
-[node name="Layer3" type="Node2D" parent="SlotContainer/BonusScene"]
+[node name="Layer3" type="Node2D" parent="SlotContainer/BonusScene/Centering"]
 modulate = Color( 0.14902, 0.317647, 0.717647, 1 )
 position = Vector2( 0, -125 )
 scale = Vector2( 0.35, 0.35 )
 
-[node name="Particles" type="CPUParticles2D" parent="SlotContainer/BonusScene/Layer3"]
-material = SubResource( 9 )
+[node name="Particles" type="CPUParticles2D" parent="SlotContainer/BonusScene/Centering/Layer3"]
+material = SubResource( 44 )
 scale = Vector2( 2.5, 2.5 )
 amount = 10
 lifetime = 5.0
@@ -3120,67 +3352,67 @@ damping = 50.0
 damping_random = 1.0
 angle = 360.0
 angle_random = 1.0
-angle_curve = SubResource( 28 )
+angle_curve = SubResource( 65 )
 scale_amount_random = 0.35
-color_ramp = SubResource( 29 )
+color_ramp = SubResource( 66 )
 hue_variation = -0.12
 hue_variation_random = 0.49
 
-[node name="ToriMarker" type="Node" parent="SlotContainer/BonusScene/Layer3"]
+[node name="ToriMarker" type="Node" parent="SlotContainer/BonusScene/Centering/Layer3"]
 
-[node name="ToriLeft" type="SpineSprite" parent="SlotContainer/BonusScene/Layer3"]
+[node name="ToriLeft" type="SpineSprite" parent="SlotContainer/BonusScene/Centering/Layer3"]
 position = Vector2( -400, 140 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
-animation_state_data_res = SubResource( 31 )
+animation_state_data_res = SubResource( 68 )
 script = ExtResource( 44 )
 skin = "torii5"
 startanimation = "Idle"
 
-[node name="ToriRight" type="SpineSprite" parent="SlotContainer/BonusScene/Layer3"]
+[node name="ToriRight" type="SpineSprite" parent="SlotContainer/BonusScene/Centering/Layer3"]
 position = Vector2( 400, 140 )
-animation_state_data_res = SubResource( 31 )
+animation_state_data_res = SubResource( 68 )
 script = ExtResource( 44 )
 skin = "torii6"
 startanimation = "Idle"
 
-[node name="Ground1" type="Sprite" parent="SlotContainer/BonusScene/Layer3"]
+[node name="Ground1" type="Sprite" parent="SlotContainer/BonusScene/Centering/Layer3"]
 position = Vector2( 0, 400 )
 scale = Vector2( 1.1, 1.1 )
 texture = ExtResource( 43 )
 
-[node name="GoldenFox2" type="Sprite" parent="SlotContainer/BonusScene/Layer3"]
+[node name="GoldenFox2" type="Sprite" parent="SlotContainer/BonusScene/Centering/Layer3"]
 position = Vector2( 800, 0 )
 texture = ExtResource( 84 )
 
-[node name="GoldenFox1" type="Sprite" parent="SlotContainer/BonusScene/Layer3"]
+[node name="GoldenFox1" type="Sprite" parent="SlotContainer/BonusScene/Centering/Layer3"]
 position = Vector2( -800, 0 )
 texture = ExtResource( 83 )
 
-[node name="GoldStone" type="Sprite" parent="SlotContainer/BonusScene/Layer3"]
+[node name="GoldStone" type="Sprite" parent="SlotContainer/BonusScene/Centering/Layer3"]
 position = Vector2( 0, 120 )
 texture = ExtResource( 88 )
 
-[node name="Darken1" type="Sprite" parent="SlotContainer/BonusScene/Layer3"]
+[node name="Darken1" type="Sprite" parent="SlotContainer/BonusScene/Centering/Layer3"]
 modulate = Color( 1, 1, 1, 0.784314 )
 show_behind_parent = true
 scale = Vector2( 5, 3 )
 texture = ExtResource( 86 )
 
-[node name="Darken2" type="Sprite" parent="SlotContainer/BonusScene/Layer3"]
+[node name="Darken2" type="Sprite" parent="SlotContainer/BonusScene/Centering/Layer3"]
 modulate = Color( 1, 1, 1, 0.784314 )
 show_behind_parent = true
 position = Vector2( 0, 482 )
 scale = Vector2( 5, -1 )
 texture = ExtResource( 86 )
 
-[node name="Layer2" type="Node2D" parent="SlotContainer/BonusScene"]
+[node name="Layer2" type="Node2D" parent="SlotContainer/BonusScene/Centering"]
 modulate = Color( 0.309804, 0.54902, 1, 1 )
 position = Vector2( 0, -75 )
 scale = Vector2( 0.6, 0.6 )
 
-[node name="Particles" type="CPUParticles2D" parent="SlotContainer/BonusScene/Layer2"]
-material = SubResource( 9 )
+[node name="Particles" type="CPUParticles2D" parent="SlotContainer/BonusScene/Centering/Layer2"]
+material = SubResource( 44 )
 scale = Vector2( 2.5, 2.5 )
 amount = 10
 lifetime = 5.0
@@ -3196,52 +3428,52 @@ damping = 50.0
 damping_random = 1.0
 angle = 360.0
 angle_random = 1.0
-angle_curve = SubResource( 28 )
+angle_curve = SubResource( 65 )
 scale_amount_random = 0.35
-color_ramp = SubResource( 29 )
+color_ramp = SubResource( 66 )
 hue_variation = -0.12
 hue_variation_random = 0.49
 
-[node name="ToriMarker" type="Node" parent="SlotContainer/BonusScene/Layer2"]
+[node name="ToriMarker" type="Node" parent="SlotContainer/BonusScene/Centering/Layer2"]
 
-[node name="ToriLeft" type="SpineSprite" parent="SlotContainer/BonusScene/Layer2"]
+[node name="ToriLeft" type="SpineSprite" parent="SlotContainer/BonusScene/Centering/Layer2"]
 position = Vector2( -400, 140 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
-animation_state_data_res = SubResource( 31 )
+animation_state_data_res = SubResource( 68 )
 script = ExtResource( 44 )
 skin = "torii3"
 startanimation = "Idle"
 
-[node name="ToriRight" type="SpineSprite" parent="SlotContainer/BonusScene/Layer2"]
+[node name="ToriRight" type="SpineSprite" parent="SlotContainer/BonusScene/Centering/Layer2"]
 position = Vector2( 400, 140 )
-animation_state_data_res = SubResource( 31 )
+animation_state_data_res = SubResource( 68 )
 script = ExtResource( 44 )
 skin = "torii4"
 startanimation = "Idle"
 
-[node name="Ground2" type="Sprite" parent="SlotContainer/BonusScene/Layer2"]
+[node name="Ground2" type="Sprite" parent="SlotContainer/BonusScene/Centering/Layer2"]
 position = Vector2( 0, 215 )
 scale = Vector2( 1.55, 1.55 )
 texture = ExtResource( 85 )
 
-[node name="Darken1" type="Sprite" parent="SlotContainer/BonusScene/Layer2"]
+[node name="Darken1" type="Sprite" parent="SlotContainer/BonusScene/Centering/Layer2"]
 modulate = Color( 1, 1, 1, 0.784314 )
 show_behind_parent = true
 scale = Vector2( 5, 3 )
 texture = ExtResource( 86 )
 
-[node name="Darken2" type="Sprite" parent="SlotContainer/BonusScene/Layer2"]
+[node name="Darken2" type="Sprite" parent="SlotContainer/BonusScene/Centering/Layer2"]
 modulate = Color( 1, 1, 1, 0.784314 )
 show_behind_parent = true
 position = Vector2( 0, 482 )
 scale = Vector2( 5, -1 )
 texture = ExtResource( 86 )
 
-[node name="Layer1" type="Node2D" parent="SlotContainer/BonusScene"]
+[node name="Layer1" type="Node2D" parent="SlotContainer/BonusScene/Centering"]
 
-[node name="Particles" type="CPUParticles2D" parent="SlotContainer/BonusScene/Layer1"]
-material = SubResource( 9 )
+[node name="Particles" type="CPUParticles2D" parent="SlotContainer/BonusScene/Centering/Layer1"]
+material = SubResource( 44 )
 scale = Vector2( 2.5, 2.5 )
 emitting = false
 amount = 10
@@ -3258,67 +3490,67 @@ damping = 50.0
 damping_random = 1.0
 angle = 360.0
 angle_random = 1.0
-angle_curve = SubResource( 28 )
+angle_curve = SubResource( 65 )
 scale_amount_random = 0.35
-color_ramp = SubResource( 29 )
+color_ramp = SubResource( 66 )
 hue_variation = -0.12
 hue_variation_random = 0.49
 
-[node name="ToriMarker" type="Node" parent="SlotContainer/BonusScene/Layer1"]
+[node name="ToriMarker" type="Node" parent="SlotContainer/BonusScene/Centering/Layer1"]
 
-[node name="ToriLeft" type="SpineSprite" parent="SlotContainer/BonusScene/Layer1"]
+[node name="ToriLeft" type="SpineSprite" parent="SlotContainer/BonusScene/Centering/Layer1"]
 position = Vector2( -400, 140 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
-animation_state_data_res = SubResource( 31 )
+animation_state_data_res = SubResource( 68 )
 script = ExtResource( 44 )
 skin = "torii1"
 startanimation = "Idle"
 
-[node name="ToriRight" type="SpineSprite" parent="SlotContainer/BonusScene/Layer1"]
+[node name="ToriRight" type="SpineSprite" parent="SlotContainer/BonusScene/Centering/Layer1"]
 position = Vector2( 400, 140 )
-animation_state_data_res = SubResource( 31 )
+animation_state_data_res = SubResource( 68 )
 script = ExtResource( 44 )
 skin = "torii2"
 startanimation = "Idle"
 
-[node name="Darken1" type="Sprite" parent="SlotContainer/BonusScene/Layer1"]
+[node name="Darken1" type="Sprite" parent="SlotContainer/BonusScene/Centering/Layer1"]
 modulate = Color( 1, 1, 1, 0.784314 )
 show_behind_parent = true
 scale = Vector2( 5, 3 )
 texture = ExtResource( 86 )
 
-[node name="Darken2" type="Sprite" parent="SlotContainer/BonusScene/Layer1"]
+[node name="Darken2" type="Sprite" parent="SlotContainer/BonusScene/Centering/Layer1"]
 modulate = Color( 1, 1, 1, 0.784314 )
 show_behind_parent = true
 position = Vector2( 0, 482 )
 scale = Vector2( 5, -1 )
 texture = ExtResource( 86 )
 
-[node name="Ground1" type="Sprite" parent="SlotContainer/BonusScene/Layer1"]
+[node name="Ground1" type="Sprite" parent="SlotContainer/BonusScene/Centering/Layer1"]
 position = Vector2( 0, 400 )
 scale = Vector2( 1.1, 1.1 )
 texture = ExtResource( 43 )
 
-[node name="Fade" type="Sprite" parent="SlotContainer/BonusScene"]
-modulate = Color( 1, 1, 1, 0 )
-material = SubResource( 32 )
+[node name="Fade" type="Sprite" parent="SlotContainer/BonusScene/Centering"]
+modulate = Color( 1, 1, 1, 0.588235 )
+material = SubResource( 69 )
+position = Vector2( -6.34961, 25.3984 )
 texture = ExtResource( 82 )
 
-[node name="Text" type="SpineSprite" parent="SlotContainer/BonusScene"]
+[node name="Text" type="SpineSprite" parent="SlotContainer/BonusScene/Centering"]
 visible = false
-scale = Vector2( 0.6, 0.6 )
 animation_state_data_res = ExtResource( 75 )
 script = ExtResource( 44 )
 skin = "default"
 startanimation = "popup"
 
-[node name="TextLangSwapper" type="Node" parent="SlotContainer/BonusScene/Text"]
+[node name="TextLangSwapper" type="Node" parent="SlotContainer/BonusScene/Centering/Text"]
 script = ExtResource( 76 )
 assetname = "pickapath_data.tres"
 node = NodePath("..")
 
-[node name="CustomButton" type="Control" parent="SlotContainer/BonusScene"]
+[node name="CustomButton" type="Control" parent="SlotContainer/BonusScene/Centering"]
 visible = false
 modulate = Color( 1, 1, 1, 0 )
 margin_left = -112.5
@@ -3334,7 +3566,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Centering" type="Control" parent="SlotContainer/BonusScene/CustomButton"]
+[node name="Centering" type="Control" parent="SlotContainer/BonusScene/Centering/CustomButton"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -3343,8 +3575,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="SlotContainer/BonusScene/CustomButton/Centering"]
-material = SubResource( 9 )
+[node name="CPUParticles2D" type="CPUParticles2D" parent="SlotContainer/BonusScene/Centering/CustomButton/Centering"]
+material = SubResource( 44 )
 amount = 3
 lifetime = 2.0
 preprocess = 10.0
@@ -3361,15 +3593,15 @@ damping = 50.0
 damping_random = 1.0
 angle = 360.0
 angle_random = 1.0
-angle_curve = SubResource( 10 )
+angle_curve = SubResource( 45 )
 scale_amount = 0.35
 scale_amount_random = 0.35
-color_ramp = SubResource( 11 )
+color_ramp = SubResource( 46 )
 hue_variation = -0.12
 hue_variation_random = 0.49
 
-[node name="CPUParticles2D2" type="CPUParticles2D" parent="SlotContainer/BonusScene/CustomButton/Centering"]
-material = SubResource( 9 )
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="SlotContainer/BonusScene/Centering/CustomButton/Centering"]
+material = SubResource( 44 )
 position = Vector2( 0, 15 )
 amount = 15
 lifetime = 10.0
@@ -3387,13 +3619,13 @@ angle = 360.0
 angle_random = 1.0
 scale_amount = 0.5
 scale_amount_random = 0.35
-scale_amount_curve = SubResource( 12 )
-color_ramp = SubResource( 13 )
+scale_amount_curve = SubResource( 47 )
+color_ramp = SubResource( 48 )
 hue_variation = -0.12
 hue_variation_random = 0.49
 
-[node name="CPUParticles2D3" type="CPUParticles2D" parent="SlotContainer/BonusScene/CustomButton/Centering"]
-material = SubResource( 9 )
+[node name="CPUParticles2D3" type="CPUParticles2D" parent="SlotContainer/BonusScene/Centering/CustomButton/Centering"]
+material = SubResource( 44 )
 amount = 3
 lifetime = 10.0
 preprocess = 10.0
@@ -3410,13 +3642,13 @@ angle = 360.0
 angle_random = 1.0
 scale_amount = 0.5
 scale_amount_random = 0.35
-scale_amount_curve = SubResource( 12 )
-color_ramp = SubResource( 14 )
+scale_amount_curve = SubResource( 47 )
+color_ramp = SubResource( 49 )
 hue_variation = -0.12
 hue_variation_random = 0.49
 
-[node name="CPUParticles2D4" type="CPUParticles2D" parent="SlotContainer/BonusScene/CustomButton/Centering"]
-material = SubResource( 9 )
+[node name="CPUParticles2D4" type="CPUParticles2D" parent="SlotContainer/BonusScene/Centering/CustomButton/Centering"]
+material = SubResource( 44 )
 position = Vector2( 0, 25 )
 amount = 10
 preprocess = 10.0
@@ -3435,84 +3667,62 @@ angle = 360.0
 angle_random = 1.0
 scale_amount = 0.35
 scale_amount_random = 0.35
-color_ramp = SubResource( 11 )
+color_ramp = SubResource( 46 )
 hue_variation = -0.12
 hue_variation_random = 0.49
 
-[node name="ButtonBackMagic" type="Sprite" parent="SlotContainer/BonusScene/CustomButton/Centering"]
+[node name="ButtonBackMagic" type="Sprite" parent="SlotContainer/BonusScene/Centering/CustomButton/Centering"]
 visible = false
 texture = ExtResource( 47 )
 
-[node name="ButtonBacklight" type="Sprite" parent="SlotContainer/BonusScene/CustomButton/Centering"]
+[node name="ButtonBacklight" type="Sprite" parent="SlotContainer/BonusScene/Centering/CustomButton/Centering"]
 visible = false
 texture = ExtResource( 52 )
 
-[node name="ButtonBase" type="Sprite" parent="SlotContainer/BonusScene/CustomButton/Centering"]
+[node name="ButtonBase" type="Sprite" parent="SlotContainer/BonusScene/Centering/CustomButton/Centering"]
 position = Vector2( 0, 3 )
 texture = ExtResource( 53 )
 
-[node name="ButtonRoot" type="Node2D" parent="SlotContainer/BonusScene/CustomButton/Centering"]
+[node name="ButtonRoot" type="Node2D" parent="SlotContainer/BonusScene/Centering/CustomButton/Centering"]
 
-[node name="ButtonNormal" type="Sprite" parent="SlotContainer/BonusScene/CustomButton/Centering/ButtonRoot"]
+[node name="ButtonNormal" type="Sprite" parent="SlotContainer/BonusScene/Centering/CustomButton/Centering/ButtonRoot"]
 position = Vector2( 0, 7 )
 texture = ExtResource( 55 )
 
-[node name="ButtonHover" type="Sprite" parent="SlotContainer/BonusScene/CustomButton/Centering/ButtonRoot"]
+[node name="ButtonHover" type="Sprite" parent="SlotContainer/BonusScene/Centering/CustomButton/Centering/ButtonRoot"]
 visible = false
 position = Vector2( 0, 7 )
 texture = ExtResource( 48 )
 
-[node name="ButtonPressed" type="Sprite" parent="SlotContainer/BonusScene/CustomButton/Centering/ButtonRoot"]
+[node name="ButtonPressed" type="Sprite" parent="SlotContainer/BonusScene/Centering/CustomButton/Centering/ButtonRoot"]
 visible = false
 position = Vector2( 0, 7 )
 texture = ExtResource( 50 )
 
-[node name="STARTTXT" type="Sprite" parent="SlotContainer/BonusScene/CustomButton/Centering/ButtonRoot"]
+[node name="STARTTXT" type="Sprite" parent="SlotContainer/BonusScene/Centering/CustomButton/Centering/ButtonRoot"]
 
-[node name="TextLangSwapper" type="Node" parent="SlotContainer/BonusScene/CustomButton/Centering/ButtonRoot"]
+[node name="TextLangSwapper" type="Node" parent="SlotContainer/BonusScene/Centering/CustomButton/Centering/ButtonRoot"]
 script = ExtResource( 110 )
 assetname = "start.png"
 propertyname = "texture"
 node = NodePath("../STARTTXT")
 
-[node name="ButtonOverlapDropShadow" type="Sprite" parent="SlotContainer/BonusScene/CustomButton/Centering"]
+[node name="ButtonOverlapDropShadow" type="Sprite" parent="SlotContainer/BonusScene/Centering/CustomButton/Centering"]
 position = Vector2( 0, -80 )
 texture = ExtResource( 49 )
 
-[node name="ButtonOverlap" type="Sprite" parent="SlotContainer/BonusScene/CustomButton/Centering"]
+[node name="ButtonOverlap" type="Sprite" parent="SlotContainer/BonusScene/Centering/CustomButton/Centering"]
 position = Vector2( 0, -86 )
 texture = ExtResource( 51 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/BonusScene/CustomButton"]
-anims/Pressed = SubResource( 33 )
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/BonusScene/Centering/CustomButton"]
+anims/Pressed = SubResource( 70 )
 
-[node name="LeftButton" type="Control" parent="SlotContainer/BonusScene"]
-visible = false
-margin_left = -800.0
-margin_top = -500.0
-margin_right = -50.0
-margin_bottom = 300.0
-script = ExtResource( 78 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="RightButton" type="Control" parent="SlotContainer/BonusScene"]
-visible = false
-margin_left = 50.0
-margin_top = -500.0
-margin_right = 800.0
-margin_bottom = 300.0
-script = ExtResource( 78 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="CenterCounterText" type="Label" parent="SlotContainer/BonusScene"]
+[node name="CenterCounterText" type="Label" parent="SlotContainer/BonusScene/Centering"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = -250.0
+margin_left = -125.0
 margin_top = 150.0
-margin_right = 240.0
+margin_right = 365.0
 margin_bottom = 160.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -3525,9 +3735,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="SlotContainer/BonusScene/CenterCounterText"]
+[node name="CPUParticles2D" type="CPUParticles2D" parent="SlotContainer/BonusScene/Centering/CenterCounterText"]
 show_behind_parent = true
-material = SubResource( 9 )
+material = SubResource( 44 )
 position = Vector2( 250, 0 )
 scale = Vector2( 2.5, 2.5 )
 amount = 3
@@ -3546,16 +3756,16 @@ damping = 50.0
 damping_random = 1.0
 angle = 360.0
 angle_random = 1.0
-angle_curve = SubResource( 10 )
+angle_curve = SubResource( 45 )
 scale_amount = 0.35
 scale_amount_random = 0.35
-color_ramp = SubResource( 11 )
+color_ramp = SubResource( 46 )
 hue_variation = -0.12
 hue_variation_random = 0.49
 
-[node name="CPUParticles2D2" type="CPUParticles2D" parent="SlotContainer/BonusScene/CenterCounterText"]
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="SlotContainer/BonusScene/Centering/CenterCounterText"]
 show_behind_parent = true
-material = SubResource( 9 )
+material = SubResource( 44 )
 position = Vector2( 250, 0 )
 scale = Vector2( 2.5, 2.5 )
 amount = 15
@@ -3574,14 +3784,14 @@ angle = 360.0
 angle_random = 1.0
 scale_amount = 0.5
 scale_amount_random = 0.35
-scale_amount_curve = SubResource( 12 )
-color_ramp = SubResource( 13 )
+scale_amount_curve = SubResource( 47 )
+color_ramp = SubResource( 48 )
 hue_variation = -0.12
 hue_variation_random = 0.49
 
-[node name="CPUParticles2D3" type="CPUParticles2D" parent="SlotContainer/BonusScene/CenterCounterText"]
+[node name="CPUParticles2D3" type="CPUParticles2D" parent="SlotContainer/BonusScene/Centering/CenterCounterText"]
 show_behind_parent = true
-material = SubResource( 9 )
+material = SubResource( 44 )
 position = Vector2( 250, 0 )
 scale = Vector2( 2.5, 2.5 )
 amount = 3
@@ -3600,14 +3810,14 @@ angle = 360.0
 angle_random = 1.0
 scale_amount = 0.5
 scale_amount_random = 0.35
-scale_amount_curve = SubResource( 12 )
-color_ramp = SubResource( 14 )
+scale_amount_curve = SubResource( 47 )
+color_ramp = SubResource( 49 )
 hue_variation = -0.12
 hue_variation_random = 0.49
 
-[node name="CPUParticles2D4" type="CPUParticles2D" parent="SlotContainer/BonusScene/CenterCounterText"]
+[node name="CPUParticles2D4" type="CPUParticles2D" parent="SlotContainer/BonusScene/Centering/CenterCounterText"]
 show_behind_parent = true
-material = SubResource( 9 )
+material = SubResource( 44 )
 position = Vector2( 250, 0 )
 scale = Vector2( 2.5, 2.5 )
 amount = 10
@@ -3627,34 +3837,41 @@ angle = 360.0
 angle_random = 1.0
 scale_amount = 0.35
 scale_amount_random = 0.35
-color_ramp = SubResource( 11 )
+color_ramp = SubResource( 46 )
 hue_variation = -0.12
 hue_variation_random = 0.49
 
-[node name="MBase" type="Sprite" parent="SlotContainer/BonusScene/CenterCounterText"]
+[node name="MBase" type="Sprite" parent="SlotContainer/BonusScene/Centering/CenterCounterText"]
 show_behind_parent = true
 position = Vector2( 275, 50 )
 scale = Vector2( 2.25, 2.25 )
 texture = ExtResource( 106 )
 
-[node name="Multiplier" type="Sprite" parent="SlotContainer/BonusScene/CenterCounterText"]
+[node name="Multiplier" type="Sprite" parent="SlotContainer/BonusScene/Centering/CenterCounterText"]
 position = Vector2( 275, -20 )
-scale = Vector2( 2.25, 2.25 )
+scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 42 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/BonusScene/CenterCounterText"]
-anims/Hide = SubResource( 34 )
-anims/Show = SubResource( 35 )
+[node name="LanguageAssetSwapper" type="Node" parent="SlotContainer/BonusScene/Centering/CenterCounterText/Multiplier"]
+script = ExtResource( 110 )
+assetname = "multiplier.png"
+propertyname = "texture"
+node = NodePath("..")
 
-[node name="TextLeftPosition" type="Node2D" parent="SlotContainer/BonusScene"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/BonusScene/Centering/CenterCounterText"]
+anims/Hide = SubResource( 71 )
+anims/Show = SubResource( 72 )
+
+[node name="TextLeftPosition" type="Node2D" parent="SlotContainer/BonusScene/Centering"]
 position = Vector2( -384, -350 )
 
-[node name="TextRightPosition" type="Node2D" parent="SlotContainer/BonusScene"]
+[node name="TextRightPosition" type="Node2D" parent="SlotContainer/BonusScene/Centering"]
 position = Vector2( 384, -350 )
 
-[node name="CounterText" type="Label" parent="SlotContainer/BonusScene"]
+[node name="CounterText" type="Label" parent="SlotContainer/BonusScene/Centering"]
 modulate = Color( 1, 1, 1, 0 )
-margin_right = 8.0
+margin_left = -120.0
+margin_right = 128.0
 margin_bottom = 9.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -3666,35 +3883,55 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Background" type="Sprite" parent="SlotContainer/BonusScene/CounterText"]
+[node name="Background" type="Sprite" parent="SlotContainer/BonusScene/Centering/CounterText"]
 show_behind_parent = true
 position = Vector2( 0, -20 )
 scale = Vector2( 1.25, 3 )
 texture = ExtResource( 93 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/BonusScene/CounterText"]
-anims/Show = SubResource( 36 )
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/BonusScene/Centering/CounterText"]
+anims/Show = SubResource( 73 )
 
-[node name="COLLECT" type="Sprite" parent="SlotContainer/BonusScene/CounterText"]
+[node name="COLLECT" type="Sprite" parent="SlotContainer/BonusScene/Centering/CounterText"]
 visible = false
 position = Vector2( 150, 255 )
 texture = ExtResource( 105 )
 
-[node name="TextLangSwapper" type="Node" parent="SlotContainer/BonusScene/CounterText/COLLECT"]
+[node name="TextLangSwapper" type="Node" parent="SlotContainer/BonusScene/Centering/CounterText/COLLECT"]
 script = ExtResource( 110 )
 assetname = "collect.png"
 propertyname = "texture"
 node = NodePath("..")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/BonusScene"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/BonusScene/Centering"]
+root_node = NodePath("../..")
 anims/Hide = SubResource( 37 )
-anims/HideButton = SubResource( 38 )
-anims/HideWin = SubResource( 39 )
-anims/Show = SubResource( 40 )
-anims/ShowButton = SubResource( 41 )
-anims/ShowWin = SubResource( 42 )
-anims/ToLayer2 = SubResource( 43 )
-anims/ToLayer3 = SubResource( 44 )
+anims/HideButton = SubResource( 74 )
+anims/HideWin = SubResource( 75 )
+anims/Show = SubResource( 76 )
+anims/ShowButton = SubResource( 77 )
+anims/ShowWin = SubResource( 78 )
+anims/ToLayer2 = SubResource( 79 )
+anims/ToLayer3 = SubResource( 80 )
+
+[node name="LeftButton" type="Control" parent="SlotContainer/BonusScene"]
+visible = false
+anchor_right = 0.5
+anchor_bottom = 0.75
+script = ExtResource( 78 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RightButton" type="Control" parent="SlotContainer/BonusScene"]
+visible = false
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.75
+script = ExtResource( 78 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="WinLines" type="Control" parent="SlotContainer"]
 visible = false
@@ -3726,8 +3963,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/WinLines"]
-anims/Hide = SubResource( 45 )
-anims/Show = SubResource( 46 )
+anims/Hide = SubResource( 81 )
+anims/Show = SubResource( 82 )
 
 [node name="BigWin" type="Control" parent="SlotContainer"]
 visible = false
@@ -3750,7 +3987,7 @@ texture = ExtResource( 82 )
 
 [node name="Animation" type="SpineSprite" parent="SlotContainer/BigWin"]
 position = Vector2( 0, -150 )
-animation_state_data_res = SubResource( 48 )
+animation_state_data_res = SubResource( 84 )
 script = ExtResource( 44 )
 skin = "default"
 startanimation = "start_bigwin"
@@ -3772,10 +4009,11 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/BigWin"]
-anims/Hide = SubResource( 49 )
-anims/Show = SubResource( 50 )
+anims/Hide = SubResource( 85 )
+anims/Show = SubResource( 86 )
 
 [node name="WinBar" type="Control" parent="SlotContainer"]
+visible = false
 modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.5
 anchor_top = 0.5
@@ -3799,10 +4037,10 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/WinBar"]
-anims/GoDown = SubResource( 51 )
-anims/Hide = SubResource( 52 )
-anims/Show = SubResource( 53 )
-anims/ShowBottom = SubResource( 54 )
+anims/GoDown = SubResource( 87 )
+anims/Hide = SubResource( 88 )
+anims/Show = SubResource( 89 )
+anims/ShowBottom = SubResource( 90 )
 
 [node name="RedGlow" type="Sprite" parent="SlotContainer/WinBar"]
 show_behind_parent = true
@@ -3815,14 +4053,56 @@ modulate = Color( 0, 0, 0, 1 )
 show_behind_parent = true
 texture = ExtResource( 93 )
 
+[node name="FsWinbar" type="Control" parent="SlotContainer"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_top = 400.0
+rect_scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 99 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CounterText" type="Label" parent="SlotContainer/FsWinbar"]
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = ExtResource( 89 )
+text = "123"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/FsWinbar"]
+anims/GoDown = SubResource( 99 )
+anims/Hide = SubResource( 100 )
+anims/Show = SubResource( 101 )
+anims/ShowBottom = SubResource( 102 )
+
+[node name="RedGlow" type="Sprite" parent="SlotContainer/FsWinbar"]
+modulate = Color( 1, 1, 1, 0 )
+show_behind_parent = true
+position = Vector2( 0, 100 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 93 )
+
+[node name="RedGlow2" type="Sprite" parent="SlotContainer/FsWinbar/RedGlow"]
+modulate = Color( 0, 0, 0, 1 )
+show_behind_parent = true
+texture = ExtResource( 93 )
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer"]
-anims/fs_to_fox = SubResource( 55 )
-anims/fs_to_normal = SubResource( 56 )
-anims/fs_to_normal_fox = SubResource( 57 )
-anims/normal_to_fs = SubResource( 58 )
-anims/normal_to_fs_fox = SubResource( 59 )
-anims/to_transparent = SubResource( 60 )
-anims/to_visible = SubResource( 61 )
+anims/fs_to_fox = SubResource( 91 )
+anims/fs_to_normal = SubResource( 92 )
+anims/fs_to_normal_fox = SubResource( 93 )
+anims/normal_to_fs = SubResource( 94 )
+anims/normal_to_fs_fox = SubResource( 95 )
+anims/to_transparent = SubResource( 96 )
+anims/to_visible = SubResource( 97 )
 
 [node name="UIContainer" type="Control" parent="."]
 visible = false
@@ -3903,15 +4183,15 @@ currency = "USD"
 force = "InstaWin"
 default_lang = "EN"
 
+[node name="AudioSystem" type="Node" parent="."]
+script = ExtResource( 108 )
+
 [node name="AssetLoader" type="Node" parent="."]
 script = ExtResource( 11 )
 tiles = [ ExtResource( 31 ), ExtResource( 18 ), ExtResource( 20 ), ExtResource( 19 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 14 ), ExtResource( 24 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 94 ), ExtResource( 92 ) ]
 tilesBlur = [ ExtResource( 26 ), ExtResource( 12 ), ExtResource( 30 ), ExtResource( 13 ), ExtResource( 15 ), ExtResource( 27 ), ExtResource( 23 ), ExtResource( 29 ), ExtResource( 28 ), ExtResource( 25 ), ExtResource( 90 ), ExtResource( 91 ) ]
 
 [node name="HTTPRequest" type="HTTPRequest" parent="AssetLoader"]
-
-[node name="AudioSystem" type="Node" parent="."]
-script = ExtResource( 108 )
 
 [node name="Fader" type="ColorRect" parent="."]
 visible = false
@@ -3927,7 +4207,7 @@ __meta__ = {
 
 [node name="FaderBright" type="ColorRect" parent="."]
 visible = false
-material = SubResource( 62 )
+material = SubResource( 98 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 input_pass_on_modal_close_click = false
@@ -3944,7 +4224,7 @@ default = Color( 1, 1, 1, 1 )
 [connection signal="ready" from="SlotContainer/Background/Normal/lightrays/AnimationPlayer" to="SlotContainer/Background/Normal/lightrays/AnimationPlayer" method="play" binds= [ "lightrayshow" ]]
 [connection signal="ready" from="SlotContainer/Background/FreeSpins/lightrays/AnimationPlayer" to="SlotContainer/Background/FreeSpins/lightrays/AnimationPlayer" method="play" binds= [ "lightrayshow" ]]
 [connection signal="pressed" from="SlotContainer/FreeSpinsIntro/CustomButton" to="SlotContainer/FreeSpinsIntro" method="on_play_button_pressed"]
-[connection signal="pressed" from="SlotContainer/BonusScene/CustomButton" to="SlotContainer/BonusScene" method="on_play_button_pressed"]
+[connection signal="pressed" from="SlotContainer/BonusScene/Centering/CustomButton" to="SlotContainer/BonusScene" method="on_play_button_pressed"]
 [connection signal="mouse_entered" from="SlotContainer/BonusScene/LeftButton" to="SlotContainer/BonusScene" method="left_button_hover"]
 [connection signal="mouse_exited" from="SlotContainer/BonusScene/LeftButton" to="SlotContainer/BonusScene" method="left_button_unhover"]
 [connection signal="pressed" from="SlotContainer/BonusScene/LeftButton" to="SlotContainer/BonusScene" method="left_button_pressed"]

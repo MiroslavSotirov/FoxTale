@@ -31,7 +31,6 @@ func show_win(target, is_total=false):
 	#Globals.singletons[""]
 	if(is_total): Globals.singletons["Audio"].change_music("Total Endless");
 	else: Globals.singletons["Audio"].change_music("Big Win Endless");
-	Globals.singletons["Audio"].loop("Coins Endless");
 	shown = true;
 	in_big_win = !is_total;
 	in_super_win = false;
@@ -48,6 +47,7 @@ func show_win(target, is_total=false):
 	if(is_total): $Animation.play_anim_then_loop("start_totalwin", "loop_totalwin");
 	else: $Animation.play_anim_then_loop("start_bigwin", "loop_bigwin");
 	yield($Animation, "animation_complete");
+	Globals.singletons["Audio"].loop("Coins Endless");
 	$CounterText.text = Globals.format_money(0);
 	$CounterText.visible = true;
 	tween = Tween.new();
