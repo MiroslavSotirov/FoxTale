@@ -28,7 +28,7 @@ func set_lines_count(n):
 func show_lines(windata):
 	shown = true;
 	visible = true;
-	Globals.singletons["WinlinesOverlap"].tween(0,1,0.5);
+	Globals.singletons["WinlinesFadeAnimationPlayer"].play("To_Winline")
 	for win in windata:
 		if(win.has("winline")):
 			if(win["winline"] < 0): continue;
@@ -82,4 +82,4 @@ func hide_lines():
 	
 	shown_tiles.clear();
 		
-	Globals.singletons["WinlinesOverlap"].tween(1,0,1);
+	Globals.singletons["WinlinesFadeAnimationPlayer"].play("To_Normal")

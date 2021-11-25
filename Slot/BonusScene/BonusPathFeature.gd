@@ -253,7 +253,8 @@ func last_layer_end():
 	Globals.singletons["BigWin"].show_win(get_wins());
 	yield(Globals.singletons["BigWin"], "HideEnd")
 	$Centering/AnimationPlayer.play("Hide");
-	yield($Centering/AnimationPlayer, "animation_finished")
+	yield($Centering/AnimationPlayer, "animation_finished");
+	Globals.singletons["WinBar"].set_text(float(get_wins()), false);
 	emit_signal("anim_end");
 	shown = false;
 

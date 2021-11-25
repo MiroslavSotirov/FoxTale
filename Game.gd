@@ -149,6 +149,7 @@ func end_spin(data):
 				JS.output("bigwin", "elysiumgamefeature");
 				Globals.singletons["BigWin"].show_win(line_wins);
 				yield(Globals.singletons["BigWin"], "HideEnd")
+				Globals.singletons["WinBar"].set_text(float(line_wins), false);
 			elif(in_freespins):
 				Globals.singletons["FsWinbar"].show_win(wins, false);
 				yield(Globals.singletons["FsWinbar"], "CountEnd")
@@ -255,8 +256,6 @@ func _input(ev):
 			Globals.singletons["BonusPath"].activate(50);
 	
 func start_fs_instant():
-	Globals.singletons["WinlinesOverlap"].get_node("FreeSpins").visible = true;
-	Globals.singletons["WinlinesOverlap"].get_node("Normal").visible = false;
 	$SlotContainer/Slot/Overlay/FoxLeft.play_anim_then_loop("convert_color", "idle_gold");
 	$SlotContainer/Slot/Overlay/FoxRight.play_anim_then_loop("convert_color", "idle_gold");
 	$SlotContainer/AnimationPlayer.play("normal_to_fs");
@@ -266,8 +265,6 @@ func start_fs_instant():
 func start_fs():
 	in_freespins = true;
 	Globals.singletons["WinLines"].hide_lines();
-	Globals.singletons["WinlinesOverlap"].get_node("FreeSpins").visible = true;
-	Globals.singletons["WinlinesOverlap"].get_node("Normal").visible = false;
 	$SlotContainer/FreeSpinsIntro.show();	
 	Globals.singletons["FaderBright"].tween(0.0,1.0,1);
 	yield(get_tree().create_timer(1), "timeout");
@@ -297,9 +294,6 @@ func end_fs():
 		$SlotContainer/Slot/Overlay/FoxRight.play_anim_then_loop("convert_back", "idle");
 	else:
 		$SlotContainer/AnimationPlayer.play("fs_to_fox");
-		
-	Globals.singletons["WinlinesOverlap"].get_node("FreeSpins").visible = false;
-	Globals.singletons["WinlinesOverlap"].get_node("Normal").visible = true;
 
 	fs_ended = true;
 	in_freespins = false;

@@ -12,6 +12,7 @@ func _ready():
 	#get_animation_state().disable_queue();
 	play_anim(startanimation, loop);
 	set_skin(skin);
+	connect("visibility_changed", self, "on_visibility_changed")
 	
 func set_new_state_data(data, newskin=null):
 	self.animation_state_data_res = data;

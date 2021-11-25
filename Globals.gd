@@ -27,6 +27,7 @@ var visible_tiles_count : int = 0;
 var canSpin : bool setget ,check_can_spin;
 
 var current_language = "NONE";
+var current_currency_symbol = "$";
 	
 func loading_done():
 	print("loading done");
@@ -67,7 +68,7 @@ func check_can_spin():
 	return !singletons["Fader"].visible && !singletons["Slot"].spinning && singletons["Game"].round_ended;
 
 func format_money(v):
-	return ("%.2f" % v) + "$";
+	return current_currency_symbol+("%.2f" % v);
 
 func safe_set_parent(obj, newparent):	
 	yield(VisualServer, "frame_post_draw");

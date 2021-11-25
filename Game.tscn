@@ -1,4 +1,4 @@
-[gd_scene load_steps=180 format=2]
+[gd_scene load_steps=183 format=2]
 
 [ext_resource path="res://Slot/ReelSpinStartAnimation.tres" type="Animation" id=1]
 [ext_resource path="res://Slot/ReelSpinStopAnimation.tres" type="Animation" id=2]
@@ -113,20 +113,21 @@
 [ext_resource path="res://Slot/Features/Anticipation.gd" type="Script" id=111]
 [ext_resource path="res://Slot/Features/Anticipation.tscn" type="PackedScene" id=112]
 [ext_resource path="res://Translations/EN/logo_data.tres" type="SpineAnimationStateDataResource" id=113]
+[ext_resource path="res://Misc/Singleton.gd" type="Script" id=114]
 
-[sub_resource type="SpineSkeletonDataResource" id=38]
+[sub_resource type="SpineSkeletonDataResource" id=1]
 atlas_res = ExtResource( 80 )
 skeleton_json_res = ExtResource( 81 )
 animations = null
 skins = null
 
-[sub_resource type="SpineAnimationStateDataResource" id=39]
-skeleton = SubResource( 38 )
+[sub_resource type="SpineAnimationStateDataResource" id=2]
+skeleton = SubResource( 1 )
 
-[sub_resource type="CanvasItemMaterial" id=40]
+[sub_resource type="CanvasItemMaterial" id=3]
 blend_mode = 1
 
-[sub_resource type="Animation" id=41]
+[sub_resource type="Animation" id=4]
 resource_name = "lightrayshow"
 length = 10.0
 loop = true
@@ -167,39 +168,39 @@ tracks/2/keys = {
 "values": [ Vector2( 0, -200 ), Vector2( 0, -200 ) ]
 }
 
-[sub_resource type="CanvasItemMaterial" id=42]
+[sub_resource type="CanvasItemMaterial" id=5]
 blend_mode = 1
 light_mode = 1
 
-[sub_resource type="Gradient" id=43]
+[sub_resource type="Gradient" id=6]
 offsets = PoolRealArray( 0, 0.077, 0.154, 0.231, 0.308, 0.385, 0.462, 0.539, 0.616, 0.693, 0.77, 0.847, 0.924, 1 )
 colors = PoolColorArray( 0, 0, 0, 1, 0.505882, 0.505882, 0.505882, 1, 0.682353, 0.682353, 0.682353, 1, 0.380392, 0.380392, 0.380392, 1, 0.741176, 0.741176, 0.741176, 1, 0.435294, 0.435294, 0.435294, 1, 0.763972, 0.763972, 0.763972, 1, 0.403922, 0.403922, 0.403922, 1, 0.741176, 0.741176, 0.741176, 1, 0.32549, 0.32549, 0.32549, 1, 0.592157, 0.588235, 0.588235, 1, 0.215044, 0.215044, 0.215044, 1, 0.0980392, 0.0980392, 0.0980392, 1, 0, 0, 0, 1 )
 
-[sub_resource type="CanvasItemMaterial" id=44]
+[sub_resource type="CanvasItemMaterial" id=7]
 blend_mode = 1
 light_mode = 1
 
-[sub_resource type="Curve" id=45]
+[sub_resource type="Curve" id=8]
 min_value = -360.0
 max_value = 360.0
 _data = [ Vector2( 0, -58.9091 ), 0.0, 0.0, 0, 0, Vector2( 1, 150.545 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="Gradient" id=46]
+[sub_resource type="Gradient" id=9]
 offsets = PoolRealArray( 0, 0.281818, 0.486364, 1 )
 colors = PoolColorArray( 0, 0, 0, 1, 0, 0.180392, 0.2, 1, 0, 0.152941, 0.247059, 1, 0, 0, 0, 1 )
 
-[sub_resource type="Curve" id=47]
+[sub_resource type="Curve" id=10]
 _data = [ Vector2( 0, 0.370454 ), 0.0, 0.0, 0, 0, Vector2( 0.440329, 0.815909 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.425 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="Gradient" id=48]
+[sub_resource type="Gradient" id=11]
 offsets = PoolRealArray( 0, 0.127273, 1 )
 colors = PoolColorArray( 0.227451, 0.227451, 0.227451, 1, 0, 0.415686, 0.45098, 1, 0, 0, 0, 1 )
 
-[sub_resource type="Gradient" id=49]
+[sub_resource type="Gradient" id=12]
 offsets = PoolRealArray( 0, 0.127273, 1 )
 colors = PoolColorArray( 0.227451, 0.227451, 0.227451, 1, 0.423529, 0.054902, 0.305882, 1, 0, 0, 0, 1 )
 
-[sub_resource type="Animation" id=50]
+[sub_resource type="Animation" id=13]
 length = 2.0
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("Centering/ButtonRoot:position:y")
@@ -224,7 +225,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.584314, 0.584314, 0.584314, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=51]
+[sub_resource type="Animation" id=14]
 resource_name = "lightrayshow"
 length = 10.0
 loop = true
@@ -265,7 +266,7 @@ tracks/2/keys = {
 "values": [ Vector2( 0, -300 ), Vector2( 0, -100 ) ]
 }
 
-[sub_resource type="Animation" id=52]
+[sub_resource type="Animation" id=15]
 resource_name = "lightrayshow"
 length = 10.0
 loop = true
@@ -306,34 +307,136 @@ tracks/2/keys = {
 "values": [ Vector2( 0, -200 ), Vector2( 0, -200 ) ]
 }
 
-[sub_resource type="SpineSkeletonDataResource" id=53]
+[sub_resource type="SpineSkeletonDataResource" id=16]
 atlas_res = ExtResource( 45 )
 skeleton_json_res = ExtResource( 46 )
 animations = null
 skins = null
 
-[sub_resource type="SpineAnimationStateDataResource" id=54]
-skeleton = SubResource( 53 )
+[sub_resource type="SpineAnimationStateDataResource" id=17]
+skeleton = SubResource( 16 )
 
-[sub_resource type="SpineSkeletonDataResource" id=55]
+[sub_resource type="SpineSkeletonDataResource" id=18]
 atlas_res = ExtResource( 80 )
 skeleton_json_res = ExtResource( 81 )
 animations = null
 skins = null
 
-[sub_resource type="SpineAnimationStateDataResource" id=56]
-skeleton = SubResource( 55 )
+[sub_resource type="SpineAnimationStateDataResource" id=19]
+skeleton = SubResource( 18 )
 
-[sub_resource type="SpineSkeletonDataResource" id=57]
+[sub_resource type="Animation" id=68]
+resource_name = "To_Normal"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ReelContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.27451, 0.27451, 0.27451, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Background:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.27451, 0.27451, 0.27451, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("FreeSpinsOverlap/ReelsBottomFade:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.27451, 0.27451, 0.27451, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("NormalOverlap/ReelsBottomFade:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.27451, 0.27451, 0.27451, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=67]
+resource_name = "To_Winline"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ReelContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.27451, 0.27451, 0.27451, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Background:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.27451, 0.27451, 0.27451, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("NormalOverlap/ReelsBottomFade:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.27451, 0.27451, 0.27451, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("FreeSpinsOverlap/ReelsBottomFade:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.27451, 0.27451, 0.27451, 1 ) ]
+}
+
+[sub_resource type="SpineSkeletonDataResource" id=20]
 atlas_res = ExtResource( 69 )
 skeleton_json_res = ExtResource( 68 )
 animations = null
 skins = null
 
-[sub_resource type="SpineAnimationStateDataResource" id=58]
-skeleton = SubResource( 57 )
+[sub_resource type="SpineAnimationStateDataResource" id=21]
+skeleton = SubResource( 20 )
 
-[sub_resource type="Animation" id=59]
+[sub_resource type="Animation" id=22]
 length = 2.0
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("Centering/ButtonRoot:position:y")
@@ -346,10 +449,10 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.3, 2 )
 }
 
-[sub_resource type="CanvasItemMaterial" id=60]
+[sub_resource type="CanvasItemMaterial" id=23]
 blend_mode = 1
 
-[sub_resource type="Animation" id=61]
+[sub_resource type="Animation" id=24]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:visible")
 tracks/0/interp = 1
@@ -375,7 +478,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=62]
+[sub_resource type="Animation" id=25]
 tracks/0/type = "value"
 tracks/0/path = NodePath("CustomButton:enabled")
 tracks/0/interp = 1
@@ -401,7 +504,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=63]
+[sub_resource type="Animation" id=26]
 length = 3.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:visible")
@@ -500,7 +603,7 @@ tracks/7/keys = {
 "values": [ 0.0, 15.0 ]
 }
 
-[sub_resource type="Animation" id=64]
+[sub_resource type="Animation" id=27]
 tracks/0/type = "value"
 tracks/0/path = NodePath("CustomButton:modulate")
 tracks/0/interp = 1
@@ -538,27 +641,27 @@ tracks/2/keys = {
 "values": [ Vector2( -112.5, 450 ), Vector2( -112.5, 300 ), Vector2( -112.5, 350 ) ]
 }
 
-[sub_resource type="Curve" id=65]
+[sub_resource type="Curve" id=28]
 min_value = -360.0
 max_value = 360.0
 _data = [ Vector2( 0, -36 ), 0.0, 0.0, 0, 0, Vector2( 1, 62.1818 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="Gradient" id=66]
+[sub_resource type="Gradient" id=29]
 offsets = PoolRealArray( 0, 0.281818, 0.486364, 1 )
 colors = PoolColorArray( 0, 0, 0, 1, 0.490196, 0, 0.607843, 1, 0.396078, 0, 0.392157, 1, 0, 0, 0, 1 )
 
-[sub_resource type="SpineSkeletonDataResource" id=67]
+[sub_resource type="SpineSkeletonDataResource" id=30]
 atlas_res = ExtResource( 107 )
 skeleton_json_res = ExtResource( 77 )
 animations = null
 skins = null
 
-[sub_resource type="SpineAnimationStateDataResource" id=68]
-skeleton = SubResource( 67 )
+[sub_resource type="SpineAnimationStateDataResource" id=31]
+skeleton = SubResource( 30 )
 
-[sub_resource type="CanvasItemMaterial" id=69]
+[sub_resource type="CanvasItemMaterial" id=32]
 
-[sub_resource type="Animation" id=70]
+[sub_resource type="Animation" id=33]
 length = 2.0
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("Centering/ButtonRoot:position:y")
@@ -571,7 +674,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.3, 2 )
 }
 
-[sub_resource type="Animation" id=71]
+[sub_resource type="Animation" id=34]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -597,7 +700,7 @@ tracks/1/keys = {
 "values": [ Vector2( -250, 150 ), Vector2( -250, 150 ) ]
 }
 
-[sub_resource type="Animation" id=72]
+[sub_resource type="Animation" id=35]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -623,7 +726,7 @@ tracks/1/keys = {
 "values": [ Vector2( -250, 125 ), Vector2( -250, 150 ) ]
 }
 
-[sub_resource type="Animation" id=73]
+[sub_resource type="Animation" id=36]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -676,7 +779,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=74]
+[sub_resource type="Animation" id=38]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Centering/CustomButton:enabled")
 tracks/0/interp = 1
@@ -762,7 +865,7 @@ tracks/6/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 0.6, 0.6 ) ]
 }
 
-[sub_resource type="Animation" id=75]
+[sub_resource type="Animation" id=39]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Centering/Fade:modulate")
 tracks/0/interp = 1
@@ -776,7 +879,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=76]
+[sub_resource type="Animation" id=40]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:visible")
 tracks/0/interp = 1
@@ -1018,7 +1121,7 @@ tracks/19/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=77]
+[sub_resource type="Animation" id=41]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Centering/CustomButton:visible")
 tracks/0/interp = 1
@@ -1068,7 +1171,7 @@ tracks/3/keys = {
 "values": [ Vector2( -112.5, 200 ), Vector2( -112.5, 150 ) ]
 }
 
-[sub_resource type="Animation" id=78]
+[sub_resource type="Animation" id=42]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Centering/Fade:modulate")
 tracks/0/interp = 1
@@ -1082,7 +1185,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.588235 ) ]
 }
 
-[sub_resource type="Animation" id=79]
+[sub_resource type="Animation" id=43]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Centering/Layer1:modulate")
@@ -1241,7 +1344,7 @@ tracks/12/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=80]
+[sub_resource type="Animation" id=44]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Centering/Layer2:modulate")
@@ -1364,7 +1467,7 @@ tracks/9/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=81]
+[sub_resource type="Animation" id=45]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:visible")
 tracks/0/interp = 1
@@ -1378,7 +1481,7 @@ tracks/0/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=82]
+[sub_resource type="Animation" id=46]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:visible")
 tracks/0/interp = 1
@@ -1392,16 +1495,16 @@ tracks/0/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="SpineSkeletonDataResource" id=83]
+[sub_resource type="SpineSkeletonDataResource" id=47]
 atlas_res = ExtResource( 71 )
 skeleton_json_res = ExtResource( 72 )
 animations = null
 skins = null
 
-[sub_resource type="SpineAnimationStateDataResource" id=84]
-skeleton = SubResource( 83 )
+[sub_resource type="SpineAnimationStateDataResource" id=48]
+skeleton = SubResource( 47 )
 
-[sub_resource type="Animation" id=85]
+[sub_resource type="Animation" id=49]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -1427,7 +1530,7 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=86]
+[sub_resource type="Animation" id=50]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -1453,7 +1556,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=87]
+[sub_resource type="Animation" id=51]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_scale")
 tracks/0/interp = 1
@@ -1491,7 +1594,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=88]
+[sub_resource type="Animation" id=52]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -1553,7 +1656,7 @@ tracks/4/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=89]
+[sub_resource type="Animation" id=53]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -1615,7 +1718,7 @@ tracks/4/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=90]
+[sub_resource type="Animation" id=54]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -1677,7 +1780,7 @@ tracks/4/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=99]
+[sub_resource type="Animation" id=55]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_scale")
 tracks/0/interp = 1
@@ -1715,7 +1818,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=100]
+[sub_resource type="Animation" id=56]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -1777,7 +1880,7 @@ tracks/4/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=101]
+[sub_resource type="Animation" id=57]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -1839,7 +1942,7 @@ tracks/4/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=102]
+[sub_resource type="Animation" id=58]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -1901,7 +2004,7 @@ tracks/4/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=91]
+[sub_resource type="Animation" id=59]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Slot/NormalOverlap:visible")
 tracks/0/interp = 1
@@ -1975,7 +2078,7 @@ tracks/5/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=92]
+[sub_resource type="Animation" id=60]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Slot/NormalOverlap:visible")
 tracks/0/interp = 1
@@ -2097,7 +2200,7 @@ tracks/9/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=93]
+[sub_resource type="Animation" id=61]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Background/Normal:visible")
 tracks/0/interp = 1
@@ -2147,7 +2250,7 @@ tracks/3/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=94]
+[sub_resource type="Animation" id=62]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Slot/NormalOverlap:visible")
 tracks/0/interp = 1
@@ -2269,7 +2372,7 @@ tracks/9/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=95]
+[sub_resource type="Animation" id=63]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Background/Normal:visible")
 tracks/0/interp = 1
@@ -2319,7 +2422,7 @@ tracks/3/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=96]
+[sub_resource type="Animation" id=64]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Background:modulate")
 tracks/0/interp = 1
@@ -2333,7 +2436,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=97]
+[sub_resource type="Animation" id=65]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Background:modulate")
 tracks/0/interp = 1
@@ -2347,7 +2450,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="CanvasItemMaterial" id=98]
+[sub_resource type="CanvasItemMaterial" id=66]
 blend_mode = 1
 light_mode = 1
 
@@ -2387,7 +2490,7 @@ texture = ExtResource( 61 )
 [node name="FoxLeft" type="SpineSprite" parent="IntroContainer/Centering"]
 position = Vector2( 375, 60 )
 scale = Vector2( 0.5, 0.5 )
-animation_state_data_res = SubResource( 39 )
+animation_state_data_res = SubResource( 2 )
 script = ExtResource( 44 )
 skin = "fox1"
 startanimation = "idle"
@@ -2396,23 +2499,23 @@ startanimation = "idle"
 position = Vector2( -375, 60 )
 rotation = 3.14159
 scale = Vector2( 0.5, -0.5 )
-animation_state_data_res = SubResource( 39 )
+animation_state_data_res = SubResource( 2 )
 script = ExtResource( 44 )
 skin = "fox2"
 startanimation = "idle"
 
 [node name="lightrays" type="Sprite" parent="IntroContainer/Centering"]
-modulate = Color( 0.226026, 0.513654, 1, 0.28506 )
-material = SubResource( 40 )
+modulate = Color( 0.444872, 0.624081, 1, 0.0682221 )
+material = SubResource( 3 )
 position = Vector2( 0, -200 )
-scale = Vector2( 15.9822, 5.9822 )
+scale = Vector2( 16.7564, 6.75642 )
 texture = ExtResource( 62 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="IntroContainer/Centering/lightrays"]
-anims/lightrayshow = SubResource( 41 )
+anims/lightrayshow = SubResource( 4 )
 
 [node name="FirefliesParticles1" type="CPUParticles2D" parent="IntroContainer/Centering"]
-material = SubResource( 42 )
+material = SubResource( 5 )
 amount = 3
 lifetime = 6.0
 preprocess = 10.0
@@ -2431,12 +2534,12 @@ radial_accel_random = 1.0
 damping_random = 1.0
 scale_amount = 0.1
 scale_amount_random = 0.5
-color_ramp = SubResource( 43 )
+color_ramp = SubResource( 6 )
 hue_variation = -0.12
 hue_variation_random = 0.49
 
 [node name="FirefliesParticles2" type="CPUParticles2D" parent="IntroContainer/Centering"]
-material = SubResource( 42 )
+material = SubResource( 5 )
 amount = 3
 lifetime = 6.0
 preprocess = 10.0
@@ -2456,7 +2559,7 @@ radial_accel_random = 1.0
 damping_random = 1.0
 scale_amount = 0.1
 scale_amount_random = 0.5
-color_ramp = SubResource( 43 )
+color_ramp = SubResource( 6 )
 hue_variation = -0.12
 hue_variation_random = 0.49
 
@@ -2466,7 +2569,7 @@ position = Vector2( -1.78186, 0 )
 texture = ExtResource( 64 )
 
 [node name="FirefliesParticles3" type="CPUParticles2D" parent="IntroContainer/Centering"]
-material = SubResource( 42 )
+material = SubResource( 5 )
 amount = 3
 lifetime = 6.0
 preprocess = 10.0
@@ -2485,12 +2588,12 @@ radial_accel_random = 1.0
 damping_random = 1.0
 scale_amount = 0.1
 scale_amount_random = 0.5
-color_ramp = SubResource( 43 )
+color_ramp = SubResource( 6 )
 hue_variation = -0.12
 hue_variation_random = 0.49
 
 [node name="FirefliesParticles4" type="CPUParticles2D" parent="IntroContainer/Centering"]
-material = SubResource( 42 )
+material = SubResource( 5 )
 amount = 3
 lifetime = 6.0
 preprocess = 10.0
@@ -2510,7 +2613,7 @@ radial_accel_random = 1.0
 damping_random = 1.0
 scale_amount = 0.1
 scale_amount_random = 0.5
-color_ramp = SubResource( 43 )
+color_ramp = SubResource( 6 )
 hue_variation = -0.12
 hue_variation_random = 0.49
 
@@ -2576,7 +2679,7 @@ __meta__ = {
 }
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="IntroContainer/Centering/CustomButton/Centering"]
-material = SubResource( 44 )
+material = SubResource( 7 )
 amount = 3
 lifetime = 2.0
 preprocess = 10.0
@@ -2593,15 +2696,15 @@ damping = 50.0
 damping_random = 1.0
 angle = 360.0
 angle_random = 1.0
-angle_curve = SubResource( 45 )
+angle_curve = SubResource( 8 )
 scale_amount = 0.35
 scale_amount_random = 0.35
-color_ramp = SubResource( 46 )
+color_ramp = SubResource( 9 )
 hue_variation = -0.12
 hue_variation_random = 0.49
 
 [node name="CPUParticles2D2" type="CPUParticles2D" parent="IntroContainer/Centering/CustomButton/Centering"]
-material = SubResource( 44 )
+material = SubResource( 7 )
 position = Vector2( 0, 15 )
 amount = 15
 lifetime = 10.0
@@ -2619,13 +2722,13 @@ angle = 360.0
 angle_random = 1.0
 scale_amount = 0.5
 scale_amount_random = 0.35
-scale_amount_curve = SubResource( 47 )
-color_ramp = SubResource( 48 )
+scale_amount_curve = SubResource( 10 )
+color_ramp = SubResource( 11 )
 hue_variation = -0.12
 hue_variation_random = 0.49
 
 [node name="CPUParticles2D3" type="CPUParticles2D" parent="IntroContainer/Centering/CustomButton/Centering"]
-material = SubResource( 44 )
+material = SubResource( 7 )
 amount = 3
 lifetime = 10.0
 preprocess = 10.0
@@ -2642,13 +2745,13 @@ angle = 360.0
 angle_random = 1.0
 scale_amount = 0.5
 scale_amount_random = 0.35
-scale_amount_curve = SubResource( 47 )
-color_ramp = SubResource( 49 )
+scale_amount_curve = SubResource( 10 )
+color_ramp = SubResource( 12 )
 hue_variation = -0.12
 hue_variation_random = 0.49
 
 [node name="CPUParticles2D4" type="CPUParticles2D" parent="IntroContainer/Centering/CustomButton/Centering"]
-material = SubResource( 44 )
+material = SubResource( 7 )
 position = Vector2( 0, 25 )
 amount = 10
 preprocess = 10.0
@@ -2667,7 +2770,7 @@ angle = 360.0
 angle_random = 1.0
 scale_amount = 0.35
 scale_amount_random = 0.35
-color_ramp = SubResource( 46 )
+color_ramp = SubResource( 9 )
 hue_variation = -0.12
 hue_variation_random = 0.49
 
@@ -2716,7 +2819,7 @@ position = Vector2( 0, -86 )
 texture = ExtResource( 51 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="IntroContainer/Centering/CustomButton"]
-anims/Pressed = SubResource( 50 )
+anims/Pressed = SubResource( 13 )
 
 [node name="SlotContainer" type="Control" parent="."]
 visible = false
@@ -2730,7 +2833,8 @@ script = ExtResource( 32 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-zoomamount = Vector2( 0.45, 0.8 )
+zoomamount = Vector2( 0.45, 0.75 )
+yoffset = Vector2( 0, 400 )
 
 [node name="Background" type="Control" parent="SlotContainer"]
 anchor_left = 0.5
@@ -2746,14 +2850,14 @@ position = Vector2( 2.5199, 0 )
 texture = ExtResource( 9 )
 
 [node name="lightrays" type="Sprite" parent="SlotContainer/Background/Normal"]
-modulate = Color( 1, 0.960784, 0.513726, 0.224353 )
-material = SubResource( 40 )
-position = Vector2( 0, -201.78 )
-scale = Vector2( 10.4733, 7 )
+modulate = Color( 1, 0.960784, 0.513726, 0.0536933 )
+material = SubResource( 3 )
+position = Vector2( 0, -124.358 )
+scale = Vector2( 11.6346, 7 )
 texture = ExtResource( 62 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/Background/Normal/lightrays"]
-anims/lightrayshow = SubResource( 51 )
+anims/lightrayshow = SubResource( 14 )
 
 [node name="FreeSpins" type="Sprite" parent="SlotContainer/Background"]
 visible = false
@@ -2761,14 +2865,14 @@ modulate = Color( 1, 1, 1, 0 )
 texture = ExtResource( 41 )
 
 [node name="lightrays" type="Sprite" parent="SlotContainer/Background/FreeSpins"]
-modulate = Color( 0.226026, 0.513654, 1, 0.28506 )
-material = SubResource( 40 )
+modulate = Color( 0.444872, 0.624081, 1, 0.0682221 )
+material = SubResource( 3 )
 position = Vector2( 0, -200 )
-scale = Vector2( 15.9822, 5.9822 )
+scale = Vector2( 16.7564, 6.75642 )
 texture = ExtResource( 62 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/Background/FreeSpins/lightrays"]
-anims/lightrayshow = SubResource( 52 )
+anims/lightrayshow = SubResource( 15 )
 
 [node name="Slot" type="Control" parent="SlotContainer"]
 anchor_left = 0.5
@@ -2827,7 +2931,7 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-topOffset = 120.0
+topOffset = 150.0
 spinSpeed = 4000.0
 tileDistance = 250.0
 topTileCount = 2
@@ -2851,7 +2955,7 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-topOffset = 120.0
+topOffset = 150.0
 spinSpeed = 4000.0
 tileDistance = 250.0
 topTileCount = 2
@@ -2875,7 +2979,7 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-topOffset = 120.0
+topOffset = 150.0
 spinSpeed = 4000.0
 tileDistance = 250.0
 topTileCount = 2
@@ -2899,7 +3003,7 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-topOffset = 120.0
+topOffset = 150.0
 spinSpeed = 4000.0
 tileDistance = 250.0
 topTileCount = 2
@@ -2923,7 +3027,7 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-topOffset = 120.0
+topOffset = 150.0
 spinSpeed = 4000.0
 tileDistance = 250.0
 topTileCount = 2
@@ -2985,7 +3089,7 @@ texture = ExtResource( 104 )
 [node name="Logo" type="SpineSprite" parent="SlotContainer/Slot/NormalOverlap"]
 position = Vector2( 0, -430 )
 scale = Vector2( 0.65, 0.65 )
-animation_state_data_res = SubResource( 54 )
+animation_state_data_res = SubResource( 17 )
 script = ExtResource( 44 )
 skin = "default"
 startanimation = "idle"
@@ -3000,38 +3104,6 @@ node = NodePath("..")
 position = Vector2( 1, 392 )
 texture = ExtResource( 54 )
 
-[node name="WinlinesOverlap" type="Control" parent="SlotContainer/Slot"]
-visible = false
-modulate = Color( 1, 1, 1, 0 )
-script = ExtResource( 7 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-default = Color( 1, 1, 1, 1 )
-
-[node name="Normal" type="ColorRect" parent="SlotContainer/Slot/WinlinesOverlap"]
-margin_left = -740.0
-margin_top = -378.0
-margin_right = 740.0
-margin_bottom = 412.0
-color = Color( 0, 0, 0, 0.823529 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="FreeSpins" type="ColorRect" parent="SlotContainer/Slot/WinlinesOverlap"]
-visible = false
-margin_left = -740.0
-margin_top = -378.0
-margin_right = 740.0
-margin_bottom = 412.0
-color = Color( 0.0117647, 0.0352941, 0.172549, 0.784314 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Tween" type="Tween" parent="SlotContainer/Slot/WinlinesOverlap"]
-
 [node name="Overlay" type="Control" parent="SlotContainer/Slot"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -3041,7 +3113,7 @@ __meta__ = {
 
 [node name="FoxLeft" type="SpineSprite" parent="SlotContainer/Slot/Overlay"]
 position = Vector2( -880, 500 )
-animation_state_data_res = SubResource( 56 )
+animation_state_data_res = SubResource( 19 )
 empty_animation_duration = 0.0
 script = ExtResource( 44 )
 skin = "fox1"
@@ -3050,7 +3122,7 @@ startanimation = "idle"
 [node name="FoxRight" type="SpineSprite" parent="SlotContainer/Slot/Overlay"]
 position = Vector2( 880, 500 )
 scale = Vector2( -1, 1 )
-animation_state_data_res = SubResource( 56 )
+animation_state_data_res = SubResource( 19 )
 empty_animation_duration = 0.0
 script = ExtResource( 44 )
 skin = "fox2"
@@ -3087,6 +3159,11 @@ anticipation_duration = 30
 anticipation_offset = Vector2( 0, 400 )
 anticipation_scene = ExtResource( 112 )
 
+[node name="WinlinesFadeAnimationPlayer" type="AnimationPlayer" parent="SlotContainer/Slot"]
+anims/To_Normal = SubResource( 68 )
+anims/To_Winline = SubResource( 67 )
+script = ExtResource( 114 )
+
 [node name="FreeSpinsIntro" type="Control" parent="SlotContainer"]
 modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.5
@@ -3108,7 +3185,7 @@ texture = ExtResource( 61 )
 
 [node name="Animation" type="SpineSprite" parent="SlotContainer/FreeSpinsIntro"]
 position = Vector2( 0, 115.913 )
-animation_state_data_res = SubResource( 58 )
+animation_state_data_res = SubResource( 21 )
 script = ExtResource( 44 )
 skin = "default"
 startanimation = "popup"
@@ -3139,7 +3216,7 @@ __meta__ = {
 }
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="SlotContainer/FreeSpinsIntro/CustomButton/Centering"]
-material = SubResource( 44 )
+material = SubResource( 7 )
 amount = 3
 lifetime = 2.0
 preprocess = 10.0
@@ -3156,15 +3233,15 @@ damping = 50.0
 damping_random = 1.0
 angle = 360.0
 angle_random = 1.0
-angle_curve = SubResource( 45 )
+angle_curve = SubResource( 8 )
 scale_amount = 0.35
 scale_amount_random = 0.35
-color_ramp = SubResource( 46 )
+color_ramp = SubResource( 9 )
 hue_variation = -0.12
 hue_variation_random = 0.49
 
 [node name="CPUParticles2D2" type="CPUParticles2D" parent="SlotContainer/FreeSpinsIntro/CustomButton/Centering"]
-material = SubResource( 44 )
+material = SubResource( 7 )
 position = Vector2( 0, 15 )
 amount = 15
 lifetime = 10.0
@@ -3182,13 +3259,13 @@ angle = 360.0
 angle_random = 1.0
 scale_amount = 0.5
 scale_amount_random = 0.35
-scale_amount_curve = SubResource( 47 )
-color_ramp = SubResource( 48 )
+scale_amount_curve = SubResource( 10 )
+color_ramp = SubResource( 11 )
 hue_variation = -0.12
 hue_variation_random = 0.49
 
 [node name="CPUParticles2D3" type="CPUParticles2D" parent="SlotContainer/FreeSpinsIntro/CustomButton/Centering"]
-material = SubResource( 44 )
+material = SubResource( 7 )
 amount = 3
 lifetime = 10.0
 preprocess = 10.0
@@ -3205,13 +3282,13 @@ angle = 360.0
 angle_random = 1.0
 scale_amount = 0.5
 scale_amount_random = 0.35
-scale_amount_curve = SubResource( 47 )
-color_ramp = SubResource( 49 )
+scale_amount_curve = SubResource( 10 )
+color_ramp = SubResource( 12 )
 hue_variation = -0.12
 hue_variation_random = 0.49
 
 [node name="CPUParticles2D4" type="CPUParticles2D" parent="SlotContainer/FreeSpinsIntro/CustomButton/Centering"]
-material = SubResource( 44 )
+material = SubResource( 7 )
 position = Vector2( 0, 25 )
 amount = 10
 preprocess = 10.0
@@ -3230,7 +3307,7 @@ angle = 360.0
 angle_random = 1.0
 scale_amount = 0.35
 scale_amount_random = 0.35
-color_ramp = SubResource( 46 )
+color_ramp = SubResource( 9 )
 hue_variation = -0.12
 hue_variation_random = 0.49
 
@@ -3279,11 +3356,11 @@ position = Vector2( 0, -86 )
 texture = ExtResource( 51 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/FreeSpinsIntro/CustomButton"]
-anims/Pressed = SubResource( 59 )
+anims/Pressed = SubResource( 22 )
 
 [node name="Fog1" type="Sprite" parent="SlotContainer/FreeSpinsIntro"]
 modulate = Color( 0, 1, 1, 1 )
-material = SubResource( 60 )
+material = SubResource( 23 )
 position = Vector2( -472, 60 )
 rotation = 3.14159
 scale = Vector2( 5, 5 )
@@ -3291,16 +3368,16 @@ texture = ExtResource( 74 )
 
 [node name="Fog2" type="Sprite" parent="SlotContainer/FreeSpinsIntro"]
 modulate = Color( 0.411765, 0.917647, 1, 1 )
-material = SubResource( 60 )
+material = SubResource( 23 )
 position = Vector2( 472, 60 )
 scale = Vector2( 5, 5 )
 texture = ExtResource( 73 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/FreeSpinsIntro"]
-anims/Hide = SubResource( 61 )
-anims/HideButton = SubResource( 62 )
-anims/Show = SubResource( 63 )
-anims/ShowButton = SubResource( 64 )
+anims/Hide = SubResource( 24 )
+anims/HideButton = SubResource( 25 )
+anims/Show = SubResource( 26 )
+anims/ShowButton = SubResource( 27 )
 
 [node name="BonusScene" type="Control" parent="SlotContainer"]
 visible = false
@@ -3326,8 +3403,6 @@ __meta__ = {
 texture = ExtResource( 60 )
 
 [node name="Background2" type="Sprite" parent="SlotContainer/BonusScene/Centering"]
-modulate = Color( 1, 1, 1, 1 )
-scale = Vector2( 1, 1 )
 texture = ExtResource( 60 )
 
 [node name="Layer3" type="Node2D" parent="SlotContainer/BonusScene/Centering"]
@@ -3336,7 +3411,7 @@ position = Vector2( 0, -125 )
 scale = Vector2( 0.35, 0.35 )
 
 [node name="Particles" type="CPUParticles2D" parent="SlotContainer/BonusScene/Centering/Layer3"]
-material = SubResource( 44 )
+material = SubResource( 7 )
 scale = Vector2( 2.5, 2.5 )
 amount = 10
 lifetime = 5.0
@@ -3352,9 +3427,9 @@ damping = 50.0
 damping_random = 1.0
 angle = 360.0
 angle_random = 1.0
-angle_curve = SubResource( 65 )
+angle_curve = SubResource( 28 )
 scale_amount_random = 0.35
-color_ramp = SubResource( 66 )
+color_ramp = SubResource( 29 )
 hue_variation = -0.12
 hue_variation_random = 0.49
 
@@ -3364,14 +3439,14 @@ hue_variation_random = 0.49
 position = Vector2( -400, 140 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
-animation_state_data_res = SubResource( 68 )
+animation_state_data_res = SubResource( 31 )
 script = ExtResource( 44 )
 skin = "torii5"
 startanimation = "Idle"
 
 [node name="ToriRight" type="SpineSprite" parent="SlotContainer/BonusScene/Centering/Layer3"]
 position = Vector2( 400, 140 )
-animation_state_data_res = SubResource( 68 )
+animation_state_data_res = SubResource( 31 )
 script = ExtResource( 44 )
 skin = "torii6"
 startanimation = "Idle"
@@ -3412,7 +3487,7 @@ position = Vector2( 0, -75 )
 scale = Vector2( 0.6, 0.6 )
 
 [node name="Particles" type="CPUParticles2D" parent="SlotContainer/BonusScene/Centering/Layer2"]
-material = SubResource( 44 )
+material = SubResource( 7 )
 scale = Vector2( 2.5, 2.5 )
 amount = 10
 lifetime = 5.0
@@ -3428,9 +3503,9 @@ damping = 50.0
 damping_random = 1.0
 angle = 360.0
 angle_random = 1.0
-angle_curve = SubResource( 65 )
+angle_curve = SubResource( 28 )
 scale_amount_random = 0.35
-color_ramp = SubResource( 66 )
+color_ramp = SubResource( 29 )
 hue_variation = -0.12
 hue_variation_random = 0.49
 
@@ -3440,14 +3515,14 @@ hue_variation_random = 0.49
 position = Vector2( -400, 140 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
-animation_state_data_res = SubResource( 68 )
+animation_state_data_res = SubResource( 31 )
 script = ExtResource( 44 )
 skin = "torii3"
 startanimation = "Idle"
 
 [node name="ToriRight" type="SpineSprite" parent="SlotContainer/BonusScene/Centering/Layer2"]
 position = Vector2( 400, 140 )
-animation_state_data_res = SubResource( 68 )
+animation_state_data_res = SubResource( 31 )
 script = ExtResource( 44 )
 skin = "torii4"
 startanimation = "Idle"
@@ -3473,7 +3548,7 @@ texture = ExtResource( 86 )
 [node name="Layer1" type="Node2D" parent="SlotContainer/BonusScene/Centering"]
 
 [node name="Particles" type="CPUParticles2D" parent="SlotContainer/BonusScene/Centering/Layer1"]
-material = SubResource( 44 )
+material = SubResource( 7 )
 scale = Vector2( 2.5, 2.5 )
 emitting = false
 amount = 10
@@ -3490,9 +3565,9 @@ damping = 50.0
 damping_random = 1.0
 angle = 360.0
 angle_random = 1.0
-angle_curve = SubResource( 65 )
+angle_curve = SubResource( 28 )
 scale_amount_random = 0.35
-color_ramp = SubResource( 66 )
+color_ramp = SubResource( 29 )
 hue_variation = -0.12
 hue_variation_random = 0.49
 
@@ -3502,14 +3577,14 @@ hue_variation_random = 0.49
 position = Vector2( -400, 140 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
-animation_state_data_res = SubResource( 68 )
+animation_state_data_res = SubResource( 31 )
 script = ExtResource( 44 )
 skin = "torii1"
 startanimation = "Idle"
 
 [node name="ToriRight" type="SpineSprite" parent="SlotContainer/BonusScene/Centering/Layer1"]
 position = Vector2( 400, 140 )
-animation_state_data_res = SubResource( 68 )
+animation_state_data_res = SubResource( 31 )
 script = ExtResource( 44 )
 skin = "torii2"
 startanimation = "Idle"
@@ -3534,7 +3609,7 @@ texture = ExtResource( 43 )
 
 [node name="Fade" type="Sprite" parent="SlotContainer/BonusScene/Centering"]
 modulate = Color( 1, 1, 1, 0.588235 )
-material = SubResource( 69 )
+material = SubResource( 32 )
 position = Vector2( -6.34961, 25.3984 )
 texture = ExtResource( 82 )
 
@@ -3576,7 +3651,7 @@ __meta__ = {
 }
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="SlotContainer/BonusScene/Centering/CustomButton/Centering"]
-material = SubResource( 44 )
+material = SubResource( 7 )
 amount = 3
 lifetime = 2.0
 preprocess = 10.0
@@ -3593,15 +3668,15 @@ damping = 50.0
 damping_random = 1.0
 angle = 360.0
 angle_random = 1.0
-angle_curve = SubResource( 45 )
+angle_curve = SubResource( 8 )
 scale_amount = 0.35
 scale_amount_random = 0.35
-color_ramp = SubResource( 46 )
+color_ramp = SubResource( 9 )
 hue_variation = -0.12
 hue_variation_random = 0.49
 
 [node name="CPUParticles2D2" type="CPUParticles2D" parent="SlotContainer/BonusScene/Centering/CustomButton/Centering"]
-material = SubResource( 44 )
+material = SubResource( 7 )
 position = Vector2( 0, 15 )
 amount = 15
 lifetime = 10.0
@@ -3619,13 +3694,13 @@ angle = 360.0
 angle_random = 1.0
 scale_amount = 0.5
 scale_amount_random = 0.35
-scale_amount_curve = SubResource( 47 )
-color_ramp = SubResource( 48 )
+scale_amount_curve = SubResource( 10 )
+color_ramp = SubResource( 11 )
 hue_variation = -0.12
 hue_variation_random = 0.49
 
 [node name="CPUParticles2D3" type="CPUParticles2D" parent="SlotContainer/BonusScene/Centering/CustomButton/Centering"]
-material = SubResource( 44 )
+material = SubResource( 7 )
 amount = 3
 lifetime = 10.0
 preprocess = 10.0
@@ -3642,13 +3717,13 @@ angle = 360.0
 angle_random = 1.0
 scale_amount = 0.5
 scale_amount_random = 0.35
-scale_amount_curve = SubResource( 47 )
-color_ramp = SubResource( 49 )
+scale_amount_curve = SubResource( 10 )
+color_ramp = SubResource( 12 )
 hue_variation = -0.12
 hue_variation_random = 0.49
 
 [node name="CPUParticles2D4" type="CPUParticles2D" parent="SlotContainer/BonusScene/Centering/CustomButton/Centering"]
-material = SubResource( 44 )
+material = SubResource( 7 )
 position = Vector2( 0, 25 )
 amount = 10
 preprocess = 10.0
@@ -3667,7 +3742,7 @@ angle = 360.0
 angle_random = 1.0
 scale_amount = 0.35
 scale_amount_random = 0.35
-color_ramp = SubResource( 46 )
+color_ramp = SubResource( 9 )
 hue_variation = -0.12
 hue_variation_random = 0.49
 
@@ -3716,7 +3791,7 @@ position = Vector2( 0, -86 )
 texture = ExtResource( 51 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/BonusScene/Centering/CustomButton"]
-anims/Pressed = SubResource( 70 )
+anims/Pressed = SubResource( 33 )
 
 [node name="CenterCounterText" type="Label" parent="SlotContainer/BonusScene/Centering"]
 modulate = Color( 1, 1, 1, 0 )
@@ -3737,7 +3812,7 @@ __meta__ = {
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="SlotContainer/BonusScene/Centering/CenterCounterText"]
 show_behind_parent = true
-material = SubResource( 44 )
+material = SubResource( 7 )
 position = Vector2( 250, 0 )
 scale = Vector2( 2.5, 2.5 )
 amount = 3
@@ -3756,16 +3831,16 @@ damping = 50.0
 damping_random = 1.0
 angle = 360.0
 angle_random = 1.0
-angle_curve = SubResource( 45 )
+angle_curve = SubResource( 8 )
 scale_amount = 0.35
 scale_amount_random = 0.35
-color_ramp = SubResource( 46 )
+color_ramp = SubResource( 9 )
 hue_variation = -0.12
 hue_variation_random = 0.49
 
 [node name="CPUParticles2D2" type="CPUParticles2D" parent="SlotContainer/BonusScene/Centering/CenterCounterText"]
 show_behind_parent = true
-material = SubResource( 44 )
+material = SubResource( 7 )
 position = Vector2( 250, 0 )
 scale = Vector2( 2.5, 2.5 )
 amount = 15
@@ -3784,14 +3859,14 @@ angle = 360.0
 angle_random = 1.0
 scale_amount = 0.5
 scale_amount_random = 0.35
-scale_amount_curve = SubResource( 47 )
-color_ramp = SubResource( 48 )
+scale_amount_curve = SubResource( 10 )
+color_ramp = SubResource( 11 )
 hue_variation = -0.12
 hue_variation_random = 0.49
 
 [node name="CPUParticles2D3" type="CPUParticles2D" parent="SlotContainer/BonusScene/Centering/CenterCounterText"]
 show_behind_parent = true
-material = SubResource( 44 )
+material = SubResource( 7 )
 position = Vector2( 250, 0 )
 scale = Vector2( 2.5, 2.5 )
 amount = 3
@@ -3810,14 +3885,14 @@ angle = 360.0
 angle_random = 1.0
 scale_amount = 0.5
 scale_amount_random = 0.35
-scale_amount_curve = SubResource( 47 )
-color_ramp = SubResource( 49 )
+scale_amount_curve = SubResource( 10 )
+color_ramp = SubResource( 12 )
 hue_variation = -0.12
 hue_variation_random = 0.49
 
 [node name="CPUParticles2D4" type="CPUParticles2D" parent="SlotContainer/BonusScene/Centering/CenterCounterText"]
 show_behind_parent = true
-material = SubResource( 44 )
+material = SubResource( 7 )
 position = Vector2( 250, 0 )
 scale = Vector2( 2.5, 2.5 )
 amount = 10
@@ -3837,7 +3912,7 @@ angle = 360.0
 angle_random = 1.0
 scale_amount = 0.35
 scale_amount_random = 0.35
-color_ramp = SubResource( 46 )
+color_ramp = SubResource( 9 )
 hue_variation = -0.12
 hue_variation_random = 0.49
 
@@ -3859,8 +3934,8 @@ propertyname = "texture"
 node = NodePath("..")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/BonusScene/Centering/CenterCounterText"]
-anims/Hide = SubResource( 71 )
-anims/Show = SubResource( 72 )
+anims/Hide = SubResource( 34 )
+anims/Show = SubResource( 35 )
 
 [node name="TextLeftPosition" type="Node2D" parent="SlotContainer/BonusScene/Centering"]
 position = Vector2( -384, -350 )
@@ -3890,7 +3965,7 @@ scale = Vector2( 1.25, 3 )
 texture = ExtResource( 93 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/BonusScene/Centering/CounterText"]
-anims/Show = SubResource( 73 )
+anims/Show = SubResource( 36 )
 
 [node name="COLLECT" type="Sprite" parent="SlotContainer/BonusScene/Centering/CounterText"]
 visible = false
@@ -3906,13 +3981,13 @@ node = NodePath("..")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/BonusScene/Centering"]
 root_node = NodePath("../..")
 anims/Hide = SubResource( 37 )
-anims/HideButton = SubResource( 74 )
-anims/HideWin = SubResource( 75 )
-anims/Show = SubResource( 76 )
-anims/ShowButton = SubResource( 77 )
-anims/ShowWin = SubResource( 78 )
-anims/ToLayer2 = SubResource( 79 )
-anims/ToLayer3 = SubResource( 80 )
+anims/HideButton = SubResource( 38 )
+anims/HideWin = SubResource( 39 )
+anims/Show = SubResource( 40 )
+anims/ShowButton = SubResource( 41 )
+anims/ShowWin = SubResource( 42 )
+anims/ToLayer2 = SubResource( 43 )
+anims/ToLayer3 = SubResource( 44 )
 
 [node name="LeftButton" type="Control" parent="SlotContainer/BonusScene"]
 visible = false
@@ -3963,8 +4038,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/WinLines"]
-anims/Hide = SubResource( 81 )
-anims/Show = SubResource( 82 )
+anims/Hide = SubResource( 45 )
+anims/Show = SubResource( 46 )
 
 [node name="BigWin" type="Control" parent="SlotContainer"]
 visible = false
@@ -3987,7 +4062,7 @@ texture = ExtResource( 82 )
 
 [node name="Animation" type="SpineSprite" parent="SlotContainer/BigWin"]
 position = Vector2( 0, -150 )
-animation_state_data_res = SubResource( 84 )
+animation_state_data_res = SubResource( 48 )
 script = ExtResource( 44 )
 skin = "default"
 startanimation = "start_bigwin"
@@ -4009,8 +4084,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/BigWin"]
-anims/Hide = SubResource( 85 )
-anims/Show = SubResource( 86 )
+anims/Hide = SubResource( 49 )
+anims/Show = SubResource( 50 )
 
 [node name="WinBar" type="Control" parent="SlotContainer"]
 visible = false
@@ -4037,10 +4112,10 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/WinBar"]
-anims/GoDown = SubResource( 87 )
-anims/Hide = SubResource( 88 )
-anims/Show = SubResource( 89 )
-anims/ShowBottom = SubResource( 90 )
+anims/GoDown = SubResource( 51 )
+anims/Hide = SubResource( 52 )
+anims/Show = SubResource( 53 )
+anims/ShowBottom = SubResource( 54 )
 
 [node name="RedGlow" type="Sprite" parent="SlotContainer/WinBar"]
 show_behind_parent = true
@@ -4078,10 +4153,10 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/FsWinbar"]
-anims/GoDown = SubResource( 99 )
-anims/Hide = SubResource( 100 )
-anims/Show = SubResource( 101 )
-anims/ShowBottom = SubResource( 102 )
+anims/GoDown = SubResource( 55 )
+anims/Hide = SubResource( 56 )
+anims/Show = SubResource( 57 )
+anims/ShowBottom = SubResource( 58 )
 
 [node name="RedGlow" type="Sprite" parent="SlotContainer/FsWinbar"]
 modulate = Color( 1, 1, 1, 0 )
@@ -4096,13 +4171,13 @@ show_behind_parent = true
 texture = ExtResource( 93 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer"]
-anims/fs_to_fox = SubResource( 91 )
-anims/fs_to_normal = SubResource( 92 )
-anims/fs_to_normal_fox = SubResource( 93 )
-anims/normal_to_fs = SubResource( 94 )
-anims/normal_to_fs_fox = SubResource( 95 )
-anims/to_transparent = SubResource( 96 )
-anims/to_visible = SubResource( 97 )
+anims/fs_to_fox = SubResource( 59 )
+anims/fs_to_normal = SubResource( 60 )
+anims/fs_to_normal_fox = SubResource( 61 )
+anims/normal_to_fs = SubResource( 62 )
+anims/normal_to_fs_fox = SubResource( 63 )
+anims/to_transparent = SubResource( 64 )
+anims/to_visible = SubResource( 65 )
 
 [node name="UIContainer" type="Control" parent="."]
 visible = false
@@ -4207,7 +4282,7 @@ __meta__ = {
 
 [node name="FaderBright" type="ColorRect" parent="."]
 visible = false
-material = SubResource( 98 )
+material = SubResource( 66 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 input_pass_on_modal_close_click = false
@@ -4218,6 +4293,14 @@ __meta__ = {
 default = Color( 1, 1, 1, 1 )
 
 [node name="Tween" type="Tween" parent="FaderBright"]
+
+[node name="Label" type="Label" parent="."]
+margin_right = 8.0
+margin_bottom = 36.0
+custom_fonts/font = ExtResource( 89 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="ready" from="IntroContainer/Centering/lightrays/AnimationPlayer" to="IntroContainer/Centering/lightrays/AnimationPlayer" method="play" binds= [ "lightrayshow" ]]
 [connection signal="pressed" from="IntroContainer/Centering/CustomButton" to="." method="on_play_button_pressed"]
