@@ -1,4 +1,4 @@
-[gd_scene load_steps=183 format=2]
+[gd_scene load_steps=185 format=2]
 
 [ext_resource path="res://Slot/ReelSpinStartAnimation.tres" type="Animation" id=1]
 [ext_resource path="res://Slot/ReelSpinStopAnimation.tres" type="Animation" id=2]
@@ -224,6 +224,13 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.584314, 0.584314, 0.584314, 1 ), Color( 1, 1, 1, 1 ) ]
 }
+
+[sub_resource type="Gradient" id=69]
+colors = PoolColorArray( 0, 0, 0, 1, 0, 0, 0, 0 )
+
+[sub_resource type="GradientTexture" id=70]
+gradient = SubResource( 69 )
+width = 128
 
 [sub_resource type="Animation" id=14]
 resource_name = "lightrayshow"
@@ -2505,10 +2512,10 @@ skin = "fox2"
 startanimation = "idle"
 
 [node name="lightrays" type="Sprite" parent="IntroContainer/Centering"]
-modulate = Color( 0.444872, 0.624081, 1, 0.0682221 )
+modulate = Color( 0.513726, 0.750524, 1, 0 )
 material = SubResource( 3 )
 position = Vector2( 0, -200 )
-scale = Vector2( 16.7564, 6.75642 )
+scale = Vector2( 15.7693, 5.76928 )
 texture = ExtResource( 62 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="IntroContainer/Centering/lightrays"]
@@ -2821,6 +2828,57 @@ texture = ExtResource( 51 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="IntroContainer/Centering/CustomButton"]
 anims/Pressed = SubResource( 13 )
 
+[node name="CornerFades" type="Node2D" parent="IntroContainer/Centering"]
+
+[node name="TextureRect" type="TextureRect" parent="IntroContainer/Centering/CornerFades"]
+margin_left = -1537.58
+margin_top = -1524.15
+margin_right = -1281.58
+margin_bottom = 1555.85
+rect_pivot_offset = Vector2( 1403.5, 998.347 )
+texture = SubResource( 70 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="IntroContainer/Centering/CornerFades"]
+margin_left = -1152.58
+margin_top = -2210.15
+margin_right = -896.578
+margin_bottom = 869.848
+rect_rotation = 90.0
+rect_pivot_offset = Vector2( 999.347, 1669.5 )
+texture = SubResource( 70 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect3" type="TextureRect" parent="IntroContainer/Centering/CornerFades"]
+margin_left = -1537.58
+margin_top = 1551.85
+margin_right = -1281.58
+margin_bottom = 4631.85
+rect_rotation = -89.9999
+texture = SubResource( 70 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect4" type="TextureRect" parent="IntroContainer/Centering/CornerFades"]
+margin_left = 1546.42
+margin_top = 1546.85
+margin_right = 1802.42
+margin_bottom = 4626.85
+rect_rotation = 180.0
+texture = SubResource( 70 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="SlotContainer" type="Control" parent="."]
 visible = false
 anchor_right = 1.0
@@ -2834,7 +2892,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 zoomamount = Vector2( 0.45, 0.75 )
-yoffset = Vector2( 0, 400 )
+yoffset = Vector2( 0, 200 )
 
 [node name="Background" type="Control" parent="SlotContainer"]
 anchor_left = 0.5
@@ -2850,10 +2908,10 @@ position = Vector2( 2.5199, 0 )
 texture = ExtResource( 9 )
 
 [node name="lightrays" type="Sprite" parent="SlotContainer/Background/Normal"]
-modulate = Color( 1, 0.960784, 0.513726, 0.0536933 )
+modulate = Color( 1, 0.960784, 0.513726, 0 )
 material = SubResource( 3 )
-position = Vector2( 0, -124.358 )
-scale = Vector2( 11.6346, 7 )
+position = Vector2( 0, -223.072 )
+scale = Vector2( 10.1539, 7 )
 texture = ExtResource( 62 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/Background/Normal/lightrays"]
@@ -2865,10 +2923,10 @@ modulate = Color( 1, 1, 1, 0 )
 texture = ExtResource( 41 )
 
 [node name="lightrays" type="Sprite" parent="SlotContainer/Background/FreeSpins"]
-modulate = Color( 0.444872, 0.624081, 1, 0.0682221 )
+modulate = Color( 0.513726, 0.750524, 1, 0 )
 material = SubResource( 3 )
 position = Vector2( 0, -200 )
-scale = Vector2( 16.7564, 6.75642 )
+scale = Vector2( 15.7693, 5.76928 )
 texture = ExtResource( 62 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/Background/FreeSpins/lightrays"]
@@ -4178,6 +4236,64 @@ anims/normal_to_fs = SubResource( 62 )
 anims/normal_to_fs_fox = SubResource( 63 )
 anims/to_transparent = SubResource( 64 )
 anims/to_visible = SubResource( 65 )
+
+[node name="CornerFades" type="Control" parent="SlotContainer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="SlotContainer/CornerFades"]
+margin_left = -1537.58
+margin_top = -1524.15
+margin_right = -1281.58
+margin_bottom = 1555.85
+rect_pivot_offset = Vector2( 1403.5, 998.347 )
+texture = SubResource( 70 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="SlotContainer/CornerFades"]
+margin_left = -1152.58
+margin_top = -2210.15
+margin_right = -896.578
+margin_bottom = 869.848
+rect_rotation = 90.0
+rect_pivot_offset = Vector2( 999.347, 1669.5 )
+texture = SubResource( 70 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect3" type="TextureRect" parent="SlotContainer/CornerFades"]
+margin_left = -1537.58
+margin_top = 1551.85
+margin_right = -1281.58
+margin_bottom = 4631.85
+rect_rotation = -89.9999
+texture = SubResource( 70 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect4" type="TextureRect" parent="SlotContainer/CornerFades"]
+margin_left = 1546.42
+margin_top = 1546.85
+margin_right = 1802.42
+margin_bottom = 4626.85
+rect_rotation = 180.0
+texture = SubResource( 70 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="UIContainer" type="Control" parent="."]
 visible = false

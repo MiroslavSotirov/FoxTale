@@ -60,6 +60,11 @@ func init_received(data):
 		for key in rounddata.keys():
 			#if(lastround.has(key)): prints("Duplicate round data key ", key, rounddata[key]);
 			lastround[key] = rounddata[key];
+	
+	if("freespin" in data["lastRound"]):
+		#This happens in the rare case where we restart the game in the last freespin
+		if(lastround["freeSpinsRemaining"] == 0):
+			lastround["freeSpinsRemaining"] = 1;
 				
 	Globals.emit_signal("configure_bets", 
 		data["stakeValues"], 
@@ -89,7 +94,12 @@ func init_received(data):
 		Globals.set_language(data["language"]);
 	else:
 		Globals.set_language(default_lang);
-	
+
+	if("currency" in data):
+		Globals.currency_symbol = data["currency"]["symbol"];
+		Globals.currency_position = data["currency"]["position"] == "left";
+		Globals.currency_code = data["currency"]["code"];
+		
 	yield(Globals.singletons["AssetLoader"], "lang_downloaded");
 	JS.output("", "elysiumgameloadingcomplete");
 	emit_signal("initcomplete");	
