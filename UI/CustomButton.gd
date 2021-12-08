@@ -10,6 +10,10 @@ func _init():
 	connect("mouse_entered", self, "_on_mouse_entered");
 	connect("mouse_exited", self, "_on_mouse_exited");
 
+func _unhandled_input(event):
+	if event is InputEventMouseButton:
+		if event.is_pressed(): _on_pressed();
+		
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.is_pressed(): _on_pressed();

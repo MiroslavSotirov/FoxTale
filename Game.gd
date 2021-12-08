@@ -24,12 +24,14 @@ func init_data_received():
 	
 	Globals.singletons["Networking"].connect("spinreceived", self, "spin_data_received");
 	Globals.singletons["Networking"].connect("closereceived", self, "close_round_received");
+	Globals.singletons["Networking"].connect("fail", self, "error_received");
 	
 	JS.connect("spinstart", self, "start_spin");
 	JS.connect("spindata", self, "spin_data_received");
 	JS.connect("close", self, "close_round_received");	
 	JS.connect("skip", self, "try_skip");	
-
+	JS.connect("error", self, "error_received");	
+	
 	Globals.singletons["Audio"].change_music("Kagura Suzu Endless");
 	
 	$IntroContainer/Centering/CustomButton.enabled = true;
@@ -40,7 +42,7 @@ func on_play_button_pressed():
 	show_slot();
 	
 func show_slot():
-	Globals.singletons["Fader"].tween(0,1,1.1);
+	Globals.singletons["Fader"].tween(0.0,1.0,1.0);
 	yield(Globals.singletons["Fader"], "done")
 	
 	var lastround = Globals.singletons["Networking"].lastround;
@@ -60,7 +62,7 @@ func show_slot():
 	$SlotContainer.visible = true;
 	$UIContainer.visible = true;
 		
-	Globals.singletons["Fader"].tween(1,0,0.5);
+	Globals.singletons["Fader"].tween(1.0,0.0,0.5);
 	yield(Globals.singletons["Fader"], "done");
 	JS.output("", "elysiumgameshowui");
 
@@ -79,6 +81,8 @@ func start_spin(data=null, isforce = false):
 	round_ended = false;
 	
 	JS.output("", "elysiumgamespinstart");
+
+	Globals.singletons["PopupTiles"].unpop_all();
 	
 	if(Globals.singletons["WinLines"].shown):
 		Globals.singletons["WinLines"].hide_lines();
@@ -108,6 +112,7 @@ func start_spin(data=null, isforce = false):
 			Globals.singletons["Networking"].request_spin();
 
 func spin_data_received(data):
+	if("code" in data || "hasError" in data): return;
 	if(!Globals.singletons["Slot"].allspinning):
 		yield(Globals.singletons["Slot"], "onstartspin");
 	if(JS.enabled):
@@ -115,8 +120,8 @@ func spin_data_received(data):
 	Globals.singletons["Networking"].update_state(data)
 	end_spin(data);
 	
-	
 func end_spin(data):
+	print("End spin");
 	update_spins_count(data);
 	Globals.singletons["Slot"].stop_spin(data);
 		
@@ -140,6 +145,7 @@ func end_spin(data):
 
 		var line_wins = calculate_line_wins(data["wins"]);
 		var has_line_wins = line_wins > 0;
+
 		if(has_line_wins):
 			JS.output("linewin", "elysiumgamefeature");
 			Globals.singletons["PopupTiles"].unpop_all();
@@ -195,10 +201,11 @@ func end_spin(data):
 		
 	if(in_freespins && freespins == 0):
 		end_fs();
-		Globals.singletons["BigWin"].show_win(data["cumulativeWin"], true);
-		Globals.singletons["WinBar"].hide();
-		yield(Globals.singletons["BigWin"], "HideEnd")
-		Globals.singletons["WinBar"].show_win(data["cumulativeWin"], true);
+		if("cumulativeWin" in data && float(data["cumulativeWin"]) > 0.0):
+			Globals.singletons["BigWin"].show_win(data["cumulativeWin"], true);
+			Globals.singletons["WinBar"].hide();
+			yield(Globals.singletons["BigWin"], "HideEnd")
+			Globals.singletons["WinBar"].show_win(data["cumulativeWin"], true);
 		
 	if(!round_closed && freespins == 0):
 		close_round();
@@ -234,26 +241,23 @@ func update_spins_count(data):
 func calculate_line_wins(wins):
 	if(wins == null): return 0;
 	var n : float = 0;
-	
+
 	for win in wins: 
 		if(win["index"].findn("freespin")>-1): continue;
 		if(!win.has("winline")): n+=float(win["win"]); #winline 0
 		elif(int(win["winline"]) > -1): n+=float(win["win"]);
-			
-	return n;	
-	
-func check_resolution_for_changes():
-	pass;
 
-func _input(ev):
-	if ev is InputEventKey and ev.scancode == KEY_F and not ev.echo:
-		if(!in_freespins): 
-			start_fs();
-		
-	if ev is InputEventKey and ev.scancode == KEY_K and not ev.echo:
-		#increase_fs();
-		if(!Globals.singletons["BonusPath"].shown):
-			Globals.singletons["BonusPath"].activate(50);
+	return n;	
+
+#func _input(ev):
+#	if ev is InputEventKey and ev.scancode == KEY_F and not ev.echo:
+#		if(!in_freespins): 
+#			start_fs();
+#
+#	if ev is InputEventKey and ev.scancode == KEY_K and not ev.echo:
+#		#increase_fs();
+#		if(!Globals.singletons["BonusPath"].shown):
+#			Globals.singletons["BonusPath"].activate(50);
 	
 func start_fs_instant():
 	$SlotContainer/Slot/Overlay/FoxLeft.play_anim_then_loop("convert_color", "idle_gold");
@@ -265,7 +269,8 @@ func start_fs_instant():
 func start_fs():
 	in_freespins = true;
 	Globals.singletons["WinLines"].hide_lines();
-	$SlotContainer/FreeSpinsIntro.show();	
+	$SlotContainer/FreeSpinsIntro.show();
+	$SlotContainer/AnimationPlayer.play("to_transparent");
 	Globals.singletons["FaderBright"].tween(0.0,1.0,1);
 	yield(get_tree().create_timer(1), "timeout");
 	Globals.singletons["FaderBright"].tween(1.0,0.0,1);	
@@ -278,7 +283,6 @@ func start_fs():
 	Globals.singletons["Audio"].play("Magic Fox")
 	$SlotContainer/Slot/Overlay/FoxLeft.play_anim_then_loop("convert_color", "idle_gold");
 	$SlotContainer/Slot/Overlay/FoxRight.play_anim_then_loop("convert_color", "idle_gold");
-	
 	
 func increase_fs():
 	$SlotContainer/FreeSpinsIntro.show_fast();	
@@ -311,6 +315,17 @@ func start_bonus(data):
 func try_skip(data=null):
 	Globals.emit_signal("skip");
 	
+func error_received(data):
+	if(Globals.singletons["Slot"].spinning):
+		if(!Globals.singletons["Slot"].allspinning):
+			yield(Globals.singletons["Slot"], "onstartspin");
+		Globals.singletons["Slot"].stop_spin();
+		yield(Globals.singletons["Slot"], "onstopped");
+	yield(get_tree(), "idle_frame");
+	round_closed = true;
+	round_ended = true;
+	JS.output("", "elysiumgameroundend");
+		
 func show_logo():
 	var logo = $SlotContainer/Slot/NormalOverlap/Logo;
 	logo.set_timescale(1);

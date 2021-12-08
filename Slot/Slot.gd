@@ -76,7 +76,7 @@ func stop_spin(data = null):
 	if(self.stopping || self.stopped): return;
 	if(data != null): parse_spin_data(data);
 	else: parse_safe_spin_data();
-	
+	print(targetdata);
 	for i in range(len(reels)):
 		reels[i].stop_spin(targetdata[i]);
 		yield(get_tree().create_timer(reelStopDelay), "timeout")
@@ -109,12 +109,11 @@ func parse_spin_data(data):
 	targetdata=spindata;
 	
 func parse_safe_spin_data():
-	targetdata=[
-		[TileData.new(1),TileData.new(1),TileData.new(1)],\
-		[TileData.new(2),TileData.new(2),TileData.new(2)],\
-		[TileData.new(3),TileData.new(3),TileData.new(3)],\
-		[TileData.new(4),TileData.new(4),TileData.new(4)],\
-	];
+	print("Parsing safe spin data");
+	for i in range(len(reels)):
+		targetdata.append([]);
+		for n in range(reels[i].visibleTileCount):
+			targetdata[i].append(TileData.new(i));
 
 func get_tile_at(x,y):
 	return reels[x].get_tile_at(y);

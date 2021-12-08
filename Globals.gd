@@ -17,7 +17,7 @@ var landscape : bool = false;
 var portrait : bool = false;
 
 var resolution : Vector2;
-var zoom_resolution_from : float = 2048;
+var zoom_resolution_from : float = 2048+1024;
 var zoom_resolution_to : float = 1024;
 var landscaperatio : float = 16.0/9.0;
 var portraitratio : float = 9.0/20.0;
@@ -27,7 +27,7 @@ var visible_tiles_count : int = 0;
 var canSpin : bool setget ,check_can_spin;
 
 var current_language = "NONE";
-var currency_symbol = "$";
+var currency_symbol = "฿";
 var currency_code = "USD";
 var currency_position = true;
 	
@@ -53,16 +53,17 @@ func _process(delta):
 	var res = Vector2(OS.window_size.x, OS.window_size.y); #get_viewport().get_visible_rect().size;
 	if(resolution != res):
 		_resolution_changed(res);
-		resolution = res;
+
 		
 func _resolution_changed(newres : Vector2):
+	#newres *= 2
 	yield(VisualServer, "frame_post_draw");
 	screenratio = clamp(inverse_lerp(landscaperatio, portraitratio, newres.x/newres.y), 0, 1);
 	landscape = screenratio > 0.5;
 	portrait = screenratio <= 0.5;
 	var zoom : float = min(newres.x, newres.y);
 	zoom = inverse_lerp(zoom_resolution_from, zoom_resolution_to, zoom);
-	
+	resolution = newres;
 	emit_signal("resolutionchanged", landscape, portrait, screenratio, zoom);
 	prints("New screen ratio ", newres, landscape, portrait, screenratio, zoom)
 
@@ -70,6 +71,7 @@ func check_can_spin():
 	return !singletons["Fader"].visible && !singletons["Slot"].spinning && singletons["Game"].round_ended;
 
 func format_money(v):
+	v = float(v);
 	if(currency_position):
 		return currency_symbol+("%.2f" % v);
 	else:

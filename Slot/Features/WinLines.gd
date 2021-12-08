@@ -12,7 +12,8 @@ var shown_tiles : Array;
 signal ShowEnd;
 
 func _ready():
-	Globals.register_singleton("WinLines", self);
+	if(Globals != null):
+		Globals.register_singleton("WinLines", self);
 	
 func set_lines_count(n):
 	lines_count = n;

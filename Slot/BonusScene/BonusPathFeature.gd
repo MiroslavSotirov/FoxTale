@@ -78,6 +78,8 @@ func activate(totalmultiplier):
 	$Centering/Layer3/ToriRight.play_anim($Centering/Layer3/ToriRight.startanimation, false);
 	$Centering/Layer1/Particles.emitting = true;
 
+	get_node("../AnimationPlayer").play("to_transparent");
+	
 	$Centering/Text.visible = false;
 	$Centering/AnimationPlayer.play("Show");
 	yield(get_tree().create_timer(1.0), "timeout")
@@ -253,11 +255,8 @@ func last_layer_end():
 	Globals.singletons["BigWin"].show_win(get_wins());
 	yield(Globals.singletons["BigWin"], "HideEnd")
 	$Centering/AnimationPlayer.play("Hide");
+	get_node("../AnimationPlayer").play("to_visible");
 	yield($Centering/AnimationPlayer, "animation_finished");
 	Globals.singletons["WinBar"].set_text(float(get_wins()), false);
 	emit_signal("anim_end");
 	shown = false;
-
-func set_tori_add_visibility(tori, v, timescale):
-	tori.set_timescale(timescale, false)
-	tori.get_node("torii2").visibility = v;

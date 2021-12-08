@@ -49,6 +49,7 @@ func request_init():
 		"mode" : mode,
 		"currency" : currency
 	}
+	
 	htmlpost("/v2/rgs/init2", JSON.print(data), "initreceived");
 	data = yield(self, "initreceived");
 	init_received(data);
@@ -60,12 +61,7 @@ func init_received(data):
 		for key in rounddata.keys():
 			#if(lastround.has(key)): prints("Duplicate round data key ", key, rounddata[key]);
 			lastround[key] = rounddata[key];
-	
-	if("freespin" in data["lastRound"]):
-		#This happens in the rare case where we restart the game in the last freespin
-		if(lastround["freeSpinsRemaining"] == 0):
-			lastround["freeSpinsRemaining"] = 1;
-				
+					
 	Globals.emit_signal("configure_bets", 
 		data["stakeValues"], 
 		data["defaultBet"], 
@@ -86,10 +82,18 @@ func init_received(data):
 			request_close();
 			yield(self, "closereceived")
 			self.next_action = ""
-			
-	if("featureview" in lastround): Globals.singletons["Slot"].assign_tiles(lastround["featureview"]);
-	else: Globals.singletons["Slot"].assign_tiles(lastround["view"]);
-			
+	
+	var screen = [];
+	if("featureview" in lastround): screen = lastround["featureview"];
+	else: screen = lastround["view"];
+	
+	# TODO: heisenbug generator
+	if("init" in lastround["stateID"]):
+		for i in range(len(screen)):
+			screen[i].push_front(screen[i].pop_back());
+	
+	Globals.singletons["Slot"].assign_tiles(screen);
+	
 	if("language" in data):
 		Globals.set_language(data["language"]);
 	else:
@@ -185,7 +189,8 @@ func _request(method, url, body, finsignal):
 		yield(Engine.get_main_loop(), "idle_frame");
 		client.poll();
 		
-	assert(client.get_status() == HTTPClient.STATUS_CONNECTED)
+	if(client.get_status() != HTTPClient.STATUS_CONNECTED):
+		return emit_signal("fail", -1);
 		
 	var headers = [];
 	headers.append("Content-Type: application/json");
@@ -267,7 +272,7 @@ func update_state(state):
 			self.next_action = "freespin";
 			
 func on_fail(errcode):
-	Globals.singletons["UI"].show_error(str(errcode));
+	#Globals.singletons["UI"].show_error(str(errcode));
 	if(errcode == 900):
 		#JSON parse failure
 		pass;

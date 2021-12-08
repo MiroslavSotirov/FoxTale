@@ -14,7 +14,8 @@ func _ready():
 	Globals.register_singleton(name, self);
 
 func show_win(target, bottom = true):
-	if(target == self.target):
+	if(float(target) == self.amount):
+		set_text(target, false)
 		yield(get_tree(), "idle_frame");
 		return emit_signal("CountEnd");
 		
@@ -34,7 +35,7 @@ func show_win(target, bottom = true):
 		
 	tween.start();
 	tween.connect("tween_all_completed", self, "count_end");
-	shown = true;	
+	shown = true;
 	Globals.singletons["Audio"].loop("Coins Endless")
 	
 func set_text(v, instantshow=true):
@@ -42,7 +43,7 @@ func set_text(v, instantshow=true):
 		$AnimationPlayer.play("ShowBottom");
 		if(instantshow): $AnimationPlayer.seek($AnimationPlayer.current_animation_length,true);
 		shown = true;
-	amount = v;
+	amount = float(v);
 	$CounterText.text = Globals.format_money(v);
 
 func count_end():

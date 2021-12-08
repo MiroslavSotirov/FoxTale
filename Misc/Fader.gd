@@ -10,7 +10,7 @@ func _ready():
 
 func tween(from, to, time):
 	self.visible = true;
-	$Tween.stop_all();
+	$Tween.remove_all();
 	var cfrom = default;
 	cfrom.a = from;
 	var cto = default;

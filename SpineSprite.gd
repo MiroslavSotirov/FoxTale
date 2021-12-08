@@ -21,10 +21,17 @@ func set_new_state_data(data, newskin=null):
 	play_anim(current_anim, currently_looping);
 
 func set_skin(skin):
+	if(animation_state_data_res == null): return;
+	if(animation_state_data_res.skeleton.find_skin(skin) == null):
+		if(animation_state_data_res.skeleton.find_skin("EN") != null):
+			skin = "EN";
+		else:
+			skin = "default";
 	get_skeleton().set_skin_by_name(skin);
 
 func play_anim(anim, loop, timescale_override=null):
 	current_anim = anim;
+	if(animation_state_data_res == null): return;
 	yield(VisualServer, "frame_post_draw");
 	get_skeleton().set_slots_to_setup_pose();
 	

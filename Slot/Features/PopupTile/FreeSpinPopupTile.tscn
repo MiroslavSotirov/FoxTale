@@ -18,6 +18,7 @@ skeleton = SubResource( 1 )
 z_index = 1
 script = ExtResource( 3 )
 popup_animation = "popup"
+change_z_index = false
 hit_sfx = "Free Spins"
 
 [node name="SpineSprite" type="SpineSprite" parent="."]

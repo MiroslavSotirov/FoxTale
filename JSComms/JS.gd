@@ -3,6 +3,7 @@ extends Node
 signal init (data);
 signal spinstart (data);
 signal spindata (data);
+signal error (data);
 signal close (data);
 signal skip (data);
 signal set_stake (stake);

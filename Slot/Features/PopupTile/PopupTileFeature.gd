@@ -32,6 +32,7 @@ func init(tile):
 		
 	if(get_parent() == null):
 		tile.add_child(self);
+		
 	tileX = tile.reelIndex;
 	tileY = tile.tileIndex;
 	previous_tile = tile;	
