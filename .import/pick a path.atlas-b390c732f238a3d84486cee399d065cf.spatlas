@@ -1,0 +1,1 @@
+{"atlas_data":"pick a path.png\nsize:2048,2048\nfilter:Linear,Linear\npma:true\nLeafs\nbounds:2,1001,1451,381\nPickAPath\nbounds:495,1631,1351,215\noffsets:1,1,1386,261\nPickAPathGlow\nbounds:2,1384,1367,245\noffsets:3,4,1372,252\nbacklight\nbounds:2,1642,491,204\noffsets:5,7,502,211\n","normal_texture_prefix":"n","source_path":"res://Animations/bonus scene/pick a path.atlas"}
