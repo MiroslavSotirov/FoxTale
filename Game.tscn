@@ -1,4 +1,4 @@
-[gd_scene load_steps=181 format=2]
+[gd_scene load_steps=182 format=2]
 
 [ext_resource path="res://Slot/ReelSpinStartAnimation.tres" type="Animation" id=1]
 [ext_resource path="res://Slot/ReelSpinStopAnimation.tres" type="Animation" id=2]
@@ -45,6 +45,7 @@
 [ext_resource path="res://Textures/slot/Ground1.png" type="Texture" id=43]
 [ext_resource path="res://SpineSprite.gd" type="Script" id=44]
 [ext_resource path="res://UI/BackgroundResizer.gd" type="Script" id=45]
+[ext_resource path="res://Misc/LogoResizer.gd" type="Script" id=46]
 [ext_resource path="res://Textures/slot/button/ButtonBackMagic.png" type="Texture" id=47]
 [ext_resource path="res://Textures/slot/button/ButtonHover.png" type="Texture" id=48]
 [ext_resource path="res://Textures/slot/button/ButtonOverlapDropShadow.png" type="Texture" id=49]
@@ -2495,6 +2496,7 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+rect_scale = Vector2( 1.15, 1.15 )
 mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2508,7 +2510,7 @@ position = Vector2( -37, -248 )
 texture = ExtResource( 61 )
 
 [node name="FoxLeft" type="SpineSprite" parent="IntroContainer/Centering"]
-position = Vector2( 375, 60 )
+position = Vector2( 300, 60 )
 scale = Vector2( 0.5, 0.5 )
 animation_state_data_res = SubResource( 2 )
 script = ExtResource( 44 )
@@ -2516,7 +2518,7 @@ skin = "fox1"
 startanimation = "idle"
 
 [node name="FoxRight" type="SpineSprite" parent="IntroContainer/Centering"]
-position = Vector2( -375, 60 )
+position = Vector2( -300, 60 )
 rotation = 3.14159
 scale = Vector2( 0.5, -0.5 )
 animation_state_data_res = SubResource( 2 )
@@ -2525,10 +2527,10 @@ skin = "fox2"
 startanimation = "idle"
 
 [node name="lightrays" type="Sprite" parent="IntroContainer/Centering"]
-modulate = Color( 0.513726, 0.744238, 1, 0 )
+modulate = Color( 0.362707, 0.582622, 1, 0.149633 )
 material = SubResource( 3 )
 position = Vector2( 0, -200 )
-scale = Vector2( 15.8537, 5.85365 )
+scale = Vector2( 16.4657, 6.46574 )
 texture = ExtResource( 62 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="IntroContainer/Centering/lightrays"]
@@ -2903,7 +2905,7 @@ script = ExtResource( 32 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-zoomamount = Vector2( 0.455, 0.725 )
+zoomamount = Vector2( 0.56, 0.725 )
 yoffset = Vector2( 0, 200 )
 
 [node name="Background" type="Node2D" parent="SlotContainer"]
@@ -2914,10 +2916,10 @@ min_scale = 0.7
 texture = ExtResource( 9 )
 
 [node name="lightrays" type="Sprite" parent="SlotContainer/Background/Normal"]
-modulate = Color( 1, 0.960784, 0.513726, 0 )
+modulate = Color( 1, 0.960784, 0.513726, 0.117767 )
 material = SubResource( 3 )
-position = Vector2( 0, -214.635 )
-scale = Vector2( 10.2805, 7 )
+position = Vector2( 0, -153.426 )
+scale = Vector2( 11.1986, 7 )
 texture = ExtResource( 62 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/Background/Normal/lightrays"]
@@ -2929,10 +2931,10 @@ modulate = Color( 1, 1, 1, 0 )
 texture = ExtResource( 41 )
 
 [node name="lightrays" type="Sprite" parent="SlotContainer/Background/FreeSpins"]
-modulate = Color( 0.513726, 0.744238, 1, 0 )
+modulate = Color( 0.362707, 0.582622, 1, 0.149633 )
 material = SubResource( 3 )
 position = Vector2( 0, -200 )
-scale = Vector2( 15.8537, 5.85365 )
+scale = Vector2( 16.4657, 6.46574 )
 texture = ExtResource( 62 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/Background/FreeSpins/lightrays"]
@@ -3150,15 +3152,19 @@ __meta__ = {
 position = Vector2( 2, -400 )
 texture = ExtResource( 104 )
 
-[node name="Logo" type="SpineSprite" parent="SlotContainer/Slot/NormalOverlap"]
-position = Vector2( 0, -430 )
+[node name="LogoMover" type="Node2D" parent="SlotContainer/Slot/NormalOverlap"]
 scale = Vector2( 0.65, 0.65 )
+script = ExtResource( 46 )
+scaleoffset = Vector2( 0.65, 1 )
+yoffset = Vector2( -430, -575 )
+
+[node name="Logo" type="SpineSprite" parent="SlotContainer/Slot/NormalOverlap/LogoMover"]
 script = ExtResource( 44 )
 skin = "default"
 startanimation = "idle"
 timescale = 0.25
 
-[node name="SpineAssetSwapper" type="Node" parent="SlotContainer/Slot/NormalOverlap/Logo"]
+[node name="SpineAssetSwapper" type="Node" parent="SlotContainer/Slot/NormalOverlap/LogoMover/Logo"]
 script = ExtResource( 76 )
 assetname = "logo_data.tres"
 node = NodePath("..")

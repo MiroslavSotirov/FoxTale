@@ -327,7 +327,7 @@ func error_received(data):
 	JS.output("", "elysiumgameroundend");
 		
 func show_logo():
-	var logo = $SlotContainer/Slot/NormalOverlap/Logo;
+	var logo = $SlotContainer/Slot/NormalOverlap/LogoMover/Logo;
 	logo.set_timescale(1);
 	Globals.singletons["Audio"].play("Fox Tale")
 	logo.play_anim("popup", false);
