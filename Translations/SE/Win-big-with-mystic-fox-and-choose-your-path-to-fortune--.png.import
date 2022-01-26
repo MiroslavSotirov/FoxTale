@@ -1,0 +1,35 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/Win-big-with-mystic-fox-and-choose-your-path-to-fortune--.png-1a1fa3d5c4a9d5899a7cd2fe53942100.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://Translations/SE/Win-big-with-mystic-fox-and-choose-your-path-to-fortune--.png"
+dest_files=[ "res://.import/Win-big-with-mystic-fox-and-choose-your-path-to-fortune--.png-1a1fa3d5c4a9d5899a7cd2fe53942100.stex" ]
+
+[params]
+
+compress/mode=1
+compress/lossy_quality=0.8
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=true
+process/HDR_as_SRGB=false
+process/invert_color=false
+process/normal_map_invert_y=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0
