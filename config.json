@@ -1,6 +1,6 @@
 {
   "title": "Fox Tale",
   "name": "fox-tale",
-  "location": "origin",
+  "location": "./",
   "rgsApi": "origin"
 }
