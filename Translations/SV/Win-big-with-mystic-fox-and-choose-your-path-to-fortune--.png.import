@@ -2,20 +2,20 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/collect.png-0aa1bfc607f2c5f3596aede8f976b8fd.stex"
+path="res://.import/Win-big-with-mystic-fox-and-choose-your-path-to-fortune--.png-4f9cd1d35e3a4ae2f7a0d37198fbbb5d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Translations/SE/collect.png"
-dest_files=[ "res://.import/collect.png-0aa1bfc607f2c5f3596aede8f976b8fd.stex" ]
+source_file="res://Translations/SV/Win-big-with-mystic-fox-and-choose-your-path-to-fortune--.png"
+dest_files=[ "res://.import/Win-big-with-mystic-fox-and-choose-your-path-to-fortune--.png-4f9cd1d35e3a4ae2f7a0d37198fbbb5d.stex" ]
 
 [params]
 
 compress/mode=1
-compress/lossy_quality=1.0
+compress/lossy_quality=0.8
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
@@ -25,7 +25,7 @@ flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
 process/fix_alpha_border=true
-process/premult_alpha=false
+process/premult_alpha=true
 process/HDR_as_SRGB=false
 process/invert_color=false
 process/normal_map_invert_y=false

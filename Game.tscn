@@ -2527,10 +2527,10 @@ skin = "fox2"
 startanimation = "idle"
 
 [node name="lightrays" type="Sprite" parent="IntroContainer/Centering"]
-modulate = Color( 0.418551, 0.6108, 1, 0.0943019 )
+modulate = Color( 0.212738, 0.506949, 1, 0.298226 )
 material = SubResource( 3 )
 position = Vector2( 0, -200 )
-scale = Vector2( 16.6633, 6.6633 )
+scale = Vector2( 15.9352, 5.93519 )
 texture = ExtResource( 62 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="IntroContainer/Centering/lightrays"]
@@ -2916,10 +2916,10 @@ min_scale = 0.7
 texture = ExtResource( 9 )
 
 [node name="lightrays" type="Sprite" parent="SlotContainer/Background/Normal"]
-modulate = Color( 1, 0.960784, 0.513726, 0.0742191 )
+modulate = Color( 1, 0.960784, 0.513726, 0.234715 )
 material = SubResource( 3 )
-position = Vector2( 0, -133.67 )
-scale = Vector2( 11.4949, 7 )
+position = Vector2( 0, -206.481 )
+scale = Vector2( 10.4028, 7 )
 texture = ExtResource( 62 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/Background/Normal/lightrays"]
@@ -2931,10 +2931,10 @@ modulate = Color( 1, 1, 1, 0 )
 texture = ExtResource( 41 )
 
 [node name="lightrays" type="Sprite" parent="SlotContainer/Background/FreeSpins"]
-modulate = Color( 0.418551, 0.6108, 1, 0.0943019 )
+modulate = Color( 0.212738, 0.506949, 1, 0.298226 )
 material = SubResource( 3 )
 position = Vector2( 0, -200 )
-scale = Vector2( 16.6633, 6.6633 )
+scale = Vector2( 15.9352, 5.93519 )
 texture = ExtResource( 62 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/Background/FreeSpins/lightrays"]
@@ -4324,7 +4324,7 @@ mode = "demo"
 operator = "mav"
 currency = "USD"
 force = "InstaWin"
-default_lang = "EN"
+default_lang = "SE"
 
 [node name="AudioSystem" type="Node" parent="."]
 script = ExtResource( 108 )

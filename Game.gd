@@ -50,7 +50,8 @@ func show_slot():
 
 	if(freespins > 0): 
 		prints("FREE SPINS", freespins)
-		Globals.singletons["WinBar"].show_win(lastround["cumulativeWin"], true);
+		if(lastround["cumulativeWin"]): 
+			Globals.singletons["WinBar"].show_win(lastround["cumulativeWin"], true);
 		start_fs_instant();
 	else:
 		Globals.singletons["Audio"].change_music("Kagura Suzu Endless");
@@ -249,15 +250,15 @@ func calculate_line_wins(wins):
 
 	return n;	
 
-#func _input(ev):
-#	if ev is InputEventKey and ev.scancode == KEY_F and not ev.echo:
-#		if(!in_freespins): 
-#			start_fs();
-#
-#	if ev is InputEventKey and ev.scancode == KEY_K and not ev.echo:
-#		#increase_fs();
-#		if(!Globals.singletons["BonusPath"].shown):
-#			Globals.singletons["BonusPath"].activate(50);
+func _input(ev):
+	if ev is InputEventKey and ev.scancode == KEY_F and not ev.echo:
+		if(!in_freespins): 
+			start_fs();
+
+	if ev is InputEventKey and ev.scancode == KEY_K and not ev.echo:
+		#increase_fs();
+		if(!Globals.singletons["BonusPath"].shown):
+			Globals.singletons["BonusPath"].activate(50);
 	
 func start_fs_instant():
 	$SlotContainer/Slot/Overlay/FoxLeft.play_anim_then_loop("convert_color", "idle_gold");

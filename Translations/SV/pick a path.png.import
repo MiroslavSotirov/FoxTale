@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Win-big-with-mystic-fox-and-choose-your-path-to-fortune--.png-1a1fa3d5c4a9d5899a7cd2fe53942100.stex"
+path="res://.import/pick a path.png-0d7d53d2e7392bc9ecb3728ea358e66a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Translations/SE/Win-big-with-mystic-fox-and-choose-your-path-to-fortune--.png"
-dest_files=[ "res://.import/Win-big-with-mystic-fox-and-choose-your-path-to-fortune--.png-1a1fa3d5c4a9d5899a7cd2fe53942100.stex" ]
+source_file="res://Translations/SV/pick a path.png"
+dest_files=[ "res://.import/pick a path.png-0d7d53d2e7392bc9ecb3728ea358e66a.stex" ]
 
 [params]
 
