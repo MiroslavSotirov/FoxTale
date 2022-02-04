@@ -2526,10 +2526,10 @@ skin = "fox2"
 startanimation = "idle"
 
 [node name="lightrays" type="Sprite" parent="IntroContainer/Centering"]
-modulate = Color( 0.513726, 0.772551, 1, 0 )
+modulate = Color( 0.0865783, 0.44329, 1, 0.423228 )
 material = SubResource( 3 )
 position = Vector2( 0, -200 )
-scale = Vector2( 15.4737, 5.47366 )
+scale = Vector2( 15.4889, 5.48888 )
 texture = ExtResource( 62 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="IntroContainer/Centering/lightrays"]
@@ -2915,10 +2915,10 @@ min_scale = 0.7
 texture = ExtResource( 9 )
 
 [node name="lightrays" type="Sprite" parent="SlotContainer/Background/Normal"]
-modulate = Color( 1, 0.960784, 0.513726, 0 )
+modulate = Color( 1, 0.960784, 0.513726, 0.333096 )
 material = SubResource( 3 )
-position = Vector2( 0, -252.634 )
-scale = Vector2( 9.71049, 7 )
+position = Vector2( 0, -251.112 )
+scale = Vector2( 9.73332, 7 )
 texture = ExtResource( 62 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/Background/Normal/lightrays"]
@@ -2930,10 +2930,10 @@ modulate = Color( 1, 1, 1, 0 )
 texture = ExtResource( 41 )
 
 [node name="lightrays" type="Sprite" parent="SlotContainer/Background/FreeSpins"]
-modulate = Color( 0.513726, 0.772551, 1, 0 )
+modulate = Color( 0.0865783, 0.44329, 1, 0.423228 )
 material = SubResource( 3 )
 position = Vector2( 0, -200 )
-scale = Vector2( 15.4737, 5.47366 )
+scale = Vector2( 15.4889, 5.48888 )
 texture = ExtResource( 62 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/Background/FreeSpins/lightrays"]
@@ -3449,6 +3449,7 @@ anims/Show = SubResource( 30 )
 anims/ShowButton = SubResource( 31 )
 
 [node name="BonusScene" type="Control" parent="SlotContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
