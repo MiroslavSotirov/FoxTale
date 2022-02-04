@@ -1,4 +1,4 @@
-[gd_scene load_steps=182 format=2]
+[gd_scene load_steps=181 format=2]
 
 [ext_resource path="res://Slot/ReelSpinStartAnimation.tres" type="Animation" id=1]
 [ext_resource path="res://Slot/ReelSpinStopAnimation.tres" type="Animation" id=2]
@@ -103,7 +103,6 @@
 [ext_resource path="res://Slot/Features/WinLineParticles.tscn" type="PackedScene" id=102]
 [ext_resource path="res://Slot/Features/ExpandingWilds.gd" type="Script" id=103]
 [ext_resource path="res://Textures/slot/ReelsTopOverlap.png" type="Texture" id=104]
-[ext_resource path="res://Translations/EN/collect.png" type="Texture" id=105]
 [ext_resource path="res://Textures/slot/MBase.png" type="Texture" id=106]
 [ext_resource path="res://Animations/bonus scene/torrigates.atlas" type="SpineAtlasResource" id=107]
 [ext_resource path="res://Audio/AudioSystem.gd" type="Script" id=108]
@@ -2527,10 +2526,10 @@ skin = "fox2"
 startanimation = "idle"
 
 [node name="lightrays" type="Sprite" parent="IntroContainer/Centering"]
-modulate = Color( 0.212738, 0.506949, 1, 0.298226 )
+modulate = Color( 0.513726, 0.772551, 1, 0 )
 material = SubResource( 3 )
 position = Vector2( 0, -200 )
-scale = Vector2( 15.9352, 5.93519 )
+scale = Vector2( 15.4737, 5.47366 )
 texture = ExtResource( 62 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="IntroContainer/Centering/lightrays"]
@@ -2916,10 +2915,10 @@ min_scale = 0.7
 texture = ExtResource( 9 )
 
 [node name="lightrays" type="Sprite" parent="SlotContainer/Background/Normal"]
-modulate = Color( 1, 0.960784, 0.513726, 0.234715 )
+modulate = Color( 1, 0.960784, 0.513726, 0 )
 material = SubResource( 3 )
-position = Vector2( 0, -206.481 )
-scale = Vector2( 10.4028, 7 )
+position = Vector2( 0, -252.634 )
+scale = Vector2( 9.71049, 7 )
 texture = ExtResource( 62 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/Background/Normal/lightrays"]
@@ -2931,10 +2930,10 @@ modulate = Color( 1, 1, 1, 0 )
 texture = ExtResource( 41 )
 
 [node name="lightrays" type="Sprite" parent="SlotContainer/Background/FreeSpins"]
-modulate = Color( 0.212738, 0.506949, 1, 0.298226 )
+modulate = Color( 0.513726, 0.772551, 1, 0 )
 material = SubResource( 3 )
 position = Vector2( 0, -200 )
-scale = Vector2( 15.9352, 5.93519 )
+scale = Vector2( 15.4737, 5.47366 )
 texture = ExtResource( 62 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/Background/FreeSpins/lightrays"]
@@ -3450,8 +3449,6 @@ anims/Show = SubResource( 30 )
 anims/ShowButton = SubResource( 31 )
 
 [node name="BonusScene" type="Control" parent="SlotContainer"]
-visible = false
-modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -4019,7 +4016,6 @@ margin_right = 128.0
 margin_bottom = 9.0
 grow_horizontal = 2
 grow_vertical = 2
-rect_scale = Vector2( 1.6, 1.6 )
 custom_fonts/font = ExtResource( 89 )
 text = "x5"
 align = 1
@@ -4039,7 +4035,6 @@ anims/Show = SubResource( 40 )
 [node name="COLLECT" type="Sprite" parent="SlotContainer/BonusScene/Centering/CounterText"]
 visible = false
 position = Vector2( 150, 255 )
-texture = ExtResource( 105 )
 
 [node name="TextLangSwapper" type="Node" parent="SlotContainer/BonusScene/Centering/CounterText/COLLECT"]
 script = ExtResource( 110 )
@@ -4318,13 +4313,13 @@ __meta__ = {
 
 [node name="Networking" type="Node" parent="."]
 script = ExtResource( 8 )
-init_sessionID = "test544"
+init_sessionID = "test"
 game = "fox-tale"
 mode = "demo"
 operator = "mav"
 currency = "USD"
 force = "InstaWin"
-default_lang = "SE"
+default_lang = "EN"
 
 [node name="AudioSystem" type="Node" parent="."]
 script = ExtResource( 108 )

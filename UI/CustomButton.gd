@@ -11,11 +11,11 @@ func _init():
 	connect("mouse_exited", self, "_on_mouse_exited");
 
 func _unhandled_input(event):
-	if event is InputEventMouseButton:
+	if event is InputEventMouseButton or event is InputEventScreenTouch:
 		if event.is_pressed(): _on_pressed();
 		
 func _input(event):
-	if event is InputEventMouseButton:
+	if event is InputEventMouseButton or event is InputEventScreenTouch:
 		if event.is_pressed(): _on_pressed();
 		
 func _on_pressed():
