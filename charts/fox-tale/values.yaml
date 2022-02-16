@@ -30,7 +30,7 @@ ingress:
     nginx.ingress.kubernetes.io/http2-push-preload: "true"
 
   hosts:
-    - host: dev.elysiumstudios.se # this must dissapper probably, lets see if rgs will do the shit
+    - host: dev.elysiumstudios.se
       paths:
         - path: /fox-tale
           pathType: Prefix
