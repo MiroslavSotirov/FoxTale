@@ -2,14 +2,6 @@ name: DEV - Fox Tale Deploy
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
-      - master
-    paths-ignore:
-      - 'charts/**'
-      - '**/.gitignore'
-      - '.github/**'
 
 jobs:
   build:
@@ -59,7 +51,7 @@ jobs:
       - name: Get version
         id: tag
         run: |
-          packageVersion=$(cat FoxTale/package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[[:space:]]')
+          packageVersion=$(cat FoxTale/package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[[:space:]]') && ((packageVersion++))
           echo "::set-output name=new_tag::$packageVersion"
 
       - name: Build docker image and push to docker repo
