@@ -1,4 +1,4 @@
-[gd_scene load_steps=181 format=2]
+[gd_scene load_steps=182 format=2]
 
 [ext_resource path="res://Slot/ReelSpinStartAnimation.tres" type="Animation" id=1]
 [ext_resource path="res://Slot/ReelSpinStopAnimation.tres" type="Animation" id=2]
@@ -8,8 +8,8 @@
 [ext_resource path="res://Game.gd" type="Script" id=6]
 [ext_resource path="res://Misc/Fader.gd" type="Script" id=7]
 [ext_resource path="res://Networking.gd" type="Script" id=8]
-[ext_resource path="res://Textures/slot/SCBG.jpg" type="Texture" id=9]
-[ext_resource path="res://Textures/slot/Reels.png" type="Texture" id=10]
+[ext_resource path="res://Textures/slot/SCBG.webp" type="Texture" id=9]
+[ext_resource path="res://Textures/slot/Reels.webp" type="Texture" id=10]
 [ext_resource path="res://Misc/AssetLoader.gd" type="Script" id=11]
 [ext_resource path="res://Textures/symbols/blur/FT_Symbols_blur_2.png" type="Texture" id=12]
 [ext_resource path="res://Textures/symbols/blur/FT_Symbols_blur_4.png" type="Texture" id=13]
@@ -37,24 +37,23 @@
 [ext_resource path="res://ErrorPopup.gd" type="Script" id=35]
 [ext_resource path="res://Slot/Features/Nudger.gd" type="Script" id=36]
 [ext_resource path="res://Slot/Features/PopupTiles.gd" type="Script" id=37]
-[ext_resource path="res://Textures/slot/FSReels.png" type="Texture" id=38]
-[ext_resource path="res://Textures/slot/FSReelsTopOverlap.png" type="Texture" id=39]
-[ext_resource path="res://Textures/slot/FSTXTLine.png" type="Texture" id=40]
-[ext_resource path="res://Textures/slot/FSBGNight.jpg" type="Texture" id=41]
-[ext_resource path="res://Textures/slot/Multiplier.png" type="Texture" id=42]
-[ext_resource path="res://Textures/slot/Ground1.png" type="Texture" id=43]
+[ext_resource path="res://Textures/slot/FSReels.webp" type="Texture" id=38]
+[ext_resource path="res://Textures/slot/FSReelsTopOverlap.webp" type="Texture" id=39]
+[ext_resource path="res://Textures/slot/FSTXTLine.webp" type="Texture" id=40]
+[ext_resource path="res://Textures/slot/FSBGNight.webp" type="Texture" id=41]
+[ext_resource path="res://Textures/slot/Multiplier.webp" type="Texture" id=42]
+[ext_resource path="res://Textures/slot/Ground1.webp" type="Texture" id=43]
 [ext_resource path="res://SpineSprite.gd" type="Script" id=44]
 [ext_resource path="res://UI/BackgroundResizer.gd" type="Script" id=45]
 [ext_resource path="res://Misc/LogoResizer.gd" type="Script" id=46]
-[ext_resource path="res://Textures/slot/button/ButtonBackMagic.png" type="Texture" id=47]
+[ext_resource path="res://Textures/slot/button/ButtonOverlap.webp" type="Texture" id=47]
 [ext_resource path="res://Textures/slot/button/ButtonHover.png" type="Texture" id=48]
-[ext_resource path="res://Textures/slot/button/ButtonOverlapDropShadow.png" type="Texture" id=49]
 [ext_resource path="res://Textures/slot/button/ButtonPressed.png" type="Texture" id=50]
-[ext_resource path="res://Textures/slot/button/ButtonOverlap.png" type="Texture" id=51]
-[ext_resource path="res://Textures/slot/button/ButtonBacklight.png" type="Texture" id=52]
-[ext_resource path="res://Textures/slot/button/ButtonBase.png" type="Texture" id=53]
-[ext_resource path="res://Textures/slot/ReelsBottomFade.png" type="Texture" id=54]
-[ext_resource path="res://Textures/slot/button/ButtonNormal.png" type="Texture" id=55]
+[ext_resource path="res://Textures/slot/button/ButtonNormal.webp" type="Texture" id=51]
+[ext_resource path="res://Textures/slot/button/ButtonBase.webp" type="Texture" id=52]
+[ext_resource path="res://Textures/slot/button/ButtonBackMagic.webp" type="Texture" id=53]
+[ext_resource path="res://Textures/slot/ReelsBottomFade.webp" type="Texture" id=54]
+[ext_resource path="res://Textures/slot/button/ButtonOverlapDropShadow.webp" type="Texture" id=55]
 [ext_resource path="res://UI/CustomButton.gd" type="Script" id=56]
 [ext_resource path="res://Textures/particles/PNG (Black background)/prah1.png" type="Texture" id=57]
 [ext_resource path="res://Textures/particles/PNG (Black background)/twirl_02.png" type="Texture" id=58]
@@ -62,7 +61,7 @@
 [ext_resource path="res://Textures/slot/FSBGNightNOTORII.jpg" type="Texture" id=60]
 [ext_resource path="res://Textures/slot/FSBGNightTORII.jpg" type="Texture" id=61]
 [ext_resource path="res://Textures/particles/lightray.png" type="Texture" id=62]
-[ext_resource path="res://Textures/slot/GirlSplash.png" type="Texture" id=63]
+[ext_resource path="res://Textures/slot/GirlSplash.webp" type="Texture" id=63]
 [ext_resource path="res://Textures/slot/FullSceneOVerlay49O.jpg" type="Texture" id=64]
 [ext_resource path="res://Textures/slot/CopyTXTBack.png" type="Texture" id=65]
 [ext_resource path="res://Textures/slot/LogoBacklightParticle.png" type="Texture" id=66]
@@ -74,6 +73,7 @@
 [ext_resource path="res://Animations/bigwin/bigwin.json" type="SpineSkeletonJsonDataResource" id=72]
 [ext_resource path="res://Textures/particles/PNG (Black background)/smoke_05.png" type="Texture" id=73]
 [ext_resource path="res://Textures/particles/PNG (Black background)/smoke_06.png" type="Texture" id=74]
+[ext_resource path="res://Textures/slot/Ground2.webp" type="Texture" id=75]
 [ext_resource path="res://Misc/LanguageAssetSwapperSpine.gd" type="Script" id=76]
 [ext_resource path="res://Animations/bonus scene/torrigates3.json" type="SpineSkeletonJsonDataResource" id=77]
 [ext_resource path="res://Slot/BonusScene/BonusSceneButton.gd" type="Script" id=78]
@@ -81,17 +81,17 @@
 [ext_resource path="res://Animations/big fox/Fox_Big.atlas" type="SpineAtlasResource" id=80]
 [ext_resource path="res://Animations/big fox/Fox_Big.json" type="SpineSkeletonJsonDataResource" id=81]
 [ext_resource path="res://Textures/slot/BonusBGDarken59O.jpg" type="Texture" id=82]
-[ext_resource path="res://Textures/slot/Ground3FOX2.png" type="Texture" id=83]
-[ext_resource path="res://Textures/slot/Ground3FOX1.png" type="Texture" id=84]
-[ext_resource path="res://Textures/slot/Ground2.png" type="Texture" id=85]
-[ext_resource path="res://Textures/slot/Darken1.png" type="Texture" id=86]
+[ext_resource path="res://Textures/slot/Ground3FOX2.webp" type="Texture" id=83]
+[ext_resource path="res://Textures/slot/Ground3FOX1.webp" type="Texture" id=84]
+[ext_resource path="res://Textures/slot/MBase.webp" type="Texture" id=85]
+[ext_resource path="res://Textures/slot/FT_EXPORT_47.webp" type="Texture" id=86]
 [ext_resource path="res://Textures/particles/BonusMagicEFX2.png" type="Texture" id=87]
-[ext_resource path="res://Textures/slot/Ground3Stones.png" type="Texture" id=88]
+[ext_resource path="res://Textures/slot/Ground3Stones.webp" type="Texture" id=88]
 [ext_resource path="res://base_big_font.tres" type="BitmapFont" id=89]
 [ext_resource path="res://Textures/symbols/blur/FT_Symbols_blur_12.png" type="Texture" id=90]
 [ext_resource path="res://Textures/symbols/blur/FT_Symbols_blur_13.png" type="Texture" id=91]
 [ext_resource path="res://Textures/symbols/normal/FT_Symbols_13.png" type="Texture" id=92]
-[ext_resource path="res://Textures/slot/FT_EXPORT_47.png" type="Texture" id=93]
+[ext_resource path="res://Textures/slot/button/ButtonBacklight.webp" type="Texture" id=93]
 [ext_resource path="res://Textures/symbols/normal/FT_Symbols_12.png" type="Texture" id=94]
 [ext_resource path="res://Slot/Features/PopupTile/FreeSpinPopupTile.tscn" type="PackedScene" id=95]
 [ext_resource path="res://Slot/Features/PopupTile/BonusPopupTile.tscn" type="PackedScene" id=96]
@@ -102,11 +102,11 @@
 [ext_resource path="res://Slot/Features/WinTile.tscn" type="PackedScene" id=101]
 [ext_resource path="res://Slot/Features/WinLineParticles.tscn" type="PackedScene" id=102]
 [ext_resource path="res://Slot/Features/ExpandingWilds.gd" type="Script" id=103]
-[ext_resource path="res://Textures/slot/ReelsTopOverlap.png" type="Texture" id=104]
-[ext_resource path="res://Textures/slot/MBase.png" type="Texture" id=106]
+[ext_resource path="res://Textures/slot/ReelsTopOverlap.webp" type="Texture" id=104]
+[ext_resource path="res://Textures/slot/FSReelsBottomFade.webp" type="Texture" id=105]
+[ext_resource path="res://Textures/slot/Darken1.webp" type="Texture" id=106]
 [ext_resource path="res://Animations/bonus scene/torrigates.atlas" type="SpineAtlasResource" id=107]
 [ext_resource path="res://Audio/AudioSystem.gd" type="Script" id=108]
-[ext_resource path="res://Textures/slot/FSReelsBottomFade.png" type="Texture" id=109]
 [ext_resource path="res://Misc/LanguageAssetSwapper.gd" type="Script" id=110]
 [ext_resource path="res://Slot/Features/Anticipation.gd" type="Script" id=111]
 [ext_resource path="res://Slot/Features/Anticipation.tscn" type="PackedScene" id=112]
@@ -651,6 +651,9 @@ skins = null
 
 [sub_resource type="SpineAnimationStateDataResource" id=35]
 skeleton = SubResource( 34 )
+
+[sub_resource type="StreamTexture" id=72]
+flags = 4
 
 [sub_resource type="CanvasItemMaterial" id=36]
 
@@ -2478,9 +2481,6 @@ light_mode = 1
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 6 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="IntroContainer" type="Control" parent="."]
 anchor_right = 1.0
@@ -2526,10 +2526,10 @@ skin = "fox2"
 startanimation = "idle"
 
 [node name="lightrays" type="Sprite" parent="IntroContainer/Centering"]
-modulate = Color( 0.0865783, 0.44329, 1, 0.423228 )
+modulate = Color( 0.385979, 0.594365, 1, 0.126574 )
 material = SubResource( 3 )
 position = Vector2( 0, -200 )
-scale = Vector2( 15.4889, 5.48888 )
+scale = Vector2( 16.5481, 6.54807 )
 texture = ExtResource( 62 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="IntroContainer/Centering/lightrays"]
@@ -2694,9 +2694,6 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="IntroContainer/Centering/CustomButton/Centering"]
 material = SubResource( 7 )
@@ -2796,21 +2793,21 @@ hue_variation_random = 0.49
 
 [node name="ButtonBackMagic" type="Sprite" parent="IntroContainer/Centering/CustomButton/Centering"]
 visible = false
-texture = ExtResource( 47 )
+texture = ExtResource( 53 )
 
 [node name="ButtonBacklight" type="Sprite" parent="IntroContainer/Centering/CustomButton/Centering"]
 visible = false
-texture = ExtResource( 52 )
+texture = ExtResource( 93 )
 
 [node name="ButtonBase" type="Sprite" parent="IntroContainer/Centering/CustomButton/Centering"]
 position = Vector2( 0, 3 )
-texture = ExtResource( 53 )
+texture = ExtResource( 52 )
 
 [node name="ButtonRoot" type="Node2D" parent="IntroContainer/Centering/CustomButton/Centering"]
 
 [node name="ButtonNormal" type="Sprite" parent="IntroContainer/Centering/CustomButton/Centering/ButtonRoot"]
 position = Vector2( 0, 7 )
-texture = ExtResource( 55 )
+texture = ExtResource( 51 )
 
 [node name="ButtonHover" type="Sprite" parent="IntroContainer/Centering/CustomButton/Centering/ButtonRoot"]
 visible = false
@@ -2832,11 +2829,11 @@ node = NodePath("../STARTTXT")
 
 [node name="ButtonOverlapDropShadow" type="Sprite" parent="IntroContainer/Centering/CustomButton/Centering"]
 position = Vector2( 0, -80 )
-texture = ExtResource( 49 )
+texture = ExtResource( 55 )
 
 [node name="ButtonOverlap" type="Sprite" parent="IntroContainer/Centering/CustomButton/Centering"]
 position = Vector2( 0, -86 )
-texture = ExtResource( 51 )
+texture = ExtResource( 47 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="IntroContainer/Centering/CustomButton"]
 anims/Pressed = SubResource( 13 )
@@ -2851,9 +2848,6 @@ margin_bottom = 1555.85
 rect_pivot_offset = Vector2( 1403.5, 998.347 )
 texture = SubResource( 15 )
 expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="TextureRect2" type="TextureRect" parent="IntroContainer/Centering/CornerFades"]
 margin_left = -1152.58
@@ -2915,10 +2909,10 @@ min_scale = 0.7
 texture = ExtResource( 9 )
 
 [node name="lightrays" type="Sprite" parent="SlotContainer/Background/Normal"]
-modulate = Color( 1, 0.960784, 0.513726, 0.333096 )
+modulate = Color( 1, 0.960784, 0.513726, 0.0996186 )
 material = SubResource( 3 )
-position = Vector2( 0, -251.112 )
-scale = Vector2( 9.73332, 7 )
+position = Vector2( 0, -145.193 )
+scale = Vector2( 11.3221, 7 )
 texture = ExtResource( 62 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/Background/Normal/lightrays"]
@@ -2930,10 +2924,10 @@ modulate = Color( 1, 1, 1, 0 )
 texture = ExtResource( 41 )
 
 [node name="lightrays" type="Sprite" parent="SlotContainer/Background/FreeSpins"]
-modulate = Color( 0.0865783, 0.44329, 1, 0.423228 )
+modulate = Color( 0.385979, 0.594365, 1, 0.126574 )
 material = SubResource( 3 )
 position = Vector2( 0, -200 )
-scale = Vector2( 15.4889, 5.48888 )
+scale = Vector2( 16.5481, 6.54807 )
 texture = ExtResource( 62 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/Background/FreeSpins/lightrays"]
@@ -2962,9 +2956,6 @@ reelStopDelay = 0.1
 [node name="Background" type="Control" parent="SlotContainer/Slot"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Normal" type="Sprite" parent="SlotContainer/Slot/Background"]
 texture = ExtResource( 10 )
@@ -2982,9 +2973,6 @@ margin_right = 797.0
 margin_bottom = 408.0
 rect_clip_content = true
 mouse_filter = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Reel1" type="Control" parent="SlotContainer/Slot/ReelContainer"]
 anchor_bottom = 1.0
@@ -3138,7 +3126,7 @@ __meta__ = {
 
 [node name="ReelsBottomFade" type="Sprite" parent="SlotContainer/Slot/FreeSpinsOverlap"]
 position = Vector2( 4, 402 )
-texture = ExtResource( 109 )
+texture = ExtResource( 105 )
 
 [node name="NormalOverlap" type="Control" parent="SlotContainer/Slot"]
 anchor_right = 1.0
@@ -3382,21 +3370,21 @@ hue_variation_random = 0.49
 
 [node name="ButtonBackMagic" type="Sprite" parent="SlotContainer/FreeSpinsIntro/CustomButton/Centering"]
 visible = false
-texture = ExtResource( 47 )
+texture = ExtResource( 53 )
 
 [node name="ButtonBacklight" type="Sprite" parent="SlotContainer/FreeSpinsIntro/CustomButton/Centering"]
 visible = false
-texture = ExtResource( 52 )
+texture = ExtResource( 93 )
 
 [node name="ButtonBase" type="Sprite" parent="SlotContainer/FreeSpinsIntro/CustomButton/Centering"]
 position = Vector2( 0, 3 )
-texture = ExtResource( 53 )
+texture = ExtResource( 52 )
 
 [node name="ButtonRoot" type="Node2D" parent="SlotContainer/FreeSpinsIntro/CustomButton/Centering"]
 
 [node name="ButtonNormal" type="Sprite" parent="SlotContainer/FreeSpinsIntro/CustomButton/Centering/ButtonRoot"]
 position = Vector2( 0, 7 )
-texture = ExtResource( 55 )
+texture = ExtResource( 51 )
 
 [node name="ButtonHover" type="Sprite" parent="SlotContainer/FreeSpinsIntro/CustomButton/Centering/ButtonRoot"]
 visible = false
@@ -3418,11 +3406,11 @@ node = NodePath("../STARTTXT")
 
 [node name="ButtonOverlapDropShadow" type="Sprite" parent="SlotContainer/FreeSpinsIntro/CustomButton/Centering"]
 position = Vector2( 0, -80 )
-texture = ExtResource( 49 )
+texture = ExtResource( 55 )
 
 [node name="ButtonOverlap" type="Sprite" parent="SlotContainer/FreeSpinsIntro/CustomButton/Centering"]
 position = Vector2( 0, -86 )
-texture = ExtResource( 51 )
+texture = ExtResource( 47 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/FreeSpinsIntro/CustomButton"]
 anims/Pressed = SubResource( 26 )
@@ -3540,14 +3528,14 @@ texture = ExtResource( 88 )
 modulate = Color( 1, 1, 1, 0.784314 )
 show_behind_parent = true
 scale = Vector2( 5, 3 )
-texture = ExtResource( 86 )
+texture = ExtResource( 106 )
 
 [node name="Darken2" type="Sprite" parent="SlotContainer/BonusScene/Centering/Layer3"]
 modulate = Color( 1, 1, 1, 0.784314 )
 show_behind_parent = true
 position = Vector2( 0, 482 )
 scale = Vector2( 5, -1 )
-texture = ExtResource( 86 )
+texture = ExtResource( 106 )
 
 [node name="Layer2" type="Node2D" parent="SlotContainer/BonusScene/Centering"]
 modulate = Color( 0.309804, 0.54902, 1, 1 )
@@ -3598,20 +3586,20 @@ startanimation = "Idle"
 [node name="Ground2" type="Sprite" parent="SlotContainer/BonusScene/Centering/Layer2"]
 position = Vector2( 0, 215 )
 scale = Vector2( 1.55, 1.55 )
-texture = ExtResource( 85 )
+texture = ExtResource( 75 )
 
 [node name="Darken1" type="Sprite" parent="SlotContainer/BonusScene/Centering/Layer2"]
 modulate = Color( 1, 1, 1, 0.784314 )
 show_behind_parent = true
 scale = Vector2( 5, 3 )
-texture = ExtResource( 86 )
+texture = ExtResource( 106 )
 
 [node name="Darken2" type="Sprite" parent="SlotContainer/BonusScene/Centering/Layer2"]
 modulate = Color( 1, 1, 1, 0.784314 )
 show_behind_parent = true
 position = Vector2( 0, 482 )
 scale = Vector2( 5, -1 )
-texture = ExtResource( 86 )
+texture = ExtResource( 106 )
 
 [node name="Layer1" type="Node2D" parent="SlotContainer/BonusScene/Centering"]
 
@@ -3661,19 +3649,19 @@ startanimation = "Idle"
 modulate = Color( 1, 1, 1, 0.784314 )
 show_behind_parent = true
 scale = Vector2( 5, 3 )
-texture = ExtResource( 86 )
+texture = ExtResource( 106 )
 
 [node name="Darken2" type="Sprite" parent="SlotContainer/BonusScene/Centering/Layer1"]
 modulate = Color( 1, 1, 1, 0.784314 )
 show_behind_parent = true
 position = Vector2( 0, 482 )
 scale = Vector2( 5, -1 )
-texture = ExtResource( 86 )
+texture = ExtResource( 106 )
 
 [node name="Ground1" type="Sprite" parent="SlotContainer/BonusScene/Centering/Layer1"]
 position = Vector2( 0, 400 )
 scale = Vector2( 1.1, 1.1 )
-texture = ExtResource( 43 )
+texture = SubResource( 72 )
 
 [node name="Fade" type="Sprite" parent="SlotContainer/BonusScene/Centering"]
 modulate = Color( 1, 1, 1, 0.588235 )
@@ -3815,21 +3803,21 @@ hue_variation_random = 0.49
 
 [node name="ButtonBackMagic" type="Sprite" parent="SlotContainer/BonusScene/Centering/CustomButton/Centering"]
 visible = false
-texture = ExtResource( 47 )
+texture = ExtResource( 53 )
 
 [node name="ButtonBacklight" type="Sprite" parent="SlotContainer/BonusScene/Centering/CustomButton/Centering"]
 visible = false
-texture = ExtResource( 52 )
+texture = ExtResource( 93 )
 
 [node name="ButtonBase" type="Sprite" parent="SlotContainer/BonusScene/Centering/CustomButton/Centering"]
 position = Vector2( 0, 3 )
-texture = ExtResource( 53 )
+texture = ExtResource( 52 )
 
 [node name="ButtonRoot" type="Node2D" parent="SlotContainer/BonusScene/Centering/CustomButton/Centering"]
 
 [node name="ButtonNormal" type="Sprite" parent="SlotContainer/BonusScene/Centering/CustomButton/Centering/ButtonRoot"]
 position = Vector2( 0, 7 )
-texture = ExtResource( 55 )
+texture = ExtResource( 51 )
 
 [node name="ButtonHover" type="Sprite" parent="SlotContainer/BonusScene/Centering/CustomButton/Centering/ButtonRoot"]
 visible = false
@@ -3851,11 +3839,11 @@ node = NodePath("../STARTTXT")
 
 [node name="ButtonOverlapDropShadow" type="Sprite" parent="SlotContainer/BonusScene/Centering/CustomButton/Centering"]
 position = Vector2( 0, -80 )
-texture = ExtResource( 49 )
+texture = ExtResource( 55 )
 
 [node name="ButtonOverlap" type="Sprite" parent="SlotContainer/BonusScene/Centering/CustomButton/Centering"]
 position = Vector2( 0, -86 )
-texture = ExtResource( 51 )
+texture = ExtResource( 47 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/BonusScene/Centering/CustomButton"]
 anims/Pressed = SubResource( 37 )
@@ -3987,7 +3975,7 @@ hue_variation_random = 0.49
 show_behind_parent = true
 position = Vector2( 275, 50 )
 scale = Vector2( 2.25, 2.25 )
-texture = ExtResource( 106 )
+texture = ExtResource( 85 )
 
 [node name="Multiplier" type="Sprite" parent="SlotContainer/BonusScene/Centering/CenterCounterText"]
 position = Vector2( 275, -20 )
@@ -4028,7 +4016,7 @@ __meta__ = {
 show_behind_parent = true
 position = Vector2( 0, -20 )
 scale = Vector2( 1.25, 3 )
-texture = ExtResource( 93 )
+texture = ExtResource( 86 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer/BonusScene/Centering/CounterText"]
 anims/Show = SubResource( 40 )
@@ -4136,7 +4124,7 @@ startanimation = "start_bigwin"
 modulate = Color( 1, 1, 1, 0.588235 )
 position = Vector2( 0, 275 )
 scale = Vector2( 4, 4 )
-texture = ExtResource( 93 )
+texture = ExtResource( 86 )
 
 [node name="CounterText" type="Label" parent="SlotContainer/BigWin"]
 margin_top = 350.0
@@ -4184,12 +4172,12 @@ anims/ShowBottom = SubResource( 58 )
 show_behind_parent = true
 position = Vector2( 0, 100 )
 scale = Vector2( 3, 3 )
-texture = ExtResource( 93 )
+texture = ExtResource( 86 )
 
 [node name="RedGlow2" type="Sprite" parent="SlotContainer/WinBar/RedGlow"]
 modulate = Color( 0, 0, 0, 1 )
 show_behind_parent = true
-texture = ExtResource( 93 )
+texture = ExtResource( 86 )
 
 [node name="FsWinbar" type="Control" parent="SlotContainer"]
 visible = false
@@ -4226,12 +4214,12 @@ modulate = Color( 1, 1, 1, 0 )
 show_behind_parent = true
 position = Vector2( 0, 100 )
 scale = Vector2( 3, 3 )
-texture = ExtResource( 93 )
+texture = ExtResource( 86 )
 
 [node name="RedGlow2" type="Sprite" parent="SlotContainer/FsWinbar/RedGlow"]
 modulate = Color( 0, 0, 0, 1 )
 show_behind_parent = true
-texture = ExtResource( 93 )
+texture = ExtResource( 86 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlotContainer"]
 anims/RESET = SubResource( 71 )
