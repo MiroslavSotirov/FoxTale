@@ -67,16 +67,16 @@ func start_spin():
 	Globals.singletons["Audio"].loop(reel_spin_sfx)
 	for reel in reels:
 		reel.start_spin();
-		yield(get_tree().create_timer(reelStartDelay), "timeout")
+		reels_spinning += 1;
+		yield(get_tree().create_timer(reelStartDelay), "timeout");
 	
-	reels_spinning = len(reels);
+
 	emit_signal("onstartspin");
 	
 func stop_spin(data = null):
 	if(self.stopping || self.stopped): return;
-	if(data != null): parse_spin_data(data);
-	else: parse_safe_spin_data();
-	print(targetdata);
+	targetdata = parse_spin_data(data) if data != null else get_safe_spin_data();
+
 	for i in range(len(reels)):
 		reels[i].stop_spin(targetdata[i]);
 		yield(get_tree().create_timer(reelStopDelay), "timeout")
@@ -106,14 +106,16 @@ func parse_spin_data(data):
 	
 	emit_signal("apply_tile_features", data, spindata);
 	
-	targetdata=spindata;
+	return spindata;
 	
-func parse_safe_spin_data():
-	print("Parsing safe spin data");
+func get_safe_spin_data():
+	var spindata = [];
 	for i in range(len(reels)):
-		targetdata.append([]);
+		spindata.append([]);
 		for n in range(reels[i].visibleTileCount):
-			targetdata[i].append(TileData.new(i));
+			spindata[i].append(TileData.new(i));
+
+	return spindata;
 
 func get_tile_at(x,y):
 	return reels[x].get_tile_at(y);
