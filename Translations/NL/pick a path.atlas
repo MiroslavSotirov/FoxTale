@@ -1,0 +1,19 @@
+pick a path.png
+size:1456,298
+filter:Linear,Linear
+scale:0.5
+backlight
+bounds:1167,194,246,102
+offsets:2,4,251,106
+pickapath_NL_glow
+bounds:581,208,584,88
+offsets:93,64,738,205
+pickapath_NL_text
+bounds:2,212,577,84
+offsets:98,60,738,205
+pickapath_SV_leafs
+bounds:2,16,725,190
+offsets:6,7,738,205
+pickapath_de_leafs
+bounds:729,2,725,190
+offsets:6,7,738,205
