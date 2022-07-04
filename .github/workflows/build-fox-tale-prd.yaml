@@ -44,10 +44,11 @@ jobs:
           mkdir -p FoxTale/dist/audio; mkdir -p FoxTale/dist/translations && cp game-manager/scripts/* FoxTale/
           find FoxTale/Audio/ -name '*.wav' -exec cp {} FoxTale/dist/audio \;
           cd FoxTale/dist/audio && python3 ../../generate_audio_data.py && cd ../../
-          ./pack_translations.sh && cp Translations/export/* dist/translations/
-          node generate_index.js cdn="https://elysium-public.s3.ap-northeast-1.amazonaws.com/" && mv index.html config.json dist/ && cd ../
-          ./Godot_v3.4.2-stable_linux_headless.64 --path FoxTale/ --export-pack "pck" index.pck && mv FoxTale/index.pck FoxTale/dist/
-
+          ./pack_translations.sh && mv Translations/export/* dist/translations/
+          cd ../ && ./Godot_v3.4.2-stable_linux_headless.64 --path FoxTale/ --export-pack "pck" index.pck && mv FoxTale/index.pck FoxTale/dist/
+      - name: Generate index.html
+        run: |
+          cd FoxTale/ && node generate_index.js cdn="https://elysium-public.s3.ap-northeast-1.amazonaws.com/" && mv index.html config.json dist/;
       - name: Get version
         id: tag
         run: |
