@@ -28,7 +28,7 @@ jobs:
           path: infrastructure
       - uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: "14"
 
       - name: Install dependencies
         run: sudo apt-get update && sudo apt-get install -y cmdtest ffmpeg
@@ -37,21 +37,22 @@ jobs:
         uses: wei/wget@v1
         with:
           args: https://downloads.tuxfamily.org/godotengine/3.4.2/Godot_v3.4.2-stable_linux_headless.64.zip
-      - run: | 
+      - run: |
           unzip Godot_v3.4.2-stable_linux_headless.64.zip
       - name: Build Fox-Tale
-        run: | 
+        run: |
           mkdir -p FoxTale/dist/audio; mkdir -p FoxTale/dist/translations && cp game-manager/scripts/* FoxTale/
           find FoxTale/Audio/ -name '*.wav' -exec cp {} FoxTale/dist/audio \;
           cd FoxTale/dist/audio && python3 ../../generate_audio_data.py && cd ../../
-          ./pack_translations.sh && cp Translations/export/* dist/translations/
-          node generate_index.js cdn="https://elysium-staging.s3.eu-west-1.amazonaws.com/" && mv index.html config.json dist/ && cd ../
-          ./Godot_v3.4.2-stable_linux_headless.64 --path FoxTale/ --export-pack "pck" index.pck && mv FoxTale/index.pck FoxTale/dist/
-
+          ./pack_translations.sh && mv Translations/export/* dist/translations/
+          cd ../ && ./Godot_v3.4.2-stable_linux_headless.64 --path FoxTale/ --export-pack "pck" index.pck && mv FoxTale/index.pck FoxTale/dist/
+      - name: Generate index.html
+        run: |
+          cd FoxTale/ && node generate_index.js cdn="https://elysium-staging.s3.eu-west-1.amazonaws.com/" && mv index.html config.json dist/;
       - name: Get version
         id: tag
         run: |
-          packageVersion=$(cat FoxTale/package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[[:space:]]')
+          packageVersion=$(cat FoxTale/package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[[:space:]]') && ((packageVersion++))
           echo "::set-output name=new_tag::$packageVersion"
 
       - name: Build docker image and push to docker repo
@@ -79,7 +80,7 @@ jobs:
           helm repo add --username=${{ env.HARBOR_USERNAME }} --password=${{ env.HARBOR_PASSWORD }} elysium-charts https://harbor.elysiumstudios.se/chartrepo/elysium/
           helm cm-push charts/fox-tale/ elysium-charts
         continue-on-error: true
-        
+
       - name: Update Fox-Tale release in flux repo
         run: |
           cd infrastructure/
