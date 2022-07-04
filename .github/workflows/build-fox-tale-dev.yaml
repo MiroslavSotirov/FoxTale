@@ -44,7 +44,7 @@ jobs:
           mkdir -p FoxTale/dist/audio; mkdir -p FoxTale/dist/translations && cp game-manager/scripts/* FoxTale/
           find FoxTale/Audio/ -name '*.wav' -exec cp {} FoxTale/dist/audio \;
           cd FoxTale/dist/audio && python3 ../../generate_audio_data.py && cd ../../
-          ./pack_translations.sh && cp Translations/export/* dist/translations/
+          ./pack_translations.sh && mv Translations/export/* dist/translations/
           cd ../ && ./Godot_v3.4.2-stable_linux_headless.64 --path FoxTale/ --export-pack "pck" index.pck && mv FoxTale/index.pck FoxTale/dist/
       - name: Generate index.html
         run: |
