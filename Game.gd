@@ -135,7 +135,7 @@ func end_spin(data):
 	if(Globals.singletons["ExpandingWilds"].has_feature(data)):
 		if(Globals.singletons["PopupTiles"].remaining_tile_count > 0): 
 			yield(Globals.singletons["PopupTiles"], "popuptilesend");
-		JS.output("expandingwild", "elysiumgamefeature");
+#		JS.output("expandingwild", "elysiumgamefeature");
 		Globals.singletons["ExpandingWilds"].expand(data);
 		yield(Globals.singletons["ExpandingWilds"], "allexpanded");
 	
@@ -171,6 +171,7 @@ func end_spin(data):
 			JS.output("pathbonus", "elysiumgamefeature");
 			start_bonus(data);
 			yield(Globals.singletons["BonusPath"], "anim_end")
+			JS.output("pathbonus", "elysiumgamefeatureend");
 	
 		if(in_freespins):
 			Globals.singletons["WinBar"].show_win(data["cumulativeWin"], true);
@@ -207,6 +208,7 @@ func end_spin(data):
 			Globals.singletons["WinBar"].hide();
 			yield(Globals.singletons["BigWin"], "HideEnd")
 			Globals.singletons["WinBar"].show_win(data["cumulativeWin"], true);
+			JS.output("freespins", "elysiumgamefeatureend");
 		
 	if(!round_closed && freespins == 0):
 		close_round();
