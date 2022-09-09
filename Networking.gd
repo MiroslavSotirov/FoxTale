@@ -98,7 +98,12 @@ func init_received(data):
 		Globals.set_language(data["language"]);
 	else:
 		Globals.set_language(default_lang);
-
+		
+	if("jurisdiction" in data): 
+		Globals.set_jurisdiction(data["jurisdiction"]);
+	else: 
+		Globals.set_jurisdiction("unknown");
+	
 	if("currency" in data):
 		Globals.currency_symbol = data["currency"]["symbol"];
 		Globals.currency_position = data["currency"]["position"] == "left";

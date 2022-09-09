@@ -26,6 +26,8 @@ var visible_reels_count : int = 0;
 var visible_tiles_count : int = 0;
 var canSpin : bool setget ,check_can_spin;
 
+var current_stake = 1.0;
+var current_jurisdiction = "unknown";
 var current_language = "NONE";
 var currency_symbol = "฿";
 var currency_code = "USD";
@@ -95,7 +97,7 @@ func update_all(obj):
 		update_all(child);
 		
 func set_jurisdiction(jrd):
-	pass;
+	current_jurisdiction = jrd.to_upper();
 	
 func set_debug(dbg):
 	pass;
