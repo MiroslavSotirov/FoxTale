@@ -127,12 +127,9 @@ func end_spin(data):
 	Globals.singletons["Slot"].stop_spin(data);
 		
 	#Close it right away if we don't have any wins
-	var ontario_nowins := false;
 	var wins = float(data["spinWin"]);
-	#Law requirement for ONTARIO
-	if(Globals.current_jurisdiction == "ON" || Globals.current_jurisdiction == "CA"):
-		ontario_nowins = wins <= Globals.current_stake;
-	if(wins == 0 || ontario_nowins): close_round();
+
+	if(wins == 0): close_round();
 	
 	yield(Globals.singletons["Slot"], "onstopped");
 
@@ -143,7 +140,7 @@ func end_spin(data):
 		Globals.singletons["ExpandingWilds"].expand(data);
 		yield(Globals.singletons["ExpandingWilds"], "allexpanded");
 	
-	if(wins > 0 && !ontario_nowins):
+	if(wins > 0):
 		var hasPathBonus = Globals.singletons["BonusPath"].has_feature(data);
 		if(Globals.singletons["PopupTiles"].remaining_tile_count > 0): 
 			yield(Globals.singletons["PopupTiles"], "popuptilesend");
