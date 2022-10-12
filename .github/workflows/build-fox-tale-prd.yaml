@@ -88,6 +88,7 @@ jobs:
         run: |
           cd infrastructure/
           sed -i -e 's/version:.*/version: "${{ steps.tag.outputs.new_tag }}"/g' prd/apps-infra/deployments/fox-tale/release.yaml
+          sed -i -e 's/fox-tale-stg/fox-tale-prd/g' prd/apps-infra/deployments/fox-tale/release.yaml
           git config --global user.email "workflow@elysiumstudios.se"
           git config --global user.name "Fox-Tale Workflow"
           git add prd/apps-infra/deployments/fox-tale/release.yaml
