@@ -65,9 +65,9 @@ jobs:
           docker build -t "harbor.elysiumstudios.se/elysium/${{ env.GAME_NAME }}-prd:${{ steps.tag.outputs.new_tag }}" -f FoxTale/Dockerfile2 FoxTale/
           docker push "harbor.elysiumstudios.se/elysium/${{ env.GAME_NAME }}-prd:${{ steps.tag.outputs.new_tag }}"
 
-      - uses: azure/setup-helm@v1
+      - uses: azure/setup-helm@v3
         with:
-          version: "3.*"
+          version: "3.10.1"
         id: install
 
       - name: Update helm version and push to chart repo
