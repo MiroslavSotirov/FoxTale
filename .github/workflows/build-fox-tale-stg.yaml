@@ -52,7 +52,7 @@ jobs:
           cd ../ && ./Godot_v3.4.2-stable_linux_headless.64 --path FoxTale/ --export-pack "pck" index.pck && mv FoxTale/index.pck FoxTale/dist/
       - name: Generate index.html
         run: |
-          cd FoxTale/ && node generate_index.js cdn="https://elysium-staging.s3.eu-west-1.amazonaws.com/" && mv index.html config.json dist/;
+          cd FoxTale/ && node generate_index.js cdn="https://elysium-staging.s3.eu-west-1.amazonaws.com/static/" && mv index.html config.json dist/;
       - name: Get version
         id: tag
         run: |
