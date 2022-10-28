@@ -15,7 +15,7 @@ dest_files=[ "res://.import/flame_05.png-1fc8a73f4b99e6374fb1e90a76a6b86d.stex" 
 [params]
 
 compress/mode=1
-compress/lossy_quality=1.0
+compress/lossy_quality=0.8
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
@@ -28,6 +28,7 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=false
